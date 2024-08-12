@@ -1051,8 +1051,12 @@ export class FluidDataStoreRuntime
 		}
 	}
 
+	/**
+	 * @privateRemarks can this method be removed? There are no internal uses.
+	 */
 	public submitMessage(type: DataStoreMessageType, content: any, localOpMetadata: unknown) {
-		this.submit(type, content, localOpMetadata);
+		this.verifyNotClosed();
+		this.dataStoreContext.submitMessage(type, content, localOpMetadata);
 	}
 
 	/**
@@ -1114,7 +1118,7 @@ export class FluidDataStoreRuntime
 			type: channel.attributes.type,
 		};
 		this.pendingAttach.add(channel.id);
-		this.submit(DataStoreMessageType.Attach, message);
+		this.dataStoreContext.submitMessage(DataStoreMessageType.Attach, message, undefined);
 
 		const context = this.contexts.get(channel.id) as LocalChannelContextBase;
 		context.makeVisible();
@@ -1122,16 +1126,12 @@ export class FluidDataStoreRuntime
 
 	private submitChannelOp(address: string, contents: any, localOpMetadata: unknown) {
 		const envelope: IEnvelope = { address, contents };
-		this.submit(DataStoreMessageType.ChannelOp, envelope, localOpMetadata);
-	}
-
-	private submit(
-		type: DataStoreMessageType,
-		content: any,
-		localOpMetadata: unknown = undefined,
-	): void {
 		this.verifyNotClosed();
-		this.dataStoreContext.submitMessage(type, content, localOpMetadata);
+		this.dataStoreContext.submitMessage(
+			DataStoreMessageType.ChannelOp,
+			envelope,
+			localOpMetadata,
+		);
 	}
 
 	/**
@@ -1155,7 +1155,7 @@ export class FluidDataStoreRuntime
 			}
 			case DataStoreMessageType.Attach:
 				// For Attach messages, just submit them again.
-				this.submit(type, content, localOpMetadata);
+				this.dataStoreContext.submitMessage(type, content, localOpMetadata);
 				break;
 			default:
 				unreachableCase(type);
