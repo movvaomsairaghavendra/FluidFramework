@@ -15,14 +15,12 @@ resources:
     branch: main # Default branch for manual/scheduled triggers if none is selected
 
 variables:
+- template: /tools/pipelines/templates/include-vars-telemetry-generator.yml@self
 - group: prague-key-vault
 - name: testWorkspace
   value: $(Pipeline.Workspace)/test
 - name: testPackage
   value: "@fluid-private/test-end-to-end-tests"
-  readonly: true
-- name: absolutePathToTelemetryGenerator
-  value: $(Build.SourcesDirectory)/tools/telemetry-generator
   readonly: true
 - name: pipelineIdentifierForTelemetry
   value: 'EndToEndTests'
