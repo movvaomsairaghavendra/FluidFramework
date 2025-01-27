@@ -24,6 +24,6 @@ export async function readAndParse<T>(
 	id: string,
 ): Promise<T> {
 	const blob = await storage.readBlob(id);
-	const decoded = bufferToString(blob, "utf8");
+	const decoded = bufferToString(blob, "utf-8");
 	return JSON.parse(decoded) as T;
 }

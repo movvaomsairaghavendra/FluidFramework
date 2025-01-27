@@ -12,6 +12,14 @@ export interface ICompressionStorageConfig {
     minSizeToCompress: number;
 }
 
+// @public
+export interface IRetryableError {
+    // (undocumented)
+    canRetry?: boolean;
+    // (undocumented)
+    retryAfterSeconds?: number;
+}
+
 // @public (undocumented)
 export enum SummaryCompressionAlgorithm {
     // (undocumented)

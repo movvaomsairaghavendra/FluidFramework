@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 
-import { strict as assert } from "assert";
+import { strict as assert } from "node:assert";
 
 import { unreachableCase } from "@fluidframework/core-utils/internal";
 import { MockLogger } from "@fluidframework/telemetry-utils/internal";
@@ -25,7 +25,7 @@ describe("Parallel Requests", () => {
 		expectedRequests: number,
 		knownTo: boolean,
 		howMany: HowMany = HowMany.Exact,
-	) {
+	): Promise<void> {
 		let nextElement = from;
 		let requests = 0;
 		let dispatches = 0;
@@ -47,16 +47,20 @@ describe("Parallel Requests", () => {
 				assert(!knownTo || _to <= to);
 
 				switch (howMany) {
-					case HowMany.Partial:
+					case HowMany.Partial: {
 						length = Math.min(length, payloadSize / 2 + 1);
 						break;
-					case HowMany.TooMany:
+					}
+					case HowMany.TooMany: {
 						length = 2 * length + 2;
 						break;
-					case HowMany.Exact:
+					}
+					case HowMany.Exact: {
 						break;
-					default:
+					}
+					default: {
 						unreachableCase(howMany);
+					}
 				}
 				// covering knownTo === false case
 				const actualTo = Math.min(_from + length, to);
@@ -95,9 +99,9 @@ describe("Parallel Requests", () => {
 		from: number,
 		to: number | undefined,
 		cancelAt: number,
-		payloadSize,
+		payloadSize: number,
 		expectedRequests: number,
-	) {
+	): Promise<void> {
 		let nextElement = from;
 		let requests = 0;
 		let dispatches = 0;
@@ -145,14 +149,14 @@ describe("Parallel Requests", () => {
 		logger.assertMatchNone([{ category: "error" }]);
 	}
 
-	it("no concurrency, single request, over", async () => {
+	it("no concurrency, single request, over", async (): Promise<void> => {
 		await test(1, 100, 123, 156, 1, true);
 		await test(1, 100, 123, 156, 1, false);
 		await test(1, 100, 123, 156, 1, true, HowMany.TooMany);
 		await test(1, 100, 123, 156, 1, true, HowMany.Partial);
 	});
 
-	it("no concurrency, single request, exact", async () => {
+	it("no concurrency, single request, exact", async (): Promise<void> => {
 		await test(1, 156 - 123, 123, 156, 1, true);
 		await test(1, 156 - 123, 123, 156, 2, false);
 		await test(1, 156 - 123, 123, 156, 1, true, HowMany.TooMany);
@@ -161,23 +165,22 @@ describe("Parallel Requests", () => {
 		await test(1, 156 - 123, 123, 156, 3, false, HowMany.Partial);
 	});
 
-	it("concurrency, single request, exact", async () => {
+	it("concurrency, single request, exact", async (): Promise<void> => {
 		await test(2, 156 - 123, 123, 156, 1, true);
 		await test(2, 156 - 123, 123, 156, 1, true, HowMany.TooMany);
 		await test(2, 156 - 123, 123, 156, 2, true, HowMany.Partial);
-		// here, the number of actual requests is Ok to be 2..3
 		await test(2, 156 - 123, 123, 156, 3, false);
 		await test(2, 156 - 123, 123, 156, 3, false, HowMany.TooMany);
 		await test(2, 156 - 123, 123, 156, 3, false, HowMany.Partial);
 	});
 
-	it("no concurrency, multiple requests", async () => {
+	it("no concurrency, multiple requests", async (): Promise<void> => {
 		await test(1, 10, 123, 156, 4, true);
 		await test(1, 10, 123, 156, 4, false);
 		await test(1, 10, 123, 156, 3, false, HowMany.TooMany);
 	});
 
-	it("two concurrent requests exact", async () => {
+	it("two concurrent requests exact", async (): Promise<void> => {
 		await test(2, 10, 123, 153, 3, true);
 		await test(2, 10, 123, 153, 3, true, HowMany.TooMany);
 		await test(2, 10, 123, 153, 6, true, HowMany.Partial);
@@ -186,24 +189,22 @@ describe("Parallel Requests", () => {
 		await test(2, 10, 123, 153, 8, false, HowMany.Partial);
 	});
 
-	it("two concurrent requests one over", async () => {
+	it("two concurrent requests one over", async (): Promise<void> => {
 		await test(2, 10, 123, 154, 4, true);
-		// here, the number of actual requests is Ok to be 4..5
 		await test(2, 10, 123, 154, 5, false);
 	});
 
-	it("four concurrent requests", async () => {
+	it("four concurrent requests", async (): Promise<void> => {
 		await test(4, 10, 123, 156, 4, true);
-		// here, the number of actual requests is Ok to be 4..7
 		await test(4, 10, 123, 156, 7, false);
 	});
 
-	it("cancellation", async () => {
+	it("cancellation", async (): Promise<void> => {
 		await testCancel(1, 1000, 502, 10, 60);
 		await testCancel(1, undefined, 502, 10, 60);
 	});
 
-	it("exception in request", async () => {
+	it("exception in request", async (): Promise<void> => {
 		const logger = new MockLogger();
 
 		const manager = new ParallelRequests<number>(
@@ -211,10 +212,14 @@ describe("Parallel Requests", () => {
 			100,
 			10,
 			logger.toTelemetryLogger(),
-			async (request: number, _from: number, _to: number) => {
+			async (
+				request: number,
+				_from: number,
+				_to: number,
+			): Promise<{ partial: boolean; cancel: boolean; payload: number[] }> => {
 				throw new Error("request");
 			},
-			(deltas: number[]) => {
+			(deltas: number[]): void => {
 				throw new Error("response");
 			},
 		);
@@ -222,15 +227,17 @@ describe("Parallel Requests", () => {
 		let success = true;
 		try {
 			await manager.run(10);
-		} catch (error: any) {
+		} catch (error) {
 			success = false;
-			assert(error.message === "request");
+			if (error instanceof Error) {
+				assert(error.message === "request");
+			}
 		}
 		assert(!success);
 		logger.assertMatchNone([{ category: "error" }]);
 	});
 
-	it("exception in response", async () => {
+	it("exception in response", async (): Promise<void> => {
 		const logger = new MockLogger();
 
 		const manager = new ParallelRequests<number>(
@@ -238,10 +245,14 @@ describe("Parallel Requests", () => {
 			100,
 			10,
 			logger.toTelemetryLogger(),
-			async (request: number, _from: number, _to: number) => {
+			async (
+				request: number,
+				_from: number,
+				_to: number,
+			): Promise<{ partial: boolean; cancel: boolean; payload: number[] }> => {
 				return { cancel: false, partial: false, payload: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] };
 			},
-			(deltas: number[]) => {
+			(deltas: number[]): void => {
 				throw new Error("response");
 			},
 		);
@@ -249,9 +260,11 @@ describe("Parallel Requests", () => {
 		let success = true;
 		try {
 			await manager.run(10);
-		} catch (error: any) {
+		} catch (error) {
 			success = false;
-			assert(error.message === "response");
+			if (error instanceof Error) {
+				assert(error.message === "response");
+			}
 		}
 		assert(!success);
 		logger.assertMatchNone([{ category: "error" }]);

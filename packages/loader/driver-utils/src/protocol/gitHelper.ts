@@ -23,12 +23,15 @@ export function getGitMode(value: SummaryObject): string {
 	const type = value.type === SummaryType.Handle ? value.handleType : value.type;
 	switch (type) {
 		case SummaryType.Blob:
-		case SummaryType.Attachment:
+		case SummaryType.Attachment: {
 			return FileMode.File;
-		case SummaryType.Tree:
+		}
+		case SummaryType.Tree: {
 			return FileMode.Directory;
-		default:
+		}
+		default: {
 			unreachableCase(type, `Unknown type: ${type}`);
+		}
 	}
 }
 
@@ -44,12 +47,15 @@ export function getGitType(value: SummaryObject): "blob" | "tree" {
 
 	switch (type) {
 		case SummaryType.Blob:
-		case SummaryType.Attachment:
+		case SummaryType.Attachment: {
 			return "blob";
-		case SummaryType.Tree:
+		}
+		case SummaryType.Tree: {
 			return "tree";
-		default:
+		}
+		default: {
 			unreachableCase(type, `Unknown type: ${type}`);
+		}
 	}
 }
 
@@ -79,14 +85,21 @@ export function buildGitTreeHierarchy(
 		const entryPathBase = entryPath.slice(lastIndex + 1);
 
 		// The flat output is breadth-first so we can assume we see tree nodes prior to their contents
-		const node = lookup[entryPathDir];
+		const node = lookup[entryPathDir] as ISnapshotTreeEx | undefined;
 
 		// Add in either the blob or tree
 		if (entry.type === "tree") {
-			const newTree = { id: entry.sha, blobs: {}, commits: {}, trees: {} };
-			node.trees[decodeURIComponent(entryPathBase)] = newTree;
+			const newTree: ISnapshotTreeEx = { id: entry.sha, blobs: {}, trees: {} };
+			if (node === undefined) {
+				lookup[entryPathDir] = newTree;
+			} else {
+				node.trees[decodeURIComponent(entryPathBase)] = newTree;
+			}
 			lookup[entryPath] = newTree;
 		} else if (entry.type === "blob") {
+			if (node === undefined) {
+				throw new Error(`Parent tree not found for blob entry: ${entryPath}`);
+			}
 			node.blobs[decodeURIComponent(entryPathBase)] = entry.sha;
 			blobsShaToPathCache.set(entry.sha, `/${entryPath}`);
 		} else {

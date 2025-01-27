@@ -56,8 +56,9 @@ export function convertSummaryTreeToSnapshotITree(summaryTree: ISummaryTree): IT
 				throw new Error("Should not have Handle type in summary tree");
 			}
 
-			default:
+			default: {
 				unreachableCase(value, "Unexpected summary tree type");
+			}
 		}
 	}
 	return {

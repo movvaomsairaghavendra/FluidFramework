@@ -36,8 +36,11 @@ export class DocumentStorageServiceProxy implements IDocumentStorageService {
 	public async getSnapshotTree(
 		version?: IVersion,
 		scenarioName?: string,
+		/* eslint-disable-next-line @rushstack/no-new-null */
 	): Promise<ISnapshotTree | null> {
-		return this.internalStorageService.getSnapshotTree(version, scenarioName);
+		const tree = await this.internalStorageService.getSnapshotTree(version, scenarioName);
+		/* eslint-disable-next-line unicorn/no-null */
+		return tree ?? null;
 	}
 
 	public async getSnapshot(snapshotFetchOptions?: ISnapshotFetchOptions): Promise<ISnapshot> {
@@ -50,6 +53,7 @@ export class DocumentStorageServiceProxy implements IDocumentStorageService {
 	}
 
 	public async getVersions(
+		/* eslint-disable-next-line @rushstack/no-new-null */
 		versionId: string | null,
 		count: number,
 		scenarioName?: string,

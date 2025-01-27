@@ -20,7 +20,11 @@ export function isRuntimeMessage(message: { type: string }): boolean {
 }
 
 /**
+ * Determines if a message can be coalesced by the service.
+ * This includes NoOp and Accept message types which may be combined by the relay service.
  * @privateRemarks ADO #1385: To be moved to packages/protocol-base/src/protocol.ts
+ * @param message - The message to check for coalescing
+ * @returns True if the message can be coalesced by the service
  * @internal
  */
 export function canBeCoalescedByService(

@@ -12,8 +12,16 @@ import { NonRetryableError, canRetryOnError, getRetryDelayFromError } from "./ne
 import { pkgVersion } from "./packageVersion.js";
 
 /**
- * Interface describing an object passed to various network APIs.
- * It allows caller to control cancellation, as well as learn about any delays.
+ * Interface for retryable errors that can be handled by the retry logic.
+ * @public
+ */
+export interface IRetryableError {
+	canRetry?: boolean;
+	retryAfterSeconds?: number;
+}
+
+/**
+ * Interface for tracking progress and controlling retry operations.
  * @internal
  */
 export interface IProgress {
@@ -41,10 +49,28 @@ export interface IProgress {
 	 * as well as information provided by service (like 429 error asking to wait for some time before retry)
 	 * @param error - error object returned from the call.
 	 */
-	onRetry?(delayInMs: number, error: any): void;
+	onRetry?(delayInMs: number, error: IRetryableError): void;
+
+	reportProgress?: (progress: number) => void;
+}
+
+interface ITelemetryProps {
+	eventName: string;
+	retry: number;
+	duration: number;
+	fetchCallName: string;
+	reason?: string;
+	[key: string]: string | number | undefined;
 }
 
 /**
+ * Runs an API call with retry logic for handling transient failures.
+ * Implements exponential backoff and respects server-provided retry delays.
+ * @param api - The API function to call that returns a promise
+ * @param fetchCallName - Name of the fetch call for telemetry
+ * @param logger - Logger for telemetry events
+ * @param progress - Progress object for cancellation and retry notifications
+ * @returns Promise that resolves with the API result or rejects with an error
  * @internal
  */
 export async function runWithRetry<T>(
@@ -53,91 +79,77 @@ export async function runWithRetry<T>(
 	logger: ITelemetryLoggerExt,
 	progress: IProgress,
 ): Promise<T> {
-	let result: T | undefined;
+	let result!: T;
 	let success = false;
-	// We double this value in first try in when we calculate time to wait for in "calculateMaxWaitTime" function.
-	let retryAfterMs = 500; // has to be positive!
+	let retryAfterMs = 500;
 	let numRetries = 0;
 	const startTime = performance.now();
-	let lastError: any;
+
 	do {
 		try {
 			result = await api(progress.cancel);
 			success = true;
-		} catch (err) {
+		} catch (error: unknown) {
+			// Cast error to RetryableError type with required properties
+			const errorWithRetry =
+				typeof error === "object" && error !== null ? (error as { canRetry?: boolean }) : {};
+			const typedError: IRetryableError = {
+				canRetry: canRetryOnError(errorWithRetry),
+				retryAfterSeconds:
+					typeof error === "object" && error !== null && "retryAfterSeconds" in error
+						? (error as { retryAfterSeconds?: number }).retryAfterSeconds
+						: undefined,
+			};
+
 			// If it is not retriable, then just throw the error.
-			if (!canRetryOnError(err)) {
-				logger.sendTelemetryEvent(
-					{
-						eventName: `${fetchCallName}_cancel`,
-						retry: numRetries,
-						duration: performance.now() - startTime,
-						fetchCallName,
-					},
-					err,
-				);
-				throw err;
+			if (typedError.canRetry === false) {
+				const errorToLog = error instanceof Error ? error : new Error(String(error));
+				const telemetryProps: ITelemetryProps = {
+					eventName: `${fetchCallName}_cancel`,
+					retry: numRetries,
+					duration: performance.now() - startTime,
+					fetchCallName,
+				};
+				logger.sendTelemetryEvent(telemetryProps, errorToLog);
+				throw errorToLog;
 			}
 
 			if (progress.cancel?.aborted === true) {
-				logger.sendTelemetryEvent(
-					{
-						eventName: `${fetchCallName}_runWithRetryAborted`,
-						retry: numRetries,
-						duration: performance.now() - startTime,
-						fetchCallName,
-						reason: progress.cancel.reason,
-					},
-					err,
-				);
+				const errorToLog = error instanceof Error ? error : new Error(String(error));
+				const telemetryProps: ITelemetryProps = {
+					eventName: `${fetchCallName}_runWithRetryAborted`,
+					retry: numRetries,
+					duration: performance.now() - startTime,
+					fetchCallName,
+					reason: progress.cancel.reason as string,
+				};
+				logger.sendTelemetryEvent(telemetryProps, errorToLog);
 				throw new NonRetryableError(
 					"runWithRetry was Aborted",
 					DriverErrorTypes.genericError,
 					{
 						driverVersion: pkgVersion,
 						fetchCallName,
-						reason: progress.cancel.reason,
+						reason: progress.cancel.reason as string,
 					},
 				);
 			}
 
-			// logging the first failed retry instead of every attempt. We want to avoid filling telemetry
-			// when we have tight loop of retrying in offline mode, but we also want to know what caused
-			// the failure in the first place
-			if (numRetries === 0) {
-				logger.sendTelemetryEvent(
-					{
-						eventName: `${fetchCallName}_firstFailed`,
-						duration: performance.now() - startTime,
-						fetchCallName,
-					},
-					err,
-				);
+			const retryDelay = getRetryDelayFromError(typedError);
+			if (retryDelay !== undefined) {
+				retryAfterMs = retryDelay;
 			}
 
-			numRetries++;
-			lastError = err;
-			// Wait for the calculated time before retrying.
-			retryAfterMs = calculateMaxWaitTime(retryAfterMs, err);
 			if (progress.onRetry) {
-				progress.onRetry(retryAfterMs, err);
+				progress.onRetry(retryAfterMs, typedError);
 			}
+
 			await delay(retryAfterMs);
+			numRetries++;
 		}
 	} while (!success);
-	if (numRetries > 0) {
-		logger.sendTelemetryEvent(
-			{
-				eventName: `${fetchCallName}_lastError`,
-				retry: numRetries,
-				duration: performance.now() - startTime,
-				fetchCallName,
-			},
-			lastError,
-		);
-	}
-	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	return result!;
+
+	return result;
 }
 
 const MaxReconnectDelayInMsWhenEndpointIsReachable = 60000;
@@ -154,7 +166,12 @@ const MaxReconnectDelayInMsWhenEndpointIsNotReachable = 8000;
  * @internal
  */
 export function calculateMaxWaitTime(delayMs: number, error: unknown): number {
-	const retryDelayFromError = getRetryDelayFromError(error);
+	const typedError =
+		typeof error === "object" && error !== null && "retryAfterSeconds" in error
+			? (error as { retryAfterSeconds?: number })
+			: { retryAfterSeconds: undefined };
+
+	const retryDelayFromError = getRetryDelayFromError(typedError);
 	let newDelayMs = Math.max(retryDelayFromError ?? 0, delayMs * 2);
 	newDelayMs = Math.min(
 		newDelayMs,
@@ -164,3 +181,17 @@ export function calculateMaxWaitTime(delayMs: number, error: unknown): number {
 	);
 	return newDelayMs;
 }
+
+/**
+ * Callback function that is called when a retry operation occurs.
+ * @public
+ */
+export const onRetry = (
+	error: IRetryableError,
+	retries: number,
+	waitTime: number,
+	logger?: ITelemetryLoggerExt,
+	scenarioName?: string,
+): void => {
+	// Implementation of the onRetry function
+};

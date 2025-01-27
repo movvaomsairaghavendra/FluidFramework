@@ -217,12 +217,25 @@ export class ThrottlingError
 }
 
 /**
+ * Creates a non-retryable write error with the given message and properties.
+ * @param message - The error message
+ * @param props - The driver error telemetry properties
+ * @returns A non-retryable write error
  * @internal
  */
-export const createWriteError = (message: string, props: DriverErrorTelemetryProps) =>
+export const createWriteError = (
+	message: string,
+	props: DriverErrorTelemetryProps,
+): NonRetryableError<typeof DriverErrorTypes.writeError> =>
 	new NonRetryableError(message, DriverErrorTypes.writeError, props);
 
 /**
+ * Creates either a throttling error or a generic network error based on the retry information.
+ * If retryAfterMs is defined and canRetry is true, creates a ThrottlingError, otherwise creates a GenericNetworkError.
+ * @param message - The error message
+ * @param retryInfo - Information about whether the error can be retried and after how long
+ * @param props - The driver error telemetry properties
+ * @returns A ThrottlingError if retryAfterMs is defined and canRetry is true, otherwise a GenericNetworkError
  * @internal
  */
 export function createGenericNetworkError(
@@ -237,23 +250,34 @@ export function createGenericNetworkError(
 }
 
 /**
- * Check if a connection error can be retried.  Unless explicitly allowed, retry is disallowed.
- * I.e. asserts or unexpected exceptions in our code result in container failure.
- * @param error - The error to inspect for ability to retry
+ * Helper function to determine if an error can be retried based on its canRetry property.
+ * Checks if the error object has a canRetry property set to true.
+ * @param error - The error to check
+ * @returns True if the error has a canRetry property set to true
  * @internal
  */
-export const canRetryOnError = (error: any): boolean => error?.canRetry === true;
+export const canRetryOnError = (error: { canRetry?: boolean }): boolean =>
+	error?.canRetry === true;
 
 /**
- * Check retryAfterSeconds property on error
+ * Helper function to get the retry delay in seconds from an error object.
+ * Extracts the retryAfterSeconds property from the error object.
+ * @param error - The error to get the retry delay from
+ * @returns The retry delay in seconds if available, undefined otherwise
  * @internal
  */
-export const getRetryDelaySecondsFromError = (error: any): number | undefined =>
-	error?.retryAfterSeconds as number | undefined;
+export const getRetryDelaySecondsFromError = (error: { retryAfterSeconds?: number }):
+	| number
+	| undefined => error?.retryAfterSeconds;
 
 /**
- * Check retryAfterSeconds property on error and convert to ms
+ * Helper function to get the retry delay in milliseconds from an error object.
+ * Converts the retryAfterSeconds property from seconds to milliseconds.
+ * @param error - The error to get the retry delay from
+ * @returns The retry delay in milliseconds if available, undefined otherwise
  * @internal
  */
-export const getRetryDelayFromError = (error: any): number | undefined =>
-	error?.retryAfterSeconds !== undefined ? error.retryAfterSeconds * 1000 : undefined;
+export const getRetryDelayFromError = (error: { retryAfterSeconds?: number }):
+	| number
+	| undefined =>
+	error?.retryAfterSeconds === undefined ? undefined : error.retryAfterSeconds * 1000;

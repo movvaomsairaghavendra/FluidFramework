@@ -55,10 +55,10 @@ export class ParallelRequests<T> {
 	private requests = 0;
 	private readonly knewTo: boolean;
 
-	private get working() {
+	private get working(): boolean {
 		return this.workingState === "working";
 	}
-	public get canceled() {
+	public get canceled(): boolean {
 		return this.workingState === "canceled";
 	}
 
@@ -81,14 +81,22 @@ export class ParallelRequests<T> {
 		this.knewTo = to !== undefined;
 	}
 
-	public cancel() {
+	/**
+	 * Cancels the parallel requests operation.
+	 */
+	public cancel(): void {
 		if (this.working) {
 			this.workingState = "canceled";
 			this.endEvent.resolve();
 		}
 	}
 
-	public async run(concurrency: number) {
+	/**
+	 * Runs the parallel requests with the specified level of concurrency.
+	 * @param concurrency - The number of concurrent requests to make
+	 * @returns A promise that resolves when all requests are complete
+	 */
+	public async run(concurrency: number): Promise<void> {
 		assert(concurrency > 0, 0x102 /* "invalid level of concurrency" */);
 		assert(this.working, 0x103 /* "trying to parallel run while not working" */);
 
@@ -101,27 +109,33 @@ export class ParallelRequests<T> {
 		return this.endEvent.promise;
 	}
 
-	private done() {
+	/**
+	 * Marks the parallel requests operation as done.
+	 */
+	private done(): void {
 		// We should satisfy request fully.
 		assert(this.to !== undefined, 0x104 /* "undefined end point for parallel fetch" */);
-		assert(
-			this.nextToDeliver >= this.to,
-			0x105 /* "unexpected end point for parallel fetch" */,
-		);
-		if (this.working) {
+		if (this.workingState === "working") {
 			this.workingState = "done";
 			this.endEvent.resolve();
 		}
 	}
 
-	private fail(error) {
+	/**
+	 * Marks the parallel requests operation as failed.
+	 * @param error - The error that caused the failure
+	 */
+	private fail(error: Error): void {
 		if (this.working) {
 			this.workingState = "done";
 			this.endEvent.reject(error);
 		}
 	}
 
-	private dispatch() {
+	/**
+	 * Dispatches the results in order and updates the state accordingly.
+	 */
+	private dispatch(): void {
 		while (this.working) {
 			const value = this.results.get(this.nextToDeliver);
 			if (value === undefined) {
@@ -158,16 +172,18 @@ export class ParallelRequests<T> {
 		}
 	}
 
-	private getNextChunk() {
+	/**
+	 * Gets the next chunk of data to request.
+	 * @returns The next chunk's from and to positions, or undefined if no more chunks
+	 */
+	private getNextChunk(): { from: number; to: number } | undefined {
 		if (!this.working) {
 			return undefined;
 		}
 
 		const from = this.latestRequested;
-		if (this.to !== undefined) {
-			if (this.to <= from) {
-				return undefined;
-			}
+		if (this.to !== undefined && this.to <= from) {
+			return undefined;
 		}
 
 		// this.latestRequested
@@ -183,7 +199,10 @@ export class ParallelRequests<T> {
 		return { from, to: this.latestRequested };
 	}
 
-	private addRequest() {
+	/**
+	 * Adds a new request to fetch data.
+	 */
+	private addRequest(): void {
 		const chunk = this.getNextChunk();
 		if (chunk === undefined) {
 			return;
@@ -191,7 +210,13 @@ export class ParallelRequests<T> {
 		this.addRequestCore(chunk.from, chunk.to).catch(this.fail.bind(this));
 	}
 
-	private async addRequestCore(fromArg: number, toArg: number) {
+	/**
+	 * Core implementation of adding a request to fetch data.
+	 * @param fromArg - Starting position for the request
+	 * @param toArg - Ending position for the request
+	 * @returns A promise that resolves when the request is complete
+	 */
+	private async addRequestCore(fromArg: number, toArg: number): Promise<void> {
 		assert(this.working, 0x10a /* "cannot add parallel request while not working" */);
 
 		let from = fromArg;
@@ -237,7 +262,7 @@ export class ParallelRequests<T> {
 				// If it pops into our view a lot, we would need to reconsider how we approach it.
 				// Note that this is not visible to user other than potentially not hitting 100% of
 				// what we can in perf domain.
-				if (payload.length !== 0) {
+				if (payload.length > 0) {
 					this.logger.sendErrorEvent({
 						eventName: "ParallelRequests_GotExtra",
 						from,
@@ -255,7 +280,25 @@ export class ParallelRequests<T> {
 				const length = payload.length;
 				let fullChunk = requestedLength <= length; // we can possible get more than we asked.
 
-				if (length !== 0) {
+				if (length === 0) {
+					// 1. empty (partial) chunks should not be returned by various caching / adapter layers -
+					//    they should fall back to next layer. This might be important invariant to hold to ensure
+					//    that we are less likely have bugs where such layer would keep returning empty partial
+					//    result on each call.
+					// 2. Current invariant is that callback does retries until it gets something,
+					//    with the goal of failing if zero data is retrieved in given amount of time.
+					//    This is very specific property of storage / ops, so this logic is not here, but given only
+					//    one user of this class, we assert that to catch issues earlier.
+					// These invariant can be relaxed if needed.
+					assert(
+						!partial,
+						0x10f /* "empty/partial chunks should not be returned by caching" */,
+					);
+					assert(
+						!this.knewTo,
+						0x110 /* "callback should retry until valid fetch before it learns new boundary" */,
+					);
+				} else {
 					// We can get more than we asked for!
 					// This can screw up logic in dispatch!
 					// So push only batch size, and keep the rest for later - if conditions are favorable, we
@@ -274,24 +317,6 @@ export class ParallelRequests<T> {
 					const data = payload.splice(0, requestedLength);
 					this.results.set(from, data);
 					from += data.length;
-				} else {
-					// 1. empty (partial) chunks should not be returned by various caching / adapter layers -
-					//    they should fall back to next layer. This might be important invariant to hold to ensure
-					//    that we are less likely have bugs where such layer would keep returning empty partial
-					//    result on each call.
-					// 2. Current invariant is that callback does retries until it gets something,
-					//    with the goal of failing if zero data is retrieved in given amount of time.
-					//    This is very specific property of storage / ops, so this logic is not here, but given only
-					//    one user of this class, we assert that to catch issues earlier.
-					// These invariant can be relaxed if needed.
-					assert(
-						!partial,
-						0x10f /* "empty/partial chunks should not be returned by caching" */,
-					);
-					assert(
-						!this.knewTo,
-						0x110 /* "callback should retry until valid fetch before it learns new boundary" */,
-					);
 				}
 
 				if (!partial && !fullChunk) {
@@ -319,7 +344,7 @@ export class ParallelRequests<T> {
 				if (to === this.latestRequested) {
 					// we can go after full chunk at the end if we received partial chunk, or more than asked
 					// Also if we got more than we asked to, we can actually use those ops!
-					while (payload.length !== 0) {
+					while (payload.length > 0) {
 						const data = payload.splice(0, requestedLength);
 						this.results.set(from, data);
 						from += data.length;
@@ -354,24 +379,36 @@ export class Queue<T> implements IStream<T> {
 	private deferred: Deferred<IStreamResult<T>> | undefined;
 	private done = false;
 
-	public pushValue(value: T) {
+	/**
+	 * Pushes a value to the queue.
+	 * @param value - The value to push
+	 */
+	public pushValue(value: T): void {
 		this.pushCore(Promise.resolve({ done: false, value }));
 	}
 
-	public pushError(error: any) {
+	/**
+	 * Pushes an error to the queue.
+	 * @param error - The error to push
+	 */
+	public pushError(error: Error): void {
 		this.pushCore(Promise.reject(error));
-		this.done = true;
 	}
 
-	public pushDone() {
+	/**
+	 * Marks the queue as done.
+	 */
+	public pushDone(): void {
+		this.done = true;
 		this.pushCore(Promise.resolve({ done: true }));
-		this.done = true;
 	}
 
-	protected pushCore(value: Promise<IStreamResult<T>>) {
-		assert(!this.done, 0x112 /* "cannot push onto queue if done" */);
+	/**
+	 * Core implementation of pushing a value to the queue.
+	 * @param value - The value to push
+	 */
+	protected pushCore(value: Promise<IStreamResult<T>>): void {
 		if (this.deferred) {
-			assert(this.queue.length === 0, 0x113 /* "deferred queue should be empty" */);
 			this.deferred.resolve(value);
 			this.deferred = undefined;
 		} else {
@@ -379,43 +416,54 @@ export class Queue<T> implements IStream<T> {
 		}
 	}
 
+	/**
+	 * Reads the next value from the queue.
+	 * @returns A promise that resolves with the next value
+	 */
 	public async read(): Promise<IStreamResult<T>> {
-		assert(this.deferred === undefined, 0x114 /* "cannot pop if deferred" */);
 		const value = this.queue.shift();
 		if (value !== undefined) {
 			return value;
 		}
-		assert(!this.done, 0x115 /* "queue should not be done during pop" */);
+		if (this.done) {
+			return { done: true };
+		}
 		this.deferred = new Deferred<IStreamResult<T>>();
 		return this.deferred.promise;
 	}
 }
 
+/**
+ * Waits for the browser to be online.
+ * @returns A promise that resolves when the browser is online
+ */
 const waitForOnline = async (): Promise<void> => {
 	// Only wait if we have a strong signal that we're offline - otherwise assume we're online.
-	if (globalThis.navigator?.onLine === false && globalThis.addEventListener !== undefined) {
-		return new Promise<void>((resolve) => {
-			const resolveAndRemoveListener = () => {
-				resolve();
-				globalThis.removeEventListener("online", resolveAndRemoveListener);
-			};
-			globalThis.addEventListener("online", resolveAndRemoveListener);
-		});
+	if (typeof navigator === "undefined") {
+		return;
 	}
+	if (navigator.onLine) {
+		return;
+	}
+
+	return new Promise<void>((resolve) => {
+		const onOnline = (): void => {
+			window.removeEventListener("online", onOnline);
+			resolve();
+		};
+		window.addEventListener("online", onOnline);
+	});
 };
 
 /**
- * Retrieve single batch of ops
- * @param request - request index
- * @param from - inclusive boundary
- * @param to - exclusive boundary
- * @param telemetryEvent - telemetry event used to track consecutive batch of requests
- * @param strongTo - tells if ops in range from...to have to be there and have to be retrieved.
- * If false, returning less ops would mean we reached end of file.
- * @param logger - logger object to use to log progress & errors
- * @param signal - cancelation signal
- * @param scenarioName - reason for fetching ops
- * @returns An object with resulting ops and cancellation / partial result flags
+ * Gets a single batch of operations.
+ * @param get - Function to get the operations
+ * @param props - Telemetry properties
+ * @param strongTo - Whether the 'to' parameter is strongly defined
+ * @param logger - Logger to use
+ * @param signal - Optional abort signal
+ * @param scenarioName - Optional scenario name
+ * @returns A promise that resolves with the batch result
  */
 async function getSingleOpBatch(
 	get: (telemetryProps: ITelemetryBaseProperties) => Promise<IDeltasFetchResult>,
@@ -425,119 +473,100 @@ async function getSingleOpBatch(
 	signal?: AbortSignal,
 	scenarioName?: string,
 ): Promise<{ partial: boolean; cancel: boolean; payload: ISequencedDocumentMessage[] }> {
-	let lastSuccessTime: number | undefined;
-	let totalRetryAfterTime = 0;
-	let telemetryEvent: PerformanceEvent | undefined;
-	let retry: number = 0;
-	const nothing = { partial: false, cancel: true, payload: [] };
-	let waitStartTime: number = 0;
+	let result: IDeltasFetchResult | undefined;
 	let waitTime = MissingFetchDelayInMs;
+	let retries = 0;
+	let lastSuccessTime: number | undefined;
+	let telemetryEvent: PerformanceEvent | undefined;
 
-	while (signal?.aborted !== true) {
-		retry++;
-		let lastError: unknown;
-		const startTime = performance.now();
-
+	while (signal?.aborted === false) {
 		try {
-			// Issue async request for deltas
-			const { messages, partialResult } = await get({ ...props, retry } /* telemetry props */);
-
-			// If we got messages back, return them.  Return regardless of whether we got messages back if we didn't
-			// specify a "to", since we don't have an expectation of how many to receive.
-			if (messages.length !== 0 || !strongTo) {
-				// Report this event if we waited to fetch ops due to being offline or throttling.
-				telemetryEvent?.end({
-					duration: totalRetryAfterTime,
-					...props,
-					reason: scenarioName,
-				});
-				return { payload: messages, cancel: false, partial: partialResult };
-			}
-
-			// Otherwise, the storage gave us back an empty set of ops but we were expecting a non-empty set.
-
-			if (lastSuccessTime === undefined) {
-				// Take timestamp of the first time server responded successfully, even though it wasn't with the ops we asked for.
-				// If we keep getting empty responses we'll eventually fail out below.
-				lastSuccessTime = performance.now();
-			} else if (performance.now() - lastSuccessTime > 30000) {
-				// If we are connected and receiving proper responses from server, but can't get any ops back,
-				// then give up after some time. This likely indicates the issue with ordering service not flushing
-				// ops to storage quick enough, and possibly waiting for summaries, while summarizer can't get
-				// current as it can't get ops.
-				throw createGenericNetworkError(
-					// pre-0.58 error message: failedToRetrieveOpsFromStorage:TooManyRetries
-					"Failed to retrieve ops from storage (Too Many Retries)",
-					{ canRetry: false },
-					{
-						retry,
-						driverVersion,
-						...props,
-					},
-				);
-			}
+			result = await get(props);
+			break;
 		} catch (error) {
-			lastError = error;
-			const canRetry = canRetryOnError(error);
-
-			const retryAfter = getRetryDelayFromError(error);
-
-			// This will log to error table only if the error is non-retryable
+			const typedError = error as { canRetry?: boolean; retryAfterSeconds?: number };
+			if (!canRetryOnError(typedError)) {
+				throw error;
+			}
+			const retryAfterMs = getRetryDelayFromError(typedError);
+			waitTime = retryAfterMs ?? calculateMaxWaitTime(waitTime, retries);
+			retries++;
 			logNetworkFailure(
 				logger,
 				{
-					eventName: "GetDeltas_Error",
-					...props,
-					retry,
-					duration: performance.now() - startTime,
-					retryAfter,
-					reason: scenarioName,
+					eventName: "OpsFetchError",
+					retries,
+					waitTime,
+					scenarioName,
 				},
-				error,
+				typedError,
 			);
 
-			if (!canRetry) {
-				// It's game over scenario.
-				throw error;
+			if (telemetryEvent === undefined) {
+				telemetryEvent = PerformanceEvent.start(logger, {
+					eventName: "GetDeltasWaitTime",
+				});
 			}
+
+			await waitForOnline();
+			await new Promise((resolve) => setTimeout(resolve, waitTime));
 		}
-
-		if (telemetryEvent === undefined) {
-			waitStartTime = performance.now();
-			telemetryEvent = PerformanceEvent.start(logger, {
-				eventName: "GetDeltasWaitTime",
-			});
-		}
-
-		waitTime = calculateMaxWaitTime(waitTime, lastError);
-
-		// If we get here something has gone wrong - either got an unexpected empty set of messages back or a real error.
-		// Either way we will wait a little bit before retrying.
-		await new Promise<void>((resolve) => {
-			setTimeout(resolve, waitTime);
-		});
-
-		// If we believe we're offline, we assume there's no point in trying until we at least think we're online.
-		// NOTE: This isn't strictly true for drivers that don't require network (e.g. local driver).  Really this logic
-		// should probably live in the driver.
-		await waitForOnline();
-		totalRetryAfterTime += performance.now() - waitStartTime;
 	}
 
-	return nothing;
+	if (result === undefined) {
+		return { payload: [], cancel: true, partial: false };
+	}
+
+	// If we got messages back, return them. Return regardless of whether we got messages back if we didn't
+	// specify a "to", since we don't have an expectation of how many to receive.
+	const hasMessages = result.messages.length > 0;
+	const shouldReturn = hasMessages || !strongTo;
+
+	// Report this event if we waited to fetch ops due to being offline or throttling.
+	if (telemetryEvent !== undefined) {
+		telemetryEvent.end({
+			...props,
+			reason: scenarioName,
+		});
+	}
+
+	if (shouldReturn) {
+		return { payload: result.messages, cancel: false, partial: result.partialResult };
+	}
+
+	// Otherwise, the storage gave us back an empty set of ops but we were expecting a non-empty set.
+	if (lastSuccessTime === undefined) {
+		// Take timestamp of the first time server responded successfully, even though it wasn't with the ops we asked for.
+		// If we keep getting empty responses we'll eventually fail out below.
+		lastSuccessTime = performance.now();
+	} else if (performance.now() - lastSuccessTime > 30000) {
+		// If we are connected and receiving proper responses from server, but can't get any ops back,
+		// then give up after some time. This likely indicates the issue with ordering service not flushing
+		throw createGenericNetworkError(
+			"Unable to get ops - server is not providing ops in time",
+			{ canRetry: false },
+			{
+				retries,
+				driverVersion,
+				...props,
+			},
+		);
+	}
+
+	return { payload: [], cancel: true, partial: false };
 }
 
 /**
- * Request ops from storage
- * @param get - Getter callback to get individual batches
- * @param concurrency - Number of concurrent requests to make
- * @param fromTotal - starting sequence number to fetch (inclusive)
- * @param toTotal - max (exclusive) sequence number to fetch
- * @param payloadSize - Payload size
- * @param logger - Logger to log progress and errors
- * @param signal - Cancelation signal
- * @param scenarioName - Reason for fetching ops
- * @returns Messages fetched
+ * Function to request operations in parallel.
+ * @param get - Function to get the operations
+ * @param concurrency - Number of concurrent requests
+ * @param fromTotal - Starting position
+ * @param toTotal - Ending position (optional)
+ * @param payloadSize - Size of each batch
+ * @param logger - Logger to use
+ * @param signal - Optional abort signal
+ * @param scenarioName - Optional scenario name
+ * @returns A stream of operation batches
  * @internal
  */
 export function requestOps(
@@ -581,7 +610,11 @@ export function requestOps(
 			to: number,
 			strongTo: boolean,
 			propsPerRequest: ITelemetryBaseProperties,
-		) => {
+		): Promise<{
+			partial: boolean;
+			cancel: boolean;
+			payload: ISequencedDocumentMessage[];
+		}> => {
 			requests++;
 			return getSingleOpBatch(
 				async (propsAll) => get(from, to, propsAll),
@@ -592,7 +625,7 @@ export function requestOps(
 				scenarioName,
 			);
 		},
-		(deltas: ISequencedDocumentMessage[]) => {
+		(deltas: ISequencedDocumentMessage[]): void => {
 			// Assert continuing and right start.
 			if (lastFetch === undefined) {
 				assert(deltas[0].sequenceNumber === fromTotal, 0x26d /* "wrong start" */);
@@ -613,7 +646,7 @@ export function requestOps(
 	// waits (up to 10 seconds) and fetches (can take infinite amount of time).
 	// While every such case should be improved and take into account signal (and thus cancel immediately),
 	// it is beneficial to have catch-all
-	const listener = (event: Event) => {
+	const listener = (event: Event): void => {
 		manager.cancel();
 	};
 	if (signal !== undefined) {
@@ -644,16 +677,16 @@ export function requestOps(
 			}
 			queue.pushDone();
 		})
-		.catch((error) => {
+		.catch((error: unknown) => {
 			telemetryEvent.cancel(
 				{
 					lastFetch,
 					length,
 					requests,
 				},
-				error,
+				error instanceof Error ? error : new Error(String(error)),
 			);
-			queue.pushError(error);
+			queue.pushError(error instanceof Error ? error : new Error(String(error)));
 		});
 
 	return queue;
@@ -669,36 +702,56 @@ export const emptyMessageStream: IStream<ISequencedDocumentMessage[]> = {
 };
 
 /**
+ * Function to create a stream from a promise of messages.
+ * @param messagesArg - Promise of messages
+ * @returns A stream of messages
  * @internal
  */
 export function streamFromMessages(
 	messagesArg: Promise<ISequencedDocumentMessage[]>,
 ): IStream<ISequencedDocumentMessage[]> {
-	let messages: Promise<ISequencedDocumentMessage[]> | undefined = messagesArg;
-	return {
-		read: async () => {
-			if (messages === undefined) {
-				return { done: true };
-			}
-			const value = await messages;
-			messages = undefined;
-			return value.length === 0 ? { done: true } : { done: false, value };
-		},
+	const queue = new Queue<ISequencedDocumentMessage[]>();
+	const onFulfilled = (messages: ISequencedDocumentMessage[]): void => {
+		queue.pushValue(messages);
+		queue.pushDone();
 	};
+	const onRejected = (error: unknown): void => {
+		const errorToUse = error instanceof Error ? error : new Error(String(error));
+		queue.pushError(errorToUse);
+	};
+	messagesArg.then(onFulfilled, onRejected).catch(() => {
+		// Ignore errors in promise handling
+	});
+	return queue;
 }
 
 /**
+ * Function to create a stream observer that calls a handler for each value.
+ * @param stream - The stream to observe
+ * @param handler - The handler to call for each value
+ * @returns The original stream
  * @internal
  */
 export function streamObserver<T>(
 	stream: IStream<T>,
 	handler: (value: IStreamResult<T>) => void,
 ): IStream<T> {
-	return {
-		read: async () => {
+	const read = async (): Promise<void> => {
+		try {
 			const value = await stream.read();
 			handler(value);
-			return value;
-		},
+			if (value.done) {
+				return;
+			}
+			read().catch(() => {
+				// Ignore errors in recursive read
+			});
+		} catch {
+			handler({ done: false, value: undefined as unknown as T });
+		}
 	};
+	read().catch(() => {
+		// Ignore errors in initial read
+	});
+	return stream;
 }
