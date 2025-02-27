@@ -3,6 +3,7 @@
  * Licensed under the MIT License.
  */
 
+import type { IUser, ScopeType } from "@fluidframework/protocol-definitions";
 import { IGitManager } from "@fluidframework/server-services-client";
 
 /**
@@ -16,6 +17,16 @@ export interface ITenantConfig {
 	orderer: ITenantOrderer;
 
 	customData: ITenantCustomData;
+
+	/**
+	 * Indicates if (not-shared secret) key access is enabled for this tenant.
+	 */
+	enablePrivateKeyAccess: boolean;
+
+	/**
+	 * Indicates if (shared secret) key access is enabled for this tenant.
+	 */
+	enableSharedKeyAccess: boolean;
 
 	// Timestamp of when this tenant will be hard deleted.
 	// The tenant is soft deleted if a deletion timestamp is present.
@@ -77,6 +88,11 @@ export interface ITenantKeys {
 	key2: string;
 }
 
+export interface IPlainTextAndEncryptedTenantKeys extends ITenantKeys {
+	encryptedTenantKey1: string;
+	encryptedTenantKey2: string;
+}
+
 /**
  * @internal
  */
@@ -113,6 +129,20 @@ export interface ITenant {
 	storage: ITenantStorage;
 
 	orderer: ITenantOrderer;
+}
+
+// Key maps to the Enum Key1 and secondaryKey maps to the Enum Key2
+export interface ITenantPrivateKeys {
+	key: string;
+	secondaryKey: string;
+	// Time in seconds when the key will be rotated
+	keyNextRotationTime: number;
+	// Time in seconds when the secondary key will be rotated
+	secondaryKeyNextRotationTime: number;
+}
+
+export interface IEncryptedPrivateTenantKeys extends ITenantPrivateKeys {
+	encryptionKeyVersion?: EncryptionKeyVersion;
 }
 
 /**
@@ -153,7 +183,21 @@ export interface ITenantManager {
 	/**
 	 * Retrieves the key for the given tenant. This is a privileged op and should be used with care.
 	 */
-	getKey(tenantId: string): Promise<string>;
+	getKey(tenantId: string, includeDisabledTenant?: boolean): Promise<string>;
+
+	/**
+	 * Signs an access token for the given tenant. This is a privileged op and should be used with care.
+	 */
+	signToken(
+		tenantId: string,
+		documentId: string,
+		scopes: ScopeType[],
+		user?: IUser,
+		lifetime?: number,
+		ver?: string,
+		jti?: string,
+		includeDisabledTenant?: boolean,
+	): Promise<string>;
 }
 
 /**

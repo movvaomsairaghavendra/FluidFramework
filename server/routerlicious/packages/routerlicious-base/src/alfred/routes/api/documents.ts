@@ -41,6 +41,8 @@ import {
 	DocDeleteScopeType,
 	TokenRevokeScopeType,
 	getNetworkInformationFromIP,
+	createFluidServiceNetworkError,
+	InternalErrorCode,
 } from "@fluidframework/server-services-client";
 import {
 	getLumberBaseProperties,
@@ -104,8 +106,7 @@ async function generateCreateDocumentResponseBody(
 		if (token === undefined) {
 			throw new NetworkError(400, "Authorization header is missing or malformed");
 		}
-		const tenantKey = await tenantManager.getKey(tenantId);
-		newDocumentAccessToken = getCreationToken(token, tenantKey, documentId);
+		newDocumentAccessToken = await getCreationToken(tenantManager, token, documentId);
 	}
 	let newDocumentSession: ISession | undefined;
 	if (enableDiscovery) {
@@ -229,7 +230,7 @@ export function create(
 					}
 					return document;
 				});
-			handleResponse(documentP, response);
+			return handleResponse(documentP, response);
 		},
 	);
 
@@ -261,6 +262,22 @@ export function create(
 		}),
 		// eslint-disable-next-line @typescript-eslint/no-misused-promises
 		async (request, response, next) => {
+			// Reject create document request if cluster is in draining process.
+			if (
+				clusterDrainingChecker &&
+				(await clusterDrainingChecker.isClusterDraining().catch((error) => {
+					Lumberjack.error("Failed to get cluster draining status", undefined, error);
+					return false;
+				}))
+			) {
+				Lumberjack.info("Cluster is in draining process. Reject create document request.");
+				const error = createFluidServiceNetworkError(503, {
+					message: "Server is unavailable. Please retry create document later.",
+					internalErrorCode: InternalErrorCode.ClusterDraining,
+				});
+				return handleResponse(Promise.reject(error), response);
+			}
+
 			const clientIPAddress = request.ip ? request.ip : "";
 			const networkInfo = getNetworkInformationFromIP(clientIPAddress);
 			// Tenant and document
@@ -335,7 +352,7 @@ export function create(
 						messageBrokerId,
 					},
 				);
-				handleResponse(
+				return handleResponse(
 					Promise.all([createP, generateResponseBodyP]).then(
 						([, responseBody]) => responseBody,
 					),
@@ -345,7 +362,7 @@ export function create(
 					201,
 				);
 			} else {
-				handleResponse(
+				return handleResponse(
 					createP.then(() => id),
 					response,
 					undefined,
@@ -415,6 +432,25 @@ export function create(
 			);
 			// Tracks the different stages of getSessionMetric
 			const connectionTrace = new StageTrace<string>("GetSession");
+			// Reject get session request on existing, inactive sessions if cluster is in draining process.
+			if (
+				clusterDrainingChecker &&
+				(await clusterDrainingChecker.isClusterDraining().catch((error) => {
+					Lumberjack.error("Failed to get cluster draining status", undefined, error);
+					return false;
+				}))
+			) {
+				Lumberjack.info("Cluster is in draining process. Reject get session request.");
+				connectionTrace?.stampStage("ClusterIsDraining");
+				const error = createFluidServiceNetworkError(503, {
+					message: "Server is unavailable. Please retry session discovery later.",
+					internalErrorCode: InternalErrorCode.ClusterDraining,
+				});
+				return handleResponse(Promise.reject(error), response);
+			}
+			connectionTrace?.stampStage("ClusterDrainingChecked");
+			const readDocumentRetryDelay: number = config.get("getSession:readDocumentRetryDelay");
+			const readDocumentMaxRetries: number = config.get("getSession:readDocumentMaxRetries");
 
 			const session = getSession(
 				documentUrls.documentOrdererUrl,
@@ -428,6 +464,8 @@ export function create(
 				clusterDrainingChecker,
 				ephemeralDocumentTTLSec,
 				connectionTrace,
+				readDocumentRetryDelay,
+				readDocumentMaxRetries,
 			);
 
 			const onSuccess = (result: ISession): void => {
@@ -440,7 +478,15 @@ export function create(
 				getSessionMetric.error("GetSession failed.", error);
 			};
 
-			handleResponse(session, response, false, undefined, undefined, onSuccess, onError);
+			return handleResponse(
+				session,
+				response,
+				false,
+				undefined,
+				undefined,
+				onSuccess,
+				onError,
+			);
 		},
 	);
 
@@ -460,7 +506,7 @@ export function create(
 			Lumberjack.info(`Received document delete request.`, lumberjackProperties);
 
 			const deleteP = documentDeleteService.deleteDocument(tenantId, documentId);
-			handleResponse(deleteP, response, undefined, undefined, 204);
+			return handleResponse(deleteP, response, undefined, undefined, 204);
 		},
 	);
 
