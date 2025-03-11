@@ -93,21 +93,21 @@ jobs:
                 echo "attempting tarball install"
                 npm i -g ./*.tgz
 
-          # - template: /tools/pipelines/templates/include-publish-npm-package-steps.yml@self
-          #   parameters:
-          #     artifactPath: tarballs
-          #     feedUrl: ${{ parameters.feedUrl }}
-          #     customEndPoint: ${{ parameters.customEndPoint }}
-          #     feedKind: ${{ parameters.feedKind }}
-          #     publishFlags: ${{ parameters.publishFlags }}
+          - template: /tools/pipelines/templates/include-publish-npm-package-steps.yml@self
+            parameters:
+              artifactPath: tarballs
+              feedUrl: ${{ parameters.feedUrl }}
+              customEndPoint: ${{ parameters.customEndPoint }}
+              feedKind: ${{ parameters.feedKind }}
+              publishFlags: ${{ parameters.publishFlags }}
 
-# - job: gitTagForBuild
-#   displayName: Push Git Tag for Build
-#   dependsOn: publish_${{ replace(parameters.environment, '-', '_') }}
-#   steps:
-#     - checkout: self
-#       clean: true
-#       persistCredentials: true # Necessary for creation of git tags to work
-#     - template: /tools/pipelines/templates/include-git-tag-steps.yml@self
-#       parameters:
-#         tagName: ${{ parameters.tagName }}
+- job: gitTagForBuild
+  displayName: Push Git Tag for Build
+  dependsOn: publish_${{ replace(parameters.environment, '-', '_') }}
+  steps:
+    - checkout: self
+      clean: true
+      persistCredentials: true # Necessary for creation of git tags to work
+    - template: /tools/pipelines/templates/include-git-tag-steps.yml@self
+      parameters:
+        tagName: ${{ parameters.tagName }}

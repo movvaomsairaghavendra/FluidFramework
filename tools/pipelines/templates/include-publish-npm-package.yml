@@ -27,6 +27,14 @@ parameters:
   type: string
   default: $(Pipeline.Workspace)/.pnpm-store
 
+resources:
+  pipelines:
+    # Listing this pipeline as a resource makes its artifacts automatically downloaded within a deployment job.
+    - pipeline: buildTools-resource
+      project: internal
+      source: Build - build-tools
+      branch: main
+
 stages:
 
 # This stage only runs for test-branch builds

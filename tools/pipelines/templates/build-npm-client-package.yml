@@ -147,12 +147,6 @@ resources:
       type: git
       name: 1ESPipelineTemplates/M365GPT
       ref: refs/tags/release
-  pipelines:
-    # Listing this pipeline as a resource makes its artifacts automatically downloaded within a deployment job.
-    - pipeline: buildTools-resource
-      project: internal
-      source: Build - build-tools
-      branch: main
 
 extends:
   # The pipeline extends the 1ES pipeline template which will inject different SDL and compliance tasks.
@@ -192,9 +186,6 @@ extends:
               checks: '${{ parameters.checks }}'
               # Install all dependencies, not just the root ones
               dependencyInstallCommand: pnpm install --frozen-lockfile
-
-      # Test deployment job
-      - template: /tools/pipelines/templates/test-template-deployment-job.yml@self
 
       # Install / Build / Test Stage
       - stage: build
@@ -605,7 +596,7 @@ extends:
               # Set variable startTest if everything is good so far and we'll start running tests,
               # so that the steps to process/upload test coverage results only run if we got to the point of actually running tests.
               - script: |
-                  echo "##vso[task.setvariable variable=startTest]true"
+                  echo "##vso[task.setvariable variable=startTestCoverage]true"
                 displayName: Start Test
 
               - ${{ each test in parameters.coverageTests }}:
@@ -617,7 +608,7 @@ extends:
 
               - task: Npm@1
                 displayName: 'npm run test:copyresults'
-                condition: and(succeededOrFailed(), eq(variables['startTest'], 'true'))
+                condition: and(succeededOrFailed(), eq(variables['startTestCoverage'], 'true'))
                 inputs:
                   command: custom
                   workingDir: '${{ parameters.buildDirectory }}'
@@ -629,7 +620,7 @@ extends:
               # A quick fix to patch the file with sed. (See https://github.com/bcoe/c8/issues/302)
               - task: Bash@3
                 displayName: Check for nyc/report directory
-                condition: and(succeededOrFailed(), eq(variables['startTest'], 'true'))
+                condition: and(succeededOrFailed(), eq(variables['startTestCoverage'], 'true'))
                 inputs:
                   targetType: 'inline'
                   workingDirectory: '${{ parameters.buildDirectory }}'
@@ -770,6 +761,7 @@ extends:
 
                 - task: Npm@1
                   displayName: 'npm run test:copyresults'
+                  condition: and(succeededOrFailed(), eq(variables['startTest'], 'true'))
                   inputs:
                     command: custom
                     workingDir: '${{ parameters.buildDirectory }}'
