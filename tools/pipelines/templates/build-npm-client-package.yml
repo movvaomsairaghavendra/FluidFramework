@@ -193,7 +193,7 @@ extends:
               # Install all dependencies, not just the root ones
               dependencyInstallCommand: pnpm install --frozen-lockfile
 
-      - template: /tools/pipelines/templates/test-deployment-job-stage.yml@self
+      # - template: /tools/pipelines/templates/test-deployment-job-stage.yml@self
 
       # Install / Build / Test Stage
       - stage: build
