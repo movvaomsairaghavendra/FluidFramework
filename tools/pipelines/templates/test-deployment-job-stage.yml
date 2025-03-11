@@ -66,12 +66,12 @@ stages:
                   npm i -g ./*.tgz
 
 
-  - template: /tools/pipelines/templates/include-publish-npm-package-deployment.yml@self
-    parameters:
-      feedUrl: $(ado-feeds-test) # Comes from the ado-feeds variable group
-      feedKind: internal-test
-      environment: test-package-build-feed
-      pool: ${{ parameters.pool }}
-      buildDirectory: ${{ parameters.buildDirectory }}
-      buildToolsVersionToInstall: ${{ parameters.buildToolsVersionToInstall }}
-      pnpmStorePath: ${{ parameters.pnpmStorePath }}
+  # - template: /tools/pipelines/templates/include-publish-npm-package-deployment.yml@self
+  #   parameters:
+  #     feedUrl: $(ado-feeds-test) # Comes from the ado-feeds variable group
+  #     feedKind: internal-test
+  #     environment: test-package-build-feed
+  #     pool: ${{ parameters.pool }}
+  #     buildDirectory: ${{ parameters.buildDirectory }}
+  #     buildToolsVersionToInstall: ${{ parameters.buildToolsVersionToInstall }}
+  #     pnpmStorePath: ${{ parameters.pnpmStorePath }}
