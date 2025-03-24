@@ -34,25 +34,26 @@ const metadataBlobName = ".metadata";
 
 enum CompressionAlgorithm {
 	None = 0,
-	GZip = 1,
+	LZ4 = 1,
 }
 
 // Type declarations for the lz4js functions
 const compress = (data: ArrayBufferLike): ArrayBufferLike => {
-	const input = IsoBuffer.from(data).buffer;
-	const result = (lz4Compress as (input: ArrayBufferLike) => ArrayBufferLike)(input);
-	if (!(result instanceof ArrayBuffer)) {
-		throw new TypeError("lz4Compress did not return an ArrayBuffer value");
+	const input = new Uint8Array(data);
+	const compressed = lz4Compress(input);
+	if (!compressed || !compressed.length) {
+		throw new TypeError("lz4Compress did not return a valid result");
 	}
-	return result;
+	return compressed.buffer;
 };
+
 const decompress = (data: ArrayBufferLike): ArrayBufferLike => {
-	const input = IsoBuffer.from(data).buffer;
-	const result = (lz4Decompress as (input: ArrayBufferLike) => ArrayBufferLike)(input);
-	if (!(result instanceof ArrayBuffer)) {
-		throw new TypeError("lz4Decompress did not return an ArrayBuffer value");
+	const input = new Uint8Array(data);
+	const decompressed = lz4Decompress(input);
+	if (!decompressed || !decompressed.length) {
+		throw new TypeError("lz4Decompress did not return a valid result");
 	}
-	return result;
+	return decompressed.buffer;
 };
 
 /**
@@ -81,6 +82,14 @@ export class DocumentStorageServiceCompressionAdapter extends DocumentStorageSer
 		return this.internalStorageService;
 	}
 
+	public getInternalService(): IDocumentStorageService {
+		return this.internalStorageService;
+	}
+
+	public getCompressionConfig(): ICompressionStorageConfig {
+		return this._config;
+	}
+
 	/**
 	 * This method returns `true` if there is a compression markup byte in the blob, otherwise `false`.
 	 * @param blob - The blob to compress.
@@ -94,11 +103,8 @@ export class DocumentStorageServiceCompressionAdapter extends DocumentStorageSer
 		if (bytes.length === 0) {
 			return false;
 		}
-		const firstByte = bytes.length > 0 ? bytes[0] : undefined;
-		if (firstByte === undefined) {
-			return false;
-		}
-		return firstByte === algorithmByte;
+		const firstByte = bytes[0];
+		return (firstByte & 0xf0) === algorithmByte;
 	}
 
 	/**
@@ -114,14 +120,11 @@ export class DocumentStorageServiceCompressionAdapter extends DocumentStorageSer
 		if (bytes.length === 0) {
 			throw new TypeError("Empty blob");
 		}
-		const firstByte = bytes.length > 0 ? bytes[0] : undefined;
-		if (firstByte === undefined) {
-			throw new TypeError("Invalid blob: no first byte");
-		}
-		if (firstByte !== algorithmByte) {
+		const firstByte = bytes[0];
+		if ((firstByte & 0xf0) !== algorithmByte) {
 			throw new TypeError("Invalid algorithm byte");
 		}
-		return CompressionAlgorithm.GZip;
+		return (firstByte & 0x0f) as CompressionAlgorithm;
 	}
 
 	/**
@@ -134,25 +137,9 @@ export class DocumentStorageServiceCompressionAdapter extends DocumentStorageSer
 		blob: ArrayBufferLike,
 		algorithm: number,
 	): ArrayBufferLike {
-		if (algorithm === SummaryCompressionAlgorithm.None) {
-			const bytes = new Uint8Array(blob);
-			const firstByte = bytes.length > 0 ? bytes[0] : undefined;
-			if (firstByte === undefined) {
-				throw new TypeError("Invalid blob: empty content");
-			}
-			// The following bitwise operation is intentional for byte manipulation
-			// eslint-disable-next-line no-bitwise
-			if ((firstByte & 0b11110000) !== 0b11110000) {
-				return blob;
-			}
-		}
-		assert(algorithm < 0x10, 0x6f5 /* Algorithm should be less than 0x10 */);
 		const blobView = new Uint8Array(blob);
-		const blobLength = blobView.length;
-		const newBlob = new Uint8Array(blobLength + 1);
-		// The following bitwise operation is intentional for byte manipulation
-		// eslint-disable-next-line no-bitwise
-		newBlob[0] = 0xb0 | algorithm;
+		const newBlob = new Uint8Array(blobView.length + 1);
+		newBlob[0] = algorithmByte | algorithm;
 		newBlob.set(blobView, 1);
 		return newBlob.buffer;
 	}
@@ -164,7 +151,7 @@ export class DocumentStorageServiceCompressionAdapter extends DocumentStorageSer
 	 */
 	private static removePrefixFromBlobIfPresent(blob: ArrayBufferLike): ArrayBufferLike {
 		const blobView = new Uint8Array(blob);
-		return this.hasPrefix(blob) ? IsoBuffer.from(blobView.subarray(1)) : blob;
+		return this.hasPrefix(blob) ? blobView.subarray(1).buffer : blob;
 	}
 
 	/**
@@ -200,7 +187,7 @@ export class DocumentStorageServiceCompressionAdapter extends DocumentStorageSer
 			);
 			const newSummaryBlob = {
 				type: SummaryType.Blob,
-				content: IsoBuffer.from(processed),
+				content: new Uint8Array(processed),
 			};
 			return newSummaryBlob;
 		} else {
@@ -223,7 +210,7 @@ export class DocumentStorageServiceCompressionAdapter extends DocumentStorageSer
 				DocumentStorageServiceCompressionAdapter.decodeBlob(original);
 			const newSummaryBlob = {
 				type: SummaryType.Blob,
-				content: IsoBuffer.from(processed),
+				content: new Uint8Array(processed),
 			};
 			return newSummaryBlob;
 		} else {

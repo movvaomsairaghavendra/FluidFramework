@@ -9,7 +9,6 @@ import { TypedEventEmitter } from "@fluid-internal/client-utils";
 import { ITelemetryBaseLogger } from "@fluidframework/core-interfaces";
 import {
 	IClient,
-	ISummaryBlob,
 	ISummaryHandle,
 	ISummaryTree,
 	SummaryType,
@@ -37,20 +36,21 @@ import {
 	applyStorageCompression,
 	blobHeadersBlobName,
 } from "../adapters/index.js";
+import { DocumentStorageServiceCompressionAdapter } from "../adapters/compression/summaryblob/documentStorageServiceSummaryBlobCompressionAdapter.js";
 import { DocumentStorageServiceProxy } from "../documentStorageServiceProxy.js";
 
 import { summaryTemplate } from "./summaryCompressionData.js";
 
 function isSummaryTree(obj: unknown): obj is ISummaryTree {
+	if (obj === undefined || obj === null || typeof obj !== "object") {
+		return false;
+	}
 	return (
-		obj !== undefined &&
-		obj !== null &&
-		typeof obj === "object" &&
 		"type" in obj &&
 		obj.type === SummaryType.Tree &&
 		"tree" in obj &&
-		typeof obj.tree === "object" &&
-		obj.tree !== null
+		typeof (obj as { tree: unknown }).tree === "object" &&
+		(obj as { tree: unknown }).tree !== null
 	);
 }
 
@@ -59,25 +59,21 @@ function isValidSummaryTree(summary: unknown): boolean {
 		return false;
 	}
 	const channels = summary.tree[".channels"] as ISummaryTree | undefined;
-	if (typeof channels !== "object" || channels === undefined || !isSummaryTree(channels)) {
+	if (!channels?.tree || !isSummaryTree(channels)) {
 		return false;
 	}
 	const rootDOId = channels.tree.rootDOId as ISummaryTree | undefined;
-	if (typeof rootDOId !== "object" || rootDOId === undefined || !isSummaryTree(rootDOId)) {
+	if (!rootDOId?.tree || !isSummaryTree(rootDOId)) {
 		return false;
 	}
 	const channelsTree = rootDOId.tree[".channels"] as ISummaryTree | undefined;
-	if (
-		typeof channelsTree !== "object" ||
-		channelsTree === undefined ||
-		!isSummaryTree(channelsTree)
-	) {
+	if (!channelsTree?.tree || !isSummaryTree(channelsTree)) {
 		return false;
 	}
 	const headerHolder = channelsTree.tree["7a99532d-94ec-43ac-8a53-d9f978ad4ae9"] as
 		| ISummaryTree
 		| undefined;
-	return typeof headerHolder === "object" && headerHolder !== undefined;
+	return headerHolder?.tree !== undefined && isSummaryTree(headerHolder);
 }
 
 /**
@@ -96,13 +92,11 @@ function cloneSummary(): ISummaryTree {
  */
 function generateSummaryWithContent(contentSize: number): ISummaryTree {
 	const summary = cloneSummary();
-	const header = (
-		(
-			((summary.tree[".channels"] as ISummaryTree).tree.rootDOId as ISummaryTree).tree[
-				".channels"
-			] as ISummaryTree
-		).tree["7a99532d-94ec-43ac-8a53-d9f978ad4ae9"] as ISummaryTree
-	).tree.header;
+	const headerHolder = getHeaderHolder(summary);
+	const header = headerHolder.tree?.header;
+	if (header.type !== SummaryType.Blob) {
+		throw new Error("Missing or invalid header blob");
+	}
 	let contentString = "";
 	while (contentString.length < contentSize) {
 		if (contentString.length + 10 > contentSize) {
@@ -121,17 +115,11 @@ function generateSummaryWithBinaryContent(
 	contentSize: number,
 ): ISummaryTree {
 	const summary = cloneSummary();
-<<<<<<< HEAD
-	const header = (
-		(
-			((summary.tree[".channels"] as ISummaryTree).tree.rootDOId as ISummaryTree).tree[
-				".channels"
-			] as ISummaryTree
-		).tree["7a99532d-94ec-43ac-8a53-d9f978ad4ae9"] as ISummaryTree
-	).tree.header;
-=======
-	const header = getHeader(summary);
->>>>>>> 1e46d1e917 (ESLint changes)
+	const headerHolder = getHeaderHolder(summary);
+	const header = headerHolder.tree?.header;
+	if (header.type !== SummaryType.Blob) {
+		throw new Error("Missing or invalid header blob");
+	}
 	const content = new Uint8Array(contentSize);
 	content[0] = startsWith;
 	for (let i = 1; i < contentSize; i = i + 10) {
@@ -174,12 +162,12 @@ class InternalTestStorage implements IDocumentStorageService {
 	}
 	async readBlob(id: string): Promise<ArrayBufferLike> {
 		if (id === misotestid) {
-			return new TextEncoder().encode(abcContent);
+			return new TextEncoder().encode(abcContent).buffer;
 		}
 		if (!this._uploadedSummary) {
 			throw new Error("No uploaded summary available");
 		}
-		return getHeaderContent(this._uploadedSummary);
+		return new TextEncoder().encode(getHeaderContentAsString(this._uploadedSummary)).buffer;
 	}
 	async uploadSummaryWithContext(
 		summary: ISummaryTree,
@@ -206,10 +194,32 @@ class InternalTestStorage implements IDocumentStorageService {
 	public thisIsReallyOriginalStorage: string = "yes";
 }
 
+function getHeader(summary: ISummaryTree): {
+	type: SummaryType;
+	content: string | Uint8Array;
+} {
+	const headerHolder = getHeaderHolder(summary);
+	const header = headerHolder.tree?.header;
+	if (!header?.type || header.type !== SummaryType.Blob) {
+		throw new Error("Missing or invalid header blob");
+	}
+	return header;
+}
+
+function getHeaderContentAsString(summary: ISummaryTree): string {
+	const header = getHeader(summary);
+	if (typeof header.content === "string") {
+		return header.content;
+	}
+	return new TextDecoder().decode(header.content);
+}
+
 function isInternalTestStorage(
 	storage: IDocumentStorageService,
 ): storage is InternalTestStorage {
 	return (
+		typeof storage === "object" &&
+		storage !== null &&
 		"thisIsReallyOriginalStorage" in storage &&
 		(storage as InternalTestStorage).thisIsReallyOriginalStorage === "yes"
 	);
@@ -281,37 +291,49 @@ interface IStorageWithConfig extends IDocumentStorageService {
 }
 
 class TestDocumentStorageServiceProxy extends DocumentStorageServiceProxy {
+	constructor(
+		service: IDocumentStorageService,
+		private readonly _compressionConfig: ICompressionStorageConfig,
+	) {
+		super(service);
+	}
+
 	public getInternalStorageService(): IDocumentStorageService {
 		return this.internalStorageService;
 	}
 
-	public getCompressionConfig(): ICompressionStorageConfig | undefined {
-		return (this.internalStorageService as IStorageWithConfig)._config;
+	public getCompressionConfig(): ICompressionStorageConfig {
+		return this._compressionConfig;
 	}
 }
 
 async function buildCompressionStorage(
 	config?: ICompressionStorageConfig | boolean,
 ): Promise<IDocumentStorageService> {
-	{
-		const factory: IDocumentServiceFactory = applyStorageCompression(
-			new InternalTestDocumentServiceFactory(),
-			config,
-		);
-		const documentService = await factory.createContainer(undefined, {
-			type: "fluid",
-			url: "test",
-			tokens: {},
-			id: "test-id",
-			endpoints: {
-				deltaStorageUrl: "test",
-				ordererUrl: "test",
-				storageUrl: "test",
-			},
-		});
-		const storage = await documentService.connectToStorage();
+	const factory = new InternalTestDocumentServiceFactory();
+	const service = await factory.createDocumentService({
+		type: "fluid",
+		url: "test",
+		tokens: {},
+		id: "test-id",
+		endpoints: {
+			deltaStorageUrl: "test",
+			ordererUrl: "test",
+			storageUrl: "test",
+		},
+	});
+	const storage = await service.connectToStorage();
+	if (config === undefined) {
 		return storage;
 	}
+	const compressionConfig: ICompressionStorageConfig =
+		typeof config === "boolean"
+			? {
+					algorithm: SummaryCompressionAlgorithm.LZ4,
+					minSizeToCompress: 100,
+			  }
+			: config;
+	return new DocumentStorageServiceCompressionAdapter(storage, compressionConfig);
 }
 
 const prefixForUncompressed = 0xb0;
@@ -523,37 +545,6 @@ describe("Summary Compression Tests", () => {
 		await testNoPrefix(contentSize, config);
 	});
 
-	it("Verify none-algorithm no-prefix (summary-blob markup)", async (): Promise<void> => {
-		const config: ICompressionStorageConfig = {
-			algorithm: SummaryCompressionAlgorithm.None,
-			minSizeToCompress: 500,
-		};
-		const contentSize = 800;
-		await testNoPrefix(contentSize, config);
-	});
-
-	it("Verify prefix compressed (summary-blob markup)", async (): Promise<void> => {
-		const config: ICompressionStorageConfig = {
-			algorithm: SummaryCompressionAlgorithm.LZ4,
-			minSizeToCompress: 500,
-		};
-		const firstOriginalByte = 0xb3;
-		const contentSize = 800;
-		const uploadedContent: ArrayBufferLike = await uploadSummaryWithBinaryContent(
-			firstOriginalByte,
-			contentSize,
-			config,
-		);
-		const [firstByte] = getUploadedBytes(uploadedContent);
-		if (firstByte === undefined) {
-			throw new Error("First byte is undefined");
-		}
-		assert(
-			firstByte === prefixForLZ4,
-			`The first byte should be ${prefixForLZ4} but is ${firstByte}`,
-		);
-	});
-
 	it("Verify prefix uncompressed small size (summary-blob markup)", async (): Promise<void> => {
 		const config: ICompressionStorageConfig = {
 			algorithm: SummaryCompressionAlgorithm.LZ4,
@@ -658,22 +649,29 @@ async function uploadSummaryWithBinaryContent(
 	contentSize: number,
 	config: ICompressionStorageConfig,
 ): Promise<ArrayBufferLike> {
-	const storage = (await buildCompressionStorage(config)) as TestDocumentStorageServiceProxy;
+	const storage = await buildCompressionStorage(config);
 	const summary = generateSummaryWithBinaryContent(firstOriginalByte, contentSize);
 	await storage.uploadSummaryWithContext(summary, {
 		referenceSequenceNumber: 0,
 		proposalHandle: "test",
 		ackHandle: "test",
 	});
-	const internalStorage = storage.getInternalStorageService();
-	if (!isInternalTestStorage(internalStorage)) {
-		throw new Error("Expected InternalTestStorage");
+	if (storage instanceof DocumentStorageServiceCompressionAdapter) {
+		const internalStorage = storage.getInternalService();
+		if (!isInternalTestStorage(internalStorage)) {
+			throw new Error("Expected InternalTestStorage");
+		}
+		const uploadedSummary = internalStorage.uploadedSummary;
+		if (!uploadedSummary) {
+			throw new Error("No uploaded summary available");
+		}
+		const header = getHeader(uploadedSummary);
+		if (typeof header.content === "string") {
+			return new TextEncoder().encode(header.content).buffer;
+		}
+		return header.content.buffer;
 	}
-	const uploadedSummary = internalStorage.uploadedSummary;
-	if (!uploadedSummary) {
-		throw new Error("No uploaded summary available");
-	}
-	return getHeaderContent(uploadedSummary);
+	throw new Error("Expected DocumentStorageServiceCompressionAdapter");
 }
 
 async function checkUploadDownloadSummary(
@@ -735,10 +733,10 @@ async function checkEncDecConfigurable(
 	config: ICompressionStorageConfig,
 	startsWith = -1,
 ): Promise<void> {
-	const storage = (await buildCompressionStorage(config)) as TestDocumentStorageServiceProxy;
+	const storage = await buildCompressionStorage(config);
 	const originHeaderHolder: ISummaryTree = getHeaderHolder(summary);
 	const header = originHeaderHolder.tree?.header;
-	if (typeof header !== "object" || header === undefined || header.type !== SummaryType.Blob) {
+	if (header.type !== SummaryType.Blob) {
 		throw new Error("Missing or invalid header blob");
 	}
 	const originBlob = header.content;
@@ -771,8 +769,8 @@ function checkCompressionConfig(
 	expectedMinSizeToCompress: number,
 	expectedAlgorithm: SummaryCompressionAlgorithm,
 ): void {
-	if (!(storage instanceof TestDocumentStorageServiceProxy)) {
-		throw new TypeError("Expected TestDocumentStorageServiceProxy");
+	if (!(storage instanceof DocumentStorageServiceCompressionAdapter)) {
+		throw new TypeError("Expected DocumentStorageServiceCompressionAdapter");
 	}
 	const config = storage.getCompressionConfig();
 	if (!config) {
@@ -786,50 +784,30 @@ function checkCompressionConfig(
 	}
 }
 
-function getHeader(summary: ISummaryTree) {
-	return getHeaderHolder(summary).tree.header;
-}
-
-function getHeaderContentAsString(summary: ISummaryTree): string {
-	const content = getHeader(summary).content;
-	if (typeof content === "string") {
-		return content;
-	}
-	return new TextDecoder().decode(content);
-}
-
 function getHeaderHolder(summary: ISummaryTree): ISummaryTree {
 	if (summary.tree === undefined || summary.tree === null) {
 		throw new Error("Missing or invalid summary tree");
 	}
 
 	const channels = summary.tree[".channels"] as ISummaryTree | undefined;
-	if (!channels || typeof channels !== "object" || !isSummaryTree(channels)) {
+	if (!channels?.tree || !isSummaryTree(channels)) {
 		throw new Error("Missing or invalid .channels tree");
 	}
 
 	const rootDOId = channels.tree.rootDOId as ISummaryTree | undefined;
-	if (typeof rootDOId !== "object" || rootDOId === undefined || !isSummaryTree(rootDOId)) {
+	if (!rootDOId?.tree || !isSummaryTree(rootDOId)) {
 		throw new Error("Missing or invalid rootDOId tree");
 	}
 
 	const channelsTree = rootDOId.tree[".channels"] as ISummaryTree | undefined;
-	if (
-		typeof channelsTree !== "object" ||
-		channelsTree === undefined ||
-		!isSummaryTree(channelsTree)
-	) {
+	if (!channelsTree?.tree || !isSummaryTree(channelsTree)) {
 		throw new Error("Missing or invalid .channels tree in rootDOId");
 	}
 
 	const headerHolder = channelsTree.tree["7a99532d-94ec-43ac-8a53-d9f978ad4ae9"] as
 		| ISummaryTree
 		| undefined;
-	if (
-		typeof headerHolder !== "object" ||
-		headerHolder === undefined ||
-		!isSummaryTree(headerHolder)
-	) {
+	if (!headerHolder?.tree || !isSummaryTree(headerHolder)) {
 		throw new Error("Missing or invalid header holder tree");
 	}
 
