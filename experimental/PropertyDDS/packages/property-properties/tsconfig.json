@@ -5,6 +5,8 @@
 		"strict": false,
 		"allowJs": true,
 		"checkJs": false,
+		// property-dds unit tests are observed to fail accessing getValues using ES2022 (current default)
+		"target": "ES2021",
 		"rootDir": "./src",
 		"outDir": "./dist",
 		"composite": true,

@@ -112,9 +112,10 @@ export class AuthorizationError
 	implements IAuthorizationError, IFluidErrorBase
 {
 	readonly errorType = DriverErrorTypes.authorizationError;
-	readonly claims?: string;
-	readonly tenantId?: string;
 	readonly canRetry = false;
+	// These properties are set via super constructor (do not repopulate; instead use `declare`)
+	readonly declare claims?: string;
+	readonly declare tenantId?: string;
 
 	constructor(
 		message: string,
@@ -176,7 +177,7 @@ export class NetworkErrorBasic<T extends string>
 export class NonRetryableError<T extends string> extends NetworkErrorBasic<T> {
 	constructor(
 		message: string,
-		readonly errorType: T,
+		errorType: T,
 		props: DriverErrorTelemetryProps,
 	) {
 		super(message, errorType, false, props);
@@ -189,7 +190,7 @@ export class NonRetryableError<T extends string> extends NetworkErrorBasic<T> {
 export class RetryableError<T extends string> extends NetworkErrorBasic<T> {
 	constructor(
 		message: string,
-		readonly errorType: T,
+		errorType: T,
 		props: DriverErrorTelemetryProps,
 	) {
 		super(message, errorType, true, props);

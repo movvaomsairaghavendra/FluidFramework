@@ -18,8 +18,7 @@ import { FlaggedError } from "./flaggedError";
  */
 export class OperationError extends Error {
 	static FLAGS = FlaggedError.FLAGS;
-	public stack: string | undefined;
-	public readonly name: string;
+	public declare readonly name: string;
 
 	/**
 	 * Instantiates an OperationError, which mimics the Error class with added properties

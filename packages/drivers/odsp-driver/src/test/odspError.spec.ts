@@ -278,9 +278,9 @@ describe("Odsp Error", () => {
 		} catch (error: unknown) {
 			assert(isIAuthorizationError(error), "error should be a IAuthorizationError");
 			assert(error.message.includes("TestMessage"), "message should contain original message");
-			assert.equal((error as AuthorizationError).canRetry, false, "canRetry should be false");
+			assert.equal(error.canRetry, false, "canRetry should be false");
 			assert.equal(
-				(error as AuthorizationError).claims,
+				error.claims,
 				'{"access_token":{"nbf":{"essential":true, "value":"1597959090"}}}',
 				"claims should be extracted from response",
 			);
