@@ -91,9 +91,9 @@ To remove the local API docs, simply remove the above variable or set it to `fal
 The Fluid Framework website collects basic user telemetry to help improve the experience for our users.
 The telemetry data includes anonymous information such as:
 
--   Daily / Monthly users
--   Pages visited
--   User flow
+- Daily / Monthly users
+- Pages visited
+- User flow
 
 This data is collected in compliance with relevant privacy standards.
 For more information, please refer to our [privacy policy.](https://www.microsoft.com/privacy/privacystatement).
@@ -189,8 +189,8 @@ We recommend leveraging these when possible over alternatives (ascii art, binary
 
 Rationale:
 
--   Docusaurus will ensure consistent styling
--   Non-binary source, directly in the document.
+- Docusaurus will ensure consistent styling
+- Non-binary source, directly in the document.
 
 For more details about leveraging Mermaid diagrams in Docusaurus, see [here](https://docusaurus.io/docs/markdown-features/diagrams).
 
@@ -212,8 +212,8 @@ The site's "current" version sidebar is configured via `sidebars.ts`.
 
 Sidebars for other versions are configured via `versioned_sidebars/version-<version-id>.json`.
 
--   Versioned sidebars do not yet support JS/TS file formats.
-    See <https://github.com/facebook/docusaurus/issues/10407>.
+- Versioned sidebars do not yet support JS/TS file formats.
+  See <https://github.com/facebook/docusaurus/issues/10407>.
 
 Note that sidebars are configured for documents under `docs` and `versioned_docs`; they do not apply to unversioned _Pages_.
 
@@ -226,8 +226,8 @@ This documentation is intended to be kept up-to-date with the most recent releas
 
 For now, this means we publish documentation (including generated API documentation) for versions `1.x` and `2.x`.
 
--   We also support generating API documentation for the local repo code in local development only.
-    See [Local API docs build](#local-api-docs-build), but these are not intended to be published.
+- We also support generating API documentation for the local repo code in local development only.
+  See [Local API docs build](#local-api-docs-build), but these are not intended to be published.
 
 #### Why Only Major Versions?
 
@@ -261,8 +261,8 @@ Note: generating the API documentation for the new "current" version will fail i
 Generally, it is recommended to include file extensions in links when possible.
 E.g., prefer `[foo](./foo.mdx)` over `[foo](./foo)`.
 
--   Docusaurus applies a different resolution strategy for relative _file path_ links than it does for URL links.
-    See: <https://docusaurus.io/docs/markdown-features/links>
+- Docusaurus applies a different resolution strategy for relative _file path_ links than it does for URL links.
+  See: <https://docusaurus.io/docs/markdown-features/links>
 
 #### Assets
 

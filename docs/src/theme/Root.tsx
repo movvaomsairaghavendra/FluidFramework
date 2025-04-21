@@ -8,24 +8,27 @@ import React, { useEffect } from "react";
 export type RootProps = React.PropsWithChildren;
 
 declare global {
-  interface TrustedTypePolicy {
-    createHTML(input: string): string;
-    createScript(input: string): string;
-    createScriptURL(input: string): string;
-  }
+	interface TrustedTypePolicy {
+		createHTML(input: string): string;
+		createScript(input: string): string;
+		createScriptURL(input: string): string;
+	}
 
-  interface TrustedTypePolicyFactory {
-    createPolicy(name: string, rules: {
-      createHTML?: (input: string) => string;
-      createScript?: (input: string) => string;
-      createScriptURL?: (input: string) => string;
-    }): TrustedTypePolicy;
-    getPolicy(name: string): TrustedTypePolicy | undefined;
-  }
+	interface TrustedTypePolicyFactory {
+		createPolicy(
+			name: string,
+			rules: {
+				createHTML?: (input: string) => string;
+				createScript?: (input: string) => string;
+				createScriptURL?: (input: string) => string;
+			},
+		): TrustedTypePolicy;
+		getPolicy(name: string): TrustedTypePolicy | undefined;
+	}
 
-  interface Window {
-    trustedTypes?: TrustedTypePolicyFactory;
-  }
+	interface Window {
+		trustedTypes?: TrustedTypePolicyFactory;
+	}
 }
 
 /**
@@ -36,26 +39,26 @@ declare global {
  */
 export default function Root({ children }: RootProps): React.ReactElement {
 	useEffect(() => {
-	const tt = (window as any).trustedTypes;
+		const tt = (window as any).trustedTypes;
 
-    if (
-      tt &&
-      typeof tt.createPolicy === 'function' &&
-      typeof tt.getPolicy === 'function' &&
-      !tt.getPolicy('ff#webpack')
-    ) {
-	  // Create a policy to allow the use of trusted types in the application
-	  tt.createPolicy('ff#webpack', {
-        createHTML: (input: any) => input,
-        createScript: (input: any) => input,
-        createScriptURL: (input: any) => input,
-      });
-    } else {
-		console.warn(
-			"Trusted Types are not supported in this browser. Please consider using a browser that supports Trusted Types for better security."
-		);
-	}
-  }, []);
+		if (
+			tt &&
+			typeof tt.createPolicy === "function" &&
+			typeof tt.getPolicy === "function" &&
+			!tt.getPolicy("ff#webpack")
+		) {
+			// Create a policy to allow the use of trusted types in the application
+			tt.createPolicy("ff#webpack", {
+				createHTML: (input: any) => input,
+				createScript: (input: any) => input,
+				createScriptURL: (input: any) => input,
+			});
+		} else {
+			console.warn(
+				"Trusted Types are not supported in this browser. Please consider using a browser that supports Trusted Types for better security.",
+			);
+		}
+	}, []);
 
 	return <>{children}</>;
 }
