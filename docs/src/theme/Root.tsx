@@ -39,24 +39,14 @@ declare global {
  */
 export default function Root({ children }: RootProps): React.ReactElement {
 	useEffect(() => {
-		const tt = (window as any).trustedTypes;
-
-		if (
-			tt &&
-			typeof tt.createPolicy === "function" &&
-			typeof tt.getPolicy === "function" &&
-			!tt.getPolicy("ff#webpack")
-		) {
-			// Create a policy to allow the use of trusted types in the application
-			tt.createPolicy("ff#webpack", {
-				createHTML: (input: any) => input,
-				createScript: (input: any) => input,
-				createScriptURL: (input: any) => input,
+		try {
+			window.trustedTypes?.createPolicy?.("ff#webpack", {
+				createHTML: (s) => s,
+				createScript: (s) => s,
+				createScriptURL: (s) => s,
 			});
-		} else {
-			console.warn(
-				"Trusted Types are not supported in this browser. Please consider using a browser that supports Trusted Types for better security.",
-			);
+		} catch (error) {
+			console.warn(error, "Trusted Types is not supported in this browser");
 		}
 	}, []);
 
