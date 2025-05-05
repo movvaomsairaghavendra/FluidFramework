@@ -68,6 +68,11 @@ import type {
 import { FetchSource, MessageType } from "@fluidframework/driver-definitions/internal";
 import { readAndParse } from "@fluidframework/driver-utils/internal";
 import type { IIdCompressor } from "@fluidframework/id-compressor";
+import {
+	createIdCompressor,
+	deserializeIdCompressor,
+	createSessionId,
+} from "@fluidframework/id-compressor/internal";
 import type {
 	IIdCompressorCore,
 	IdCreationRange,
@@ -977,10 +982,6 @@ export class ContainerRuntime
 		}
 
 		const createIdCompressorFn = async (): Promise<IIdCompressor & IIdCompressorCore> => {
-			const { createIdCompressor, deserializeIdCompressor, createSessionId } = await import(
-				"@fluidframework/id-compressor/internal"
-			);
-
 			/**
 			 * Because the IdCompressor emits so much telemetry, this function is used to sample
 			 * approximately 5% of all clients. Only the given percentage of sessions will emit telemetry.
@@ -1401,7 +1402,7 @@ export class ContainerRuntime
 
 		blobManagerLoadInfo: IBlobManagerLoadInfo,
 		private readonly _storage: IDocumentStorageService,
-		private readonly createIdCompressor: () => Promise<IIdCompressor & IIdCompressorCore>,
+		private readonly createIdCompressorFn: () => Promise<IIdCompressor & IIdCompressorCore>,
 
 		private readonly documentsSchemaController: DocumentsSchemaController,
 		featureGatesForTelemetry: Record<string, boolean | number | undefined>,
@@ -1994,7 +1995,7 @@ export class ContainerRuntime
 			this.sessionSchema.idCompressorMode === "on" ||
 			(this.sessionSchema.idCompressorMode === "delayed" && this.connected)
 		) {
-			this._idCompressor = await this.createIdCompressor();
+			this._idCompressor = await this.createIdCompressorFn();
 			// This is called from loadRuntime(), long before we process any ops, so there should be no ops accumulated yet.
 			assert(this.pendingIdCompressorOps.length === 0, 0x8ec /* no pending ops */);
 		}
@@ -2598,7 +2599,7 @@ export class ContainerRuntime
 			this.sessionSchema.idCompressorMode !== undefined &&
 			this._loadIdCompressor === undefined
 		) {
-			this._loadIdCompressor = this.createIdCompressor()
+			this._loadIdCompressor = this.createIdCompressorFn()
 				.then((compressor) => {
 					// Finalize any ranges we received while the compressor was turned off.
 					const ops = this.pendingIdCompressorOps;
