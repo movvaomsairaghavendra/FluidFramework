@@ -56,9 +56,9 @@
   },
   "dependencies": {
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/core-interfaces": "^1.4.0",
-    "@fluidframework/driver-definitions": "^1.4.0",
-    "@fluidframework/driver-utils": "^1.4.0",
+    "@fluidframework/core-interfaces": "workspace:~",
+    "@fluidframework/driver-definitions": "workspace:~",
+    "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/local-driver": "^1.4.0",
     "@fluidframework/odsp-doclib-utils": "workspace:~",
     "@fluidframework/odsp-driver": "^1.4.0",

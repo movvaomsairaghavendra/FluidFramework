@@ -62,10 +62,10 @@
   "dependencies": {
     "@fluid-experimental/ot": "^1.4.0",
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/core-interfaces": "^1.4.0",
-    "@fluidframework/datastore-definitions": "^1.4.0",
+    "@fluidframework/core-interfaces": "workspace:~",
+    "@fluidframework/datastore-definitions": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
-    "@fluidframework/shared-object-base": "^1.4.0",
+    "@fluidframework/shared-object-base": "workspace:~",
     "ot-json1": "^1.0.1"
   },
   "devDependencies": {

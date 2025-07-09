@@ -37,8 +37,8 @@
   },
   "dependencies": {
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/core-interfaces": "^1.4.0",
-    "@fluidframework/driver-definitions": "^1.4.0",
+    "@fluidframework/core-interfaces": "workspace:~",
+    "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "nconf": "^0.11.4",
     "url": "^0.11.0"

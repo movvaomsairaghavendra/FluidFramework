@@ -58,10 +58,10 @@
   "dependencies": {
     "@fluidframework/common-definitions": "^0.20.1",
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/core-interfaces": "^1.4.0",
+    "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/driver-base": "^1.4.0",
-    "@fluidframework/driver-definitions": "^1.4.0",
-    "@fluidframework/driver-utils": "^1.4.0",
+    "@fluidframework/driver-definitions": "workspace:~",
+    "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/routerlicious-driver": "^1.4.0",
     "@fluidframework/server-local-server": "^0.1036.5002",

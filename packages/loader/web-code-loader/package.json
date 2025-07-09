@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@fluidframework/container-definitions": "^1.4.0",
-    "@fluidframework/core-interfaces": "^1.4.0",
+    "@fluidframework/core-interfaces": "workspace:~",
     "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {
