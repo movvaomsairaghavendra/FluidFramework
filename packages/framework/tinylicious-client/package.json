@@ -42,8 +42,8 @@
     "@fluidframework/common-utils": "^0.32.2",
     "@fluidframework/container-definitions": "^1.4.0",
     "@fluidframework/container-loader": "^1.4.0",
-    "@fluidframework/driver-definitions": "^1.4.0",
-    "@fluidframework/driver-utils": "^1.4.0",
+    "@fluidframework/driver-definitions": "workspace:~",
+    "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/fluid-static": "^1.4.0",
     "@fluidframework/map": "^1.4.0",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
@@ -80,5 +80,5 @@
   "typeValidation": {
     "broken": {},
     "entrypoint": "public"
-  }
+  } 
 }

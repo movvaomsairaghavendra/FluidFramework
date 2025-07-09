@@ -33,8 +33,8 @@
   },
   "dependencies": {
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/driver-definitions": "^1.4.0",
-    "@fluidframework/driver-utils": "^1.4.0",
+    "@fluidframework/driver-definitions": "workspace:~",
+    "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/replay-driver": "^1.4.0",
     "jsonschema": "^1.2.6"

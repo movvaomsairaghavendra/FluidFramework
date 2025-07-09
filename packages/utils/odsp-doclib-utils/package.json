@@ -60,8 +60,8 @@
   "dependencies": {
     "@fluidframework/common-definitions": "^0.20.1",
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/driver-definitions": "^1.4.0",
-    "@fluidframework/driver-utils": "^1.4.0",
+    "@fluidframework/driver-definitions": "workspace:~",
+    "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/odsp-driver-definitions": "^1.4.0",
     "@fluidframework/telemetry-utils": "workspace:~",
     "node-fetch": "^2.6.1"

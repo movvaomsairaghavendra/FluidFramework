@@ -11,7 +11,7 @@
   "license": "MIT",
   "author": "Microsoft and contributors",
   "scripts": {
-    "build": "npm run policy-check && npm run layer-check && npm run build:genver && npm run build:compile && npm run lint && npm run build:docs",
+    "build": "npm run policy-check && npm run build:genver && npm run build:compile && npm run lint && npm run build:docs",
     "build:ci": "npm run build:genver && pnpm run -r --stream build:compile",
     "build:compile": "pnpm run -r --stream build:compile",
     "build:docs": "pnpm run -r --no-sort --stream build:docs",

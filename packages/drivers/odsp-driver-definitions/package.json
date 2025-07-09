@@ -35,7 +35,7 @@
     "typetests:prepare": "flub typetests --dir . --reset --previous --normalize"
   },
   "dependencies": {
-    "@fluidframework/driver-definitions": "^1.4.0"
+    "@fluidframework/driver-definitions": "workspace:~"
   },
   "devDependencies": {
     "@fluidframework/build-common": "^0.24.0",
