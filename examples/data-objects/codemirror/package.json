@@ -67,7 +67,7 @@
     "concurrently": "^6.2.0",
     "copyfiles": "^2.1.0",
     "css-loader": "^1.0.0",
-    "eslint": "~8.6.0",
+    "eslint": "~8.55.0",
     "rimraf": "^2.6.2",
     "style-loader": "^1.0.0",
     "ts-loader": "^9.3.0",

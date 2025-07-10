@@ -7,6 +7,7 @@ settings:
 overrides:
   '@types/lodash': 4.14.182
   esbuild: ^0.25.0
+  eslint-plugin-jsdoc@39.3.25: 39.9.1
   get-tsconfig: ^4.7.3
   node-fetch: ^2.6.9
   good-fences>nodegit: npm:empty-npm-package@1.0.0
@@ -105,7 +106,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
@@ -114,7 +115,7 @@ importers:
         version: link:../../../packages/test/test-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -143,8 +144,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-webpack-plugin:
         specifier: ^5.5.0
         version: 5.6.3(webpack@5.100.0)
@@ -232,13 +233,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -264,8 +265,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-webpack-plugin:
         specifier: ^5.5.0
         version: 5.6.3(webpack@5.100.0)
@@ -383,13 +384,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -430,8 +431,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-loader:
         specifier: ^3.1.0
         version: 3.1.2(webpack@5.100.0)
@@ -522,13 +523,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -563,8 +564,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-webpack-plugin:
         specifier: ^5.5.0
         version: 5.6.3(webpack@5.100.0)
@@ -640,13 +641,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -678,8 +679,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -764,7 +765,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
@@ -773,7 +774,7 @@ importers:
         version: link:../../../packages/test/test-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -802,8 +803,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -906,10 +907,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -923,8 +924,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -982,13 +983,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -1017,8 +1018,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -1100,10 +1101,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/react':
         specifier: ^16.9.15
         version: 16.14.65
@@ -1114,8 +1115,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-loader:
         specifier: ^3.1.0
         version: 3.1.2(webpack@5.100.0)
@@ -1194,13 +1195,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -1223,8 +1224,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -1285,13 +1286,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -1326,8 +1327,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -1424,13 +1425,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -1465,8 +1466,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -1533,13 +1534,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -1562,8 +1563,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -1611,10 +1612,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/events':
         specifier: ^3.0.0
         version: 3.0.3
@@ -1643,8 +1644,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       puppeteer:
         specifier: ^1.20.0
         version: 1.20.0
@@ -1690,13 +1691,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -1731,8 +1732,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -1793,13 +1794,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -1834,8 +1835,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -1896,13 +1897,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -1937,8 +1938,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -2005,13 +2006,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -2034,8 +2035,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-webpack-plugin:
         specifier: ^5.5.0
         version: 5.6.3(webpack@5.100.0)
@@ -2180,10 +2181,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -2200,8 +2201,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -2307,7 +2308,7 @@ importers:
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -2342,8 +2343,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -2452,10 +2453,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/events':
         specifier: ^3.0.0
         version: 3.0.3
@@ -2475,8 +2476,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -2546,7 +2547,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../../packages/test/mocha-test-setup
@@ -2564,7 +2565,7 @@ importers:
         version: link:../../../packages/test/test-version-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/debug':
         specifier: ^4.1.5
         version: 4.1.12
@@ -2581,8 +2582,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -2649,10 +2650,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -2666,8 +2667,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -2734,13 +2735,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -2766,8 +2767,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-webpack-plugin:
         specifier: ^5.5.0
         version: 5.6.3(webpack@5.100.0)
@@ -2858,7 +2859,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
@@ -2867,7 +2868,7 @@ importers:
         version: link:../../../packages/test/test-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -2899,8 +2900,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -3024,13 +3025,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/jest':
         specifier: 22.2.3
         version: 22.2.3
@@ -3059,8 +3060,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-loader:
         specifier: ^3.1.0
         version: 3.1.2(webpack@5.100.0)
@@ -3166,7 +3167,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../../packages/test/mocha-test-setup
@@ -3181,7 +3182,7 @@ importers:
         version: link:../../../packages/test/test-version-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/debug':
         specifier: ^4.1.5
         version: 4.1.12
@@ -3210,8 +3211,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.1(webpack@5.100.0)
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       file-loader:
         specifier: ^3.0.1
         version: 3.0.1(webpack@5.100.0)
@@ -3323,13 +3324,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -3361,8 +3362,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-webpack-plugin:
         specifier: ^5.5.0
         version: 5.6.3(webpack@5.100.0)
@@ -3429,13 +3430,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -3461,8 +3462,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       html-webpack-plugin:
         specifier: ^5.5.0
         version: 5.6.3(webpack@5.100.0)
@@ -3595,7 +3596,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
@@ -3630,29 +3631,29 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       eslint-plugin-eslint-comments:
         specifier: ~3.2.0
-        version: 3.2.0(eslint@8.6.0)
+        version: 3.2.0(eslint@8.55.0)
       eslint-plugin-import:
         specifier: ~2.25.4
-        version: 2.25.4(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)
+        version: 2.25.4(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)
       eslint-plugin-jsdoc:
-        specifier: ~39.3.0
-        version: 39.3.25(eslint@8.6.0)
+        specifier: ~46.8.2
+        version: 46.8.2(eslint@8.55.0)
       eslint-plugin-prefer-arrow:
         specifier: ~1.2.2
-        version: 1.2.3(eslint@8.6.0)
+        version: 1.2.3(eslint@8.55.0)
       eslint-plugin-react:
         specifier: ~7.28.0
-        version: 7.28.0(eslint@8.6.0)
+        version: 7.28.0(eslint@8.55.0)
       eslint-plugin-unicorn:
         specifier: ~40.0.0
-        version: 40.0.0(eslint@8.6.0)
+        version: 40.0.0(eslint@8.55.0)
       eslint-plugin-unused-imports:
         specifier: ~2.0.0
-        version: 2.0.0(@typescript-eslint/eslint-plugin@5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)
+        version: 2.0.0(@typescript-eslint/eslint-plugin@5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)
       html-webpack-plugin:
         specifier: ^5.5.0
         version: 5.6.3(webpack@5.100.0)
@@ -3746,10 +3747,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/react':
         specifier: ^16.9.15
         version: 16.14.65
@@ -3760,8 +3761,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -3846,13 +3847,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -3866,8 +3867,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -3918,8 +3919,8 @@ importers:
         version: 2.0.2(webpack@5.100.0)
     devDependencies:
       '@cerner/duplicate-package-checker-webpack-plugin':
-        specifier: ^2.3.0
-        version: 2.6.0(webpack@5.100.0)
+        specifier: ~2.3.0
+        version: 2.3.0(webpack@5.100.0)
       '@fluidframework/build-common':
         specifier: ^0.24.0
         version: 0.24.0
@@ -3928,13 +3929,13 @@ importers:
         version: 0.0.8505
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@mixer/webpack-bundle-compare':
         specifier: ^0.1.0
         version: 0.1.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/jest':
         specifier: 22.2.3
         version: 22.2.3
@@ -3960,8 +3961,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -4010,13 +4011,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       concurrently:
         specifier: ^6.2.0
         version: 6.5.1
@@ -4024,8 +4025,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -4071,7 +4072,7 @@ importers:
         version: link:../../../../packages/test/mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/lodash':
         specifier: 4.14.182
         version: 4.14.182
@@ -4094,8 +4095,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -4153,7 +4154,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../../../packages/test/mocha-test-setup
@@ -4162,7 +4163,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/debug':
         specifier: ^4.1.5
         version: 4.1.12
@@ -4191,8 +4192,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -4282,7 +4283,7 @@ importers:
         version: link:../../../../packages/common/driver-definitions
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/local-driver':
         specifier: ^1.4.0
         version: link:../../../../packages/drivers/local-driver
@@ -4309,7 +4310,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/lodash':
         specifier: 4.14.182
         version: 4.14.182
@@ -4338,8 +4339,8 @@ importers:
         specifier: ^10.1.0
         version: 10.1.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -4405,8 +4406,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -4461,7 +4462,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../../../packages/test/mocha-test-setup
@@ -4473,7 +4474,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -4493,8 +4494,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -4549,7 +4550,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../../../../packages/test/mocha-test-setup
@@ -4561,7 +4562,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -4581,8 +4582,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -4664,7 +4665,7 @@ importers:
         version: link:../../../packages/runtime/container-runtime
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../../packages/test/mocha-test-setup
@@ -4691,7 +4692,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/lru-cache':
         specifier: ^5.1.0
         version: 5.1.1
@@ -4723,8 +4724,8 @@ importers:
         specifier: ^10.1.0
         version: 10.1.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -4782,13 +4783,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -4817,8 +4818,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -4900,7 +4901,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../../../packages/test/mocha-test-setup
@@ -4909,7 +4910,7 @@ importers:
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -4941,8 +4942,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -5003,13 +5004,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -5038,8 +5039,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -5121,13 +5122,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-tools':
         specifier: ^2.0.1
         version: 2.0.1
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/expect-puppeteer':
         specifier: 2.2.1
         version: 2.2.1
@@ -5156,8 +5157,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       jest:
         specifier: ^26.6.3
         version: 26.6.3
@@ -5230,13 +5231,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -5250,8 +5251,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -5306,10 +5307,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -5320,8 +5321,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -5370,7 +5371,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../../packages/test/mocha-test-setup
@@ -5379,7 +5380,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -5393,8 +5394,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -5440,13 +5441,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -5460,8 +5461,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -5501,13 +5502,13 @@ importers:
         version: '@fluidframework/container-definitions@1.3.0'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/events':
         specifier: ^3.0.0
         version: 3.0.3
@@ -5518,8 +5519,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -5543,13 +5544,13 @@ importers:
         version: '@fluidframework/core-interfaces@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -5560,8 +5561,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -5595,13 +5596,13 @@ importers:
         version: '@fluidframework/driver-definitions@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       concurrently:
         specifier: ^6.2.0
         version: 6.5.1
@@ -5609,8 +5610,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -5659,7 +5660,7 @@ importers:
         version: '@fluidframework/cell@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -5671,7 +5672,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -5688,8 +5689,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -5741,7 +5742,7 @@ importers:
         version: '@fluidframework/counter@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -5753,7 +5754,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -5770,8 +5771,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -5820,7 +5821,7 @@ importers:
         version: 0.55.0(@types/node@22.16.2)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/ink-previous':
         specifier: npm:@fluidframework/ink@1.3.1
         version: '@fluidframework/ink@1.3.1'
@@ -5835,7 +5836,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -5849,8 +5850,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -5914,7 +5915,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/map-previous':
         specifier: npm:@fluidframework/map@1.3.1
         version: '@fluidframework/map@1.3.1'
@@ -5929,7 +5930,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -5946,8 +5947,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6020,7 +6021,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/matrix-previous':
         specifier: npm:@fluidframework/matrix@1.3.1
         version: '@fluidframework/matrix@1.3.1'
@@ -6035,7 +6036,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@tiny-calc/micro':
         specifier: 0.0.0-alpha.5
         version: 0.0.0-alpha.5
@@ -6058,8 +6059,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       hotloop:
         specifier: ^1.2.0
         version: 1.2.0
@@ -6132,7 +6133,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/merge-tree-previous':
         specifier: npm:@fluidframework/merge-tree@1.3.1
         version: '@fluidframework/merge-tree@1.3.1'
@@ -6147,7 +6148,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/diff':
         specifier: ^3.5.1
         version: 3.5.8
@@ -6173,8 +6174,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6235,7 +6236,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -6250,7 +6251,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -6267,8 +6268,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6323,7 +6324,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -6335,7 +6336,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/events':
         specifier: ^3.0.0
         version: 3.0.3
@@ -6355,8 +6356,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6411,7 +6412,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -6426,7 +6427,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -6443,8 +6444,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6514,7 +6515,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/gitresources':
         specifier: ^0.1036.5002
         version: 0.1036.5002
@@ -6535,7 +6536,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/diff':
         specifier: ^3.5.1
         version: 3.5.8
@@ -6561,8 +6562,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6632,7 +6633,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -6647,7 +6648,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/benchmark':
         specifier: ^2.1.0
         version: 2.1.5
@@ -6670,8 +6671,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6723,7 +6724,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -6738,7 +6739,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/benchmark':
         specifier: ^2.1.0
         version: 2.1.5
@@ -6761,8 +6762,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6829,7 +6830,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -6841,7 +6842,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -6858,8 +6859,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -6893,10 +6894,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -6907,8 +6908,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -6951,7 +6952,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -6963,7 +6964,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/diff':
         specifier: ^3.5.1
         version: 3.5.8
@@ -6992,8 +6993,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7048,13 +7049,13 @@ importers:
         version: '@fluidframework/debugger@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -7068,8 +7069,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7112,13 +7113,13 @@ importers:
         version: '@fluidframework/driver-base@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -7129,8 +7130,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -7170,13 +7171,13 @@ importers:
         version: '@fluidframework/driver-web-cache@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/jest':
         specifier: 22.2.3
         version: 22.2.3
@@ -7190,8 +7191,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       fake-indexeddb:
         specifier: 3.1.4
         version: 3.1.4
@@ -7237,7 +7238,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/file-driver-previous':
         specifier: npm:@fluidframework/file-driver@1.3.1
         version: '@fluidframework/file-driver@1.3.1'
@@ -7246,7 +7247,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -7257,8 +7258,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -7298,13 +7299,13 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -7318,8 +7319,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7368,7 +7369,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/iframe-driver-previous':
         specifier: npm:@fluidframework/iframe-driver@1.3.1
         version: '@fluidframework/iframe-driver@1.3.1'
@@ -7377,7 +7378,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -7394,8 +7395,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7468,7 +7469,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/local-driver-previous':
         specifier: npm:@fluidframework/local-driver@1.3.1
         version: '@fluidframework/local-driver@1.3.1(encoding@0.1.13)'
@@ -7477,7 +7478,7 @@ importers:
         version: link:../../test/mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/jsrsasign':
         specifier: ^10.5.12
         version: 10.5.15
@@ -7494,8 +7495,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7574,7 +7575,7 @@ importers:
         version: 0.55.0(@types/node@22.16.2)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -7586,7 +7587,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -7609,8 +7610,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7644,7 +7645,7 @@ importers:
         version: 0.55.0(@types/node@22.16.2)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/odsp-driver-definitions-previous':
         specifier: npm:@fluidframework/odsp-driver-definitions@1.3.1
         version: '@fluidframework/odsp-driver-definitions@1.3.1'
@@ -7656,7 +7657,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       concurrently:
         specifier: ^6.2.0
         version: 6.5.1
@@ -7667,8 +7668,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -7702,7 +7703,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -7711,7 +7712,7 @@ importers:
         version: '@fluidframework/odsp-urlresolver@1.3.1(encoding@0.1.13)'
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -7725,8 +7726,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7769,7 +7770,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/replay-driver-previous':
         specifier: npm:@fluidframework/replay-driver@1.3.1
         version: '@fluidframework/replay-driver@1.3.1'
@@ -7778,7 +7779,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -7795,8 +7796,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7872,7 +7873,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -7884,7 +7885,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -7913,8 +7914,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -7957,7 +7958,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: 0.1028.2000
@@ -7966,7 +7967,7 @@ importers:
         version: '@fluidframework/routerlicious-host@1.3.1'
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -7977,8 +7978,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8021,7 +8022,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -8030,7 +8031,7 @@ importers:
         version: '@fluidframework/routerlicious-urlresolver@1.3.1'
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -8050,8 +8051,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8100,13 +8101,13 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/tinylicious-driver-previous':
         specifier: npm:@fluidframework/tinylicious-driver@1.3.1
         version: '@fluidframework/tinylicious-driver@1.3.1(encoding@0.1.13)'
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/jsrsasign':
         specifier: ^10.5.12
         version: 10.5.15
@@ -8120,8 +8121,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8179,10 +8180,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -8193,8 +8194,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8273,7 +8274,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -8282,7 +8283,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -8299,8 +8300,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8361,7 +8362,7 @@ importers:
         version: '@fluidframework/data-object-base@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -8370,7 +8371,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -8384,8 +8385,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8431,7 +8432,7 @@ importers:
         version: '@fluidframework/dds-interceptions@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -8443,7 +8444,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/diff':
         specifier: ^3.5.1
         version: 3.5.8
@@ -8469,8 +8470,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8519,13 +8520,13 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -8542,8 +8543,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       fluid-framework-previous:
         specifier: npm:fluid-framework@1.3.1
         version: fluid-framework@1.3.1
@@ -8607,7 +8608,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/fluid-static-previous':
         specifier: npm:@fluidframework/fluid-static@1.3.1
         version: '@fluidframework/fluid-static@1.3.1'
@@ -8625,7 +8626,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/assert':
         specifier: ^1.5.1
         version: 1.5.11
@@ -8645,8 +8646,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8686,7 +8687,7 @@ importers:
         version: 0.55.0(@types/node@22.16.2)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -8701,7 +8702,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/assert':
         specifier: ^1.5.1
         version: 1.5.11
@@ -8727,8 +8728,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8764,7 +8765,7 @@ importers:
         version: link:../../runtime/datastore
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -8776,7 +8777,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -8793,8 +8794,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8831,7 +8832,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-client-utils-previous':
         specifier: npm:@fluidframework/test-client-utils@1.3.1
         version: '@fluidframework/test-client-utils@1.3.1(encoding@0.1.13)'
@@ -8840,7 +8841,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -8851,8 +8852,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -8928,7 +8929,7 @@ importers:
         version: link:../../runtime/container-runtime-definitions
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-utils':
         specifier: ^1.3.0
         version: link:../../test/test-utils
@@ -8940,7 +8941,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -8954,8 +8955,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -8998,7 +8999,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -9013,7 +9014,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/diff':
         specifier: ^3.5.1
         version: 3.5.8
@@ -9042,8 +9043,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -9083,7 +9084,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/view-adapters-previous':
         specifier: npm:@fluidframework/view-adapters@1.3.1
         version: '@fluidframework/view-adapters@1.3.1'
@@ -9092,7 +9093,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/react':
         specifier: ^16.9.15
         version: 16.14.65
@@ -9103,8 +9104,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -9126,7 +9127,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/view-interfaces-previous':
         specifier: npm:@fluidframework/view-interfaces@1.3.1
         version: '@fluidframework/view-interfaces@1.3.1'
@@ -9135,7 +9136,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/react':
         specifier: ^16.9.15
         version: 16.14.65
@@ -9149,8 +9150,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -9223,7 +9224,7 @@ importers:
         version: '@fluidframework/container-loader@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -9235,7 +9236,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/double-ended-queue':
         specifier: ^2.1.0
         version: 2.1.7
@@ -9267,8 +9268,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -9317,7 +9318,7 @@ importers:
         version: '@fluidframework/container-utils@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -9329,7 +9330,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -9346,8 +9347,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -9405,7 +9406,7 @@ importers:
         version: '@fluidframework/driver-utils@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -9417,7 +9418,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -9434,8 +9435,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -9478,19 +9479,19 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-loader-utils-previous':
         specifier: npm:@fluidframework/test-loader-utils@1.3.1
         version: '@fluidframework/test-loader-utils@1.3.1'
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       concurrently:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -9518,7 +9519,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: 0.1028.2000
@@ -9530,7 +9531,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/isomorphic-fetch':
         specifier: ^0.0.35
         version: 0.0.35
@@ -9541,8 +9542,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -9624,7 +9625,7 @@ importers:
         version: '@fluidframework/container-runtime@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -9636,7 +9637,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/double-ended-queue':
         specifier: ^2.1.0
         version: 2.1.7
@@ -9662,8 +9663,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -9715,13 +9716,13 @@ importers:
         version: '@fluidframework/container-runtime-definitions@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       concurrently:
         specifier: ^6.2.0
         version: 6.5.1
@@ -9729,8 +9730,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -9803,7 +9804,7 @@ importers:
         version: '@fluidframework/datastore@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -9815,7 +9816,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -9835,8 +9836,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -9885,13 +9886,13 @@ importers:
         version: '@fluidframework/datastore-definitions@1.3.1'
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       concurrently:
         specifier: ^6.2.0
         version: 6.5.1
@@ -9899,8 +9900,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -9931,7 +9932,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/garbage-collector-previous':
         specifier: npm:@fluidframework/garbage-collector@1.3.1
         version: '@fluidframework/garbage-collector@1.3.1'
@@ -9943,7 +9944,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/events':
         specifier: ^3.0.0
         version: 3.0.3
@@ -9963,8 +9964,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10007,7 +10008,7 @@ importers:
         version: 0.55.0(@types/node@22.16.2)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/runtime-definitions-previous':
         specifier: npm:@fluidframework/runtime-definitions@1.3.1
         version: '@fluidframework/runtime-definitions@1.3.1'
@@ -10016,7 +10017,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       concurrently:
         specifier: ^6.2.0
         version: 6.5.1
@@ -10024,8 +10025,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -10080,7 +10081,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -10092,7 +10093,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -10109,8 +10110,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10192,7 +10193,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -10204,7 +10205,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/jsrsasign':
         specifier: ^10.5.12
         version: 10.5.15
@@ -10227,8 +10228,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10268,7 +10269,7 @@ importers:
         version: link:../../common/driver-definitions
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../mocha-test-setup
@@ -10286,7 +10287,7 @@ importers:
         version: link:../../loader/test-loader-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/assert':
         specifier: ^1.5.1
         version: 1.5.11
@@ -10300,8 +10301,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10379,7 +10380,7 @@ importers:
         version: link:../../loader/driver-utils
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/ink':
         specifier: ^1.4.0
         version: link:../../dds/ink
@@ -10448,7 +10449,7 @@ importers:
         version: link:../test-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -10468,8 +10469,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10518,7 +10519,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup-previous':
         specifier: npm:@fluidframework/mocha-test-setup@1.3.1
         version: '@fluidframework/mocha-test-setup@1.3.1'
@@ -10527,7 +10528,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -10541,8 +10542,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       nyc:
         specifier: ^15.0.0
         version: 15.1.0
@@ -10627,13 +10628,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -10647,8 +10648,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10679,13 +10680,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -10705,8 +10706,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10740,10 +10741,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -10760,8 +10761,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10804,7 +10805,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-driver-definitions-previous':
         specifier: npm:@fluidframework/test-driver-definitions@1.3.1
         version: '@fluidframework/test-driver-definitions@1.3.1'
@@ -10813,7 +10814,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -10827,8 +10828,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -10916,7 +10917,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-drivers-previous':
         specifier: npm:@fluidframework/test-drivers@1.3.1
         version: '@fluidframework/test-drivers@1.3.1(encoding@0.1.13)'
@@ -10925,7 +10926,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -10939,8 +10940,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -11109,10 +11110,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -11129,8 +11130,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       nock:
         specifier: ^13.3.3
         version: 13.5.6
@@ -11161,7 +11162,7 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../mocha-test-setup
@@ -11170,7 +11171,7 @@ importers:
         version: '@fluidframework/test-pairwise-generator@1.3.1'
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -11184,8 +11185,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -11288,13 +11289,13 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -11311,8 +11312,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -11409,7 +11410,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-utils-previous':
         specifier: npm:@fluidframework/test-utils@1.3.1
         version: '@fluidframework/test-utils@1.3.1(encoding@0.1.13)'
@@ -11418,7 +11419,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/debug':
         specifier: ^4.1.5
         version: 4.1.12
@@ -11447,8 +11448,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -11560,13 +11561,13 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/test-version-utils-previous':
         specifier: npm:@fluidframework/test-version-utils@1.3.1
         version: '@fluidframework/test-version-utils@1.3.1(encoding@0.1.13)'
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -11589,8 +11590,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -11681,10 +11682,10 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/node':
         specifier: ^14.18.0
         version: 14.18.63
@@ -11692,8 +11693,8 @@ importers:
         specifier: ^6.2.0
         version: 6.5.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -11793,13 +11794,13 @@ importers:
         version: 0.24.0
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@microsoft/api-extractor':
         specifier: ~7.22.2
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/json-stable-stringify':
         specifier: ^1.0.32
         version: 1.2.0
@@ -11813,8 +11814,8 @@ importers:
         specifier: ^2.1.0
         version: 2.4.1
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -11926,13 +11927,13 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/express':
         specifier: ^4.11.0
         version: 4.17.23
@@ -11952,8 +11953,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       fs-extra:
         specifier: ^9.1.0
         version: 9.1.0
@@ -12017,7 +12018,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -12026,7 +12027,7 @@ importers:
         version: '@fluidframework/odsp-doclib-utils@1.3.1(encoding@0.1.13)'
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/mocha':
         specifier: ^9.1.1
         version: 9.1.1
@@ -12043,8 +12044,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -12087,7 +12088,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -12099,7 +12100,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/debug':
         specifier: ^4.1.5
         version: 4.1.12
@@ -12125,8 +12126,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -12178,7 +12179,7 @@ importers:
         version: 0.55.0(@types/node@14.18.63)
       '@fluidframework/eslint-config-fluid':
         specifier: ^0.28.2000
-        version: 0.28.2000(eslint@8.6.0)(typescript@4.5.5)
+        version: 0.28.2000(eslint@8.55.0)(typescript@4.5.5)
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
         version: link:../../test/mocha-test-setup
@@ -12190,7 +12191,7 @@ importers:
         version: 7.22.2
       '@rushstack/eslint-config':
         specifier: ^2.5.1
-        version: 2.6.2(eslint@8.6.0)(typescript@4.5.5)
+        version: 2.6.2(eslint@8.55.0)(typescript@4.5.5)
       '@types/debug':
         specifier: ^4.1.5
         version: 4.1.12
@@ -12213,8 +12214,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.3
       eslint:
-        specifier: ~8.6.0
-        version: 8.6.0
+        specifier: ~8.55.0
+        version: 8.55.0
       mocha:
         specifier: ^10.0.0
         version: 10.8.2
@@ -12429,9 +12430,9 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@cerner/duplicate-package-checker-webpack-plugin@2.6.0':
-    resolution: {integrity: sha512-AqLUy1E42ZJ7p9VxXcIcj/elIdzZ3aRPvPLj7mO8akg1NypkJTIt3wRPVJYrp4Yo3vlxiTKXgtvLt4BP3r4p7A==}
-    engines: {node: 10 || 12 || 14, npm: 6 || 9}
+  '@cerner/duplicate-package-checker-webpack-plugin@2.3.0':
+    resolution: {integrity: sha512-2FdUL/10qOjXzPTt/2dcjQPHDcsI+svvdU3KERGZaUvH5IwDdzE+nGLAx1+ICxhr6cqU29zvWR6GHGOFp+fbWA==}
+    engines: {node: '>=10'}
     peerDependencies:
       webpack: ^4.30.0 || ^5.0.0
 
@@ -12455,12 +12456,26 @@ packages:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
 
-  '@es-joy/jsdoccomment@0.33.4':
-    resolution: {integrity: sha512-02XyYuvR/Gn+3BT6idHVNQ4SSQlA1X1FeEfeKm2ypv8ANB6Lt9KRFZ2S7y5xjwR+EPQ/Rzb0XFaD+xKyqe4ALw==}
-    engines: {node: ^14 || ^16 || ^17 || ^18 || ^19}
+  '@es-joy/jsdoccomment@0.40.1':
+    resolution: {integrity: sha512-YORCdZSusAlBrFpZ77pJjc5r1bQs5caPWtAu+WWmiSo+8XaUzseapVrfAtiRFbQWnrBxxLLEwF6f6ZG/UgCQCg==}
+    engines: {node: '>=16'}
 
-  '@eslint/eslintrc@1.4.1':
-    resolution: {integrity: sha512-XXrH9Uarn0stsyldqDYq8r++mROmWRI1xKMXa640Bb//SY1+ECYX6VzT6Lcx5frD0V30XieqJ0oX9I2Xj5aoMA==}
+  '@eslint-community/eslint-utils@4.7.0':
+    resolution: {integrity: sha512-dyybb3AcajC7uha6CvhdVRJqaKyn7w2YKqKyAN37NKYgZT36w+iRb0Dymmc5qEJ549c/S31cMMSFd75bteCpCw==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
+
+  '@eslint-community/regexpp@4.12.1':
+    resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
+    engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
+
+  '@eslint/eslintrc@2.1.4':
+    resolution: {integrity: sha512-269Z39MS6wVJtsoUl10L60WdkhJVdPG24Q4eZTH3nnF6lpvSShEK3wQjDX9JRWAUPvPh7COouPpU9IrqaZFvtQ==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@eslint/js@8.55.0':
+    resolution: {integrity: sha512-qQfo2mxH5yVom1kacMtZZJFVdW+E70mqHMJvVg6WTLo+VBuQJ4TojZlfWBjK0ve5BdEeNAVxOsl/nvNMpJOaJA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
   '@fluentui/date-time-utilities@7.9.1':
@@ -13031,13 +13046,17 @@ packages:
   '@hapi/topo@5.1.0':
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
 
-  '@humanwhocodes/config-array@0.9.5':
-    resolution: {integrity: sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==}
+  '@humanwhocodes/config-array@0.11.14':
+    resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
     deprecated: Use @eslint/config-array instead
 
-  '@humanwhocodes/object-schema@1.2.1':
-    resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+  '@humanwhocodes/module-importer@1.0.1':
+    resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
+    engines: {node: '>=12.22'}
+
+  '@humanwhocodes/object-schema@2.0.3':
+    resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
 
   '@hutson/parse-repository-url@3.0.2':
@@ -15040,6 +15059,10 @@ packages:
   archy@1.0.0:
     resolution: {integrity: sha512-Xg+9RwCg/0p32teKdGMPTPnVXKD0w3DfHnFTficozsAgsvq2XenPJq/MYpzzQ/v8zrOyJn6Ds39VA4JIDwFfqw==}
 
+  are-docs-informative@0.0.2:
+    resolution: {integrity: sha512-ixiS0nLNNG5jNQzgZJNoUpBKdo9yTYZMGJ+QgT2jmjR7G7+QHRCc4v6LQ3NgE7EBJq+o0ams3waJwkrlBom8Ig==}
+    engines: {node: '>=14'}
+
   are-we-there-yet@1.1.7:
     resolution: {integrity: sha512-nxwy40TuMiUGqMyRHgCSWZ9FM4VAoRP4xUYSTv5ImRog+h9yISPbVH7H8fASCIzYn9wlEv4zvFL7uKDMCFQm3g==}
     deprecated: This package is no longer supported.
@@ -15834,8 +15857,8 @@ packages:
   commandpost@1.4.0:
     resolution: {integrity: sha512-aE2Y4MTFJ870NuB/+2z1cXBhSBBzRydVVjzhFC4gtenEhpnj15yu0qptWGJsO9YGrcPZ3ezX8AWb1VA391MKpQ==}
 
-  comment-parser@1.3.1:
-    resolution: {integrity: sha512-B52sN2VNghyq5ofvUsqZjmk6YkihBX5vMSChmSK9v4ShjKf3Vk5Xcmgpw4o+iIgtrnM/u5FiMpz9VKb8lpBveA==}
+  comment-parser@1.4.0:
+    resolution: {integrity: sha512-QLyTNiZ2KDOibvFPlZ6ZngVsZ/0gYnE6uTXi5aoDg8ed3AkJAz4sEje3Y8a29hQ1s6A99MZXe47fLAXQ1rTqaw==}
     engines: {node: '>= 12.0.0'}
 
   commondir@1.0.1:
@@ -16461,8 +16484,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.180:
-    resolution: {integrity: sha512-ED+GEyEh3kYMwt2faNmgMB0b8O5qtATGgR4RmRsIp4T6p7B8vdMbIedYndnvZfsaXvSzegtpfqRMDNCjjiSduA==}
+  electron-to-chromium@1.5.181:
+    resolution: {integrity: sha512-+ISMj8OIQ+0qEeDj14Rt8WwcTOiqHyAB+5bnK1K7xNNLjBJ4hRCQfUkw8RWtcLbfBzDwc15ZnKH0c7SNOfwiyA==}
 
   emitter-listener@1.1.2:
     resolution: {integrity: sha512-Bt1sBAGFHY9DKY+4/2cV6izcKJUf5T7/gkdmkxzX/qv9CcGH8xSwVRW5mtX03SWJtRTWSOpzCuWN9rBFYZepZQ==}
@@ -16518,10 +16541,6 @@ packages:
   enhanced-resolve@5.18.2:
     resolution: {integrity: sha512-6Jw4sE1maoRJo3q8MsSIn2onJFbLTOjY9hlx4DZXmOKvLRd1Ok2kXmAGXaafL2+ijsJZ1ClYbl/pmqr9+k4iUQ==}
     engines: {node: '>=10.13.0'}
-
-  enquirer@2.4.1:
-    resolution: {integrity: sha512-rRqJg/6gd538VHvR3PSrdRBb/1Vy2YfzHqzvbhGIQpDRKIa4FgV/54b5Q1xYSxOOwKvjXweS26E0Q+nAMwp2pQ==}
-    engines: {node: '>=8.6'}
 
   entities@2.2.0:
     resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
@@ -16677,9 +16696,9 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-jsdoc@39.3.25:
-    resolution: {integrity: sha512-7JiFOOaipz7Z7lNQ9sMJ6cdvclmVUwNYtFWGS3a0k0uEFcdZPPD64WOfENuyNHpl86C0AKIEPgOpZby5kd+pew==}
-    engines: {node: ^14 || ^16 || ^17 || ^18 || ^19}
+  eslint-plugin-jsdoc@46.8.2:
+    resolution: {integrity: sha512-5TSnD018f3tUJNne4s4gDWQflbsgOycIKEUBoCLn6XtBMgNHxQFmV8vVxUtiPxAQq8lrX85OaSG/2gnctxw9uQ==}
+    engines: {node: '>=16'}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
 
@@ -16751,8 +16770,8 @@ packages:
     resolution: {integrity: sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  eslint@8.6.0:
-    resolution: {integrity: sha512-UvxdOJ7mXFlw7iuHZA4jmzPaUqIw54mZrv+XPYKNbKdLR0et4rf60lIZUU9kiNtnzzMzGWxMV+tQ7uG7JG8DPw==}
+  eslint@8.55.0:
+    resolution: {integrity: sha512-iyUUAM0PCKj5QpwGfmCAG9XXbZCWsqP/eWAWrG/W0umvjuLRBECwSFdt+rCntju0xEH7teIABPwXpahftIaTdA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
@@ -17375,6 +17394,9 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
+  graphemer@1.4.0:
+    resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
+
   gray-matter@4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
@@ -17674,10 +17696,6 @@ packages:
   ignore-walk@6.0.5:
     resolution: {integrity: sha512-VuuG0wCnjhnylG1ABXT3dAuIpTNDs/G8jlpmwXY03fXoXy/8ZK8/T+hMzt8L4WnrLCJgdybqgPagnF/f97cg3A==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-
-  ignore@4.0.6:
-    resolution: {integrity: sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==}
-    engines: {node: '>= 4'}
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -18366,8 +18384,8 @@ packages:
   jsbn@1.1.0:
     resolution: {integrity: sha512-4bYVV3aAMtDTTu4+xsDYa6sy9GyJ69/amsu9sYF2zqjiEoZA5xJi3BrfX3uY+/IekIu7MwdObdbDWpoZdBv3/A==}
 
-  jsdoc-type-pratt-parser@3.1.0:
-    resolution: {integrity: sha512-MgtD0ZiCDk9B+eI73BextfRrVQl0oyzRG8B2BjORts6jbunj4ScKPcyXGTbB6eXL4y9TzxCm6hyeLq/2ASzNdw==}
+  jsdoc-type-pratt-parser@4.0.0:
+    resolution: {integrity: sha512-YtOli5Cmzy3q4dP26GraSOeAhqecewG04hoO8DY56CH4KJ9Fvv5qKWUCCo3HZob7esJQHCv6/+bnTy72xZZaVQ==}
     engines: {node: '>=12.0.0'}
 
   jsdom-global@3.0.2:
@@ -21988,9 +22006,6 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
 
-  v8-compile-cache@2.4.0:
-    resolution: {integrity: sha512-ocyWc3bAHBB/guyqJQVI5o4BZkPhznPYUG2ea80Gond/BgNWpap8TOmLSeeQG7bnh2KMISxskdADG59j7zruhw==}
-
   v8-to-istanbul@7.1.2:
     resolution: {integrity: sha512-TxNb7YEUwkLXCQYeudi6lgQ/SZrzNO4kMdlqVxaZPUIUjCv6iSSypUQX70kNBSERpQ8fk48+d61FXk+tgqcWow==}
     engines: {node: '>=10.10.0'}
@@ -22697,7 +22712,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@cerner/duplicate-package-checker-webpack-plugin@2.6.0(webpack@5.100.0)':
+  '@cerner/duplicate-package-checker-webpack-plugin@2.3.0(webpack@5.100.0)':
     dependencies:
       chalk: 4.1.2
       find-root: 1.1.0
@@ -22723,13 +22738,20 @@ snapshots:
 
   '@discoveryjs/json-ext@0.5.7': {}
 
-  '@es-joy/jsdoccomment@0.33.4':
+  '@es-joy/jsdoccomment@0.40.1':
     dependencies:
-      comment-parser: 1.3.1
+      comment-parser: 1.4.0
       esquery: 1.6.0
-      jsdoc-type-pratt-parser: 3.1.0
+      jsdoc-type-pratt-parser: 4.0.0
 
-  '@eslint/eslintrc@1.4.1':
+  '@eslint-community/eslint-utils@4.7.0(eslint@8.55.0)':
+    dependencies:
+      eslint: 8.55.0
+      eslint-visitor-keys: 3.4.3
+
+  '@eslint-community/regexpp@4.12.1': {}
+
+  '@eslint/eslintrc@2.1.4':
     dependencies:
       ajv: 6.12.6
       debug: 4.4.1(supports-color@8.1.1)
@@ -22742,6 +22764,8 @@ snapshots:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+
+  '@eslint/js@8.55.0': {}
 
   '@fluentui/date-time-utilities@7.9.1':
     dependencies:
@@ -23819,20 +23843,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@fluidframework/eslint-config-fluid@0.28.2000(eslint@8.6.0)(typescript@4.5.5)':
+  '@fluidframework/eslint-config-fluid@0.28.2000(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@rushstack/eslint-patch': 1.1.4
-      '@rushstack/eslint-plugin': 0.8.6(eslint@8.6.0)(typescript@4.5.5)
-      '@rushstack/eslint-plugin-security': 0.2.6(eslint@8.6.0)(typescript@4.5.5)
-      '@typescript-eslint/eslint-plugin': 5.9.1(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)(typescript@4.5.5)
-      '@typescript-eslint/parser': 5.9.1(eslint@8.6.0)(typescript@4.5.5)
-      eslint-plugin-editorconfig: 3.2.0(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(typescript@4.5.5)
-      eslint-plugin-eslint-comments: 3.2.0(eslint@8.6.0)
-      eslint-plugin-import: 2.25.4(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)
-      eslint-plugin-promise: 6.0.1(eslint@8.6.0)
-      eslint-plugin-react: 7.28.0(eslint@8.6.0)
+      '@rushstack/eslint-plugin': 0.8.6(eslint@8.55.0)(typescript@4.5.5)
+      '@rushstack/eslint-plugin-security': 0.2.6(eslint@8.55.0)(typescript@4.5.5)
+      '@typescript-eslint/eslint-plugin': 5.9.1(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)(typescript@4.5.5)
+      '@typescript-eslint/parser': 5.9.1(eslint@8.55.0)(typescript@4.5.5)
+      eslint-plugin-editorconfig: 3.2.0(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(typescript@4.5.5)
+      eslint-plugin-eslint-comments: 3.2.0(eslint@8.55.0)
+      eslint-plugin-import: 2.25.4(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)
+      eslint-plugin-promise: 6.0.1(eslint@8.55.0)
+      eslint-plugin-react: 7.28.0(eslint@8.55.0)
       eslint-plugin-tsdoc: 0.2.17
-      eslint-plugin-unicorn: 40.0.0(eslint@8.6.0)
+      eslint-plugin-unicorn: 40.0.0(eslint@8.55.0)
     transitivePeerDependencies:
       - eslint
       - eslint-import-resolver-typescript
@@ -25489,15 +25513,17 @@ snapshots:
     dependencies:
       '@hapi/hoek': 9.3.0
 
-  '@humanwhocodes/config-array@0.9.5':
+  '@humanwhocodes/config-array@0.11.14':
     dependencies:
-      '@humanwhocodes/object-schema': 1.2.1
+      '@humanwhocodes/object-schema': 2.0.3
       debug: 4.4.1(supports-color@8.1.1)
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
 
-  '@humanwhocodes/object-schema@1.2.1': {}
+  '@humanwhocodes/module-importer@1.0.1': {}
+
+  '@humanwhocodes/object-schema@2.0.3': {}
 
   '@hutson/parse-repository-url@3.0.2': {}
 
@@ -27144,19 +27170,19 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@rushstack/eslint-config@2.6.2(eslint@8.6.0)(typescript@4.5.5)':
+  '@rushstack/eslint-config@2.6.2(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@rushstack/eslint-patch': 1.1.4
-      '@rushstack/eslint-plugin': 0.9.1(eslint@8.6.0)(typescript@4.5.5)
-      '@rushstack/eslint-plugin-packlets': 0.4.1(eslint@8.6.0)(typescript@4.5.5)
-      '@rushstack/eslint-plugin-security': 0.3.1(eslint@8.6.0)(typescript@4.5.5)
-      '@typescript-eslint/eslint-plugin': 5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)(typescript@4.5.5)
-      '@typescript-eslint/experimental-utils': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
-      '@typescript-eslint/parser': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
+      '@rushstack/eslint-plugin': 0.9.1(eslint@8.55.0)(typescript@4.5.5)
+      '@rushstack/eslint-plugin-packlets': 0.4.1(eslint@8.55.0)(typescript@4.5.5)
+      '@rushstack/eslint-plugin-security': 0.3.1(eslint@8.55.0)(typescript@4.5.5)
+      '@typescript-eslint/eslint-plugin': 5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)(typescript@4.5.5)
+      '@typescript-eslint/experimental-utils': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
+      '@typescript-eslint/parser': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
       '@typescript-eslint/typescript-estree': 5.20.0(typescript@4.5.5)
-      eslint: 8.6.0
-      eslint-plugin-promise: 6.0.1(eslint@8.6.0)
-      eslint-plugin-react: 7.27.1(eslint@8.6.0)
+      eslint: 8.55.0
+      eslint-plugin-promise: 6.0.1(eslint@8.55.0)
+      eslint-plugin-react: 7.27.1(eslint@8.55.0)
       eslint-plugin-tsdoc: 0.2.17
       typescript: 4.5.5
     transitivePeerDependencies:
@@ -27164,47 +27190,47 @@ snapshots:
 
   '@rushstack/eslint-patch@1.1.4': {}
 
-  '@rushstack/eslint-plugin-packlets@0.4.1(eslint@8.6.0)(typescript@4.5.5)':
+  '@rushstack/eslint-plugin-packlets@0.4.1(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@rushstack/tree-pattern': 0.2.4
-      '@typescript-eslint/experimental-utils': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
-      eslint: 8.6.0
+      '@typescript-eslint/experimental-utils': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
+      eslint: 8.55.0
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@rushstack/eslint-plugin-security@0.2.6(eslint@8.6.0)(typescript@4.5.5)':
+  '@rushstack/eslint-plugin-security@0.2.6(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@rushstack/tree-pattern': 0.2.3
-      '@typescript-eslint/experimental-utils': 5.6.0(eslint@8.6.0)(typescript@4.5.5)
-      eslint: 8.6.0
+      '@typescript-eslint/experimental-utils': 5.6.0(eslint@8.55.0)(typescript@4.5.5)
+      eslint: 8.55.0
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@rushstack/eslint-plugin-security@0.3.1(eslint@8.6.0)(typescript@4.5.5)':
+  '@rushstack/eslint-plugin-security@0.3.1(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@rushstack/tree-pattern': 0.2.4
-      '@typescript-eslint/experimental-utils': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
-      eslint: 8.6.0
+      '@typescript-eslint/experimental-utils': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
+      eslint: 8.55.0
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@rushstack/eslint-plugin@0.8.6(eslint@8.6.0)(typescript@4.5.5)':
+  '@rushstack/eslint-plugin@0.8.6(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@rushstack/tree-pattern': 0.2.3
-      '@typescript-eslint/experimental-utils': 5.6.0(eslint@8.6.0)(typescript@4.5.5)
-      eslint: 8.6.0
+      '@typescript-eslint/experimental-utils': 5.6.0(eslint@8.55.0)(typescript@4.5.5)
+      eslint: 8.55.0
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@rushstack/eslint-plugin@0.9.1(eslint@8.6.0)(typescript@4.5.5)':
+  '@rushstack/eslint-plugin@0.9.1(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@rushstack/tree-pattern': 0.2.4
-      '@typescript-eslint/experimental-utils': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
-      eslint: 8.6.0
+      '@typescript-eslint/experimental-utils': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
+      eslint: 8.55.0
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -27713,14 +27739,14 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@typescript-eslint/eslint-plugin@5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/eslint-plugin@5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
-      '@typescript-eslint/parser': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/parser': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
       '@typescript-eslint/scope-manager': 5.20.0
-      '@typescript-eslint/type-utils': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
-      '@typescript-eslint/utils': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/type-utils': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
+      '@typescript-eslint/utils': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
       debug: 4.4.1(supports-color@8.1.1)
-      eslint: 8.6.0
+      eslint: 8.55.0
       functional-red-black-tree: 1.0.1
       ignore: 5.3.2
       regexpp: 3.2.0
@@ -27731,14 +27757,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/eslint-plugin@5.9.1(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/eslint-plugin@5.9.1(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
-      '@typescript-eslint/experimental-utils': 5.9.1(eslint@8.6.0)(typescript@4.5.5)
-      '@typescript-eslint/parser': 5.9.1(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/experimental-utils': 5.9.1(eslint@8.55.0)(typescript@4.5.5)
+      '@typescript-eslint/parser': 5.9.1(eslint@8.55.0)(typescript@4.5.5)
       '@typescript-eslint/scope-manager': 5.9.1
-      '@typescript-eslint/type-utils': 5.9.1(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/type-utils': 5.9.1(eslint@8.55.0)(typescript@4.5.5)
       debug: 4.4.1(supports-color@8.1.1)
-      eslint: 8.6.0
+      eslint: 8.55.0
       functional-red-black-tree: 1.0.1
       ignore: 5.3.2
       regexpp: 3.2.0
@@ -27749,59 +27775,59 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/experimental-utils@5.20.0(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/experimental-utils@5.20.0(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
-      '@typescript-eslint/utils': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
-      eslint: 8.6.0
+      '@typescript-eslint/utils': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
+      eslint: 8.55.0
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@typescript-eslint/experimental-utils@5.6.0(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/experimental-utils@5.6.0(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@types/json-schema': 7.0.15
       '@typescript-eslint/scope-manager': 5.6.0
       '@typescript-eslint/types': 5.6.0
       '@typescript-eslint/typescript-estree': 5.6.0(typescript@4.5.5)
-      eslint: 8.6.0
+      eslint: 8.55.0
       eslint-scope: 5.1.1
-      eslint-utils: 3.0.0(eslint@8.6.0)
+      eslint-utils: 3.0.0(eslint@8.55.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@typescript-eslint/experimental-utils@5.9.1(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/experimental-utils@5.9.1(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@types/json-schema': 7.0.15
       '@typescript-eslint/scope-manager': 5.9.1
       '@typescript-eslint/types': 5.9.1
       '@typescript-eslint/typescript-estree': 5.9.1(typescript@4.5.5)
-      eslint: 8.6.0
+      eslint: 8.55.0
       eslint-scope: 5.1.1
-      eslint-utils: 3.0.0(eslint@8.6.0)
+      eslint-utils: 3.0.0(eslint@8.55.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@typescript-eslint/scope-manager': 5.20.0
       '@typescript-eslint/types': 5.20.0
       '@typescript-eslint/typescript-estree': 5.20.0(typescript@4.5.5)
       debug: 4.4.1(supports-color@8.1.1)
-      eslint: 8.6.0
+      eslint: 8.55.0
     optionalDependencies:
       typescript: 4.5.5
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@typescript-eslint/scope-manager': 5.9.1
       '@typescript-eslint/types': 5.9.1
       '@typescript-eslint/typescript-estree': 5.9.1(typescript@4.5.5)
       debug: 4.4.1(supports-color@8.1.1)
-      eslint: 8.6.0
+      eslint: 8.55.0
     optionalDependencies:
       typescript: 4.5.5
     transitivePeerDependencies:
@@ -27822,22 +27848,22 @@ snapshots:
       '@typescript-eslint/types': 5.9.1
       '@typescript-eslint/visitor-keys': 5.9.1
 
-  '@typescript-eslint/type-utils@5.20.0(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/type-utils@5.20.0(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
-      '@typescript-eslint/utils': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/utils': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
       debug: 4.4.1(supports-color@8.1.1)
-      eslint: 8.6.0
+      eslint: 8.55.0
       tsutils: 3.21.0(typescript@4.5.5)
     optionalDependencies:
       typescript: 4.5.5
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/type-utils@5.9.1(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/type-utils@5.9.1(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
-      '@typescript-eslint/experimental-utils': 5.9.1(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/experimental-utils': 5.9.1(eslint@8.55.0)(typescript@4.5.5)
       debug: 4.4.1(supports-color@8.1.1)
-      eslint: 8.6.0
+      eslint: 8.55.0
       tsutils: 3.21.0(typescript@4.5.5)
     optionalDependencies:
       typescript: 4.5.5
@@ -27892,15 +27918,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@5.20.0(eslint@8.6.0)(typescript@4.5.5)':
+  '@typescript-eslint/utils@5.20.0(eslint@8.55.0)(typescript@4.5.5)':
     dependencies:
       '@types/json-schema': 7.0.15
       '@typescript-eslint/scope-manager': 5.20.0
       '@typescript-eslint/types': 5.20.0
       '@typescript-eslint/typescript-estree': 5.20.0(typescript@4.5.5)
-      eslint: 8.6.0
+      eslint: 8.55.0
       eslint-scope: 5.1.1
-      eslint-utils: 3.0.0(eslint@8.6.0)
+      eslint-utils: 3.0.0(eslint@8.55.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -28337,6 +28363,8 @@ snapshots:
 
   archy@1.0.0: {}
 
+  are-docs-informative@0.0.2: {}
+
   are-we-there-yet@1.1.7:
     dependencies:
       delegates: 1.0.0
@@ -28748,7 +28776,7 @@ snapshots:
   browserslist@4.25.1:
     dependencies:
       caniuse-lite: 1.0.30001727
-      electron-to-chromium: 1.5.180
+      electron-to-chromium: 1.5.181
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.1)
 
@@ -29305,7 +29333,7 @@ snapshots:
 
   commandpost@1.4.0: {}
 
-  comment-parser@1.3.1: {}
+  comment-parser@1.4.0: {}
 
   commondir@1.0.1: {}
 
@@ -30011,7 +30039,7 @@ snapshots:
     dependencies:
       jake: 10.9.2
 
-  electron-to-chromium@1.5.180: {}
+  electron-to-chromium@1.5.181: {}
 
   emitter-listener@1.1.2:
     dependencies:
@@ -30078,11 +30106,6 @@ snapshots:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.2
-
-  enquirer@2.4.1:
-    dependencies:
-      ansi-colors: 4.1.3
-      strip-ansi: 6.0.1
 
   entities@2.2.0: {}
 
@@ -30240,52 +30263,52 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.1(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint-import-resolver-node@0.3.9)(eslint@8.6.0):
+  eslint-module-utils@2.12.1(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint-import-resolver-node@0.3.9)(eslint@8.55.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
-      '@typescript-eslint/parser': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
-      eslint: 8.6.0
+      '@typescript-eslint/parser': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
+      eslint: 8.55.0
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.1(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(eslint-import-resolver-node@0.3.9)(eslint@8.6.0):
+  eslint-module-utils@2.12.1(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(eslint-import-resolver-node@0.3.9)(eslint@8.55.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
-      '@typescript-eslint/parser': 5.9.1(eslint@8.6.0)(typescript@4.5.5)
-      eslint: 8.6.0
+      '@typescript-eslint/parser': 5.9.1(eslint@8.55.0)(typescript@4.5.5)
+      eslint: 8.55.0
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-editorconfig@3.2.0(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(typescript@4.5.5):
+  eslint-plugin-editorconfig@3.2.0(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(typescript@4.5.5):
     dependencies:
-      '@typescript-eslint/eslint-plugin': 5.9.1(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/eslint-plugin': 5.9.1(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)(typescript@4.5.5)
       editorconfig: 0.15.3
-      eslint: 8.6.0
+      eslint: 8.55.0
       klona: 2.0.6
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
       - supports-color
       - typescript
 
-  eslint-plugin-eslint-comments@3.2.0(eslint@8.6.0):
+  eslint-plugin-eslint-comments@3.2.0(eslint@8.55.0):
     dependencies:
       escape-string-regexp: 1.0.5
-      eslint: 8.6.0
+      eslint: 8.55.0
       ignore: 5.3.2
 
-  eslint-plugin-import@2.25.4(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0):
+  eslint-plugin-import@2.25.4(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0):
     dependencies:
       array-includes: 3.1.9
       array.prototype.flat: 1.3.3
       debug: 2.6.9
       doctrine: 2.1.0
-      eslint: 8.6.0
+      eslint: 8.55.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint-import-resolver-node@0.3.9)(eslint@8.6.0)
+      eslint-module-utils: 2.12.1(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint-import-resolver-node@0.3.9)(eslint@8.55.0)
       has: 1.0.4
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -30294,21 +30317,21 @@ snapshots:
       resolve: 1.22.10
       tsconfig-paths: 3.15.0
     optionalDependencies:
-      '@typescript-eslint/parser': 5.20.0(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/parser': 5.20.0(eslint@8.55.0)(typescript@4.5.5)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.25.4(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0):
+  eslint-plugin-import@2.25.4(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0):
     dependencies:
       array-includes: 3.1.9
       array.prototype.flat: 1.3.3
       debug: 2.6.9
       doctrine: 2.1.0
-      eslint: 8.6.0
+      eslint: 8.55.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(@typescript-eslint/parser@5.9.1(eslint@8.6.0)(typescript@4.5.5))(eslint-import-resolver-node@0.3.9)(eslint@8.6.0)
+      eslint-module-utils: 2.12.1(@typescript-eslint/parser@5.9.1(eslint@8.55.0)(typescript@4.5.5))(eslint-import-resolver-node@0.3.9)(eslint@8.55.0)
       has: 1.0.4
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -30317,39 +30340,41 @@ snapshots:
       resolve: 1.22.10
       tsconfig-paths: 3.15.0
     optionalDependencies:
-      '@typescript-eslint/parser': 5.9.1(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/parser': 5.9.1(eslint@8.55.0)(typescript@4.5.5)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-jsdoc@39.3.25(eslint@8.6.0):
+  eslint-plugin-jsdoc@46.8.2(eslint@8.55.0):
     dependencies:
-      '@es-joy/jsdoccomment': 0.33.4
-      comment-parser: 1.3.1
+      '@es-joy/jsdoccomment': 0.40.1
+      are-docs-informative: 0.0.2
+      comment-parser: 1.4.0
       debug: 4.4.1(supports-color@8.1.1)
       escape-string-regexp: 4.0.0
-      eslint: 8.6.0
+      eslint: 8.55.0
       esquery: 1.6.0
+      is-builtin-module: 3.2.1
       semver: 7.7.2
       spdx-expression-parse: 3.0.1
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-prefer-arrow@1.2.3(eslint@8.6.0):
+  eslint-plugin-prefer-arrow@1.2.3(eslint@8.55.0):
     dependencies:
-      eslint: 8.6.0
+      eslint: 8.55.0
 
-  eslint-plugin-promise@6.0.1(eslint@8.6.0):
+  eslint-plugin-promise@6.0.1(eslint@8.55.0):
     dependencies:
-      eslint: 8.6.0
+      eslint: 8.55.0
 
-  eslint-plugin-react@7.27.1(eslint@8.6.0):
+  eslint-plugin-react@7.27.1(eslint@8.55.0):
     dependencies:
       array-includes: 3.1.9
       array.prototype.flatmap: 1.3.3
       doctrine: 2.1.0
-      eslint: 8.6.0
+      eslint: 8.55.0
       estraverse: 5.3.0
       jsx-ast-utils: 3.3.5
       minimatch: 3.1.2
@@ -30362,12 +30387,12 @@ snapshots:
       semver: 6.3.1
       string.prototype.matchall: 4.0.12
 
-  eslint-plugin-react@7.28.0(eslint@8.6.0):
+  eslint-plugin-react@7.28.0(eslint@8.55.0):
     dependencies:
       array-includes: 3.1.9
       array.prototype.flatmap: 1.3.3
       doctrine: 2.1.0
-      eslint: 8.6.0
+      eslint: 8.55.0
       estraverse: 5.3.0
       jsx-ast-utils: 3.3.5
       minimatch: 3.1.2
@@ -30385,13 +30410,13 @@ snapshots:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
 
-  eslint-plugin-unicorn@40.0.0(eslint@8.6.0):
+  eslint-plugin-unicorn@40.0.0(eslint@8.55.0):
     dependencies:
       '@babel/helper-validator-identifier': 7.27.1
       ci-info: 3.9.0
       clean-regexp: 1.0.0
-      eslint: 8.6.0
-      eslint-utils: 3.0.0(eslint@8.6.0)
+      eslint: 8.55.0
+      eslint-utils: 3.0.0(eslint@8.55.0)
       esquery: 1.6.0
       indent-string: 4.0.0
       is-builtin-module: 3.2.1
@@ -30403,12 +30428,12 @@ snapshots:
       semver: 7.7.2
       strip-indent: 3.0.0
 
-  eslint-plugin-unused-imports@2.0.0(@typescript-eslint/eslint-plugin@5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0):
+  eslint-plugin-unused-imports@2.0.0(@typescript-eslint/eslint-plugin@5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0):
     dependencies:
-      eslint: 8.6.0
+      eslint: 8.55.0
       eslint-rule-composer: 0.3.0
     optionalDependencies:
-      '@typescript-eslint/eslint-plugin': 5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.6.0)(typescript@4.5.5))(eslint@8.6.0)(typescript@4.5.5)
+      '@typescript-eslint/eslint-plugin': 5.20.0(@typescript-eslint/parser@5.20.0(eslint@8.55.0)(typescript@4.5.5))(eslint@8.55.0)(typescript@4.5.5)
 
   eslint-rule-composer@0.3.0: {}
 
@@ -30422,41 +30447,46 @@ snapshots:
       esrecurse: 4.3.0
       estraverse: 5.3.0
 
-  eslint-utils@3.0.0(eslint@8.6.0):
+  eslint-utils@3.0.0(eslint@8.55.0):
     dependencies:
-      eslint: 8.6.0
+      eslint: 8.55.0
       eslint-visitor-keys: 2.1.0
 
   eslint-visitor-keys@2.1.0: {}
 
   eslint-visitor-keys@3.4.3: {}
 
-  eslint@8.6.0:
+  eslint@8.55.0:
     dependencies:
-      '@eslint/eslintrc': 1.4.1
-      '@humanwhocodes/config-array': 0.9.5
+      '@eslint-community/eslint-utils': 4.7.0(eslint@8.55.0)
+      '@eslint-community/regexpp': 4.12.1
+      '@eslint/eslintrc': 2.1.4
+      '@eslint/js': 8.55.0
+      '@humanwhocodes/config-array': 0.11.14
+      '@humanwhocodes/module-importer': 1.0.1
+      '@nodelib/fs.walk': 1.2.8
+      '@ungap/structured-clone': 1.3.0
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.6
       debug: 4.4.1(supports-color@8.1.1)
       doctrine: 3.0.0
-      enquirer: 2.4.1
       escape-string-regexp: 4.0.0
       eslint-scope: 7.2.2
-      eslint-utils: 3.0.0(eslint@8.6.0)
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
       esquery: 1.6.0
       esutils: 2.0.3
       fast-deep-equal: 3.1.3
       file-entry-cache: 6.0.1
-      functional-red-black-tree: 1.0.1
+      find-up: 5.0.0
       glob-parent: 6.0.2
       globals: 13.24.0
-      ignore: 4.0.6
-      import-fresh: 3.3.1
+      graphemer: 1.4.0
+      ignore: 5.3.2
       imurmurhash: 0.1.4
       is-glob: 4.0.3
+      is-path-inside: 3.0.3
       js-yaml: 4.1.0
       json-stable-stringify-without-jsonify: 1.0.1
       levn: 0.4.1
@@ -30464,13 +30494,8 @@ snapshots:
       minimatch: 3.1.2
       natural-compare: 1.4.0
       optionator: 0.9.4
-      progress: 2.0.3
-      regexpp: 3.2.0
-      semver: 7.7.2
       strip-ansi: 6.0.1
-      strip-json-comments: 3.1.1
       text-table: 0.2.0
-      v8-compile-cache: 2.4.0
     transitivePeerDependencies:
       - supports-color
 
@@ -31243,6 +31268,8 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
+  graphemer@1.4.0: {}
+
   gray-matter@4.0.3:
     dependencies:
       js-yaml: 3.14.1
@@ -31594,8 +31621,6 @@ snapshots:
   ignore-walk@6.0.5:
     dependencies:
       minimatch: 9.0.5
-
-  ignore@4.0.6: {}
 
   ignore@5.3.2: {}
 
@@ -32545,7 +32570,7 @@ snapshots:
 
   jsbn@1.1.0: {}
 
-  jsdoc-type-pratt-parser@3.1.0: {}
+  jsdoc-type-pratt-parser@4.0.0: {}
 
   jsdom-global@3.0.2(jsdom@16.7.0):
     dependencies:
@@ -37142,8 +37167,6 @@ snapshots:
   uuid@3.4.0: {}
 
   uuid@8.3.2: {}
-
-  v8-compile-cache@2.4.0: {}
 
   v8-to-istanbul@7.1.2:
     dependencies:
