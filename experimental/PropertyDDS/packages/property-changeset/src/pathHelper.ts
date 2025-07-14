@@ -201,12 +201,16 @@ export namespace PathHelper {
                     throw new Error(MSG.QUOTES_WITHIN_TOKEN + in_path);
                 }
             } else if (!inSquareBrackets) {
-                if (character === PROPERTY_PATH_DELIMITER) {
+                switch (character) {
+                case PROPERTY_PATH_DELIMITER: {
                     // A dot symbols starts a new token
                     storeNextToken(TOKEN_TYPES.PATH_SEGMENT_TOKEN);
 
                     allowSegmentStart = true;
-                } else if (character === "[") {
+
+                break;
+                }
+                case "[": {
                     // An opening square bracket starts a new token
                     if (tokenStarted) {
                         storeNextToken(TOKEN_TYPES.PATH_SEGMENT_TOKEN);
@@ -214,9 +218,13 @@ export namespace PathHelper {
 
                     // And sets the state to inSquareBrackets
                     inSquareBrackets = true;
-                } else if (character === "]") {
+
+                break;
+                }
+                case "]": {
                     throw new Error(MSG.CLOSING_BRACKET_WITHOUT_OPENING + in_path);
-                } else if (character === "*") {
+                }
+                case "*": {
                     // Store the last token
                     if (tokenStarted) {
                         storeNextToken(TOKEN_TYPES.PATH_SEGMENT_TOKEN);
@@ -232,7 +240,10 @@ export namespace PathHelper {
                     tokenStarted = false;
                     atStartToken = true;
                     allowSegmentStart = false;
-                } else {
+
+                break;
+                }
+                default: {
                     if (!tokenStarted &&
                         !allowSegmentStart &&
                         !inSquareBrackets) {
@@ -248,6 +259,7 @@ export namespace PathHelper {
                     if (lastTokenWasQuoted) {
                         throw new Error(MSG.QUOTES_WITHIN_TOKEN + in_path);
                     }
+                }
                 }
             } else {
                 if (character === "]") {
@@ -363,18 +375,14 @@ export namespace PathHelper {
      * @returns quoted path string
      */
     export const quotePathSegmentIfNeeded = function(in_pathSegment: string): string {
-        if (in_pathSegment.indexOf(PROPERTY_PATH_DELIMITER) !== -1 ||
+        return in_pathSegment.indexOf(PROPERTY_PATH_DELIMITER) !== -1 ||
             in_pathSegment.indexOf('"') !== -1 ||
             in_pathSegment.indexOf("\\") !== -1 ||
             in_pathSegment.indexOf("/") !== -1 ||
             in_pathSegment.indexOf("*") !== -1 ||
             in_pathSegment.indexOf("[") !== -1 ||
             in_pathSegment.indexOf("]") !== -1 ||
-            in_pathSegment.length === 0) {
-            return quotePathSegment(in_pathSegment);
-        } else {
-            return in_pathSegment;
-        }
+            in_pathSegment.length === 0 ? quotePathSegment(in_pathSegment) : in_pathSegment;
     };
 
     /**
@@ -439,11 +447,7 @@ export namespace PathHelper {
      */
     export const getChildAbsolutePathCanonical = function(in_parentAbsolutePathCanonical: string, in_childId: string): string {
         const childPath = quotePathSegmentIfNeeded(String(in_childId));
-        if (in_parentAbsolutePathCanonical) {
-            return (in_parentAbsolutePathCanonical + PROPERTY_PATH_DELIMITER + childPath);
-        } else {
-            return childPath;
-        }
+        return in_parentAbsolutePathCanonical ? (in_parentAbsolutePathCanonical + PROPERTY_PATH_DELIMITER + childPath) : childPath;
     };
 
     export enum CoverageExtent {

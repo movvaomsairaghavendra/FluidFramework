@@ -9,7 +9,7 @@
 #    their source or output directories during compilation.
 
 packages:
+  - "common/**"
   - "examples/**"
   - "experimental/**"
   - "packages/**"
-

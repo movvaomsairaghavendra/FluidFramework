@@ -70,7 +70,7 @@
     "@fluidframework/driver-base": "^1.4.0",
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",
-    "@fluidframework/eslint-config-fluid": "^0.28.2000",
+    "@fluidframework/eslint-config-fluid": "workspace:~",
     "@fluidframework/ink": "^1.4.0",
     "@fluidframework/local-driver": "^1.4.0",
     "@fluidframework/map": "^1.4.0",
