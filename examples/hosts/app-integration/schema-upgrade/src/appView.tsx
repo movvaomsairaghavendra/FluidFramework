@@ -83,6 +83,7 @@ export const AppView: React.FC<IAppViewProps> = (props: IAppViewProps) => {
     };
 
     let importedDataView;
+    // eslint-disable-next-line unicorn/prefer-ternary
     if (importedStringData !== undefined) {
         importedDataView = (
             <div>

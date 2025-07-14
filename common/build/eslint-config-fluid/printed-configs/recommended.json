@@ -406,9 +406,6 @@
         "dot-notation": [
             "off"
         ],
-        "editorconfig/charset": [
-            "error"
-        ],
         "editorconfig/eol-last": [
             "error"
         ],
