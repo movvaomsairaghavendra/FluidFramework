@@ -32,9 +32,9 @@
     "@fluidframework/container-loader": "workspace:~",
     "@fluidframework/container-runtime": "workspace:~",
     "@fluidframework/map": "workspace:~",
-    "@fluidframework/matrix": "^1.4.0",
+    "@fluidframework/matrix": "workspace:~",
     "@fluidframework/odsp-driver": "^1.4.0",
-    "@fluidframework/sequence": "^1.4.0",
+    "@fluidframework/sequence": "workspace:~",
     "source-map-loader": "^2.0.0"
   },
   "devDependencies": {

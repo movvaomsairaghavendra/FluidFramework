@@ -46,7 +46,7 @@
     "@fluidframework/aqueduct": "workspace:~",
     "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/map": "workspace:~",
-    "@fluidframework/view-interfaces": "^1.4.0",
+    "@fluidframework/view-interfaces": "workspace:~",
     "react": "^16.10.2"
   },
   "devDependencies": {

@@ -32,7 +32,7 @@
     "@fluid-tools/fluidapp-odsp-urlresolver": "^1.4.0",
     "@fluidframework/common-utils": "^0.32.2",
     "@fluidframework/container-runtime": "workspace:~",
-    "@fluidframework/datastore": "^1.4.0",
+    "@fluidframework/datastore": "workspace:~",
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/odsp-doclib-utils": "workspace:~",
@@ -43,7 +43,7 @@
     "@fluidframework/routerlicious-driver": "workspace:~",
     "@fluidframework/routerlicious-urlresolver": "^1.4.0",
     "@fluidframework/runtime-definitions": "workspace:~",
-    "@fluidframework/telemetry-utils": "^1.4.0",
+    "@fluidframework/telemetry-utils": "workspace:~",
     "@fluidframework/test-client-utils": "workspace:~",
     "@fluidframework/tool-utils": "workspace:~"
   },

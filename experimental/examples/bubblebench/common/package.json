@@ -60,7 +60,7 @@
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/datastore-definitions": "workspace:~",
     "@fluidframework/map": "workspace:~",
-    "@fluidframework/view-interfaces": "^1.4.0",
+    "@fluidframework/view-interfaces": "workspace:~",
     "best-random": "^1.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -69,7 +69,7 @@
   "devDependencies": {
     "@fluidframework/build-common": "^0.24.0",
     "@fluidframework/eslint-config-fluid": "workspace:~",
-    "@fluidframework/mocha-test-setup": "^1.4.0",
+    "@fluidframework/mocha-test-setup": "workspace:~",
     "@fluidframework/test-tools": "^2.0.1",
     "@rushstack/eslint-config": "^2.5.1",
     "@types/expect-puppeteer": "2.2.1",

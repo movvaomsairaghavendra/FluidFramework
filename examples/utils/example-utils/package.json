@@ -36,7 +36,7 @@
     "@fluidframework/aqueduct": "workspace:~",
     "@fluidframework/container-runtime-definitions": "workspace:~",
     "@fluidframework/request-handler": "workspace:~",
-    "@fluidframework/runtime-definitions": "^1.4.0",
+    "@fluidframework/runtime-definitions": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
     "@fluidframework/view-adapters": "^1.4.0"
   },

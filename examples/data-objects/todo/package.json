@@ -48,7 +48,7 @@
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/map": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
-    "@fluidframework/sequence": "^1.4.0",
+    "@fluidframework/sequence": "workspace:~",
     "@fluidframework/view-adapters": "workspace:~",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

@@ -39,7 +39,7 @@
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/fluid-static": "workspace:~",
     "@fluidframework/map": "workspace:~",
-    "@fluidframework/sequence": "^1.4.0"
+    "@fluidframework/sequence": "workspace:~"
   },
   "devDependencies": {
     "@fluidframework/build-common": "^0.24.0",
