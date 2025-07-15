@@ -340,10 +340,10 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       css-loader:
         specifier: ^1.0.0
@@ -606,10 +606,10 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/datastore-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -1011,7 +1011,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/dds/counter
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       react:
         specifier: ^16.10.2
@@ -1123,34 +1123,34 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore
       '@fluidframework/datastore-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
         specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/merge-tree
       '@fluidframework/request-handler':
         specifier: workspace:~
         version: link:../../../packages/framework/request-handler
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/runtime-utils':
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@fluidframework/view-adapters':
         specifier: workspace:~
         version: link:../../../packages/framework/view-adapters
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       '@types/codemirror':
         specifier: 0.0.76
@@ -1229,7 +1229,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       react:
         specifier: ^16.10.2
@@ -1335,13 +1335,13 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/merge-tree
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@types/node':
         specifier: ^14.18.0
@@ -2361,34 +2361,34 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore
       '@fluidframework/datastore-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
         specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/merge-tree
       '@fluidframework/request-handler':
         specifier: workspace:~
         version: link:../../../packages/framework/request-handler
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/runtime-utils':
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@fluidframework/view-adapters':
         specifier: workspace:~
         version: link:../../../packages/framework/view-adapters
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       '@types/prosemirror-model':
         specifier: 1.16.2
@@ -2512,16 +2512,16 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore
       '@fluidframework/datastore-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
         specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/merge-tree
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
@@ -2530,19 +2530,19 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/framework/request-handler
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/runtime-utils':
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@fluidframework/undo-redo':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/undo-redo
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       bootstrap:
         specifier: ^3.3.7
@@ -2672,31 +2672,31 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore
       '@fluidframework/datastore-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
         specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/merge-tree
       '@fluidframework/request-handler':
         specifier: workspace:~
         version: link:../../../packages/framework/request-handler
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/runtime-utils':
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       marked:
         specifier: ^2.0.3
@@ -2781,10 +2781,10 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/datastore-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/merge-tree
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
@@ -2793,10 +2793,10 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/framework/request-handler
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       debug:
         specifier: ^4.1.1
@@ -2809,19 +2809,19 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/mocha-test-setup
       '@fluidframework/runtime-utils':
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/test-utils':
         specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@fluidframework/test-version-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-version-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -2881,13 +2881,13 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/matrix':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/matrix
       '@fluidframework/runtime-utils':
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@tiny-calc/micro':
         specifier: 0.0.0-alpha.5
@@ -3096,7 +3096,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@fluidframework/view-adapters':
         specifier: workspace:~
@@ -3238,7 +3238,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/datastore-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
         specifier: workspace:~
@@ -3250,7 +3250,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/framework/request-handler
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -3259,7 +3259,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/framework/view-adapters
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       office-ui-fabric-react:
         specifier: ^7.28.1
@@ -3392,22 +3392,22 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/data-object-base':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/data-object-base
       '@fluidframework/map':
         specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/merge-tree
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       debug:
         specifier: ^4.1.1
@@ -3429,7 +3429,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/mocha-test-setup
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -3438,7 +3438,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@fluidframework/test-version-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-version-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -3570,7 +3570,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/framework/view-adapters
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/framework/view-interfaces
       react:
         specifier: ^16.10.2
@@ -3827,10 +3827,10 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/sequence
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/utils/telemetry-utils
       '@fluidframework/tinylicious-driver':
         specifier: ^1.4.0
@@ -3987,10 +3987,10 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/drivers/routerlicious-driver
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       '@fluidframework/web-code-loader':
         specifier: ^1.4.0
@@ -4087,7 +4087,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/tinylicious-driver':
         specifier: ^1.4.0
@@ -4166,13 +4166,13 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/matrix':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/matrix
       '@fluidframework/odsp-driver':
         specifier: ^1.4.0
         version: link:../../../packages/drivers/odsp-driver
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       source-map-loader:
         specifier: ^2.0.0
@@ -4257,7 +4257,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/framework/request-handler
       '@fluidframework/runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-definitions
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -4328,7 +4328,7 @@ importers:
         specifier: ^0.24.0
         version: 0.24.0
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/test/mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -4416,7 +4416,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/test/mocha-test-setup
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -4548,10 +4548,10 @@ importers:
         specifier: ^1.4.0
         version: link:../../../../packages/drivers/local-driver
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/test/mocha-test-setup
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/sequence
       '@fluidframework/server-local-server':
         specifier: ^0.1036.5002
@@ -4560,7 +4560,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../../packages/test/test-drivers
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/runtime/test-runtime-utils
       '@fluidframework/test-utils':
         specifier: workspace:~
@@ -4648,7 +4648,7 @@ importers:
         specifier: ^0.24.0
         version: 0.24.0
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/test/mocha-test-setup
       '@types/mocha':
         specifier: ^9.1.1
@@ -4724,10 +4724,10 @@ importers:
         specifier: workspace:~
         version: link:../../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -4812,10 +4812,10 @@ importers:
         specifier: workspace:~
         version: link:../../../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../../packages/test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../../packages/runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -4887,7 +4887,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/dds/shared-object-base
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/utils/telemetry-utils
       buffer:
         specifier: ^6.0.3
@@ -4927,25 +4927,25 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/mocha-test-setup
       '@fluidframework/runtime-utils':
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/test-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-driver-definitions
       '@fluidframework/test-drivers':
         specifier: ^1.4.0
         version: link:../../../packages/test/test-drivers
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/test-utils':
         specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@fluidframework/undo-redo':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/undo-redo
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -5141,7 +5141,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/dds/map
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/framework/view-interfaces
       best-random:
         specifier: ^1.0.0
@@ -5163,7 +5163,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/test/mocha-test-setup
       '@fluidframework/test-tools':
         specifier: ^2.0.1
@@ -5553,7 +5553,7 @@ importers:
         specifier: ^0.1036.5002
         version: 0.1036.5002
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/tinylicious-driver':
         specifier: ^1.4.0
@@ -5633,7 +5633,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/mocha-test-setup
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -5684,10 +5684,10 @@ importers:
         specifier: ^0.32.2
         version: 0.32.2
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/merge-tree
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/sequence
       react:
         specifier: ^16.10.2
@@ -5922,10 +5922,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6004,10 +6004,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6086,10 +6086,10 @@ importers:
         specifier: npm:@fluidframework/ink@1.3.1
         version: '@fluidframework/ink@1.3.1'
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6180,10 +6180,10 @@ importers:
         specifier: npm:@fluidframework/map@1.3.1
         version: '@fluidframework/map@1.3.1'
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6240,7 +6240,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/datastore-definitions
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../merge-tree
       '@fluidframework/protocol-base':
         specifier: ^0.1036.5002
@@ -6258,7 +6258,7 @@ importers:
         specifier: workspace:~
         version: link:../shared-object-base
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@tiny-calc/nano':
         specifier: 0.0.0-alpha.5
@@ -6286,10 +6286,10 @@ importers:
         specifier: npm:@fluidframework/matrix@1.3.1
         version: '@fluidframework/matrix@1.3.1'
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6382,7 +6382,7 @@ importers:
         specifier: workspace:~
         version: link:../shared-object-base
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
     devDependencies:
       '@fluidframework/build-common':
@@ -6398,10 +6398,10 @@ importers:
         specifier: npm:@fluidframework/merge-tree@1.3.1
         version: '@fluidframework/merge-tree@1.3.1'
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6498,13 +6498,13 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/ordered-collection-previous':
         specifier: npm:@fluidframework/ordered-collection@1.3.1
         version: '@fluidframework/ordered-collection@1.3.1'
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6586,10 +6586,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6674,13 +6674,13 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/register-collection-previous':
         specifier: npm:@fluidframework/register-collection@1.3.1
         version: '@fluidframework/register-collection@1.3.1'
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6755,7 +6755,7 @@ importers:
         specifier: workspace:~
         version: link:../shared-object-base
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       uuid:
         specifier: ^8.3.1
@@ -6780,7 +6780,7 @@ importers:
         specifier: ^0.1036.5002
         version: 0.1036.5002
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/sequence-previous':
         specifier: npm:@fluidframework/sequence@1.3.1
@@ -6789,7 +6789,7 @@ importers:
         specifier: ^0.1036.5002
         version: 0.1036.5002
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6864,7 +6864,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -6879,7 +6879,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-utils
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       uuid:
         specifier: ^8.3.1
@@ -6895,13 +6895,13 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/shared-object-base-previous':
         specifier: npm:@fluidframework/shared-object-base@1.3.1
         version: '@fluidframework/shared-object-base@1.3.1'
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -6986,13 +6986,13 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/shared-summary-block-previous':
         specifier: npm:@fluidframework/shared-summary-block@1.3.1
         version: '@fluidframework/shared-summary-block@1.3.1'
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -7092,10 +7092,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -7214,10 +7214,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -7362,7 +7362,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
     devDependencies:
       '@fluidframework/build-common':
@@ -7414,7 +7414,7 @@ importers:
         specifier: ^1.4.0
         version: link:../odsp-driver-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       idb:
         specifier: ^6.1.2
@@ -7561,7 +7561,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -7615,7 +7615,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       comlink:
         specifier: ^4.3.0
@@ -7734,7 +7734,7 @@ importers:
         specifier: npm:@fluidframework/local-driver@1.3.1
         version: '@fluidframework/local-driver@1.3.1(encoding@0.1.13)'
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -7812,7 +7812,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       abort-controller:
         specifier: ^3.0.0
@@ -7837,7 +7837,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/odsp-driver-previous':
         specifier: npm:@fluidframework/odsp-driver@1.3.1
@@ -7965,7 +7965,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/odsp-urlresolver-previous':
         specifier: npm:@fluidframework/odsp-urlresolver@1.3.1
@@ -8019,7 +8019,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
     devDependencies:
       '@fluidframework/build-common':
@@ -8104,7 +8104,7 @@ importers:
         specifier: ^0.1036.5002
         version: 0.1036.5002
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       cross-fetch:
         specifier: ^3.1.5
@@ -8135,7 +8135,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/routerlicious-driver-previous':
         specifier: npm:@fluidframework/routerlicious-driver@1.3.1
@@ -8284,7 +8284,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/routerlicious-urlresolver-previous':
         specifier: npm:@fluidframework/routerlicious-urlresolver@1.3.1
@@ -8411,7 +8411,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -8496,7 +8496,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -8517,7 +8517,7 @@ importers:
         specifier: ^1.4.0
         version: link:../synthesize
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../view-interfaces
       uuid:
         specifier: ^8.3.1
@@ -8536,7 +8536,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -8596,7 +8596,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -8624,7 +8624,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -8672,13 +8672,13 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/merge-tree
       '@fluidframework/runtime-definitions':
         specifier: workspace:~
         version: link:../../runtime/runtime-definitions
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
     devDependencies:
       '@fluidframework/build-common':
@@ -8694,10 +8694,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -8769,7 +8769,7 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
     devDependencies:
       '@fluidframework/build-common':
@@ -8876,10 +8876,10 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -8949,13 +8949,13 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/request-handler-previous':
         specifier: npm:@fluidframework/request-handler@1.3.1
         version: '@fluidframework/request-handler@1.3.1'
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -9021,13 +9021,13 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/eslint-config-fluid':
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/synthesize-previous':
         specifier: npm:@fluidframework/synthesize@1.3.1
@@ -9078,7 +9078,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       sillyname:
         specifier: ^0.1.0
@@ -9239,13 +9239,13 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/matrix
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/merge-tree
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
       events:
         specifier: ^3.1.0
@@ -9261,10 +9261,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@fluidframework/undo-redo-previous':
         specifier: npm:@fluidframework/undo-redo@1.3.1
@@ -9330,7 +9330,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../view-interfaces
       react:
         specifier: ^16.10.2
@@ -9452,7 +9452,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       abort-controller:
         specifier: ^3.0.0
@@ -9486,7 +9486,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-loader-utils':
         specifier: ^1.4.0
@@ -9564,7 +9564,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
     devDependencies:
       '@fluidframework/build-common':
@@ -9580,10 +9580,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -9646,7 +9646,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       axios:
         specifier: ^0.30.0
@@ -9668,7 +9668,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -9838,7 +9838,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../datastore
       '@fluidframework/driver-definitions':
         specifier: workspace:~
@@ -9862,7 +9862,7 @@ importers:
         specifier: workspace:~
         version: link:../runtime-utils
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       double-ended-queue:
         specifier: ^2.1.0-0
@@ -9887,10 +9887,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -10044,7 +10044,7 @@ importers:
         specifier: workspace:~
         version: link:../runtime-utils
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       lodash:
         specifier: ^4.17.21
@@ -10066,10 +10066,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-runtime-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -10197,7 +10197,7 @@ importers:
         specifier: npm:@fluidframework/garbage-collector@1.3.1
         version: '@fluidframework/garbage-collector@1.3.1'
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -10330,7 +10330,7 @@ importers:
         specifier: workspace:~
         version: link:../runtime-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
     devDependencies:
       '@fluidframework/build-common':
@@ -10343,7 +10343,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/runtime-utils-previous':
         specifier: npm:@fluidframework/runtime-utils@1.3.1
@@ -10430,7 +10430,7 @@ importers:
         specifier: workspace:~
         version: link:../runtime-utils
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       axios:
         specifier: ^0.30.0
@@ -10455,7 +10455,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-runtime-utils-previous':
         specifier: npm:@fluidframework/test-runtime-utils@1.3.1
@@ -10531,16 +10531,16 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../mocha-test-setup
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-loader-utils':
         specifier: ^1.4.0
@@ -10624,7 +10624,7 @@ importers:
         specifier: workspace:~
         version: link:../../dds/counter
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -10651,13 +10651,13 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/matrix
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/merge-tree
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../mocha-test-setup
       '@fluidframework/odsp-doclib-utils':
         specifier: workspace:~
@@ -10684,7 +10684,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
       '@fluidframework/server-local-server':
         specifier: ^0.1036.5002
@@ -10693,7 +10693,7 @@ importers:
         specifier: workspace:~
         version: link:../../dds/shared-object-base
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-loader-utils':
         specifier: ^1.4.0
@@ -10702,7 +10702,7 @@ importers:
         specifier: ^1.4.0
         version: link:../test-pairwise-generator
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@fluidframework/test-utils':
         specifier: workspace:~
@@ -10768,7 +10768,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/lib/common-definitions
       '@fluidframework/test-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-driver-definitions
       mocha:
         specifier: ^10.0.0
@@ -10859,7 +10859,7 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/matrix
       '@fluidframework/ordered-collection':
         specifier: ^1.4.0
@@ -10874,7 +10874,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../drivers/replay-driver
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
       '@fluidframework/server-local-server':
         specifier: ^0.1036.5002
@@ -10890,7 +10890,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -10942,7 +10942,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -10990,7 +10990,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/lib/common-definitions
       '@fluidframework/test-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-driver-definitions
       applicationinsights:
         specifier: ^2.1.9
@@ -11145,13 +11145,13 @@ importers:
         specifier: ^0.1036.5002
         version: 0.1036.5002
       '@fluidframework/test-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-pairwise-generator':
         specifier: ^1.4.0
         version: link:../test-pairwise-generator
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@fluidframework/tinylicious-driver':
         specifier: ^1.4.0
@@ -11257,7 +11257,7 @@ importers:
         specifier: workspace:~
         version: link:../../dds/counter
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -11278,13 +11278,13 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/matrix
       '@fluidframework/merge-tree':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/merge-tree
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../mocha-test-setup
       '@fluidframework/odsp-doclib-utils':
         specifier: workspace:~
@@ -11311,16 +11311,16 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
       '@fluidframework/shared-object-base':
         specifier: workspace:~
         version: link:../../dds/shared-object-base
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-loader-utils':
         specifier: ^1.4.0
@@ -11329,16 +11329,16 @@ importers:
         specifier: ^1.4.0
         version: link:../test-pairwise-generator
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@fluidframework/test-utils':
         specifier: workspace:~
         version: link:../test-utils
       '@fluidframework/test-version-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-version-utils
       '@fluidframework/undo-redo':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../framework/undo-redo
       cross-env:
         specifier: ^7.0.2
@@ -11424,7 +11424,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../mocha-test-setup
       '@fluidframework/test-pairwise-generator-previous':
         specifier: npm:@fluidframework/test-pairwise-generator@1.3.1
@@ -11508,10 +11508,10 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-utils
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-drivers':
         specifier: ^1.4.0
@@ -11551,7 +11551,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -11614,7 +11614,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -11647,13 +11647,13 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-utils
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       debug:
         specifier: ^4.1.1
@@ -11774,10 +11774,10 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/matrix
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../mocha-test-setup
       '@fluidframework/ordered-collection':
         specifier: ^1.4.0
@@ -11792,10 +11792,10 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-definitions
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
       '@fluidframework/test-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-drivers':
         specifier: ^1.4.0
@@ -11895,7 +11895,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/container-runtime
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/driver-definitions':
         specifier: workspace:~
@@ -11928,7 +11928,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-definitions
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-client-utils':
         specifier: workspace:~
@@ -11992,7 +11992,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/datastore':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/datastore
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -12010,7 +12010,7 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/matrix
       '@fluidframework/ordered-collection':
         specifier: ^1.4.0
@@ -12034,13 +12034,13 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-utils
       '@fluidframework/sequence':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/sequence
       '@fluidframework/shared-summary-block':
         specifier: ^1.4.0
         version: link:../../dds/shared-summary-block
       '@fluidframework/telemetry-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/tool-utils':
         specifier: workspace:~
@@ -12140,7 +12140,7 @@ importers:
         specifier: ^0.1036.5002
         version: 0.1036.5002
       '@fluidframework/test-runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@fluidframework/tool-utils':
         specifier: workspace:~
@@ -12149,7 +12149,7 @@ importers:
         specifier: workspace:~
         version: link:../../framework/view-adapters
       '@fluidframework/view-interfaces':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../framework/view-interfaces
       '@fluidframework/web-code-loader':
         specifier: ^1.4.0
@@ -12189,7 +12189,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -12280,7 +12280,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/odsp-doclib-utils-previous':
         specifier: npm:@fluidframework/odsp-doclib-utils@1.3.1
@@ -12350,7 +12350,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/telemetry-utils-previous':
         specifier: npm:@fluidframework/telemetry-utils@1.4.0
@@ -12441,7 +12441,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/mocha-test-setup':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/tool-utils-previous':
         specifier: npm:@fluidframework/tool-utils@1.4.0

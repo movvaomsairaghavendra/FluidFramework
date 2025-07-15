@@ -47,7 +47,7 @@
     "@fluidframework/map": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
     "@fluidframework/view-adapters": "workspace:~",
-    "@fluidframework/view-interfaces": "^1.4.0",
+    "@fluidframework/view-interfaces": "workspace:~",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },

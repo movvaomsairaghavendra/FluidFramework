@@ -35,8 +35,8 @@
     "@fluidframework/cell": "^1.4.0",
     "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/merge-tree": "^1.4.0",
-    "@fluidframework/sequence": "^1.4.0",
+    "@fluidframework/merge-tree": "workspace:~",
+    "@fluidframework/sequence": "workspace:~",
     "react": "^16.10.2"
   },
   "devDependencies": {

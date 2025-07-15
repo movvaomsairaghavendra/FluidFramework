@@ -50,7 +50,7 @@
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/routerlicious-driver": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
-    "@fluidframework/test-runtime-utils": "^1.4.0",
+    "@fluidframework/test-runtime-utils": "workspace:~",
     "@fluidframework/tinylicious-driver": "^1.4.0",
     "@fluidframework/view-adapters": "workspace:~",
     "@fluidframework/web-code-loader": "^1.4.0",

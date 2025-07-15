@@ -48,7 +48,7 @@
     "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/counter": "workspace:~",
-    "@fluidframework/runtime-definitions": "^1.4.0",
+    "@fluidframework/runtime-definitions": "workspace:~",
     "react": "^16.10.2"
   },
   "devDependencies": {

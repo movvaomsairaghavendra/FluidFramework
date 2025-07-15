@@ -38,8 +38,8 @@
     "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/routerlicious-driver": "workspace:~",
-    "@fluidframework/test-runtime-utils": "^1.4.0",
-    "@fluidframework/view-interfaces": "^1.4.0",
+    "@fluidframework/test-runtime-utils": "workspace:~",
+    "@fluidframework/view-interfaces": "workspace:~",
     "@fluidframework/web-code-loader": "^1.4.0",
     "react": "^16.10.2",
     "semver": "^7.3.4"
