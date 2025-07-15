@@ -59,7 +59,7 @@
     "temp-directory": "nyc/.nyc_output"
   },
   "dependencies": {
-    "@fluidframework/common-definitions": "^0.20.1",
+    "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/common-utils": "^0.32.2",
     "@fluidframework/driver-base": "^1.4.0",
     "@fluidframework/driver-definitions": "workspace:~",
