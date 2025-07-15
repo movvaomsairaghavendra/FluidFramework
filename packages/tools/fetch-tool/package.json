@@ -40,11 +40,11 @@
     "@fluidframework/odsp-driver-definitions": "^1.4.0",
     "@fluidframework/odsp-urlresolver": "^1.4.0",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
-    "@fluidframework/routerlicious-driver": "^1.4.0",
+    "@fluidframework/routerlicious-driver": "workspace:~",
     "@fluidframework/routerlicious-urlresolver": "^1.4.0",
     "@fluidframework/runtime-definitions": "workspace:~",
     "@fluidframework/telemetry-utils": "^1.4.0",
-    "@fluidframework/test-client-utils": "^1.4.0",
+    "@fluidframework/test-client-utils": "workspace:~",
     "@fluidframework/tool-utils": "workspace:~"
   },
   "devDependencies": {

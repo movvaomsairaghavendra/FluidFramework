@@ -57,7 +57,7 @@
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/datastore": "^1.4.0",
     "@fluidframework/datastore-definitions": "workspace:~",
-    "@fluidframework/map": "^1.4.0",
+    "@fluidframework/map": "workspace:~",
     "@fluidframework/register-collection": "^1.4.0",
     "@fluidframework/runtime-definitions": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",

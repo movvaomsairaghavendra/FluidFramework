@@ -371,7 +371,7 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -411,7 +411,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -429,7 +429,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -458,7 +458,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../experimental/framework/get-container
       '@fluidframework/aqueduct':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/aqueduct
       '@fluidframework/common-definitions':
         specifier: workspace:~
@@ -470,7 +470,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       css-loader:
         specifier: ^1.0.0
@@ -532,7 +532,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -550,7 +550,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -701,7 +701,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -831,7 +831,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -849,7 +849,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -943,7 +943,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -1008,7 +1008,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/counter':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/counter
       '@fluidframework/runtime-definitions':
         specifier: ^1.4.0
@@ -1030,7 +1030,7 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -1067,7 +1067,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -1082,7 +1082,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -1129,7 +1129,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
         specifier: ^1.4.0
@@ -1226,7 +1226,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/lib/common-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/view-interfaces':
         specifier: ^1.4.0
@@ -1282,7 +1282,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -1297,7 +1297,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -1444,7 +1444,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/common/core-interfaces
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/map
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
@@ -1488,7 +1488,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -1503,7 +1503,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -1591,7 +1591,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -1609,7 +1609,7 @@ importers:
         version: 1.3.0(webpack@5.100.2)
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -1730,7 +1730,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -1748,7 +1748,7 @@ importers:
         version: 1.3.0(webpack@5.100.2)
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -1783,7 +1783,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../common/lib/common-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/map
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
@@ -1827,7 +1827,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -1842,7 +1842,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -1996,7 +1996,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -2014,7 +2014,7 @@ importers:
         version: 1.3.0(webpack@5.100.2)
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -2099,7 +2099,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -2117,7 +2117,7 @@ importers:
         version: 1.3.0(webpack@5.100.2)
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -2202,7 +2202,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -2220,7 +2220,7 @@ importers:
         version: 1.3.0(webpack@5.100.2)
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -2302,7 +2302,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -2317,7 +2317,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -2367,7 +2367,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
         specifier: ^1.4.0
@@ -2518,7 +2518,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
         specifier: ^1.4.0
@@ -2607,7 +2607,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -2678,7 +2678,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
         specifier: ^1.4.0
@@ -2818,7 +2818,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@fluidframework/test-version-utils':
         specifier: ^1.4.0
@@ -3034,7 +3034,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -3052,7 +3052,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -3090,7 +3090,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -3124,7 +3124,7 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -3164,7 +3164,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -3241,7 +3241,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
@@ -3327,7 +3327,7 @@ importers:
         version: 3.1.2(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -3395,7 +3395,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../packages/framework/data-object-base
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/merge-tree':
         specifier: ^1.4.0
@@ -3435,7 +3435,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@fluidframework/test-version-utils':
         specifier: ^1.4.0
@@ -3561,7 +3561,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/common/core-interfaces
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/map
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -3629,7 +3629,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -3644,7 +3644,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -3729,7 +3729,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -3747,7 +3747,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -3812,7 +3812,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/loader/driver-utils
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/map
       '@fluidframework/register-collection':
         specifier: ^1.4.0
@@ -3821,7 +3821,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/framework/request-handler
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/drivers/routerlicious-driver
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -3919,7 +3919,7 @@ importers:
         version: 5.6.3(webpack@5.100.2)
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -3937,7 +3937,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -3984,7 +3984,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/drivers/routerlicious-driver
       '@fluidframework/test-runtime-utils':
         specifier: ^1.4.0
@@ -4081,7 +4081,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/drivers/routerlicious-driver
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -4163,7 +4163,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/runtime/container-runtime
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/matrix':
         specifier: ^1.4.0
@@ -4563,7 +4563,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../../packages/runtime/test-runtime-utils
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/test/test-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -4942,7 +4942,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-utils
       '@fluidframework/undo-redo':
         specifier: ^1.4.0
@@ -5029,7 +5029,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/map
       react:
         specifier: ^16.10.2
@@ -5082,7 +5082,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -5097,7 +5097,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -5138,7 +5138,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/map
       '@fluidframework/view-interfaces':
         specifier: ^1.4.0
@@ -5247,7 +5247,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/map
       ot-json1:
         specifier: ^1.0.1
@@ -5303,7 +5303,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -5318,7 +5318,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -5368,7 +5368,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/map
       react:
         specifier: ^16.10.2
@@ -5421,7 +5421,7 @@ importers:
         version: 8.55.0
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       jest-junit:
         specifier: ^10.0.0
         version: 10.0.0
@@ -5436,7 +5436,7 @@ importers:
         version: 2.7.1
       ts-jest:
         specifier: ^26.4.4
-        version: 26.5.6(jest@26.6.3(ts-node@7.0.1))(typescript@4.5.5)
+        version: 26.5.6(jest@26.6.3)(typescript@4.5.5)
       ts-loader:
         specifier: ^9.3.0
         version: 9.5.2(typescript@4.5.5)(webpack@5.100.2)
@@ -5474,7 +5474,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/map
       '@fluidframework/runtime-definitions':
         specifier: workspace:~
@@ -5547,7 +5547,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/drivers/routerlicious-driver
       '@fluidframework/server-local-server':
         specifier: ^0.1036.5002
@@ -7458,7 +7458,7 @@ importers:
         version: 3.1.4
       jest:
         specifier: ^26.6.3
-        version: 26.6.3(ts-node@7.0.1)
+        version: 26.6.3
       rimraf:
         specifier: ^2.6.2
         version: 2.7.1
@@ -7697,7 +7697,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../routerlicious-driver
       '@fluidframework/server-local-server':
         specifier: ^0.1036.5002
@@ -8341,7 +8341,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../routerlicious-driver
       '@fluidframework/server-services-client':
         specifier: ^0.1036.5002
@@ -8417,7 +8417,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/register-collection':
         specifier: ^1.4.0
@@ -8502,7 +8502,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/datastore-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/request-handler':
         specifier: workspace:~
@@ -8669,7 +8669,7 @@ importers:
         specifier: ^0.32.2
         version: 0.32.2
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/merge-tree':
         specifier: ^1.4.0
@@ -8766,7 +8766,7 @@ importers:
         specifier: workspace:~
         version: link:../fluid-static
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/sequence':
         specifier: ^1.4.0
@@ -8854,7 +8854,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-definitions
       '@fluidframework/runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/runtime-utils
     devDependencies:
       '@fluid-experimental/get-container':
@@ -8873,7 +8873,7 @@ importers:
         specifier: npm:@fluidframework/fluid-static@1.3.1
         version: '@fluidframework/fluid-static@1.3.1'
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/mocha-test-setup':
         specifier: ^1.4.0
@@ -8936,7 +8936,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-definitions
       '@fluidframework/runtime-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/runtime-utils
     devDependencies:
       '@fluidframework/build-common':
@@ -9151,13 +9151,13 @@ importers:
         specifier: workspace:~
         version: link:../fluid-static
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/routerlicious-driver
       '@fluidframework/runtime-utils':
         specifier: workspace:~
@@ -9236,7 +9236,7 @@ importers:
   packages/framework/undo-redo:
     dependencies:
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
         specifier: ^1.4.0
@@ -10421,7 +10421,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/routerlicious-driver
       '@fluidframework/runtime-definitions':
         specifier: workspace:~
@@ -10621,7 +10621,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/counter':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/counter
       '@fluidframework/datastore':
         specifier: ^1.4.0
@@ -10648,7 +10648,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../drivers/local-driver
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
         specifier: ^1.4.0
@@ -10675,7 +10675,7 @@ importers:
         specifier: workspace:~
         version: link:../../framework/request-handler
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/routerlicious-driver
       '@fluidframework/runtime-definitions':
         specifier: workspace:~
@@ -10705,7 +10705,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../runtime/test-runtime-utils
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -10838,7 +10838,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/counter':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/counter
       '@fluidframework/driver-definitions':
         specifier: workspace:~
@@ -10856,7 +10856,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../drivers/local-driver
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
         specifier: ^1.4.0
@@ -10880,7 +10880,7 @@ importers:
         specifier: ^0.1036.5002
         version: 0.1036.5002
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-utils
     devDependencies:
       '@fluidframework/build-common':
@@ -11139,7 +11139,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/routerlicious-driver
       '@fluidframework/server-local-server':
         specifier: ^0.1036.5002
@@ -11254,7 +11254,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/counter':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/counter
       '@fluidframework/datastore':
         specifier: ^1.4.0
@@ -11275,7 +11275,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../dds/ink
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
         specifier: ^1.4.0
@@ -11332,7 +11332,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../runtime/test-runtime-utils
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-utils
       '@fluidframework/test-version-utils':
         specifier: ^1.4.0
@@ -11487,7 +11487,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/counter':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/counter
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -11496,7 +11496,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/driver-definitions
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
@@ -11520,7 +11520,7 @@ importers:
         specifier: ^1.4.0
         version: link:../test-pairwise-generator
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-utils
       '@fluidframework/tool-utils':
         specifier: workspace:~
@@ -11629,7 +11629,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../drivers/local-driver
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
@@ -11638,7 +11638,7 @@ importers:
         specifier: workspace:~
         version: link:../../framework/request-handler
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/routerlicious-driver
       '@fluidframework/runtime-definitions':
         specifier: workspace:~
@@ -11756,7 +11756,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/core-interfaces
       '@fluidframework/counter':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/counter
       '@fluidframework/datastore-definitions':
         specifier: workspace:~
@@ -11771,7 +11771,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../dds/ink
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
         specifier: ^1.4.0
@@ -11801,7 +11801,7 @@ importers:
         specifier: ^1.4.0
         version: link:../test-drivers
       '@fluidframework/test-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-utils
       nconf:
         specifier: ^0.11.4
@@ -11919,7 +11919,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/routerlicious-driver
       '@fluidframework/routerlicious-urlresolver':
         specifier: ^1.4.0
@@ -11931,7 +11931,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-client-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../framework/test-client-utils
       '@fluidframework/tool-utils':
         specifier: workspace:~
@@ -12007,7 +12007,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../dds/ink
       '@fluidframework/map':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/matrix':
         specifier: ^1.4.0
@@ -12125,7 +12125,7 @@ importers:
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/routerlicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/routerlicious-driver
       '@fluidframework/runtime-definitions':
         specifier: workspace:~
@@ -23942,7 +23942,7 @@ snapshots:
       '@fluidframework/view-adapters': 1.4.0
       '@fluidframework/view-interfaces': 1.4.0
       '@fluidframework/web-code-loader': 1.4.0(encoding@0.1.13)
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       express: 4.21.2
       nconf: 0.11.4
       sillyname: 0.1.0
@@ -24619,7 +24619,7 @@ snapshots:
       '@fluidframework/protocol-base': 0.1036.5002
       '@fluidframework/protocol-definitions': 0.1028.2000
       '@fluidframework/telemetry-utils': 1.4.0
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       uuid: 8.3.2
     transitivePeerDependencies:
       - debug
@@ -24635,7 +24635,7 @@ snapshots:
       '@fluidframework/protocol-base': 0.1036.5002
       '@fluidframework/protocol-definitions': 0.1028.2000
       '@fluidframework/telemetry-utils': 1.4.0
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       uuid: 8.3.2
     transitivePeerDependencies:
       - debug
@@ -25316,7 +25316,7 @@ snapshots:
       '@fluidframework/common-utils': 0.32.2
       '@fluidframework/core-interfaces': 1.4.0
       '@fluidframework/driver-definitions': 1.4.0
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
     transitivePeerDependencies:
       - debug
 
@@ -25479,7 +25479,7 @@ snapshots:
       '@types/semver': 6.2.7
       assert: 2.1.0
       async: 3.2.6
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       buffer: 6.0.3
       double-ended-queue: 2.1.0-0
       events: 3.3.0
@@ -25919,7 +25919,7 @@ snapshots:
       '@fluidframework/test-runtime-utils': 1.4.0(encoding@0.1.13)
       '@fluidframework/tinylicious-driver': 1.4.0(encoding@0.1.13)
       '@fluidframework/tool-utils': 1.4.0(encoding@0.1.13)
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       semver: 7.7.2
       uuid: 8.3.2
     transitivePeerDependencies:
@@ -25948,7 +25948,7 @@ snapshots:
       '@fluidframework/test-runtime-utils': 1.4.0(encoding@0.1.13)
       '@fluidframework/tinylicious-driver': 1.4.0(encoding@0.1.13)
       '@fluidframework/tool-utils': 1.4.0(encoding@0.1.13)
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       semver: 7.7.2
       uuid: 8.3.2
     transitivePeerDependencies:
@@ -25993,7 +25993,7 @@ snapshots:
       '@fluidframework/runtime-definitions': 1.4.0
       '@fluidframework/runtime-utils': 1.4.0
       '@fluidframework/telemetry-utils': 1.4.0
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       events: 3.3.0
       jsrsasign: 10.9.0
       uuid: 8.3.2
@@ -26043,7 +26043,7 @@ snapshots:
       '@fluidframework/runtime-definitions': 1.4.0
       '@fluidframework/runtime-utils': 1.4.0
       '@fluidframework/telemetry-utils': 1.4.0
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       events: 3.3.0
       jsrsasign: 11.1.0
       uuid: 8.3.2
@@ -26634,6 +26634,43 @@ snapshots:
       jest-util: 26.6.2
       slash: 3.0.0
 
+  '@jest/core@26.6.3':
+    dependencies:
+      '@jest/console': 26.6.2
+      '@jest/reporters': 26.6.2
+      '@jest/test-result': 26.6.2
+      '@jest/transform': 26.6.2
+      '@jest/types': 26.6.2
+      '@types/node': 14.18.63
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      exit: 0.1.2
+      graceful-fs: 4.2.11
+      jest-changed-files: 26.6.2
+      jest-config: 26.6.3
+      jest-haste-map: 26.6.2
+      jest-message-util: 26.6.2
+      jest-regex-util: 26.0.0
+      jest-resolve: 26.6.2
+      jest-resolve-dependencies: 26.6.3
+      jest-runner: 26.6.3
+      jest-runtime: 26.6.3(ts-node@7.0.1)
+      jest-snapshot: 26.6.2
+      jest-util: 26.6.2
+      jest-validate: 26.6.2
+      jest-watcher: 26.6.2
+      micromatch: 4.0.8
+      p-each-series: 2.2.0
+      rimraf: 3.0.2
+      slash: 3.0.0
+      strip-ansi: 6.0.1
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - ts-node
+      - utf-8-validate
+
   '@jest/core@26.6.3(ts-node@7.0.1)':
     dependencies:
       '@jest/console': 26.6.2
@@ -26654,7 +26691,7 @@ snapshots:
       jest-resolve: 26.6.2
       jest-resolve-dependencies: 26.6.3
       jest-runner: 26.6.3(ts-node@7.0.1)
-      jest-runtime: 26.6.3
+      jest-runtime: 26.6.3(ts-node@7.0.1)
       jest-snapshot: 26.6.2
       jest-util: 26.6.2
       jest-validate: 26.6.2
@@ -26742,8 +26779,18 @@ snapshots:
       '@jest/test-result': 26.6.2
       graceful-fs: 4.2.11
       jest-haste-map: 26.6.2
+      jest-runner: 26.6.3
+      jest-runtime: 26.6.3(ts-node@7.0.1)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@jest/test-sequencer@26.6.3(ts-node@7.0.1)':
+    dependencies:
+      '@jest/test-result': 26.6.2
+      graceful-fs: 4.2.11
+      jest-haste-map: 26.6.2
       jest-runner: 26.6.3(ts-node@7.0.1)
-      jest-runtime: 26.6.3
+      jest-runtime: 26.6.3(ts-node@7.0.1)
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -29436,6 +29483,14 @@ snapshots:
   aws-sign2@0.7.0: {}
 
   aws4@1.13.2: {}
+
+  axios@0.30.0:
+    dependencies:
+      follow-redirects: 1.15.9(debug@4.3.4)
+      form-data: 4.0.3
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
 
   axios@0.30.0(debug@4.3.4):
     dependencies:
@@ -33424,6 +33479,28 @@ snapshots:
       execa: 4.1.0
       throat: 5.0.0
 
+  jest-cli@26.6.3:
+    dependencies:
+      '@jest/core': 26.6.3
+      '@jest/test-result': 26.6.2
+      '@jest/types': 26.6.2
+      chalk: 4.1.2
+      exit: 0.1.2
+      graceful-fs: 4.2.11
+      import-local: 3.2.0
+      is-ci: 2.0.0
+      jest-config: 26.6.3
+      jest-util: 26.6.2
+      jest-validate: 26.6.2
+      prompts: 2.4.2
+      yargs: 15.4.1
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - ts-node
+      - utf-8-validate
+
   jest-cli@26.6.3(ts-node@7.0.1):
     dependencies:
       '@jest/core': 26.6.3(ts-node@7.0.1)
@@ -33446,10 +33523,36 @@ snapshots:
       - ts-node
       - utf-8-validate
 
-  jest-config@26.6.3(ts-node@7.0.1):
+  jest-config@26.6.3:
     dependencies:
       '@babel/core': 7.28.0
       '@jest/test-sequencer': 26.6.3
+      '@jest/types': 26.6.2
+      babel-jest: 26.6.3(@babel/core@7.28.0)
+      chalk: 4.1.2
+      deepmerge: 4.3.1
+      glob: 7.2.3
+      graceful-fs: 4.2.11
+      jest-environment-jsdom: 26.6.2
+      jest-environment-node: 26.6.2
+      jest-get-type: 26.3.0
+      jest-jasmine2: 26.6.3
+      jest-regex-util: 26.0.0
+      jest-resolve: 26.6.2
+      jest-util: 26.6.2
+      jest-validate: 26.6.2
+      micromatch: 4.0.8
+      pretty-format: 26.6.2
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - utf-8-validate
+
+  jest-config@26.6.3(ts-node@7.0.1):
+    dependencies:
+      '@babel/core': 7.28.0
+      '@jest/test-sequencer': 26.6.3(ts-node@7.0.1)
       '@jest/types': 26.6.2
       babel-jest: 26.6.3(@babel/core@7.28.0)
       chalk: 4.1.2
@@ -33577,7 +33680,7 @@ snapshots:
       jest-each: 26.6.2
       jest-matcher-utils: 26.6.2
       jest-message-util: 26.6.2
-      jest-runtime: 26.6.3
+      jest-runtime: 26.6.3(ts-node@7.0.1)
       jest-snapshot: 26.6.2
       jest-util: 26.6.2
       pretty-format: 26.6.2
@@ -33663,6 +33766,35 @@ snapshots:
       resolve: 1.22.10
       slash: 3.0.0
 
+  jest-runner@26.6.3:
+    dependencies:
+      '@jest/console': 26.6.2
+      '@jest/environment': 26.6.2
+      '@jest/test-result': 26.6.2
+      '@jest/types': 26.6.2
+      '@types/node': 14.18.63
+      chalk: 4.1.2
+      emittery: 0.7.2
+      exit: 0.1.2
+      graceful-fs: 4.2.11
+      jest-config: 26.6.3
+      jest-docblock: 26.0.0
+      jest-haste-map: 26.6.2
+      jest-leak-detector: 26.6.2
+      jest-message-util: 26.6.2
+      jest-resolve: 26.6.2
+      jest-runtime: 26.6.3(ts-node@7.0.1)
+      jest-util: 26.6.2
+      jest-worker: 26.6.2
+      source-map-support: 0.5.21
+      throat: 5.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - ts-node
+      - utf-8-validate
+
   jest-runner@26.6.3(ts-node@7.0.1):
     dependencies:
       '@jest/console': 26.6.2
@@ -33680,7 +33812,7 @@ snapshots:
       jest-leak-detector: 26.6.2
       jest-message-util: 26.6.2
       jest-resolve: 26.6.2
-      jest-runtime: 26.6.3
+      jest-runtime: 26.6.3(ts-node@7.0.1)
       jest-util: 26.6.2
       jest-worker: 26.6.2
       source-map-support: 0.5.21
@@ -33692,7 +33824,7 @@ snapshots:
       - ts-node
       - utf-8-validate
 
-  jest-runtime@26.6.3:
+  jest-runtime@26.6.3(ts-node@7.0.1):
     dependencies:
       '@jest/console': 26.6.2
       '@jest/environment': 26.6.2
@@ -33802,6 +33934,18 @@ snapshots:
       '@types/node': 14.18.63
       merge-stream: 2.0.0
       supports-color: 8.1.1
+
+  jest@26.6.3:
+    dependencies:
+      '@jest/core': 26.6.3
+      import-local: 3.2.0
+      jest-cli: 26.6.3
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - ts-node
+      - utf-8-validate
 
   jest@26.6.3(ts-node@7.0.1):
     dependencies:
@@ -38205,7 +38349,7 @@ snapshots:
       '@fluidframework/server-services-utils': 0.1038.4001
       '@fluidframework/server-test-utils': 0.1038.4001
       agentkeepalive: 4.6.0
-      axios: 0.30.0(debug@4.3.4)
+      axios: 0.30.0
       body-parser: 1.20.3
       charwise: 3.0.1
       compression: 1.8.0
@@ -38321,6 +38465,21 @@ snapshots:
       buffer-from: 1.1.2
       fast-json-stable-stringify: 2.1.0
       jest: 26.6.3(ts-node@7.0.1)
+      jest-util: 26.6.2
+      json5: 2.2.3
+      lodash: 4.17.21
+      make-error: 1.3.6
+      mkdirp: 1.0.4
+      semver: 7.7.2
+      typescript: 4.5.5
+      yargs-parser: 20.2.9
+
+  ts-jest@26.5.6(jest@26.6.3)(typescript@4.5.5):
+    dependencies:
+      bs-logger: 0.2.6
+      buffer-from: 1.1.2
+      fast-json-stable-stringify: 2.1.0
+      jest: 26.6.3
       jest-util: 26.6.2
       json5: 2.2.3
       lodash: 4.17.21

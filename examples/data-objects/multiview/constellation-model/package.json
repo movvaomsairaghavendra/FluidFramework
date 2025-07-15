@@ -46,7 +46,7 @@
     "@fluidframework/aqueduct": "workspace:~",
     "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
-    "@fluidframework/map": "^1.4.0"
+    "@fluidframework/map": "workspace:~"
   },
   "devDependencies": {
     "@fluid-tools/webpack-fluid-loader": "^1.4.0",

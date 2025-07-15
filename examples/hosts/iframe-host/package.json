@@ -48,7 +48,7 @@
     "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/iframe-driver": "^1.4.0",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
-    "@fluidframework/routerlicious-driver": "^1.4.0",
+    "@fluidframework/routerlicious-driver": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
     "@fluidframework/test-runtime-utils": "^1.4.0",
     "@fluidframework/tinylicious-driver": "^1.4.0",

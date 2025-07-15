@@ -37,7 +37,7 @@
     "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/local-driver": "^1.4.0",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
-    "@fluidframework/routerlicious-driver": "^1.4.0",
+    "@fluidframework/routerlicious-driver": "workspace:~",
     "@fluidframework/server-local-server": "^0.1036.5002",
     "@fluidframework/test-runtime-utils": "^1.4.0",
     "@fluidframework/tinylicious-driver": "^1.4.0",

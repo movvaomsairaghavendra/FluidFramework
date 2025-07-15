@@ -47,7 +47,7 @@
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/file-driver": "^1.4.0",
     "@fluidframework/ink": "^1.4.0",
-    "@fluidframework/map": "^1.4.0",
+    "@fluidframework/map": "workspace:~",
     "@fluidframework/matrix": "^1.4.0",
     "@fluidframework/ordered-collection": "^1.4.0",
     "@fluidframework/protocol-definitions": "^0.1028.2000",

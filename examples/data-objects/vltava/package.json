@@ -51,7 +51,7 @@
     "@fluidframework/container-runtime-definitions": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/datastore-definitions": "^1.4.0",
-    "@fluidframework/map": "^1.4.0",
+    "@fluidframework/map": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/request-handler": "workspace:~",
     "@fluidframework/runtime-definitions": "^1.4.0",

@@ -50,7 +50,7 @@
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/datastore": "^1.4.0",
     "@fluidframework/datastore-definitions": "^1.4.0",
-    "@fluidframework/map": "^1.4.0",
+    "@fluidframework/map": "workspace:~",
     "@fluidframework/merge-tree": "^1.4.0",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/request-handler": "workspace:~",
