@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@fluid-example/example-utils": "workspace:~",
-    "@fluid-experimental/task-manager": "^1.4.0",
+    "@fluid-experimental/task-manager": "workspace:~",
     "@fluidframework/aqueduct": "workspace:~",
     "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
@@ -52,7 +52,7 @@
     "react": "^16.10.2"
   },
   "devDependencies": {
-    "@fluid-tools/webpack-fluid-loader": "^1.4.0",
+    "@fluid-tools/webpack-fluid-loader": "workspace:~",
     "@fluidframework/build-common": "^0.24.0",
     "@fluidframework/eslint-config-fluid": "workspace:~",
     "@fluidframework/test-tools": "^2.0.1",

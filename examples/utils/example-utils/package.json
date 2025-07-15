@@ -38,7 +38,7 @@
     "@fluidframework/request-handler": "workspace:~",
     "@fluidframework/runtime-definitions": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
-    "@fluidframework/view-adapters": "^1.4.0"
+    "@fluidframework/view-adapters": "workspace:~"
   },
   "devDependencies": {
     "@fluidframework/build-common": "^0.24.0",

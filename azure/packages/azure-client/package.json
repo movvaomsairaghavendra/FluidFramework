@@ -86,7 +86,7 @@
 		"typescript": "~4.5.5"
 	},
 	"peerDependencies": {
-		"fluid-framework": "^1.4.0"
+		"fluid-framework": "workspace:~"
 	},
 	"typeValidation": {
 		"broken": {}

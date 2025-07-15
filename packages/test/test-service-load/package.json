@@ -73,7 +73,7 @@
     "temp-directory": "nyc/.nyc_output"
   },
   "dependencies": {
-    "@fluid-experimental/task-manager": "^1.4.0",
+    "@fluid-experimental/task-manager": "workspace:~",
     "@fluidframework/aqueduct": "workspace:~",
     "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/common-utils": "^0.32.2",
@@ -90,8 +90,8 @@
     "@fluidframework/runtime-utils": "workspace:~",
     "@fluidframework/telemetry-utils": "workspace:~",
     "@fluidframework/test-driver-definitions": "workspace:~",
-    "@fluidframework/test-drivers": "^1.4.0",
-    "@fluidframework/test-pairwise-generator": "^1.4.0",
+    "@fluidframework/test-drivers": "workspace:~",
+    "@fluidframework/test-pairwise-generator": "workspace:~",
     "@fluidframework/test-utils": "workspace:~",
     "@fluidframework/tool-utils": "workspace:~",
     "commander": "^5.1.0",

@@ -40,7 +40,7 @@
     "@fluidframework/routerlicious-driver": "workspace:~",
     "@fluidframework/test-runtime-utils": "workspace:~",
     "@fluidframework/view-interfaces": "workspace:~",
-    "@fluidframework/web-code-loader": "^1.4.0",
+    "@fluidframework/web-code-loader": "workspace:~",
     "react": "^16.10.2",
     "semver": "^7.3.4"
   },
