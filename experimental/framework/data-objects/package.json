@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@fluidframework/aqueduct": "workspace:~",
-    "@fluidframework/common-definitions": "^0.20.1",
+    "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/common-utils": "^0.32.2",
     "@fluidframework/datastore-definitions": "workspace:~",
     "@fluidframework/map": "^1.4.0",

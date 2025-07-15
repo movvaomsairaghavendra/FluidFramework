@@ -63,8 +63,8 @@
   "dependencies": {
     "@fluidframework/aqueduct": "workspace:~",
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/container-definitions": "^1.4.0",
-    "@fluidframework/container-loader": "^1.4.0",
+    "@fluidframework/container-definitions": "workspace:~",
+    "@fluidframework/container-loader": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",

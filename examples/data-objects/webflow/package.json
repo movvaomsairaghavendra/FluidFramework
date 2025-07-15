@@ -76,9 +76,9 @@
   "dependencies": {
     "@fluid-example/example-utils": "workspace:~",
     "@fluidframework/aqueduct": "workspace:~",
-    "@fluidframework/common-definitions": "^0.20.1",
+    "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/core-interfaces": "^1.4.0",
+    "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/data-object-base": "^1.4.0",
     "@fluidframework/map": "^1.4.0",
     "@fluidframework/merge-tree": "^1.4.0",

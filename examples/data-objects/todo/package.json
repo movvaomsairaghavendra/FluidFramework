@@ -45,7 +45,7 @@
     "@fluid-experimental/react-inputs": "^1.4.0",
     "@fluidframework/aqueduct": "workspace:~",
     "@fluidframework/container-runtime-definitions": "workspace:~",
-    "@fluidframework/core-interfaces": "^1.4.0",
+    "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/map": "^1.4.0",
     "@fluidframework/runtime-utils": "workspace:~",
     "@fluidframework/sequence": "^1.4.0",
