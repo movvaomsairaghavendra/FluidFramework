@@ -32,7 +32,7 @@
     "tsfmt:fix": "tsfmt --replace"
   },
   "dependencies": {
-    "@fluidframework/cell": "^1.4.0",
+    "@fluidframework/cell": "workspace:~",
     "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/common-utils": "^0.32.2",
     "@fluidframework/merge-tree": "workspace:~",

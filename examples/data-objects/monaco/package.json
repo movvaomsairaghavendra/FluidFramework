@@ -52,7 +52,7 @@
     "react": "^16.10.2"
   },
   "devDependencies": {
-    "@fluid-tools/webpack-fluid-loader": "^1.4.0",
+    "@fluid-tools/webpack-fluid-loader": "workspace:~",
     "@fluidframework/build-common": "^0.24.0",
     "@fluidframework/eslint-config-fluid": "workspace:~",
     "@rushstack/eslint-config": "^2.5.1",

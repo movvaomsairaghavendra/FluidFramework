@@ -69,7 +69,7 @@
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/sequence": "workspace:~",
     "@fluidframework/telemetry-utils": "workspace:~",
-    "@fluidframework/test-loader-utils": "^1.4.0",
+    "@fluidframework/test-loader-utils": "workspace:~",
     "@rushstack/eslint-config": "^2.5.1",
     "@types/assert": "^1.5.1",
     "@types/mocha": "^9.1.1",

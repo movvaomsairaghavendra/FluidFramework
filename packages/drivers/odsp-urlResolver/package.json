@@ -38,8 +38,8 @@
   "dependencies": {
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/driver-definitions": "workspace:~",
-    "@fluidframework/odsp-driver": "^1.4.0",
-    "@fluidframework/odsp-driver-definitions": "^1.4.0"
+    "@fluidframework/odsp-driver": "workspace:~",
+    "@fluidframework/odsp-driver-definitions": "workspace:~"
   },
   "devDependencies": {
     "@fluidframework/build-common": "^0.24.0",

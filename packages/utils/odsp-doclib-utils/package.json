@@ -62,7 +62,7 @@
     "@fluidframework/common-utils": "^0.32.2",
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",
-    "@fluidframework/odsp-driver-definitions": "^1.4.0",
+    "@fluidframework/odsp-driver-definitions": "workspace:~",
     "@fluidframework/telemetry-utils": "workspace:~",
     "node-fetch": "^2.6.1"
   },

@@ -35,12 +35,12 @@
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",
-    "@fluidframework/local-driver": "^1.4.0",
+    "@fluidframework/local-driver": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/routerlicious-driver": "workspace:~",
     "@fluidframework/server-local-server": "^0.1036.5002",
     "@fluidframework/test-runtime-utils": "workspace:~",
-    "@fluidframework/tinylicious-driver": "^1.4.0",
+    "@fluidframework/tinylicious-driver": "workspace:~",
     "jsonwebtoken": "^8.4.0"
   },
   "devDependencies": {

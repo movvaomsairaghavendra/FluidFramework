@@ -325,10 +325,10 @@ importers:
   examples/apps/collaborative-textarea:
     dependencies:
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/get-container
       '@fluid-experimental/react-inputs':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/react-inputs
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -359,7 +359,7 @@ importers:
         version: 1.3.0(webpack@5.100.2)
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -455,7 +455,7 @@ importers:
   examples/apps/contact-collection:
     dependencies:
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/get-container
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -464,7 +464,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/lib/common-definitions
       '@fluidframework/container-runtime-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/runtime/container-runtime-definitions
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -594,7 +594,7 @@ importers:
         specifier: workspace:~
         version: link:../../data-objects/prosemirror
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/get-container
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -754,7 +754,7 @@ importers:
   examples/apps/view-framework-sampler:
     dependencies:
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/get-container
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -887,14 +887,14 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/common/core-interfaces
       '@fluidframework/ink':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/ink
       react:
         specifier: ^16.10.2
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -996,7 +996,7 @@ importers:
         specifier: workspace:~
         version: link:../../utils/example-utils
       '@fluid-experimental/task-manager':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/task-manager
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -1018,7 +1018,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -1160,7 +1160,7 @@ importers:
         version: 5.65.19
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -1236,7 +1236,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -1354,7 +1354,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -1448,7 +1448,7 @@ importers:
         version: link:../../../../packages/dds/map
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -1539,7 +1539,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -1678,7 +1678,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -1787,7 +1787,7 @@ importers:
         version: link:../../../../packages/dds/map
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -1944,7 +1944,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -2047,7 +2047,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -2150,7 +2150,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -2246,7 +2246,7 @@ importers:
   examples/data-objects/presence-tracker:
     dependencies:
       '@fluid-experimental/data-objects':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/data-objects
       '@fluidframework/common-definitions':
         specifier: workspace:~
@@ -2255,10 +2255,10 @@ importers:
         specifier: ^0.32.2
         version: 0.32.2
       '@fluidframework/tinylicious-client':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/tinylicious-client
       fluid-framework:
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/fluid-framework
     devDependencies:
       '@fluidframework/build-common':
@@ -2434,7 +2434,7 @@ importers:
         version: 1.25.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -2558,7 +2558,7 @@ importers:
         version: 16.14.0(react@16.14.0)
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -2706,7 +2706,7 @@ importers:
         version: 1.11.2
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -2903,7 +2903,7 @@ importers:
         version: 2.3.0(file-loader@3.0.1(webpack@5.100.2))(webpack@5.100.2)
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -2954,10 +2954,10 @@ importers:
   examples/data-objects/task-selection:
     dependencies:
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/get-container
       '@fluid-experimental/task-manager':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/task-manager
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -3078,7 +3078,7 @@ importers:
   examples/data-objects/todo:
     dependencies:
       '@fluid-experimental/react-inputs':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/react-inputs
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -3112,7 +3112,7 @@ importers:
         version: 8.3.2
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -3220,7 +3220,7 @@ importers:
         specifier: workspace:~
         version: link:../../apps/spaces
       '@fluid-experimental/last-edited':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/last-edited
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -3278,7 +3278,7 @@ importers:
         version: 8.3.2
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -3420,7 +3420,7 @@ importers:
         version: 16.14.0(react@16.14.0)
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -3540,7 +3540,7 @@ importers:
   examples/hosts/app-integration/container-views:
     dependencies:
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../experimental/framework/get-container
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -3670,7 +3670,7 @@ importers:
   examples/hosts/app-integration/external-views:
     dependencies:
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../experimental/framework/get-container
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -3773,13 +3773,13 @@ importers:
   examples/hosts/app-integration/schema-upgrade:
     dependencies:
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../experimental/framework/get-container
       '@fluid-experimental/react-inputs':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../experimental/framework/react-inputs
       '@fluid-experimental/task-manager':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/task-manager
       '@fluid-internal/quorum':
         specifier: workspace:~
@@ -3788,7 +3788,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/framework/aqueduct
       '@fluidframework/cell':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/cell
       '@fluidframework/common-definitions':
         specifier: workspace:~
@@ -3815,7 +3815,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/dds/map
       '@fluidframework/register-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/dds/register-collection
       '@fluidframework/request-handler':
         specifier: workspace:~
@@ -3833,7 +3833,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../packages/utils/telemetry-utils
       '@fluidframework/tinylicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/drivers/tinylicious-driver
       css-loader:
         specifier: ^1.0.0
@@ -3993,7 +3993,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/framework/view-interfaces
       '@fluidframework/web-code-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/loader/web-code-loader
       react:
         specifier: ^16.10.2
@@ -4054,7 +4054,7 @@ importers:
         specifier: workspace:~
         version: link:../../data-objects/todo
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/get-container
       '@fluidframework/container-definitions':
         specifier: workspace:~
@@ -4075,7 +4075,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/loader/driver-utils
       '@fluidframework/iframe-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/drivers/iframe-driver
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
@@ -4090,13 +4090,13 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/tinylicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/drivers/tinylicious-driver
       '@fluidframework/view-adapters':
         specifier: workspace:~
         version: link:../../../packages/framework/view-adapters
       '@fluidframework/web-code-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/loader/web-code-loader
       comlink:
         specifier: ^4.3.0
@@ -4169,7 +4169,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/dds/matrix
       '@fluidframework/odsp-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/drivers/odsp-driver
       '@fluidframework/sequence':
         specifier: workspace:~
@@ -4263,7 +4263,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/runtime/runtime-utils
       '@fluidframework/view-adapters':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/framework/view-adapters
     devDependencies:
       '@fluidframework/build-common':
@@ -4300,7 +4300,7 @@ importers:
   experimental/PropertyDDS/packages/property-changeset:
     dependencies:
       '@fluid-experimental/property-common':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../property-common
       ajv:
         specifier: 7.1.1
@@ -4481,10 +4481,10 @@ importers:
   experimental/PropertyDDS/packages/property-dds:
     dependencies:
       '@fluid-experimental/property-changeset':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../property-changeset
       '@fluid-experimental/property-properties':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../property-properties
       '@fluidframework/common-utils':
         specifier: ^0.32.2
@@ -4530,7 +4530,7 @@ importers:
         version: 8.3.2
     devDependencies:
       '@fluid-experimental/property-common':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../property-common
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -4545,7 +4545,7 @@ importers:
         specifier: workspace:~
         version: link:../../../../common/build/eslint-config-fluid
       '@fluidframework/local-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/drivers/local-driver
       '@fluidframework/mocha-test-setup':
         specifier: workspace:~
@@ -4557,7 +4557,7 @@ importers:
         specifier: ^0.1036.5002
         version: 0.1036.5002
       '@fluidframework/test-drivers':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/test/test-drivers
       '@fluidframework/test-runtime-utils':
         specifier: workspace:~
@@ -4617,10 +4617,10 @@ importers:
   experimental/PropertyDDS/packages/property-properties:
     dependencies:
       '@fluid-experimental/property-changeset':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../property-changeset
       '@fluid-experimental/property-common':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../property-common
       ajv:
         specifier: 7.1.1
@@ -4936,7 +4936,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/test/test-driver-definitions
       '@fluidframework/test-drivers':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/test/test-drivers
       '@fluidframework/test-runtime-utils':
         specifier: workspace:~
@@ -5036,7 +5036,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -5257,7 +5257,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -5375,7 +5375,7 @@ importers:
         version: 16.14.0
     devDependencies:
       '@fluid-tools/webpack-fluid-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../../packages/tools/webpack-fluid-loader
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -5541,7 +5541,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/loader/driver-utils
       '@fluidframework/local-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/drivers/local-driver
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
@@ -5556,7 +5556,7 @@ importers:
         specifier: workspace:~
         version: link:../../../packages/runtime/test-runtime-utils
       '@fluidframework/tinylicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/drivers/tinylicious-driver
       jsonwebtoken:
         specifier: ^8.4.0
@@ -5675,7 +5675,7 @@ importers:
   experimental/framework/react-inputs:
     dependencies:
       '@fluidframework/cell':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../packages/dds/cell
       '@fluidframework/common-definitions':
         specifier: workspace:~
@@ -6137,7 +6137,7 @@ importers:
         specifier: ^0.32.2
         version: 0.32.2
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -6361,7 +6361,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/container-definitions
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -6731,7 +6731,7 @@ importers:
         specifier: ^0.32.2
         version: 0.32.2
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -6858,7 +6858,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/container-runtime
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -7411,7 +7411,7 @@ importers:
         specifier: workspace:~
         version: link:../../../common/lib/common-definitions
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../odsp-driver-definitions
       '@fluidframework/telemetry-utils':
         specifier: workspace:~
@@ -7542,10 +7542,10 @@ importers:
         specifier: workspace:~
         version: link:../../common/driver-definitions
       '@fluidframework/odsp-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../odsp-driver
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../odsp-driver-definitions
     devDependencies:
       '@fluid-tools/fluidapp-odsp-urlresolver-previous':
@@ -7803,7 +7803,7 @@ importers:
         specifier: workspace:~
         version: link:../../utils/odsp-doclib-utils
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../odsp-driver-definitions
       '@fluidframework/protocol-base':
         specifier: ^0.1036.5002
@@ -7949,10 +7949,10 @@ importers:
         specifier: workspace:~
         version: link:../../common/driver-definitions
       '@fluidframework/odsp-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../odsp-driver
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../odsp-driver-definitions
     devDependencies:
       '@fluidframework/build-common':
@@ -8420,7 +8420,7 @@ importers:
         specifier: workspace:~
         version: link:../../dds/map
       '@fluidframework/register-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/register-collection
       '@fluidframework/runtime-definitions':
         specifier: workspace:~
@@ -8858,7 +8858,7 @@ importers:
         version: link:../../runtime/runtime-utils
     devDependencies:
       '@fluid-experimental/get-container':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../../experimental/framework/get-container
       '@fluidframework/build-common':
         specifier: ^0.24.0
@@ -9163,7 +9163,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/runtime-utils
       '@fluidframework/tinylicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/tinylicious-driver
       fluid-framework:
         specifier: ^1.0.0
@@ -9434,7 +9434,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/container-definitions
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -9489,7 +9489,7 @@ importers:
         specifier: workspace:~
         version: link:../../test/mocha-test-setup
       '@fluidframework/test-loader-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-loader-utils
       '@microsoft/api-extractor':
         specifier: ~7.22.2
@@ -9832,7 +9832,7 @@ importers:
         specifier: workspace:~
         version: link:../container-runtime-definitions
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -9847,7 +9847,7 @@ importers:
         specifier: workspace:~
         version: link:../../loader/driver-utils
       '@fluidframework/garbage-collector':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../garbage-collector
       '@fluidframework/protocol-base':
         specifier: ^0.1036.5002
@@ -10014,7 +10014,7 @@ importers:
         specifier: workspace:~
         version: link:../../common/container-definitions
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -10029,7 +10029,7 @@ importers:
         specifier: workspace:~
         version: link:../../loader/driver-utils
       '@fluidframework/garbage-collector':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../garbage-collector
       '@fluidframework/protocol-base':
         specifier: ^0.1036.5002
@@ -10318,7 +10318,7 @@ importers:
         specifier: workspace:~
         version: link:../datastore-definitions
       '@fluidframework/garbage-collector':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../garbage-collector
       '@fluidframework/protocol-base':
         specifier: ^0.1036.5002
@@ -10543,7 +10543,7 @@ importers:
         specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-loader-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/test-loader-utils
       '@rushstack/eslint-config':
         specifier: ^2.5.1
@@ -10597,7 +10597,7 @@ importers:
         specifier: ^0.24.0
         version: 0.24.0
       '@fluidframework/cell':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/cell
       '@fluidframework/common-utils':
         specifier: ^0.32.2
@@ -10615,7 +10615,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/container-runtime-definitions
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -10642,10 +10642,10 @@ importers:
         specifier: workspace:~
         version: link:../../../common/build/eslint-config-fluid
       '@fluidframework/ink':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ink
       '@fluidframework/local-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/local-driver
       '@fluidframework/map':
         specifier: workspace:~
@@ -10663,13 +10663,13 @@ importers:
         specifier: workspace:~
         version: link:../../utils/odsp-doclib-utils
       '@fluidframework/ordered-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ordered-collection
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/register-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/register-collection
       '@fluidframework/request-handler':
         specifier: workspace:~
@@ -10696,10 +10696,10 @@ importers:
         specifier: workspace:~
         version: link:../../utils/telemetry-utils
       '@fluidframework/test-loader-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/test-loader-utils
       '@fluidframework/test-pairwise-generator':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-pairwise-generator
       '@fluidframework/test-runtime-utils':
         specifier: workspace:~
@@ -10823,7 +10823,7 @@ importers:
         specifier: workspace:~
         version: link:../../tools/replay-tool
       '@fluidframework/cell':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/cell
       '@fluidframework/common-utils':
         specifier: ^0.32.2
@@ -10850,10 +10850,10 @@ importers:
         specifier: ^1.4.0
         version: link:../../drivers/file-driver
       '@fluidframework/ink':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ink
       '@fluidframework/local-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/local-driver
       '@fluidframework/map':
         specifier: workspace:~
@@ -10862,13 +10862,13 @@ importers:
         specifier: workspace:~
         version: link:../../dds/matrix
       '@fluidframework/ordered-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ordered-collection
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/register-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/register-collection
       '@fluidframework/replay-driver':
         specifier: ^1.4.0
@@ -11121,16 +11121,16 @@ importers:
         specifier: workspace:~
         version: link:../../loader/driver-utils
       '@fluidframework/local-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/local-driver
       '@fluidframework/odsp-doclib-utils':
         specifier: workspace:~
         version: link:../../utils/odsp-doclib-utils
       '@fluidframework/odsp-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/odsp-driver
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/odsp-driver-definitions
       '@fluidframework/odsp-urlresolver':
         specifier: ^1.4.0
@@ -11148,13 +11148,13 @@ importers:
         specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-pairwise-generator':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-pairwise-generator
       '@fluidframework/test-runtime-utils':
         specifier: workspace:~
         version: link:../../runtime/test-runtime-utils
       '@fluidframework/tinylicious-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/tinylicious-driver
       '@fluidframework/tool-utils':
         specifier: workspace:~
@@ -11221,13 +11221,13 @@ importers:
   packages/test/test-end-to-end-tests:
     dependencies:
       '@fluidframework/agent-scheduler':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../framework/agent-scheduler
       '@fluidframework/aqueduct':
         specifier: workspace:~
         version: link:../../framework/aqueduct
       '@fluidframework/cell':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/cell
       '@fluidframework/common-definitions':
         specifier: workspace:~
@@ -11248,7 +11248,7 @@ importers:
         specifier: workspace:~
         version: link:../../runtime/container-runtime-definitions
       '@fluidframework/container-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/container-utils
       '@fluidframework/core-interfaces':
         specifier: workspace:~
@@ -11269,10 +11269,10 @@ importers:
         specifier: workspace:~
         version: link:../../loader/driver-utils
       '@fluidframework/garbage-collector':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../runtime/garbage-collector
       '@fluidframework/ink':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ink
       '@fluidframework/map':
         specifier: workspace:~
@@ -11290,16 +11290,16 @@ importers:
         specifier: workspace:~
         version: link:../../utils/odsp-doclib-utils
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/odsp-driver-definitions
       '@fluidframework/ordered-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ordered-collection
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/register-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/register-collection
       '@fluidframework/request-handler':
         specifier: workspace:~
@@ -11323,10 +11323,10 @@ importers:
         specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-loader-utils':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/test-loader-utils
       '@fluidframework/test-pairwise-generator':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-pairwise-generator
       '@fluidframework/test-runtime-utils':
         specifier: workspace:~
@@ -11463,7 +11463,7 @@ importers:
   packages/test/test-service-load:
     dependencies:
       '@fluid-experimental/task-manager':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/task-manager
       '@fluidframework/aqueduct':
         specifier: workspace:~
@@ -11514,10 +11514,10 @@ importers:
         specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-drivers':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-drivers
       '@fluidframework/test-pairwise-generator':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-pairwise-generator
       '@fluidframework/test-utils':
         specifier: workspace:~
@@ -11626,7 +11626,7 @@ importers:
         specifier: workspace:~
         version: link:../../loader/driver-utils
       '@fluidframework/local-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/local-driver
       '@fluidframework/map':
         specifier: workspace:~
@@ -11735,7 +11735,7 @@ importers:
         specifier: workspace:~
         version: link:../../framework/aqueduct
       '@fluidframework/cell':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/cell
       '@fluidframework/common-definitions':
         specifier: workspace:~
@@ -11768,7 +11768,7 @@ importers:
         specifier: workspace:~
         version: link:../../loader/driver-utils
       '@fluidframework/ink':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ink
       '@fluidframework/map':
         specifier: workspace:~
@@ -11780,13 +11780,13 @@ importers:
         specifier: workspace:~
         version: link:../mocha-test-setup
       '@fluidframework/ordered-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ordered-collection
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/register-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/register-collection
       '@fluidframework/runtime-definitions':
         specifier: workspace:~
@@ -11798,7 +11798,7 @@ importers:
         specifier: workspace:~
         version: link:../test-driver-definitions
       '@fluidframework/test-drivers':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../test-drivers
       '@fluidframework/test-utils':
         specifier: workspace:~
@@ -11907,10 +11907,10 @@ importers:
         specifier: workspace:~
         version: link:../../utils/odsp-doclib-utils
       '@fluidframework/odsp-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/odsp-driver
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/odsp-driver-definitions
       '@fluidframework/odsp-urlresolver':
         specifier: ^1.4.0
@@ -11968,7 +11968,7 @@ importers:
   packages/tools/replay-tool:
     dependencies:
       '@fluidframework/cell':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/cell
       '@fluidframework/common-definitions':
         specifier: workspace:~
@@ -12004,7 +12004,7 @@ importers:
         specifier: ^1.4.0
         version: link:../../drivers/file-driver
       '@fluidframework/ink':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ink
       '@fluidframework/map':
         specifier: workspace:~
@@ -12013,13 +12013,13 @@ importers:
         specifier: workspace:~
         version: link:../../dds/matrix
       '@fluidframework/ordered-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/ordered-collection
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
         version: link:../../../common/lib/protocol-definitions
       '@fluidframework/register-collection':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../dds/register-collection
       '@fluidframework/replay-driver':
         specifier: ^1.4.0
@@ -12110,16 +12110,16 @@ importers:
         specifier: workspace:~
         version: link:../../loader/driver-utils
       '@fluidframework/local-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/local-driver
       '@fluidframework/odsp-doclib-utils':
         specifier: workspace:~
         version: link:../../utils/odsp-doclib-utils
       '@fluidframework/odsp-driver':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/odsp-driver
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/odsp-driver-definitions
       '@fluidframework/protocol-definitions':
         specifier: ^0.1028.2000
@@ -12152,7 +12152,7 @@ importers:
         specifier: workspace:~
         version: link:../../framework/view-interfaces
       '@fluidframework/web-code-loader':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../loader/web-code-loader
       axios:
         specifier: ^0.30.0
@@ -12261,7 +12261,7 @@ importers:
         specifier: workspace:~
         version: link:../../loader/driver-utils
       '@fluidframework/odsp-driver-definitions':
-        specifier: ^1.4.0
+        specifier: workspace:~
         version: link:../../drivers/odsp-driver-definitions
       '@fluidframework/telemetry-utils':
         specifier: workspace:~
@@ -16865,8 +16865,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.183:
-    resolution: {integrity: sha512-vCrDBYjQCAEefWGjlK3EpoSKfKbT10pR4XXPdn65q7snuNOZnthoVpBfZPykmDapOKfoD+MMIPG8ZjKyyc9oHA==}
+  electron-to-chromium@1.5.184:
+    resolution: {integrity: sha512-zlaUk/wwnR/27FHNarzOtMgfxD1Q0/2Aby7PnURumQTal7yauqQ3c2HHcG/pjLFTvF3AWv44kMWyArVlfHeDlw==}
 
   emitter-listener@1.1.2:
     resolution: {integrity: sha512-Bt1sBAGFHY9DKY+4/2cV6izcKJUf5T7/gkdmkxzX/qv9CcGH8xSwVRW5mtX03SWJtRTWSOpzCuWN9rBFYZepZQ==}
@@ -20671,8 +20671,8 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
-  picomatch@4.0.2:
-    resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
+  picomatch@4.0.3:
+    resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
 
   picospinner@2.1.0:
@@ -29738,7 +29738,7 @@ snapshots:
   browserslist@4.25.1:
     dependencies:
       caniuse-lite: 1.0.30001727
-      electron-to-chromium: 1.5.183
+      electron-to-chromium: 1.5.184
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.1)
 
@@ -31135,7 +31135,7 @@ snapshots:
     dependencies:
       jake: 10.9.2
 
-  electron-to-chromium@1.5.183: {}
+  electron-to-chromium@1.5.184: {}
 
   emitter-listener@1.1.2:
     dependencies:
@@ -31925,9 +31925,9 @@ snapshots:
     dependencies:
       pend: 1.2.0
 
-  fdir@6.4.6(picomatch@4.0.2):
+  fdir@6.4.6(picomatch@4.0.3):
     optionalDependencies:
-      picomatch: 4.0.2
+      picomatch: 4.0.3
 
   fecha@4.2.3: {}
 
@@ -36365,7 +36365,7 @@ snapshots:
 
   picomatch@2.3.1: {}
 
-  picomatch@4.0.2: {}
+  picomatch@4.0.3: {}
 
   picospinner@2.1.0: {}
 
@@ -38330,8 +38330,8 @@ snapshots:
 
   tinyglobby@0.2.14:
     dependencies:
-      fdir: 6.4.6(picomatch@4.0.2)
-      picomatch: 4.0.2
+      fdir: 6.4.6(picomatch@4.0.3)
+      picomatch: 4.0.3
 
   tinylicious@0.4.94771:
     dependencies:

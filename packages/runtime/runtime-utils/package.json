@@ -65,7 +65,7 @@
     "@fluidframework/container-runtime-definitions": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/datastore-definitions": "workspace:~",
-    "@fluidframework/garbage-collector": "^1.4.0",
+    "@fluidframework/garbage-collector": "workspace:~",
     "@fluidframework/protocol-base": "^0.1036.5002",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/runtime-definitions": "workspace:~",
