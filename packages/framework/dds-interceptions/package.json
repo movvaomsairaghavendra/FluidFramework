@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "@fluidframework/common-utils": "^0.32.2",
-    "@fluidframework/map": "^1.4.0",
+    "@fluidframework/map": "workspace:~",
     "@fluidframework/merge-tree": "^1.4.0",
     "@fluidframework/runtime-definitions": "workspace:~",
     "@fluidframework/sequence": "^1.4.0"

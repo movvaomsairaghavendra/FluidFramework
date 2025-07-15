@@ -65,7 +65,7 @@
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
-    "@fluidframework/routerlicious-driver": "^1.4.0",
+    "@fluidframework/routerlicious-driver": "workspace:~",
     "@fluidframework/runtime-definitions": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
     "@fluidframework/telemetry-utils": "^1.4.0",

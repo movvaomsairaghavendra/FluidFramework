@@ -44,7 +44,7 @@
     "@fluidframework/container-loader": "workspace:~",
     "@fluidframework/container-runtime-definitions": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
-    "@fluidframework/map": "^1.4.0",
+    "@fluidframework/map": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
     "@fluidframework/view-adapters": "workspace:~",
     "@fluidframework/view-interfaces": "^1.4.0",

@@ -50,7 +50,7 @@
     "@fluidframework/container-definitions": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/datastore-definitions": "workspace:~",
-    "@fluidframework/map": "^1.4.0",
+    "@fluidframework/map": "workspace:~",
     "react": "^16.10.2"
   },
   "devDependencies": {

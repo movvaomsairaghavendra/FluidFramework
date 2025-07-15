@@ -63,7 +63,7 @@
     "@fluidframework/container-runtime-definitions": "workspace:~",
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/runtime-definitions": "workspace:~",
-    "@fluidframework/runtime-utils": "^1.4.0"
+    "@fluidframework/runtime-utils": "workspace:~"
   },
   "devDependencies": {
     "@fluidframework/build-common": "^0.24.0",

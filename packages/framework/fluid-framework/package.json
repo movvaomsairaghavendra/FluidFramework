@@ -38,7 +38,7 @@
     "@fluidframework/container-loader": "workspace:~",
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/fluid-static": "workspace:~",
-    "@fluidframework/map": "^1.4.0",
+    "@fluidframework/map": "workspace:~",
     "@fluidframework/sequence": "^1.4.0"
   },
   "devDependencies": {
