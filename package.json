@@ -31,6 +31,7 @@
     "clean:docs": "rimraf **/_api-extractor-temp docs/api/*/**",
     "clean:nyc": "rimraf nyc/**",
     "clean:r11s": "cd server/routerlicious && npm run clean",
+    "format": "pnpm run -r --no-sort --stream eslint:fix",
     "layer-check": "flub check layers --info layerInfo.json",
     "lint": "pnpm run --no-sort --stream -r lint",
     "lint:fix": "pnpm run -r --no-sort --stream lint:fix",
