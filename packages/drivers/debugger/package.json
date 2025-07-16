@@ -36,7 +36,7 @@
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
-    "@fluidframework/replay-driver": "^1.4.0",
+    "@fluidframework/replay-driver": "workspace:~",
     "jsonschema": "^1.2.6"
   },
   "devDependencies": {

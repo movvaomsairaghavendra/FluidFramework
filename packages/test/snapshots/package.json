@@ -66,7 +66,7 @@
     "@fluidframework/counter": "workspace:~",
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",
-    "@fluidframework/file-driver": "^1.4.0",
+    "@fluidframework/file-driver": "workspace:~",
     "@fluidframework/ink": "workspace:~",
     "@fluidframework/local-driver": "workspace:~",
     "@fluidframework/map": "workspace:~",
@@ -74,7 +74,7 @@
     "@fluidframework/ordered-collection": "workspace:~",
     "@fluidframework/protocol-definitions": "^0.1028.2000",
     "@fluidframework/register-collection": "workspace:~",
-    "@fluidframework/replay-driver": "^1.4.0",
+    "@fluidframework/replay-driver": "workspace:~",
     "@fluidframework/sequence": "workspace:~",
     "@fluidframework/server-local-server": "^0.1036.5002",
     "@fluidframework/test-utils": "workspace:~"

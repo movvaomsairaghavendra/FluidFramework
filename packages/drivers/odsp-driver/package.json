@@ -62,7 +62,7 @@
     "@fluidframework/common-definitions": "workspace:~",
     "@fluidframework/common-utils": "^0.32.2",
     "@fluidframework/core-interfaces": "workspace:~",
-    "@fluidframework/driver-base": "^1.4.0",
+    "@fluidframework/driver-base": "workspace:~",
     "@fluidframework/driver-definitions": "workspace:~",
     "@fluidframework/driver-utils": "workspace:~",
     "@fluidframework/gitresources": "^0.1036.5002",
