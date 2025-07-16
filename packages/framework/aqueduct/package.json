@@ -75,7 +75,7 @@
     "@fluidframework/request-handler": "workspace:~",
     "@fluidframework/runtime-definitions": "workspace:~",
     "@fluidframework/runtime-utils": "workspace:~",
-    "@fluidframework/synthesize": "^1.4.0",
+    "@fluidframework/synthesize": "workspace:~",
     "@fluidframework/view-interfaces": "workspace:~",
     "uuid": "^8.3.1"
   },
