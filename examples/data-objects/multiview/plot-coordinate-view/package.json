@@ -48,7 +48,7 @@
   "devDependencies": {
     "@fluid-tools/webpack-fluid-loader": "workspace:~",
     "@fluidframework/build-common": "^0.24.0",
-    "@fluidframework/eslint-config-fluid": "workspace:~",
+    "@fluidframework/eslint-config-fluid": "^0.28.2000",
     "@fluidframework/test-tools": "^2.0.1",
     "@rushstack/eslint-config": "^2.5.1",
     "@types/expect-puppeteer": "2.2.1",

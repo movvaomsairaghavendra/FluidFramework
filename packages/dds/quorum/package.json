@@ -73,7 +73,7 @@
   "devDependencies": {
     "@fluid-internal/test-dds-utils": "workspace:~",
     "@fluidframework/build-common": "^0.24.0",
-    "@fluidframework/eslint-config-fluid": "workspace:~",
+    "@fluidframework/eslint-config-fluid": "^0.28.2000",
     "@fluidframework/mocha-test-setup": "workspace:~",
     "@fluidframework/test-runtime-utils": "workspace:~",
     "@microsoft/api-extractor": "~7.22.2",
