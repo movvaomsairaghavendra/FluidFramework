@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@fluidframework/azure-client": "^1.2.0",
-    "@fluidframework/common-definitions": "workspace:~",
+    "@fluidframework/common-definitions": "^0.20.1",
     "@fluidframework/routerlicious-driver": "workspace:~",
     "assert": "^2.0.0",
     "axios": "^0.28.0",

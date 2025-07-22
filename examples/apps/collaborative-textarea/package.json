@@ -41,7 +41,7 @@
     "@fluid-experimental/get-container": "workspace:~",
     "@fluid-experimental/react-inputs": "workspace:~",
     "@fluidframework/aqueduct": "workspace:~",
-    "@fluidframework/common-definitions": "workspace:~",
+    "@fluidframework/common-definitions": "^0.20.1",
     "@fluidframework/core-interfaces": "workspace:~",
     "@fluidframework/sequence": "workspace:~",
     "@fluidframework/view-interfaces": "workspace:~",

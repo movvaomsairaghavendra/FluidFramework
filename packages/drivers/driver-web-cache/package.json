@@ -36,7 +36,7 @@
     "typetests:prepare": "flub typetests --dir . --reset --previous --normalize"
   },
   "dependencies": {
-    "@fluidframework/common-definitions": "workspace:~",
+    "@fluidframework/common-definitions": "^0.20.1",
     "@fluidframework/odsp-driver-definitions": "workspace:~",
     "@fluidframework/telemetry-utils": "workspace:~",
     "idb": "^6.1.2"
