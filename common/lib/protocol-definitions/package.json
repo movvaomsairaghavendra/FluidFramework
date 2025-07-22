@@ -38,7 +38,7 @@
     "typetests:prepare": "fluid-type-validator -d . -p"
   },
   "dependencies": {
-    "@fluidframework/common-definitions": "workspace:~"
+    "@fluidframework/common-definitions": "^0.20.1"
   },
   "devDependencies": {
     "@fluidframework/build-common": "^0.24.0",
