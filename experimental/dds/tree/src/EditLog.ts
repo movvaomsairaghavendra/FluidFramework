@@ -277,7 +277,7 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 
 		this.sequencedEditIds.forEach((id, index) => {
 			const encounteredEditId = this.allEditIds.get(id);
-			assert(encounteredEditId === undefined, 'Duplicate acked edit.');
+			assert(encounteredEditId === undefined, 0x356 /* Duplicate acked edit. */);
 			this.allEditIds.set(id, { isLocal: false, index });
 		});
 	}
@@ -392,7 +392,7 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 			const { handle, edits } = editChunk;
 
 			if (edits === undefined) {
-				assert(handle !== undefined, 'An edit chunk should include at least a handle or edits.');
+				assert(handle !== undefined, 0x357 /* An edit chunk should include at least a handle or edits. */);
 				const edits = await handle.get();
 
 				// Make sure the loaded edit chunk is the correct size. If a higher starting revison is set, the length is the difference of both.
@@ -401,7 +401,7 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 				const nextKey = this.editChunks.nextHigherKey(index);
 				const expectedEditLength =
 					(nextKey === undefined ? this.numberOfSequencedEdits : nextKey) - startRevision;
-				assert(edits.length === expectedEditLength, 'The chunk does not contain the correct number of edits.');
+				assert(edits.length === expectedEditLength, 0x358 /* The chunk does not contain the correct number of edits. */);
 
 				editChunk.edits = edits;
 
@@ -421,7 +421,7 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 	public getEditInSessionAtIndex(index: number): Edit<TChange> {
 		assert(
 			index > this.maximumEvictableIndex,
-			'Edit to retrieve must have been added to the log during the current session.'
+			0x359 /* Edit to retrieve must have been added to the log during the current session. */
 		);
 
 		if (index < this.numberOfSequencedEdits) {
@@ -434,7 +434,7 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 			);
 		}
 
-		assert(index - this.numberOfSequencedEdits < this.localEdits.length, 'Edit to retrieve must be in the log.');
+		assert(index - this.numberOfSequencedEdits < this.localEdits.length, 0x35a /* Edit to retrieve must be in the log. */);
 		return this.localEdits[index - this.numberOfSequencedEdits];
 	}
 
@@ -530,7 +530,7 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 
 		assert(
 			minSequenceNumber >= this.minSequenceNumber,
-			'Sequenced edits should carry a monotonically increasing min number'
+			0x35b /* Sequenced edits should carry a monotonically increasing min number */
 		);
 		// The new minSequenceNumber indicates that no future edit will require information from edits with a smaller or equal seq number
 		// for its resolution.
@@ -554,10 +554,10 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 		const encounteredEditId = this.allEditIds.get(id);
 		if (encounteredEditId !== undefined) {
 			// New edit already exits: it must have been a local edit.
-			assert(encounteredEditId.isLocal, 'Duplicate acked edit.');
+			assert(encounteredEditId.isLocal, 0x35c /* Duplicate acked edit. */);
 			// Remove it from localEdits. Due to ordering requirements, it must be first.
 			const oldLocalEditId = assertNotUndefined(this.localEdits.shift(), 'Local edit should exist').id;
-			assert(oldLocalEditId === id, 'Causal ordering should be upheld');
+			assert(oldLocalEditId === id, 0x35d /* Causal ordering should be upheld */);
 		}
 
 		// The starting revision for a newly created chunk.
@@ -577,7 +577,7 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 			} else {
 				assert(
 					handle !== undefined || lastEditChunk !== undefined,
-					'An edit chunk must have either a handle or a list of edits.'
+					0x35e /* An edit chunk must have either a handle or a list of edits. */
 				);
 				this.editChunks.set(startRevision, { edits });
 			}

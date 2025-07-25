@@ -107,7 +107,7 @@ export class InterningTreeCompressor<TPlaceholder extends DetachedSequenceId | n
 			return node;
 		}
 		const rootId = node[1];
-		assert(typeof rootId === 'number', 'Root node was compressed with no ID');
+		assert(typeof rootId === 'number', 0x38b /* Root node was compressed with no ID */);
 		this.previousId = rootId;
 		return this.decompressI(node, interner, idNormalizer);
 	}

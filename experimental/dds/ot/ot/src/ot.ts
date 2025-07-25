@@ -75,7 +75,7 @@ export abstract class SharedOT<TState, TOp> extends SharedObject {
 
     protected summarizeCore(serializer: IFluidSerializer): ISummaryTreeWithStats {
         // Summarizer must not have locally pending changes.
-        assert(this.pendingOps.length === 0, 'Summarizer must not have locally pending changes');
+        assert(this.pendingOps.length === 0, 0x347 /* Summarizer must not have locally pending changes */);
 
         return createSingleBlobSummary("header", serializer.stringify(this.global, this.handle));
     }
