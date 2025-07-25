@@ -169,7 +169,10 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 		assert(currentEdit !== undefined, 0x34b /* An edit is not open. */);
 		this.currentEdit = undefined;
 		const editingResult = currentEdit.close();
-		assert(editingResult.status === EditStatus.Applied, 0x34c /* Locally constructed edits must be well-formed and valid */);
+		assert(
+			editingResult.status === EditStatus.Applied,
+			0x34c /* Locally constructed edits must be well-formed and valid */
+		);
 
 		const id: EditId = newEditId();
 

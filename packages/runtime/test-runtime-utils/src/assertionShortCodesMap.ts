@@ -809,7 +809,6 @@ export const shortCodeMap = {
 	"0x3b6": "Test infra gave wrong originating client to TestIdData",
 	"0x3b7": "Version numbers should follow semantic versioning.",
 	"0x3b8": "tree must be a new SharedTree",
-	"0x3b9": "this.mc and/or this.logger has not been set",
 	"0x3ba": "No cursors can be current when modifying forest",
 	"0x3bb": "reentrancy?",
 	"0x3bc": "reentrancy?",

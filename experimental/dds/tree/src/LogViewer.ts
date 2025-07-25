@@ -260,7 +260,10 @@ export class CachingLogViewer implements LogViewer {
 		this.log = log;
 		knownRevisions.forEach(([revision]) => {
 			assert(Number.isInteger(revision), 0x376 /* revision must be an integer */);
-			assert(this.log.isSequencedRevision(revision), 0x377 /* revision must correspond to the result of a SequencedEdit */);
+			assert(
+				this.log.isSequencedRevision(revision),
+				0x377 /* revision must correspond to the result of a SequencedEdit */
+			);
 		});
 
 		this.sequencedRevisionCache = new RevisionValueCache(
