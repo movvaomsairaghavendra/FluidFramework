@@ -401,7 +401,10 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 				const nextKey = this.editChunks.nextHigherKey(index);
 				const expectedEditLength =
 					(nextKey === undefined ? this.numberOfSequencedEdits : nextKey) - startRevision;
-				assert(edits.length === expectedEditLength, 0x358 /* The chunk does not contain the correct number of edits. */);
+				assert(
+					edits.length === expectedEditLength,
+					0x358 /* The chunk does not contain the correct number of edits. */
+				);
 
 				editChunk.edits = edits;
 
@@ -434,7 +437,10 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 			);
 		}
 
-		assert(index - this.numberOfSequencedEdits < this.localEdits.length, 0x35a /* Edit to retrieve must be in the log. */);
+		assert(
+			index - this.numberOfSequencedEdits < this.localEdits.length,
+			0x35a /* Edit to retrieve must be in the log. */
+		);
 		return this.localEdits[index - this.numberOfSequencedEdits];
 	}
 
