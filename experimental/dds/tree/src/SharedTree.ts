@@ -25,7 +25,7 @@ import {
 import { ITelemetryLogger, ITelemetryProperties } from '@fluidframework/common-definitions';
 import { ChildLogger, ITelemetryLoggerPropertyBags, PerformanceEvent } from '@fluidframework/telemetry-utils';
 import { ISummaryTreeWithStats } from '@fluidframework/runtime-definitions';
-import { assert, assertNotUndefined, fail, copyPropertyIfDefined, noop } from './Common';
+import { assert, assertNotUndefined, fail, copyPropertyIfDefined, noop, assertWithMessage } from './Common';
 import { EditHandle, EditLog, getNumberOfHandlesFromEditLogSummary, OrderedEditSet } from './EditLog';
 import {
 	EditId,
@@ -760,7 +760,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 			const serializedContents = serializeHandles(chunkContents, this.serializer, this.handle);
 			const buffer = IsoBuffer.from(serializedContents);
 			const bufferSize = buffer.byteLength;
-			assert(
+			assertWithMessage(
 				bufferSize <= blobUploadSizeLimit,
 				`Edit chunk size ${bufferSize} is larger than blob upload size limit of ${blobUploadSizeLimit} bytes.`
 			);

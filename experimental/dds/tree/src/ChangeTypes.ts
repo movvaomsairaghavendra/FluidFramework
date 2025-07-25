@@ -363,9 +363,8 @@ export const StableRange = {
 	from: (start: StablePlace): { to: (end: StablePlace) => StableRange } => ({
 		to: (end: StablePlace): StableRange => {
 			if (start.referenceTrait && end.referenceTrait) {
-				const message = 'StableRange must be constructed with endpoints from the same trait';
-				assert(start.referenceTrait.parent === end.referenceTrait.parent, message);
-				assert(start.referenceTrait.label === end.referenceTrait.label, message);
+				assert(start.referenceTrait.parent === end.referenceTrait.parent, 'StableRange must be constructed with endpoints from the same trait');
+				assert(start.referenceTrait.label === end.referenceTrait.label, 'StableRange must be constructed with endpoints from the same trait');
 			}
 			return { start, end };
 		},
