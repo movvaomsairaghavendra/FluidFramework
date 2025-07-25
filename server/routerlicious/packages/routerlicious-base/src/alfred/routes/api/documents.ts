@@ -205,7 +205,6 @@ export function create(
 		"alfred:sessionCacheTTLForDeletedDocumentsSec",
 	);
 
-	const hybridCreationEnabled: boolean = config.get("alfred:hybridCreationEnabled") ?? false;
 	const ignoreEphemeralFlag: boolean = config.get("alfred:ignoreEphemeralFlag") ?? true;
 	// Whether to enforce server-generated document ids in create doc flow
 	const enforceServerGeneratedDocumentId: boolean =
@@ -382,7 +381,6 @@ export function create(
 				values,
 				enableDiscovery,
 				isEphemeral,
-				hybridCreationEnabled,
 				messageBrokerId,
 			);
 
