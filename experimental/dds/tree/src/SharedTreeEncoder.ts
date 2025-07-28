@@ -4,7 +4,7 @@
  */
 
 import { IsoBuffer } from '@fluidframework/common-utils';
-import { assert, assertWithMessage, fail } from './Common';
+import { assert, fail } from './Common';
 import { EditLog } from './EditLog';
 import { convertTreeNodes, newEdit } from './EditUtilities';
 import { AttributionId, DetachedSequenceId, FinalNodeId, OpSpaceNodeId, TraitLabel } from './Identifiers';
@@ -152,11 +152,8 @@ export class SharedTreeEncoder_0_1_1 {
 		}: SharedTreeSummary,
 		attributionId: AttributionId
 	): SummaryContents {
-		assertWithMessage(
-			version === WriteFormat.v0_1_1,
-			`Invalid summary version to decode: ${version}, expected: 0.1.1`
-		);
-		assert(typeof editHistory === 'object', 0x381 /* 0.1.1 summary encountered with non-object edit history. */);
+		assert(version === WriteFormat.v0_1_1, `Invalid summary version to decode: ${version}, expected: 0.1.1`);
+		assert(typeof editHistory === 'object', '0.1.1 summary encountered with non-object edit history.');
 
 		const idCompressor = hasOngoingSession(serializedIdCompressor)
 			? IdCompressor.deserialize(serializedIdCompressor)
@@ -169,8 +166,8 @@ export class SharedTreeEncoder_0_1_1 {
 				? this.treeCompressor.decompress(compressedTree, interner, sequencedNormalizer)
 				: undefined;
 		const { editChunks, editIds } = editHistory;
-		assert(editChunks !== undefined, 0x382 /* Missing editChunks on 0.1.1 summary. */);
-		assert(editIds !== undefined, 0x383 /* Missing editIds on 0.1.1 summary. */);
+		assert(editChunks !== undefined, 'Missing editChunks on 0.1.1 summary.');
+		assert(editIds !== undefined, 'Missing editIds on 0.1.1 summary.');
 
 		const uncompressedChunks = editChunks.map(({ startRevision, chunk }) => ({
 			startRevision,
@@ -231,7 +228,7 @@ export class SharedTreeEncoder_0_1_1 {
 
 		assert(
 			currentTree.identifier === initialTreeId && currentTree.definition === initialTree.definition,
-			0x384 /* root definition and identifier should be immutable. */
+			'root definition and identifier should be immutable.'
 		);
 		const edit = newEdit(changes);
 		const compressedChanges = edit.changes.map((change) =>
@@ -294,7 +291,7 @@ export class SharedTreeEncoder_0_1_1 {
 		idNormalizer: ContextualizedNodeIdNormalizer<FinalNodeId>,
 		interner: StringInterner
 	): EditWithoutId<ChangeInternal>[] {
-		assertWithMessage(
+		assert(
 			contents.version === WriteFormat.v0_1_1,
 			`Invalid editChunk to decode: ${contents.version}. Expected 0.1.1.`
 		);
@@ -370,7 +367,7 @@ export class SharedTreeEncoder_0_0_2 {
 		{ currentTree, sequencedEdits }: SharedTreeSummary_0_0_2,
 		attributionId?: AttributionId
 	): SummaryContents {
-		assert(sequencedEdits !== undefined, 0x385 /* 0.0.2 summary encountered with missing sequencedEdits field. */);
+		assert(sequencedEdits !== undefined, '0.0.2 summary encountered with missing sequencedEdits field.');
 		const idCompressor = new IdCompressor(createSessionId(), reservedIdCount, attributionId);
 		const idGenerator = getNodeIdContext(idCompressor);
 		const generateId = (id) => idGenerator.generateNodeId(id);
@@ -433,7 +430,7 @@ export class SharedTreeEncoder_0_0_2 {
 
 		assert(
 			currentTree.identifier === initialTree.identifier && currentTree.definition === initialTree.definition,
-			0x386 /* root definition and identifier should be immutable. */
+			'root definition and identifier should be immutable.'
 		);
 		const edit = newEdit(changes);
 

@@ -25,7 +25,7 @@ import {
 import { ITelemetryLogger, ITelemetryProperties } from '@fluidframework/common-definitions';
 import { ChildLogger, ITelemetryLoggerPropertyBags, PerformanceEvent } from '@fluidframework/telemetry-utils';
 import { ISummaryTreeWithStats } from '@fluidframework/runtime-definitions';
-import { assert, assertNotUndefined, fail, copyPropertyIfDefined, noop, assertWithMessage } from './Common';
+import { assert, assertNotUndefined, fail, copyPropertyIfDefined, noop } from './Common';
 import { EditHandle, EditLog, getNumberOfHandlesFromEditLogSummary, OrderedEditSet } from './EditLog';
 import {
 	EditId,
@@ -604,7 +604,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 			return false;
 		}
 
-		assert(this.runtime.clientId !== undefined, 0x37a /* Client id should be set if connected. */);
+		assert(this.runtime.clientId !== undefined, 'Client id should be set if connected.');
 
 		const quorum = this.runtime.getQuorum();
 		const selfSequencedClient = quorum.getMember(this.runtime.clientId);
@@ -745,7 +745,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 		edits: readonly EditWithoutId<ChangeInternal>[],
 		startRevision: number
 	): Promise<void> {
-		assert(this.writeFormat !== WriteFormat.v0_0_2, 0x37b /* Edit chunking is not supported in v0_0_2 */);
+		assert(this.writeFormat !== WriteFormat.v0_0_2, 'Edit chunking is not supported in v0_0_2');
 		// SPO attachment blob upload limit is set here:
 		// https://onedrive.visualstudio.com/SharePoint%20Online/_git/SPO?path=%2Fsts%2Fstsom%2FPrague%2FSPPragueProtocolConfig.cs&version=GBmaster&line=82&lineEnd=82&lineStartColumn=29&lineEndColumn=116&lineStyle=plain&_a=contents
 		// TODO:#59754: Create chunks based on data buffer size instead of number of edits
@@ -760,7 +760,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 			const serializedContents = serializeHandles(chunkContents, this.serializer, this.handle);
 			const buffer = IsoBuffer.from(serializedContents);
 			const bufferSize = buffer.byteLength;
-			assertWithMessage(
+			assert(
 				bufferSize <= blobUploadSizeLimit,
 				`Edit chunk size ${bufferSize} is larger than blob upload size limit of ${blobUploadSizeLimit} bytes.`
 			);
@@ -828,7 +828,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 		if (this.editLog.numberOfLocalEdits > 0) {
 			assert(
 				this.runtime.attachState !== AttachState.Attached,
-				0x37c /* Summarizing should not occur with local edits except on first attach. */
+				'Summarizing should not occur with local edits except on first attach.'
 			);
 			if (this.writeFormat === WriteFormat.v0_1_1) {
 				// Since we're the first client to attach, we can safely finalize ourselves since we're the only ones who have made IDs.
@@ -840,7 +840,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 			this.editLog.sequenceLocalEdits();
 		}
 
-		assert(this.editLog.numberOfLocalEdits === 0, 0x37d /* generateSummary must not be called with local edits */);
+		assert(this.editLog.numberOfLocalEdits === 0, 'generateSummary must not be called with local edits');
 		return this.generateSummary();
 	}
 
@@ -897,7 +897,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 
 		assert(
 			this.idCompressor.getAllIdsFromLocalSession().next().done === true,
-			0x37e /* Summary load should not be executed after local state is created. */
+			'Summary load should not be executed after local state is created.'
 		);
 
 		let convertedSummary: SummaryContents;
@@ -1545,7 +1545,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 	private submitOp(content: SharedTreeOp | SharedTreeOp_0_0_2, localOpMetadata: unknown = undefined): void {
 		assert(
 			compareSummaryFormatVersions(content.version, this.writeFormat) === 0,
-			0x37f /* Attempted to submit op of wrong version */
+			'Attempted to submit op of wrong version'
 		);
 		this.submitLocalMessage(content, localOpMetadata);
 	}
@@ -1592,10 +1592,7 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 								break;
 							}
 							case WriteFormat.v0_1_1: {
-								assert(
-									this.stashedIdCompressor !== null,
-									0x380 /* Stashed op applied after expected window */
-								);
+								assert(this.stashedIdCompressor !== null, 'Stashed op applied after expected window');
 								if (this.stashedIdCompressor === undefined) {
 									// Use a temporary compressor that will help translate the stashed ops
 									this.stashedIdCompressor = IdCompressor.deserialize(

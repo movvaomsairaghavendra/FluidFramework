@@ -152,7 +152,7 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 	 * Changes accumulate in the edit via calls to `applyChanges()`.
 	 */
 	public openEdit(): void {
-		assert(this.currentEdit === undefined, 0x34a /* An edit is already open. */);
+		assert(this.currentEdit === undefined, 'An edit is already open.');
 		this.currentEdit = TransactionInternal.factory(this.latestCommittedView);
 	}
 
@@ -166,13 +166,10 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 	 */
 	public closeEdit(): EditId {
 		const { currentEdit } = this;
-		assert(currentEdit !== undefined, 0x34b /* An edit is not open. */);
+		assert(currentEdit !== undefined, 'An edit is not open.');
 		this.currentEdit = undefined;
 		const editingResult = currentEdit.close();
-		assert(
-			editingResult.status === EditStatus.Applied,
-			0x34c /* Locally constructed edits must be well-formed and valid */
-		);
+		assert(editingResult.status === EditStatus.Applied, 'Locally constructed edits must be well-formed and valid');
 
 		const id: EditId = newEditId();
 
@@ -212,9 +209,9 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 	 * `changes` must be well-formed and valid: it is an error if they do not apply cleanly.
 	 */
 	public applyChanges(...changes: Change[]): void {
-		assert(this.currentEdit, 0x34d /* Changes must be applied as part of an ongoing edit. */);
+		assert(this.currentEdit, 'Changes must be applied as part of an ongoing edit.');
 		const { status } = this.currentEdit.applyChanges(changes.map((c) => this.tree.internalizeChange(c)));
-		assert(status === EditStatus.Applied, 0x34e /* Locally constructed edits must be well-formed and valid. */);
+		assert(status === EditStatus.Applied, 'Locally constructed edits must be well-formed and valid.');
 		this.emitChange();
 	}
 
@@ -224,7 +221,7 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 	 * `changes` must be well-formed and valid: it is an error if they do not apply cleanly.
 	 */
 	protected tryApplyChangesInternal(...changes: ChangeInternal[]): EditStatus {
-		assert(this.currentEdit, 0x34f /* Changes must be applied as part of an ongoing edit. */);
+		assert(this.currentEdit, 'Changes must be applied as part of an ongoing edit.');
 		const { status } = this.currentEdit.applyChanges(changes);
 		if (status === EditStatus.Applied) {
 			this.emitChange();
@@ -250,7 +247,7 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 	public tryApplyEdit(...changes: Change[]): EditId | undefined {
 		this.openEdit();
 
-		assert(this.currentEdit, 0x350 /* Changes must be applied as part of an ongoing edit. */);
+		assert(this.currentEdit, 'Changes must be applied as part of an ongoing edit.');
 		const { status } = this.currentEdit.applyChanges(changes.map((c) => this.tree.internalizeChange(c)));
 		if (status === EditStatus.Applied) {
 			this.emitChange();
@@ -273,15 +270,15 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 	 * @returns - the result of the rebase.
 	 */
 	public rebaseCurrentEdit(): EditValidationResult.Valid | EditValidationResult.Invalid {
-		assert(this.currentEdit !== undefined, 0x351 /* An edit is not open. */);
-		assert(this.currentEdit.status === EditStatus.Applied, 0x352 /* Local edits should always be valid. */);
+		assert(this.currentEdit !== undefined, 'An edit is not open.');
+		assert(this.currentEdit.status === EditStatus.Applied, 'Local edits should always be valid.');
 		// When closed, the result might indicate Malformed due to unused detached entities.
 		// This is not an error, as the edit was still open and can still use those entities.
 		const priorResults = this.currentEdit.close();
 		const rebasedEdit = TransactionInternal.factory(this.latestCommittedView).applyChanges(priorResults.changes);
 		assert(
 			rebasedEdit.status !== EditStatus.Malformed,
-			0x353 /* Malformed changes should have been caught on original application. */
+			'Malformed changes should have been caught on original application.'
 		);
 		let status: EditValidationResult.Valid | EditValidationResult.Invalid;
 		if (rebasedEdit.status === EditStatus.Invalid) {
@@ -301,7 +298,7 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 	 */
 	public abortEdit(): void {
 		const { currentEdit } = this;
-		assert(currentEdit !== undefined, 0x354 /* An edit is not open. */);
+		assert(currentEdit !== undefined, 'An edit is not open.');
 		this.currentEdit = undefined;
 		this.emitChange();
 	}
@@ -313,7 +310,7 @@ export abstract class Checkout extends EventEmitterWithErrorHandling<ICheckoutEv
 	 */
 	public getEditStatus(): EditStatus {
 		const { currentEdit } = this;
-		assert(currentEdit !== undefined, 0x355 /* An edit is not open. */);
+		assert(currentEdit !== undefined, 'An edit is not open.');
 		// TODO: could this ever be anything other than 'Applied'
 		// TODO: shouldn't this be an EditValidationResult since 'Applied' does not indicate the edit has been applied?
 		return currentEdit.status;

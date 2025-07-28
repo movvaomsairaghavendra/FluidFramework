@@ -238,7 +238,7 @@ export class GenericTransaction {
 
 	/** @returns the final `EditStatus` and `TreeView` after all changes are applied. */
 	public close(): EditingResult {
-		assert(this.open, 0x387 /* transaction has already been closed */);
+		assert(this.open, 'transaction has already been closed');
 		this.open = false;
 		if (this.state.status === EditStatus.Applied) {
 			const validation = this.policy.validateOnClose(this.state);
@@ -336,7 +336,7 @@ export class GenericTransaction {
 	 * @returns this
 	 */
 	public applyChange(change: ChangeInternal, path: ReconciliationPath = []): this {
-		assert(this.open, 0x388 /* Editor must be open to apply changes. */);
+		assert(this.open, 'Editor must be open to apply changes.');
 		if (this.state.status !== EditStatus.Applied) {
 			fail('Cannot apply change to an edit unless all previous changes have applied');
 		}
@@ -643,8 +643,8 @@ export namespace TransactionInternal {
 
 		private applyConstraint(state: ValidState, change: ConstraintInternal): ChangeResult {
 			// TODO: Implement identityHash and contentHash
-			assert(change.identityHash === undefined, 0x389 /* identityHash constraint is not implemented */);
-			assert(change.contentHash === undefined, 0x38a /* contentHash constraint is not implemented */);
+			assert(change.identityHash === undefined, 'identityHash constraint is not implemented');
+			assert(change.contentHash === undefined, 'contentHash constraint is not implemented');
 
 			const validatedChange = validateStableRange(state.view, change.toConstrain);
 			if (validatedChange.result !== RangeValidationResultKind.Valid) {

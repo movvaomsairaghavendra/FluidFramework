@@ -195,7 +195,7 @@ describe('EditUtilities', () => {
 				traits: { [leafTrait]: [testTree.buildLeaf(leafId)] },
 			};
 			const clone = convertTreeNodes<ChangeNode, ChangeNode>(tree, (node) => ({ ...node }));
-			assert(typeof clone !== 'number', 0x3af /*  */);
+			assert(typeof clone !== 'number', '');
 			expect(clone.definition).to.equal(tree.definition);
 			expect(clone.identifier).to.equal(tree.identifier);
 			expect(clone.payload).to.equal(tree.payload);
@@ -237,7 +237,7 @@ describe('EditUtilities', () => {
 				(n) => internalizeBuildNode(n, testTree),
 				isNumber
 			);
-			assert(typeof converted !== 'number', 0x3b0 /* unexpected detached ID */);
+			assert(typeof converted !== 'number', 'unexpected detached ID');
 			expect(converted.traits).to.not.be.undefined;
 		});
 
@@ -248,7 +248,7 @@ describe('EditUtilities', () => {
 				(n) => internalizeBuildNode(n, testTree),
 				isNumber
 			);
-			assert(typeof converted !== 'number', 0x3b1 /* unexpected detached ID */);
+			assert(typeof converted !== 'number', 'unexpected detached ID');
 			expect(converted.traits).to.not.be.undefined;
 		});
 

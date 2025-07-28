@@ -422,14 +422,9 @@ export const StableRangeInternal = {
 	from: (start: StablePlaceInternal): { to: (end: StablePlaceInternal) => StableRangeInternal } => ({
 		to: (end: StablePlaceInternal): StableRangeInternal => {
 			if (start.referenceTrait && end.referenceTrait) {
-				assert(
-					start.referenceTrait.parent === end.referenceTrait.parent,
-					0x3ad /* StableRange must be constructed with endpoints from the same trait */
-				);
-				assert(
-					start.referenceTrait.label === end.referenceTrait.label,
-					0x3ae /* StableRange must be constructed with endpoints from the same trait */
-				);
+				const message = 'StableRange must be constructed with endpoints from the same trait';
+				assert(start.referenceTrait.parent === end.referenceTrait.parent, message);
+				assert(start.referenceTrait.label === end.referenceTrait.label, message);
 			}
 			return { start, end };
 		},
