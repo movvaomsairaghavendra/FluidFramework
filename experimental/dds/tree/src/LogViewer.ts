@@ -259,11 +259,8 @@ export class CachingLogViewer implements LogViewer {
 	) {
 		this.log = log;
 		knownRevisions.forEach(([revision]) => {
-			assert(Number.isInteger(revision), 0x376 /* revision must be an integer */);
-			assert(
-				this.log.isSequencedRevision(revision),
-				0x377 /* revision must correspond to the result of a SequencedEdit */
-			);
+			assert(Number.isInteger(revision), 'revision must be an integer');
+			assert(this.log.isSequencedRevision(revision), 'revision must correspond to the result of a SequencedEdit');
 		});
 
 		this.sequencedRevisionCache = new RevisionValueCache(
@@ -458,7 +455,7 @@ export class CachingLogViewer implements LogViewer {
 			// calls to this method for all local revisions prior, guaranteeing the correct push order.
 			assert(
 				revision === this.log.numberOfSequencedEdits + this.localRevisionCache.length + 1,
-				0x378 /* Local revision view cached out of order. */
+				'Local revision view cached out of order.'
 			);
 			this.localRevisionCache.push(computedCacheEntry);
 		}
