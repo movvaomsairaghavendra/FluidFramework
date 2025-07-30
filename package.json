@@ -122,159 +122,64 @@
     "pnpm": "9"
   },
   "fluidBuild": {
-    "tasks": {
-      "build": {
-        "dependsOn": [
-          "^build",
-          "build:docs",
-          "build:gendocs:client",
-          "generate:packagesMd",
-          "checks"
-        ],
-        "script": false
+    "repoPackages": {
+      "build": "common/build",
+      "common-def": "common/lib/common-definitions",
+      "common-utils": "common/lib/common-utils",
+      "protocol-def": "common/lib/protocol-definitions",
+      "azure": "azure",
+      "build-tools": "build-tools",
+      "server": "server/routerlicious",
+      "client": {
+        "directory": "",
+        "ignoredDirs": []
       },
-      "build:api": {
-        "dependsOn": [
-          "^build:docs",
-          "build:gendocs:client"
-        ],
-        "script": false
-      },
-      "build:docs": {
-        "dependsOn": [
-          "^build:docs",
-          "build:gendocs:client",
-          "build:readme"
-        ],
-        "script": false
-      },
-      "build:gendocs:client": {
-        "dependsOn": [
-          "build:gendocs:client:azure",
-          "build:gendocs:client:examples",
-          "build:gendocs:client:experimental",
-          "build:gendocs:client:packages"
-        ],
-        "script": false
-      },
-      "build:gendocs:client:azure": {
-        "after": [
-          "^build:docs",
-          "^ci:build:docs"
+      "tools": [
+        "tools/benchmark",
+        "server/tinylicious"
+      ],
+      "services": {
+        "directory": "server",
+        "ignoredDirs": [
+          "routerlicious",
+          "tinylicious",
+          "azure-local-service"
         ]
-      },
-      "build:gendocs:client:examples": {
-        "after": [
-          "^build:docs",
-          "^ci:build:docs"
-        ]
-      },
-      "build:gendocs:client:experimental": {
-        "after": [
-          "^build:docs",
-          "^ci:build:docs"
-        ]
-      },
-      "build:gendocs:client:packages": {
-        "after": [
-          "^build:docs",
-          "^ci:build:docs"
-        ]
-      },
-      "build:readme": {
-        "dependsOn": []
-      },
-      "check:format": {
-        "dependsOn": [
-          "check:format:repo"
-        ],
-        "script": false
-      },
-      "checks": {
-        "dependsOn": [
-          "check:format",
-          "generate:packageList",
-          "policy-check",
-          "layer-check",
-          "syncpack:deps",
-          "syncpack:versions",
-          "check:versions"
-        ],
-        "script": false
-      },
-      "checks:fix": {
-        "dependsOn": [
-          "format",
-          "generate:packageList",
-          "policy-check:fix",
-          "syncpack:deps:fix",
-          "syncpack:versions:fix",
-          "check:versions:fix"
-        ],
-        "script": false
-      },
-      "ci:build": {
-        "dependsOn": [
-          "^ci:build",
-          "ci:build:docs",
-          "generate:packagesMd"
-        ],
-        "script": false
-      },
-      "ci:build:docs": {
-        "dependsOn": [
-          "^ci:build:docs",
-          "build:gendocs:client",
-          "build:readme"
-        ],
-        "script": false
-      },
-      "clean": {
-        "dependsOn": [
-          "^clean",
-          "clean:root",
-          "clean:docs",
-          "clean:nyc"
-        ],
-        "script": false
-      },
-      "clean:docs": {
-        "before": [
-          "*"
-        ]
-      },
-      "clean:nyc": {
-        "before": [
-          "*"
-        ]
-      },
-      "format": {
-        "dependsOn": [
-          "format:repo"
-        ],
-        "script": false
-      },
-      "generate:packageList": {
-        "dependsOn": [
-          "generate:packageList:internal-build",
-          "generate:packageList:internal-dev",
-          "generate:packageList:internal-test",
-          "generate:packageList:public"
-        ],
-        "script": false
-      },
-      "lint": {
-        "dependsOn": [
-          "checks"
-        ],
-        "script": false
-      },
-      "lint:fix": {
-        "dependsOn": [
-          "checks:fix"
-        ],
-        "script": false
       }
+    },
+    "policy": {
+      "dependencies": {
+        "requireTilde": [
+          "@typescript-eslint/eslint-plugin",
+          "@typescript-eslint/parser",
+          "eslint-config-prettier",
+          "eslint-plugin-eslint-comments",
+          "eslint-plugin-import",
+          "eslint-plugin-unicorn",
+          "eslint-plugin-unused-imports",
+          "eslint",
+          "prettier",
+          "typescript",
+          "webpack-dev-server"
+        ]
+      },
+      "additionalLockfilePaths": [
+        "common/build/build-common",
+        "common/build/eslint-config-fluid",
+        "docs",
+        "server/gitrest",
+        "server/historian",
+        "tools/bundle-size-tools",
+        "tools/getkeys",
+        "tools/telemetry-generator",
+        "tools/test-tools"
+      ]
+    },
+    "branchReleaseTypes": {
+      "main": "minor",
+      "lts": "minor",
+      "release/**": "patch",
+      "next": "major"
     }
   },
   "pnpm": {
