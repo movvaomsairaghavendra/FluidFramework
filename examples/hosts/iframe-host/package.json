@@ -73,5 +73,10 @@
     "typescript-formatter": "7.1.0",
     "webpack": "^5.72.0",
     "webpack-dev-server": "~4.6.0"
+  },
+  "typeValidation": {
+    "disabled": true,
+    "broken": {},
+    "entrypoint": "internal"
   }
 }
