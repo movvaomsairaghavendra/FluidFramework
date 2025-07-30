@@ -56,18 +56,6 @@
     "typescript": "~4.5.5",
     "typescript-formatter": "7.1.0"
   },
-	"fluidBuild": {
-		"tasks": {
-			"build:esnext": [
-				"...",
-				"typetests:gen"
-			],
-			"tsc": [
-				"...",
-				"typetests:gen"
-			]
-		}
-	},
   "typeValidation": {
     "broken": {},
     "entrypoint": "public"
