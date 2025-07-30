@@ -71,5 +71,10 @@
     "start-server-and-test": "^1.11.7",
     "typescript": "~4.5.5",
     "typescript-formatter": "7.1.0"
+  },
+  "typeValidation": {
+    "disabled": true,
+    "broken": {},
+    "entrypoint": "internal"
   }
 }
