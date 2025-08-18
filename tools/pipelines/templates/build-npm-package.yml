@@ -197,9 +197,9 @@ stages:
 
         # Install
         - task: UseNode@1
-          displayName: Use Node 18.17.1
+          displayName: Use Node 20.15.1
           inputs:
-            version: 18.17.1
+            version: 20.15.1
         - task: Npm@1
           displayName: Install npm 6
           retryCountOnTaskFailure: 4
@@ -307,34 +307,14 @@ stages:
         - ${{ if ne(parameters.taskPack, false) }}:
           - task: Bash@3
             displayName: npm pack
+            env:
+              PACKAGE_MANAGER: '${{ parameters.packageManager }}'
+              RELEASE_GROUP: '${{ parameters.tagName }}'
+              STAGING_PATH: $(Build.ArtifactStagingDirectory)
             inputs:
-              targetType: 'inline'
-              workingDirectory: ${{ parameters.buildDirectory }}
-              script: |
-                mkdir $(Build.ArtifactStagingDirectory)/pack/
-                mkdir $(Build.ArtifactStagingDirectory)/pack/scoped/
-                mkdir $(Build.ArtifactStagingDirectory)/test-files/
-                if [[ "${{ variables.publishNonScopedPackages }}" == "True" ]]; then
-                  mkdir $(Build.ArtifactStagingDirectory)/pack/non-scoped/
-                fi
-                if [ -f "lerna.json" ]; then
-                  npx lerna exec --no-private --no-sort -- npm pack --unsafe-perm && \
-                  npx lerna exec --no-private --no-sort --parallel -- mv -t $(Build.ArtifactStagingDirectory)/pack/scoped/ ./*.tgz && \
-                  npx lerna exec --no-private --no-sort --parallel -- "[ ! -f ./*test-files.tar ] || (echo 'test files found' && mv -t $(Build.ArtifactStagingDirectory)/test-files/ ./*test-files.tar)"
-                else
-                  npm pack --unsafe-perm && \
-                  mv -t $(Build.ArtifactStagingDirectory)/pack/scoped/ ./*.tgz
-                fi
-
-          - ${{ if eq(variables.publishNonScopedPackages, true) }}:
-            - ${{ each parameter in parameters.nonScopedPackages }}:
-              - task: Bash@3
-                displayName: Move Non-Scoped Package ${{parameter}}
-                inputs:
-                  targetType: 'inline'
-                  workingDirectory: ${{ parameters.buildDirectory }}
-                  script: |
-                    mv -t $(Build.ArtifactStagingDirectory)/pack/non-scoped/ $(Build.ArtifactStagingDirectory)/pack/scoped/${{parameter}}*.tgz
+              targetType: filePath
+              workingDirectory: '${{ parameters.buildDirectory }}'
+              filePath: $(Build.SourcesDirectory)/scripts/pack-packages.sh
 
           - task: PublishBuildArtifacts@1
             displayName: Publish Artifact - pack
