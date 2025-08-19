@@ -31,6 +31,11 @@ parameters:
   type: object
   default:
   - fluid-framework
+# The semver range constraint to use for interdependencies; that is, dependencies on other packages within the release
+# group
+- name: interdependencyRange
+  type: string
+  default: "^"
 
 trigger:
   branches:
@@ -97,7 +102,7 @@ variables:
       releaseBuildOverride: '${{ parameters.releaseBuildOverride }}'
 
 extends:
-  template: templates/build-npm-package.yml
+  template: templates/build-npm-package.yml@self
   parameters:
     publishOverride: ${{ parameters.publishOverride }}
     releaseBuildOverride: ${{ parameters.releaseBuildOverride }}
