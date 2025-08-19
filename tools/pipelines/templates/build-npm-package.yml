@@ -119,8 +119,10 @@ stages:
           - group: storage-vars
           # Coverage has quality issues in LTS, and root-causing + fixing is not a priority given changes to LTS at this point
           # will be things like upgrading node or security fixes, not adding new features.
-          testCoverage: false
-          releaseBuildVar: $[variables.releaseBuild]
+          - name: testCoverage
+            value: false
+          - name: releaseBuildVar
+            value: $[variables.releaseBuild]
         steps:
         # Setup
         - checkout: self
