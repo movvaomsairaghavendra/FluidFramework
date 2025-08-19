@@ -65,8 +65,8 @@ parameters:
   default: true
 
 - name: buildNumberInPatch
-  type: string
-  default:
+  type: boolean
+  default: false
 
 - name: nonScopedPackages
   type: object
