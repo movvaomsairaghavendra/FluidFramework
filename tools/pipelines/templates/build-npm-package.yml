@@ -105,12 +105,6 @@ parameters:
 
 trigger: none
 
-variables:
-  - template: /tools/pipelines/templates/include-vars.yml@self
-    parameters:
-      publishOverride: '${{ parameters.publishOverride }}'
-      releaseBuildOverride: '${{ parameters.releaseBuildOverride }}'
-
 stages:
   # Install / Build / Test Stage
   - stage: build
