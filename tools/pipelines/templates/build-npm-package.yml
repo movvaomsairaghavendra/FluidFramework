@@ -208,13 +208,6 @@ stages:
             command: 'custom'
             customCommand: 'install --global npm@^6'
             customRegistry: 'useNpmrc'
-        - task: Npm@1
-          displayName: npm ci
-          inputs:
-            command: 'custom'
-            workingDir: ${{ parameters.buildDirectory }}
-            customCommand: 'ci --unsafe-perm'
-            customRegistry: 'useNpmrc'
 
         # Install pnpm
         - template: /tools/pipelines/templates/include-install.yml@self
