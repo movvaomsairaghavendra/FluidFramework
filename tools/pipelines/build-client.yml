@@ -31,11 +31,17 @@ parameters:
   type: object
   default:
   - fluid-framework
-# The semver range constraint to use for interdependencies; that is, dependencies on other packages within the release
-# group
 - name: interdependencyRange
+  displayName: Range to use for interdependencies (only affects releases) (default = ~)
   type: string
-  default: "^"
+  default: "~"
+  # The " " value (a space) is a hacky workaround. ADO doesn't support empty string, but we ultimately use this value as
+  # an environment variable in a bash script (the 'update package versions' step), where it gets coerced back to the
+  # empty string.
+  values:
+    - "^"
+    - "~"
+    - " "
 
 trigger:
   branches:

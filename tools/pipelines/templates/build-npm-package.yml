@@ -237,12 +237,14 @@ stages:
             packageManagerInstallCommand: '${{ parameters.packageManagerInstallCommand }}'
 
         # Set version
-        - template: include-set-package-version.yml
+        - template: include-set-package-version.yml@self
           parameters:
             buildDirectory: ${{ parameters.buildDirectory }}
             buildNumberInPatch: ${{ parameters.buildNumberInPatch }}
             buildToolsVersionToInstall: ${{ parameters.buildToolsVersionToInstall }}
             tagName: ${{ parameters.tagName }}
+            interdependencyRange: '${{ parameters.interdependencyRange }}'
+            packageTypesOverride: '${{ parameters.packageTypesOverride }}'
 
         # Build
         - ${{ if ne(parameters.taskBuild, 'false') }}:
