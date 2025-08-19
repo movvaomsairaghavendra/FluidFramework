@@ -89,6 +89,20 @@ parameters:
   type: string
   default: "^0.5.0"
 
+- name: packageManager
+  type: string
+  default: npm
+
+# Parameter for modifying the 'types' field in the package.json.
+# If the value 'none' is provided, the 'types' field in package.json will remain unchanged.
+- name: packageTypesOverride
+  type: string
+  default: none
+
+- name: packageManagerInstallCommand
+  type: string
+  default: 'npm ci --unsafe-perm'
+
 trigger: none
 
 variables:
@@ -214,6 +228,13 @@ stages:
             workingDir: ${{ parameters.buildDirectory }}
             customCommand: 'ci --unsafe-perm'
             customRegistry: 'useNpmrc'
+
+        # Install pnpm
+        - template: /tools/pipelines/templates/include-install.yml@self
+          parameters:
+            packageManager: '${{ parameters.packageManager }}'
+            buildDirectory: '${{ parameters.buildDirectory }}'
+            packageManagerInstallCommand: '${{ parameters.packageManagerInstallCommand }}'
 
         # Set version
         - template: include-set-package-version.yml
