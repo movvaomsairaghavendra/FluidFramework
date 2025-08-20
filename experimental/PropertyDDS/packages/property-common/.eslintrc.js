@@ -4,12 +4,14 @@
  */
 
 module.exports = {
-	"extends": [require.resolve("@fluidframework/eslint-config-fluid")],
-	"parserOptions": {
-		"project": ["./tsconfig.json", "./src/test/tsconfig.json"],
-	},
-	"rules": {
-		"prefer-arrow-callback": "off",
-		"tsdoc/syntax": "off",
-	},
-};
+    "extends": [
+        require.resolve("@fluidframework/eslint-config-fluid")
+    ],
+    "parserOptions": {
+        "project": [ "./tsconfig.json", "./src/test/tsconfig.json" ]
+    },
+    "rules": {
+        "prefer-arrow-callback": "off",
+        "tsdoc/syntax": "off",
+    }
+}

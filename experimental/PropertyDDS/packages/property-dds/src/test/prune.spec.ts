@@ -4,12 +4,7 @@
  */
 
 import { expect } from "chai";
-import {
-	SharedPropertyTree,
-	IPropertyTreeMessage,
-	IRemotePropertyTreeMessage,
-	OpKind,
-} from "../propertyTree";
+import { SharedPropertyTree, IPropertyTreeMessage, IRemotePropertyTreeMessage, OpKind } from "../propertyTree";
 
 describe("PropertyTree", () => {
 	describe("Pruning History", () => {
@@ -401,7 +396,7 @@ describe("PropertyTree", () => {
 					referenceGuid: "",
 					remoteHeadGuid: "",
 					localBranchStart: undefined,
-					metadata: undefined,
+                    metadata: undefined,
 				},
 			];
 			const unrebasedRemoteChanges: Record<string, IRemotePropertyTreeMessage> = {};
@@ -413,7 +408,7 @@ describe("PropertyTree", () => {
 				remoteHeadGuid: "",
 				localBranchStart: undefined,
 				sequenceNumber: 1,
-				metadata: undefined,
+                metadata: undefined,
 			};
 
 			const prundedData = SharedPropertyTree.prune(msn, remoteChanges, unrebasedRemoteChanges);

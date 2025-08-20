@@ -81,7 +81,7 @@ export function convertTreeNodes<TIn extends HasVariadicTraits<TIn>, TOut extend
 export function convertTreeNodes<
 	TIn extends HasVariadicTraits<TIn | TPlaceholder>,
 	TOut extends HasTraits<TOut | TPlaceholder>,
-	TPlaceholder,
+	TPlaceholder
 >(
 	root: TIn | TPlaceholder,
 	convert: (node: TIn) => NoTraits<TOut>,
@@ -99,7 +99,7 @@ export function convertTreeNodes<
 export function convertTreeNodes<
 	TIn extends HasVariadicTraits<TIn | TPlaceholder>,
 	TOut extends HasTraits<TOut | TPlaceholder>,
-	TPlaceholder,
+	TPlaceholder
 >(
 	root: TIn | TPlaceholder,
 	convert: (node: TIn) => NoTraits<TOut>,
@@ -129,7 +129,8 @@ export function convertTreeNodes<
 			if (!isKnownType(child, isPlaceholder)) {
 				convertedChild = convert(child) as TOut;
 				if (child.traits !== undefined) {
-					const childTraits = (child as unknown as TOut) === convertedChild ? { traits: child.traits } : child;
+					const childTraits =
+						(child as unknown as TOut) === convertedChild ? { traits: child.traits } : child;
 					pendingNodes.push({
 						childIterator: iterateChildren(childTraits)[Symbol.iterator](),
 						newNode: convertedChild,

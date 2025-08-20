@@ -82,7 +82,9 @@ class ScenarioRunnerLogger extends TelemetryLogger implements ITelemetryBuffered
 		// TODO: Further cleanup needed.
 		for (const k of this.transformedEvents.keys()) {
 			if (event.eventName.startsWith(k)) {
-				event.eventName = `${this.transformedEvents.get(k)}${event.eventName.slice(k.length)}`;
+				event.eventName = `${this.transformedEvents.get(k)}${event.eventName.slice(
+					k.length,
+				)}`;
 				break;
 			}
 		}

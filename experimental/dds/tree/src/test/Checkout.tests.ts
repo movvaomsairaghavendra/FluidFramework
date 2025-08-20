@@ -120,9 +120,9 @@ export function checkoutTests(
 			expect(checkout.getEditStatus()).equals(EditStatus.Applied);
 
 			// Is invalid after an invalid edit
-			expect(() => checkout.applyChanges(...Change.insertTree(testTree.left, StablePlace.after(testTree.left)))).throws(
-				'Locally constructed edits must be well-formed and valid.'
-			);
+			expect(() =>
+				checkout.applyChanges(...Change.insertTree(testTree.left, StablePlace.after(testTree.left)))
+			).throws('Locally constructed edits must be well-formed and valid.');
 			expect(checkout.getEditStatus()).equals(EditStatus.Invalid);
 			checkout.abortEdit();
 
@@ -170,8 +170,9 @@ export function checkoutTests(
 			const simpleTestTree = setUpTestTree(tree);
 
 			// tryApplyEdit aborts when applying an invalid edit and returns undefined
-			expect(checkout.tryApplyEdit(...Change.insertTree(simpleTestTree.left, StablePlace.after(simpleTestTree.left))))
-				.to.be.undefined;
+			expect(
+				checkout.tryApplyEdit(...Change.insertTree(simpleTestTree.left, StablePlace.after(simpleTestTree.left)))
+			).to.be.undefined;
 
 			// Next edit is unaffected
 			checkout.openEdit();
@@ -221,9 +222,9 @@ export function checkoutTests(
 			expect(checkout.getEditStatus()).equals(EditStatus.Applied);
 
 			// Is invalid after an invalid edit
-			expect(() => checkout.applyChanges(...Change.insertTree(testTree.left, StablePlace.after(testTree.left)))).throws(
-				'Locally constructed edits must be well-formed and valid.'
-			);
+			expect(() =>
+				checkout.applyChanges(...Change.insertTree(testTree.left, StablePlace.after(testTree.left)))
+			).throws('Locally constructed edits must be well-formed and valid.');
 			expect(checkout.getEditStatus()).equals(EditStatus.Invalid);
 
 			// Is still invalid after a subsequent valid edit
@@ -545,8 +546,9 @@ export function checkoutTests(
 			// Merge in the latest changes.
 			const rebaseResult = checkout.rebaseCurrentEdit();
 			expect(rebaseResult).equals(EditValidationResult.Invalid);
-			expect(areRevisionViewsSemanticallyEqual(checkout.currentView, tree, secondCheckout.currentView, secondTree)).to
-				.be.true;
+			expect(
+				areRevisionViewsSemanticallyEqual(checkout.currentView, tree, secondCheckout.currentView, secondTree)
+			).to.be.true;
 		});
 
 		it('can dispose and remove listeners', async () => {

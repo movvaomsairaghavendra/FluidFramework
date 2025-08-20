@@ -6,7 +6,7 @@
 import type Random from "random-js";
 
 export interface BaseFuzzTestState {
-	random: Random;
+    random: Random;
 }
 
 export const done = Symbol("GeneratorDone");
@@ -40,11 +40,7 @@ export type AcceptanceCondition<TState> = (state: TState) => boolean;
  * This is useful in practice to avoid invoking generators for known-to-be invalid actions based on the current state:
  * for example, a "leave" op cannot be generated if there are no currently connected clients.
  */
-export type Weights<TOp, TState> = [
-	TOp | Generator<TOp, TState>,
-	number,
-	AcceptanceCondition<TState>?,
-][];
+export type Weights<TOp, TState> = [TOp | Generator<TOp, TState>, number, AcceptanceCondition<TState>?][];
 
 /**
  * Array of weighted generators to select from.
@@ -53,15 +49,11 @@ export type Weights<TOp, TState> = [
  * This is useful in practice to avoid invoking generators for known-to-be invalid actions based on the current state:
  * for example, a "leave" op cannot be generated if there are no currently connected clients.
  */
-export type AsyncWeights<TOp, TState> = [
-	TOp | AsyncGenerator<TOp, TState>,
-	number,
-	AcceptanceCondition<TState>?,
-][];
+export type AsyncWeights<TOp, TState> = [TOp | AsyncGenerator<TOp, TState>, number, AcceptanceCondition<TState>?][];
 
 export interface SaveInfo {
-	saveAt?: number;
-	saveOnFailure: boolean;
-	/** Filepath to dump the history file. Containing folder must already be created. */
-	filepath: string;
+    saveAt?: number;
+    saveOnFailure: boolean;
+    /** Filepath to dump the history file. Containing folder must already be created. */
+    filepath: string;
 }

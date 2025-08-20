@@ -353,11 +353,11 @@ export class GenericTransaction {
 					view: changeResult.result,
 					changes: this.changes.concat(change),
 					steps: this.steps.concat({ resolvedChange, after: changeResult.result }),
-				}
+			  }
 			: {
 					...this.state,
 					...changeResult.error,
-				};
+			  };
 		return this;
 	}
 }
@@ -464,7 +464,7 @@ export namespace TransactionInternal {
 							kind: FailureKind.UnusedDetachedSequence,
 							sequenceId: this.detached.keys().next().value,
 						},
-					})
+				  })
 				: Result.ok(state.view);
 		}
 
@@ -582,7 +582,9 @@ export namespace TransactionInternal {
 			if (validatedDestination.result !== PlaceValidationResult.Valid) {
 				return Result.error({
 					status:
-						validatedDestination.result === PlaceValidationResult.Malformed ? EditStatus.Malformed : EditStatus.Invalid,
+						validatedDestination.result === PlaceValidationResult.Malformed
+							? EditStatus.Malformed
+							: EditStatus.Invalid,
 					failure: {
 						kind: FailureKind.BadPlace,
 						change,
@@ -661,7 +663,7 @@ export namespace TransactionInternal {
 										rangeFailure: validatedChange.result,
 									},
 								},
-							})
+						  })
 					: Result.error({
 							status: EditStatus.Malformed,
 							failure: {
@@ -672,7 +674,7 @@ export namespace TransactionInternal {
 									rangeFailure: validatedChange.result,
 								},
 							},
-						});
+					  });
 			}
 
 			const { start, end } = rangeFromStableRange(state.view, validatedChange);

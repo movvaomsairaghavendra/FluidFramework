@@ -4,34 +4,37 @@
  */
 
 module.exports = {
-	extends: [require.resolve("@fluidframework/eslint-config-fluid")],
-	parserOptions: {
-		project: ["./tsconfig.json", "./src/test/tsconfig.json"],
-	},
-	rules: {
-		"@typescript-eslint/no-use-before-define": "off",
-		"no-case-declarations": "off",
+    extends: [require.resolve("@fluidframework/eslint-config-fluid")],
+    parserOptions: {
+        project: ["./tsconfig.json", "./src/test/tsconfig.json"],
+    },
+    rules: {
+        "@typescript-eslint/no-use-before-define": "off",
+        "no-case-declarations": "off",
 
-		// This library is used in the browser, so we don't want dependencies on most node libraries.
-		"import/no-nodejs-modules": ["error", { allow: ["events"] }],
-	},
-	overrides: [
-		{
-			// Rules only for test files
-			files: ["*.spec.ts", "src/test/**"],
-			rules: {
-				// Test files are run in node only so additional node libraries can be used.
-				"import/no-nodejs-modules": ["error", { allow: ["assert", "events"] }],
-			},
-		},
-		{
-			// Rules only for type validation files
-			files: ["**/test/types/*.generated.*"],
-			rules: {
-				"max-len": "off",
-				"@typescript-eslint/semi": "off",
-				"@typescript-eslint/comma-spacing": "off",
-			},
-		},
-	],
+        // This library is used in the browser, so we don't want dependencies on most node libraries.
+        "import/no-nodejs-modules": ["error", { allow: ["events"] }],
+    },
+    overrides: [
+        {
+            // Rules only for test files
+            files: ["*.spec.ts", "src/test/**"],
+            rules: {
+                // Test files are run in node only so additional node libraries can be used.
+                "import/no-nodejs-modules": [
+                    "error",
+                    { allow: ["assert", "events"] },
+                ],
+            },
+        },
+        {
+            // Rules only for type validation files
+            files: ["**/test/types/*.generated.*"],
+            rules: {
+                "max-len": "off",
+                "@typescript-eslint/semi": "off",
+                "@typescript-eslint/comma-spacing": "off",
+            },
+        },
+    ],
 };

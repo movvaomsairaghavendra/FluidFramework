@@ -111,13 +111,13 @@ export type SharedTreeArgs<WF extends WriteFormat = WriteFormat> = [writeFormat:
  */
 export type SharedTreeOptions<
 	WF extends WriteFormat,
-	HistoryCompatibility extends 'Forwards' | 'None' = 'Forwards',
+	HistoryCompatibility extends 'Forwards' | 'None' = 'Forwards'
 > = Omit<
 	WF extends WriteFormat.v0_0_2
 		? SharedTreeOptions_0_0_2
 		: WF extends WriteFormat.v0_1_1
-			? SharedTreeOptions_0_1_1
-			: never,
+		? SharedTreeOptions_0_1_1
+		: never,
 	HistoryCompatibility extends 'Forwards' ? 'summarizeHistory' : never
 >;
 
@@ -497,11 +497,11 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 			? {
 					summarizeHistory: true,
 					uploadEditChunks: noCompatOptions.summarizeHistory.uploadEditChunks,
-				}
+			  }
 			: {
 					summarizeHistory: noCompatOptions.summarizeHistory ?? false,
 					uploadEditChunks: false,
-				};
+			  };
 	}
 
 	/**
@@ -678,7 +678,9 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 	 * @public
 	 */
 	public convertToNodeId(id: StableNodeId): NodeId {
-		return (this.idCompressor.tryRecompress(id) as NodeId) ?? fail('Stable node id is not known to this SharedTree');
+		return (
+			(this.idCompressor.tryRecompress(id) as NodeId) ?? fail('Stable node id is not known to this SharedTree')
+		);
 	}
 
 	/**
@@ -901,7 +903,10 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 		let convertedSummary: SummaryContents;
 		switch (loadedSummaryVersion) {
 			case WriteFormat.v0_0_2:
-				convertedSummary = this.encoder_0_0_2.decodeSummary(summary as SharedTreeSummary_0_0_2, this.attributionId);
+				convertedSummary = this.encoder_0_0_2.decodeSummary(
+					summary as SharedTreeSummary_0_0_2,
+					this.attributionId
+				);
 				break;
 			case WriteFormat.v0_1_1: {
 				const typedSummary = summary as SharedTreeSummary;
@@ -1005,7 +1010,12 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 				: editHistory?.editIds.length;
 
 		// Use previously registered EditAddedHandlers if there is an existing EditLog.
-		const editLog = new EditLog(editHistory, this.logger, this.editLog?.editAddedHandlers, indexOfFirstEditInSession);
+		const editLog = new EditLog(
+			editHistory,
+			this.logger,
+			this.editLog?.editAddedHandlers,
+			indexOfFirstEditInSession
+		);
 
 		editLog.on(SharedTreeDiagnosticEvent.UnexpectedHistoryChunk, () => {
 			this.emit(SharedTreeDiagnosticEvent.UnexpectedHistoryChunk);
@@ -1603,8 +1613,13 @@ export class SharedTree extends SharedObject<ISharedTreeEvents> implements NodeI
 									localSessionId: this.idCompressor.localSessionId,
 									normalizeToSessionSpace: (id, _sessionId) => {
 										// Interpret the IDs from the stashed ops as stable IDs, and use those as overrides for the equivalent new ops
-										const sessionSpaceId = stashedIdContext.normalizeToSessionSpace(id, sharedTreeOp.idRange.sessionId);
-										return this.generateNodeId(stashedIdContext.convertToStableNodeId(sessionSpaceId));
+										const sessionSpaceId = stashedIdContext.normalizeToSessionSpace(
+											id,
+											sharedTreeOp.idRange.sessionId
+										);
+										return this.generateNodeId(
+											stashedIdContext.convertToStableNodeId(sessionSpaceId)
+										);
 									},
 									normalizeToOpSpace: (id) => this.idNormalizer.normalizeToOpSpace(id),
 								};

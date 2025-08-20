@@ -1,66 +1,66 @@
 {
-	"name": "@fluid-tools/fetch-tool",
-	"version": "1.4.0",
-	"description": "Console tool to fetch Fluid data from relay service",
-	"homepage": "https://fluidframework.com",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/microsoft/FluidFramework.git",
-		"directory": "packages/tools/fetch-tool"
-	},
-	"license": "MIT",
-	"author": "Microsoft and contributors",
-	"main": "dist/fluidFetch.js",
-	"bin": {
-		"fluid-fetch": "bin/fluid-fetch"
-	},
-	"scripts": {
-		"build": "concurrently npm:build:compile npm:lint",
-		"build:compile": "npm run tsc",
-		"build:full": "npm run build",
-		"build:full:compile": "npm run build:compile",
-		"clean": "rimraf dist *.tsbuildinfo *.build.log",
-		"eslint": "eslint --format stylish src",
-		"eslint:fix": "eslint --format stylish src --fix --fix-type problem,suggestion,layout",
-		"lint": "npm run eslint",
-		"lint:fix": "npm run eslint:fix",
-		"tsc": "tsc",
-		"tsfmt": "tsfmt --verify",
-		"tsfmt:fix": "tsfmt --replace"
-	},
-	"dependencies": {
-		"@fluid-tools/fluidapp-odsp-urlresolver": "workspace:~",
-		"@fluidframework/common-utils": "^0.32.2",
-		"@fluidframework/container-runtime": "workspace:~",
-		"@fluidframework/datastore": "workspace:~",
-		"@fluidframework/driver-definitions": "workspace:~",
-		"@fluidframework/driver-utils": "workspace:~",
-		"@fluidframework/odsp-doclib-utils": "workspace:~",
-		"@fluidframework/odsp-driver": "workspace:~",
-		"@fluidframework/odsp-driver-definitions": "workspace:~",
-		"@fluidframework/odsp-urlresolver": "workspace:~",
-		"@fluidframework/protocol-definitions": "^0.1028.2000",
-		"@fluidframework/routerlicious-driver": "workspace:~",
-		"@fluidframework/routerlicious-urlresolver": "workspace:~",
-		"@fluidframework/runtime-definitions": "workspace:~",
-		"@fluidframework/telemetry-utils": "workspace:~",
-		"@fluidframework/test-client-utils": "workspace:~",
-		"@fluidframework/tool-utils": "workspace:~"
-	},
-	"devDependencies": {
-		"@fluidframework/build-common": "^0.24.0",
-		"@fluidframework/eslint-config-fluid": "^0.28.2000",
-		"@rushstack/eslint-config": "^2.5.1",
-		"@types/node": "^14.18.0",
-		"concurrently": "^6.2.0",
-		"eslint": "~8.55.0",
-		"rimraf": "^2.6.2",
-		"typescript": "~4.5.5",
-		"typescript-formatter": "7.1.0"
-	},
-	"typeValidation": {
-		"disabled": true,
-		"broken": {},
-		"entrypoint": "internal"
-	}
+  "name": "@fluid-tools/fetch-tool",
+  "version": "1.4.0",
+  "description": "Console tool to fetch Fluid data from relay service",
+  "homepage": "https://fluidframework.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/FluidFramework.git",
+    "directory": "packages/tools/fetch-tool"
+  },
+  "license": "MIT",
+  "author": "Microsoft and contributors",
+  "main": "dist/fluidFetch.js",
+  "bin": {
+    "fluid-fetch": "bin/fluid-fetch"
+  },
+  "scripts": {
+    "build": "concurrently npm:build:compile npm:lint",
+    "build:compile": "npm run tsc",
+    "build:full": "npm run build",
+    "build:full:compile": "npm run build:compile",
+    "clean": "rimraf dist *.tsbuildinfo *.build.log",
+    "eslint": "eslint --format stylish src",
+    "eslint:fix": "eslint --format stylish src --fix --fix-type problem,suggestion,layout",
+    "lint": "npm run eslint",
+    "lint:fix": "npm run eslint:fix",
+    "tsc": "tsc",
+    "tsfmt": "tsfmt --verify",
+    "tsfmt:fix": "tsfmt --replace"
+  },
+  "dependencies": {
+    "@fluid-tools/fluidapp-odsp-urlresolver": "workspace:~",
+    "@fluidframework/common-utils": "^0.32.2",
+    "@fluidframework/container-runtime": "workspace:~",
+    "@fluidframework/datastore": "workspace:~",
+    "@fluidframework/driver-definitions": "workspace:~",
+    "@fluidframework/driver-utils": "workspace:~",
+    "@fluidframework/odsp-doclib-utils": "workspace:~",
+    "@fluidframework/odsp-driver": "workspace:~",
+    "@fluidframework/odsp-driver-definitions": "workspace:~",
+    "@fluidframework/odsp-urlresolver": "workspace:~",
+    "@fluidframework/protocol-definitions": "^0.1028.2000",
+    "@fluidframework/routerlicious-driver": "workspace:~",
+    "@fluidframework/routerlicious-urlresolver": "workspace:~",
+    "@fluidframework/runtime-definitions": "workspace:~",
+    "@fluidframework/telemetry-utils": "workspace:~",
+    "@fluidframework/test-client-utils": "workspace:~",
+    "@fluidframework/tool-utils": "workspace:~"
+  },
+  "devDependencies": {
+    "@fluidframework/build-common": "^0.24.0",
+    "@fluidframework/eslint-config-fluid": "^0.28.2000",
+    "@rushstack/eslint-config": "^2.5.1",
+    "@types/node": "^14.18.0",
+    "concurrently": "^6.2.0",
+    "eslint": "~8.55.0",
+    "rimraf": "^2.6.2",
+    "typescript": "~4.5.5",
+    "typescript-formatter": "7.1.0"
+  },
+  "typeValidation": {
+    "disabled": true,
+    "broken": {},
+    "entrypoint": "internal"
+  }
 }

@@ -37,11 +37,11 @@ export function createAzureClient(userID?: string, userName?: string): AzureClie
 				tokenProvider: createAzureTokenProvider(userID ?? "foo", userName ?? "bar"),
 				endpoint: endPoint ?? "https://us.fluidrelay.azure.com",
 				type: "remote",
-			}
+		  }
 		: {
 				tokenProvider: new InsecureTokenProvider("fooBar", user),
 				endpoint: "http://localhost:7071",
 				type: "local",
-			};
+		  };
 	return new AzureClient({ connection: connectionProps });
 }

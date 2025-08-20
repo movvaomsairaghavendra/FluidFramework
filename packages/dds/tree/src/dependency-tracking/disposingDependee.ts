@@ -54,10 +54,7 @@ export class DisposingDependee implements Dependee {
 	}
 
 	public invalidateDependents(): void {
-		assert(
-			this.state !== State.Disposed,
-			0x306 /* invalidateDependents on disposed Dependee */,
-		);
+		assert(this.state !== State.Disposed, 0x306 /* invalidateDependents on disposed Dependee */);
 		for (const dependent of this.dependents) {
 			dependent.markInvalid();
 		}
@@ -68,7 +65,7 @@ export class DisposingDependee implements Dependee {
 	 * the next time it has zero dependents (which will be before this returns if it currently has zero dependents).
 	 *
 	 * Note that once there are zero dependents (before running the `onDispose` callback),
-	 * this object is no longer usable as a Dependee,
+     * this object is no longer usable as a Dependee,
 	 * and thus it is an error to call `registerDependent`.
 	 * This means `onDispose` will be invoked at most once.
 	 *
@@ -113,7 +110,7 @@ export class DisposingDependee implements Dependee {
 			this.state = State.Disposed;
 			this.onDispose(this);
 			// Clearing onDispose is not required,
-			// but it ensures a bug can't result in it running twice (will instead error) and
+            // but it ensures a bug can't result in it running twice (will instead error) and
 			// reduces the possibility for memory retention from disposed dependees
 			// since the call back might close over significant state.
 			this.onDispose = undefined;

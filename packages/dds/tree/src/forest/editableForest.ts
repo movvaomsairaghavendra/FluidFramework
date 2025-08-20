@@ -18,61 +18,65 @@ import { IForestSubscription, NodeId } from "./forest";
  * TODO: improve these APIs, addressing the above.
  */
 export interface IEditableForest extends IForestSubscription {
-	// Overrides field from IForestSubscription adding editing support.
-	readonly schema: StoredSchemaRepository;
 
-	/**
-	 * Set of anchors this forest is tracking.
-	 *
-	 * To keep these anchors usable, this AnchorSet must be updated / rebased for any changes made to the forest.
-	 * It is the responsibility of the called of the forest editing methods to do this, not the forest itself.
-	 * The caller performs these updates because it has more semantic knowledge about the edits, which can be needed to
-	 * update the anchors in a semantically optimal way.
-	 */
-	readonly anchors: AnchorSet;
+    // Overrides field from IForestSubscription adding editing support.
+    readonly schema: StoredSchemaRepository;
 
-	/**
-	 * Adds the supplied nodes to the forest.
-	 * @param nodes - the sequence of nodes to add to the forest.
-	 * If any of them have children which exist in the forest already, those children will be parented.
-	 * Any trait arrays present in a node must be non-empty.
-	 * The nodes may be provided in any order.
-	 */
-	add(nodes: Iterable<ITreeCursor>): DetachedRange;
+    /**
+     * Set of anchors this forest is tracking.
+     *
+     * To keep these anchors usable, this AnchorSet must be updated / rebased for any changes made to the forest.
+     * It is the responsibility of the called of the forest editing methods to do this, not the forest itself.
+     * The caller performs these updates because it has more semantic knowledge about the edits, which can be needed to
+     * update the anchors in a semantically optimal way.
+     */
+     readonly anchors: AnchorSet;
 
-	/**
-	 * Parents a set of nodes already in the forest at a specified location.
-	 */
-	attachRangeOfChildren(destination: TreeLocation, toAttach: DetachedRange): void;
+    /**
+     * Adds the supplied nodes to the forest.
+     * @param nodes - the sequence of nodes to add to the forest.
+     * If any of them have children which exist in the forest already, those children will be parented.
+     * Any trait arrays present in a node must be non-empty.
+     * The nodes may be provided in any order.
+     */
+    add(nodes: Iterable<ITreeCursor>): DetachedRange;
 
-	/**
-	 * Detaches a range of nodes from their parent. The detached nodes remain in the `Forest`.
-	 * @param startIndex - the index of the first node in the range to detach
-	 * @param endIndex - the index after the last node in the range to detach
-	 * @returns a new `Forest` with the nodes detached, and a list of the ids of the nodes that were detached
-	 */
-	detachRangeOfChildren(
-		range: FieldLocation | DetachedRange,
-		startIndex: number,
-		endIndex: number,
-	): DetachedRange;
+    /**
+     * Parents a set of nodes already in the forest at a specified location.
+     */
+    attachRangeOfChildren(
+        destination: TreeLocation,
+        toAttach: DetachedRange,
+    ): void;
 
-	/**
-	 * Replaces a node's value. The node must exist in this `Forest`.
-	 * @param nodeId - the id of the node
-	 * @param value - the new value
-	 */
-	setValue(nodeId: NodeId, value: Value): void;
+    /**
+     * Detaches a range of nodes from their parent. The detached nodes remain in the `Forest`.
+     * @param startIndex - the index of the first node in the range to detach
+     * @param endIndex - the index after the last node in the range to detach
+     * @returns a new `Forest` with the nodes detached, and a list of the ids of the nodes that were detached
+     */
+    detachRangeOfChildren(
+        range: FieldLocation | DetachedRange,
+        startIndex: number,
+        endIndex: number
+    ): DetachedRange;
 
-	/**
-	 * Recursively deletes a range and its children.
-	 */
-	delete(ids: DetachedRange): void;
+    /**
+     * Replaces a node's value. The node must exist in this `Forest`.
+     * @param nodeId - the id of the node
+     * @param value - the new value
+     */
+    setValue(nodeId: NodeId, value: Value): void;
+
+    /**
+     * Recursively deletes a range and its children.
+     */
+    delete(ids: DetachedRange): void;
 }
 
 export interface TreeLocation {
-	readonly range: FieldLocation | DetachedRange;
-	readonly index: number;
+    readonly range: FieldLocation | DetachedRange;
+    readonly index: number;
 }
 
 /**
@@ -80,5 +84,5 @@ export interface TreeLocation {
  */
 export interface FieldLocation {
 	readonly key: FieldKey;
-	readonly parent: NodeId;
+    readonly parent: NodeId;
 }

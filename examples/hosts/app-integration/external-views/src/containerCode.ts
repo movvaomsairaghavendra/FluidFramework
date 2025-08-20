@@ -17,8 +17,9 @@ import { DiceRollerInstantiationFactory } from "./dataObject";
  * This container code will create the single default data object on our behalf and make it available on the
  * Container with a URL of "/", so it can be retrieved via container.request("/").
  */
-export const DiceRollerContainerRuntimeFactory =
-	new ContainerRuntimeFactoryWithDefaultDataStore(
-		DiceRollerInstantiationFactory,
-		new Map([DiceRollerInstantiationFactory.registryEntry]),
-	);
+export const DiceRollerContainerRuntimeFactory = new ContainerRuntimeFactoryWithDefaultDataStore(
+    DiceRollerInstantiationFactory,
+    new Map([
+        DiceRollerInstantiationFactory.registryEntry,
+    ]),
+);

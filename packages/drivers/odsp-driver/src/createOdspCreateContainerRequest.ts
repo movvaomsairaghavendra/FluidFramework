@@ -15,21 +15,21 @@ import { ShareLinkTypes } from "@fluidframework/odsp-driver-definitions";
  * @param createLinkType - type of sharing link you would like to create for this file
  */
 export function createOdspCreateContainerRequest(
-	siteUrl: string,
-	driveId: string,
-	filePath: string,
-	fileName: string,
-	createLinkType?: ShareLinkTypes,
+    siteUrl: string,
+    driveId: string,
+    filePath: string,
+    fileName: string,
+    createLinkType?: ShareLinkTypes,
 ): IRequest {
-	const createNewRequest: IRequest = {
-		url: `${siteUrl}?driveId=${encodeURIComponent(
-			driveId,
-		)}&path=${encodeURIComponent(filePath)}${createLinkType ? `&createLinkType=${createLinkType}` : ""}`,
-		headers: {
-			[DriverHeader.createNew]: {
-				fileName,
-			},
-		},
-	};
-	return createNewRequest;
+    const createNewRequest: IRequest = {
+        url: `${siteUrl}?driveId=${encodeURIComponent(
+            driveId,
+        )}&path=${encodeURIComponent(filePath)}${createLinkType ? `&createLinkType=${createLinkType}` : ""}`,
+        headers: {
+            [DriverHeader.createNew]: {
+                fileName,
+            },
+        },
+    };
+    return createNewRequest;
 }

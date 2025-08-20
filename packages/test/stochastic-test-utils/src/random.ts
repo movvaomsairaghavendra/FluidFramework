@@ -10,16 +10,16 @@ import Random from "random-js";
  * If not provided, this leverages Math.random() as an engine which is *not* deterministic.
  */
 export function makeRandom(seed?: number | number[]): Random {
-	if (seed === undefined) {
-		return new Random();
-	}
+    if (seed === undefined) {
+        return new Random();
+    }
 
-	const engine = Random.engines.mt19937();
-	if (typeof seed === "number") {
-		engine.seed(seed);
-	} else {
-		engine.seedWithArray(seed);
-	}
+    const engine = Random.engines.mt19937();
+    if (typeof seed === "number") {
+        engine.seed(seed);
+    } else {
+        engine.seedWithArray(seed);
+    }
 
-	return new Random(engine);
+    return new Random(engine);
 }

@@ -30,78 +30,73 @@ const defaultNoopCountFrequency = 50;
 // 2. If there are more than 50 ops received without sending any ops, send noop to keep collab window small.
 //    Note that system ops (including noops themselves) are excluded, so it's 1 noop per 50 real ops.
 export class CollabWindowTracker {
-	private opsCountSinceNoop = 0;
-	private readonly timer: Timer | undefined;
+    private opsCountSinceNoop = 0;
+    private readonly timer: Timer | undefined;
 
-	constructor(
-		private readonly submit: (type: MessageType, contents: any) => void,
-		NoopTimeFrequency: number = defaultNoopTimeFrequency,
-		private readonly NoopCountFrequency: number = defaultNoopCountFrequency,
-	) {
-		if (NoopTimeFrequency !== Infinity) {
-			this.timer = new Timer(NoopTimeFrequency, () => {
-				// Can get here due to this.stopSequenceNumberUpdate() not resetting timer.
-				// Also timer callback can fire even after timer cancellation if it was queued before cancellation.
-				if (this.opsCountSinceNoop !== 0) {
-					this.submitNoop(false /* immediate */);
-				}
-			});
-		}
-	}
+    constructor(
+        private readonly submit: (type: MessageType, contents: any) => void,
+        NoopTimeFrequency: number = defaultNoopTimeFrequency,
+        private readonly NoopCountFrequency: number = defaultNoopCountFrequency,
+    ) {
+        if (NoopTimeFrequency !== Infinity) {
+            this.timer = new Timer(NoopTimeFrequency, () => {
+                // Can get here due to this.stopSequenceNumberUpdate() not resetting timer.
+                // Also timer callback can fire even after timer cancellation if it was queued before cancellation.
+                if (this.opsCountSinceNoop !== 0) {
+                    this.submitNoop(false /* immediate */);
+                }
+            });
+        }
+    }
 
-	/**
-	 * Schedules as ack to the server to update the reference sequence number
-	 */
-	public scheduleSequenceNumberUpdate(
-		message: ISequencedDocumentMessage,
-		immediateNoOp: boolean,
-	): void {
-		// While processing a message, an immediate no-op can be requested.
-		// i.e. to expedite approve or commit phase of quorum.
-		if (immediateNoOp) {
-			this.submitNoop(true /* immediate */);
-			return;
-		}
+    /**
+     * Schedules as ack to the server to update the reference sequence number
+     */
+    public scheduleSequenceNumberUpdate(message: ISequencedDocumentMessage, immediateNoOp: boolean): void {
+        // While processing a message, an immediate no-op can be requested.
+        // i.e. to expedite approve or commit phase of quorum.
+        if (immediateNoOp) {
+            this.submitNoop(true /* immediate */);
+            return;
+        }
 
-		// We don't acknowledge no-ops to avoid acknowledgement cycles (i.e. ack the MSN
-		// update, which updates the MSN, then ack the update, etc...).
-		// Intent here is for runtime (and DDSes) not to keep too much tracking state / memory
-		// due to runtime ops from other clients.
-		if (!isRuntimeMessage(message)) {
-			return;
-		}
+        // We don't acknowledge no-ops to avoid acknowledgement cycles (i.e. ack the MSN
+        // update, which updates the MSN, then ack the update, etc...).
+        // Intent here is for runtime (and DDSes) not to keep too much tracking state / memory
+        // due to runtime ops from other clients.
+        if (!isRuntimeMessage(message)) {
+            return;
+        }
 
-		this.opsCountSinceNoop++;
-		if (this.opsCountSinceNoop >= this.NoopCountFrequency) {
-			this.submitNoop(false /* immediate */);
-			return;
-		}
+        this.opsCountSinceNoop++;
+        if (this.opsCountSinceNoop >= this.NoopCountFrequency) {
+            this.submitNoop(false /* immediate */);
+            return;
+        }
 
-		if (this.timer !== undefined) {
-			if (this.opsCountSinceNoop === 1) {
-				this.timer.restart();
-			}
+        if (this.timer !== undefined) {
+            if (this.opsCountSinceNoop === 1) {
+                this.timer.restart();
+            }
 
-			assert(this.timer.hasTimer, 0x242 /* "has timer" */);
-		}
-	}
+            assert(this.timer.hasTimer, 0x242 /* "has timer" */);
+        }
+    }
 
-	private submitNoop(immediate: boolean) {
-		// Anything other than null is immediate noop
-		this.submit(MessageType.NoOp, immediate ? "" : null);
-		assert(
-			this.opsCountSinceNoop === 0,
-			0x243 /* "stopSequenceNumberUpdate should be called as result of sending any op!" */,
-		);
-	}
+    private submitNoop(immediate: boolean) {
+        // Anything other than null is immediate noop
+        this.submit(MessageType.NoOp, immediate ? "" : null);
+        assert(this.opsCountSinceNoop === 0,
+            0x243 /* "stopSequenceNumberUpdate should be called as result of sending any op!" */);
+    }
 
-	public stopSequenceNumberUpdate(): void {
-		this.opsCountSinceNoop = 0;
-		// Ideally, we cancel timer here. But that will result in too often set/reset cycle if this client
-		// keeps sending ops. In most cases it's actually better to let it expire (at most - 4 times per second)
-		// for nothing, then have a ton of set/reset cycles.
-		// Note that Timer.restart() is smart and will not change timer expiration if we keep extending timer
-		// expiration - it will restart the timer instead when it fires with adjusted expiration.
-		// this.timer.clear();
-	}
+    public stopSequenceNumberUpdate(): void {
+        this.opsCountSinceNoop = 0;
+        // Ideally, we cancel timer here. But that will result in too often set/reset cycle if this client
+        // keeps sending ops. In most cases it's actually better to let it expire (at most - 4 times per second)
+        // for nothing, then have a ton of set/reset cycles.
+        // Note that Timer.restart() is smart and will not change timer expiration if we keep extending timer
+        // expiration - it will restart the timer instead when it fires with adjusted expiration.
+        // this.timer.clear();
+    }
 }

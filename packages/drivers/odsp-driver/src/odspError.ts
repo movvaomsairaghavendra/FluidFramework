@@ -14,23 +14,23 @@ import { pkgVersion as driverVersion } from "./packageVersion";
 /**
  * Returns network error based on error object from ODSP socket (IOdspSocketError)
  */
-export function errorObjectFromSocketError(
-	socketError: IOdspSocketError,
-	handler: string,
-): IFluidErrorBase & OdspError {
-	// Make sure we always return something, and do not throw.
-	try {
-		// pre-0.58 error message prefix: OdspSocketError
-		const message = `ODSP socket error (${handler}): ${socketError.message}`;
-		const error = createOdspNetworkError(message, socketError.code, socketError.retryAfter);
+export function errorObjectFromSocketError(socketError: IOdspSocketError, handler: string):
+    IFluidErrorBase & OdspError {
+    // Make sure we always return something, and do not throw.
+    try {
+        // pre-0.58 error message prefix: OdspSocketError
+        const message = `ODSP socket error (${handler}): ${socketError.message}`;
+        const error = createOdspNetworkError(
+            message,
+            socketError.code,
+            socketError.retryAfter);
 
-		error.addTelemetryProperties({ odspError: true, relayServiceError: true });
-		return error;
-	} catch (error) {
-		return new NonRetryableError(
-			"Internal error: errorObjectFromSocketError",
-			DriverErrorType.fileNotFoundOrAccessDeniedError,
-			{ driverVersion },
-		);
-	}
+        error.addTelemetryProperties({ odspError: true, relayServiceError: true });
+        return error;
+    } catch (error) {
+        return new NonRetryableError(
+            "Internal error: errorObjectFromSocketError",
+            DriverErrorType.fileNotFoundOrAccessDeniedError,
+            { driverVersion });
+    }
 }

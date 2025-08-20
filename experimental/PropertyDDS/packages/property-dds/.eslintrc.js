@@ -9,11 +9,11 @@
 
 module.exports = {
 	extends: ["@fluidframework/eslint-config-fluid"],
-	"parserOptions": {
-		"project": ["./tsconfig.json", "./src/test/tsconfig.json"],
-	},
+    "parserOptions": {
+        "project": ["./tsconfig.json", "./src/test/tsconfig.json"]
+    },
 	rules: {
 		"@typescript-eslint/strict-boolean-expressions": "off",
-		"tsdoc/syntax": "off",
+        "tsdoc/syntax": "off",
 	},
 };

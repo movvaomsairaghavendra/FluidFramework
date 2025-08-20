@@ -4,5 +4,7 @@
  */
 
 module.exports = {
-	"extends": ["@fluidframework/eslint-config-fluid"],
-};
+    "extends": [
+        "@fluidframework/eslint-config-fluid"
+    ]
+}

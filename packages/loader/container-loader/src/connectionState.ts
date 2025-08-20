@@ -4,32 +4,32 @@
  */
 
 export enum ConnectionState {
-	/**
-	 * The container is not connected to the ordering service
-	 * Note - When in this state the container may be about to reconnect,
-	 * or may remain disconnected until explicitly told to connect.
-	 */
-	Disconnected = 0,
+    /**
+     * The container is not connected to the ordering service
+     * Note - When in this state the container may be about to reconnect,
+     * or may remain disconnected until explicitly told to connect.
+     */
+    Disconnected = 0,
 
-	/**
-	 * The container is disconnected but actively trying to establish a new connection
-	 * PLEASE NOTE that this numerical value falls out of the order you may expect for this state
-	 */
-	EstablishingConnection = 3,
+    /**
+     * The container is disconnected but actively trying to establish a new connection
+     * PLEASE NOTE that this numerical value falls out of the order you may expect for this state
+     */
+    EstablishingConnection = 3,
 
-	/**
-	 * See {@link ConnectionState.CatchingUp}, which is the new name for this state.
-	 * @deprecated - This state itself is not gone, just being renamed. Please use {@link ConnectionState.CatchingUp}.
-	 */
-	Connecting = 1,
+    /**
+     * See {@link ConnectionState.CatchingUp}, which is the new name for this state.
+     * @deprecated - This state itself is not gone, just being renamed. Please use {@link ConnectionState.CatchingUp}.
+     */
+    Connecting = 1,
 
-	/**
-	 * The container has an inbound connection only, and is catching up to the latest known state from the service.
-	 */
-	CatchingUp = 1,
+    /**
+     * The container has an inbound connection only, and is catching up to the latest known state from the service.
+     */
+    CatchingUp = 1,
 
-	/**
-	 * The container is fully connected and syncing
-	 */
-	Connected = 2,
+    /**
+     * The container is fully connected and syncing
+     */
+    Connected = 2,
 }

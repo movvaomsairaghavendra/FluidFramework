@@ -80,7 +80,7 @@ export type { EnforceTypeCheckTests } from "./typeCheckTests";
  *
  * @public
  */
-export interface MakeNominal {}
+export interface MakeNominal { }
 
 /**
  * Constrain generic type parameters to Contravariant.
@@ -141,7 +141,7 @@ export interface Bivariant<T> {
  *
  * @public
  */
-export interface Invariant<T> extends Contravariant<T>, Covariant<T> {}
+export interface Invariant<T> extends Contravariant<T>, Covariant<T> { }
 
 /**
  * Compile time assert that X is True.
@@ -169,8 +169,8 @@ export type requireFalse<_X extends false> = true;
 export type isAssignableTo<Source, Destination> = isAny<Source> extends true
 	? true
 	: Source extends Destination
-		? true
-		: false;
+	? true
+	: false;
 
 /**
  * Returns a type parameter that is true iff Subset is a strict subset of Superset.
@@ -180,8 +180,8 @@ export type isAssignableTo<Source, Destination> = isAny<Source> extends true
 export type isStrictSubset<Subset, Superset> = isAssignableTo<Subset, Superset> extends false
 	? false
 	: isAssignableTo<Superset, Subset> extends true
-		? false
-		: true;
+	? false
+	: true;
 
 /**
  * Returns a type parameter that is true iff A and B are assignable to each other, and neither is any.
@@ -192,8 +192,8 @@ export type isStrictSubset<Subset, Superset> = isAssignableTo<Subset, Superset> 
 export type areSafelyAssignable<A, B> = eitherIsAny<A, B> extends true
 	? false
 	: isAssignableTo<A, B> extends true
-		? isAssignableTo<B, A>
-		: false;
+	? isAssignableTo<B, A>
+	: false;
 
 /**
  * Returns a type parameter that is true iff A is any or B is any.

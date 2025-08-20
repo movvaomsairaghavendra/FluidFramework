@@ -12,10 +12,7 @@ import {
 	IRuntimeFactory,
 } from "@fluidframework/container-definitions";
 import { Loader } from "@fluidframework/container-loader";
-import {
-	DOProviderContainerRuntimeFactory,
-	FluidContainer,
-} from "@fluidframework/fluid-static";
+import { DOProviderContainerRuntimeFactory, FluidContainer } from "@fluidframework/fluid-static";
 import {
 	LocalDocumentServiceFactory,
 	LocalResolver,

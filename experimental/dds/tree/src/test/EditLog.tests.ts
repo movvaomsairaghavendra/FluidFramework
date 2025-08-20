@@ -53,9 +53,10 @@ function createEditLogWithHandles(numberOfChunks = 2, editsPerChunk = 5): EditLo
 			chunk: {
 				get: async () =>
 					(
-						JSON.parse(IsoBuffer.from(await baseHandle.get()).toString()) as Omit<EditChunkContents, 'edits'> & {
-							edits: EditWithoutId<DummyChange>[];
-						}
+						JSON.parse(IsoBuffer.from(await baseHandle.get()).toString()) as Omit<
+							EditChunkContents,
+							'edits'
+						> & { edits: EditWithoutId<DummyChange>[] }
 					).edits,
 				baseHandle,
 			},

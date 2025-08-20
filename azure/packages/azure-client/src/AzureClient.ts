@@ -109,10 +109,7 @@ export class AzureClient {
 		const loader = this.createLoader(containerSchema);
 		const url = new URL(this.props.connection.endpoint);
 		url.searchParams.append("storage", encodeURIComponent(this.props.connection.endpoint));
-		url.searchParams.append(
-			"tenantId",
-			encodeURIComponent(getTenantId(this.props.connection)),
-		);
+		url.searchParams.append("tenantId", encodeURIComponent(getTenantId(this.props.connection)));
 		url.searchParams.append("containerId", encodeURIComponent(id));
 		const sourceContainer = await loader.resolve({ url: url.href });
 
@@ -131,9 +128,7 @@ export class AzureClient {
 		};
 		const tree = await storage.downloadSummary(handle);
 
-		const container = await loader.rehydrateDetachedContainerFromSnapshot(
-			JSON.stringify(tree),
-		);
+		const container = await loader.rehydrateDetachedContainerFromSnapshot(JSON.stringify(tree));
 
 		const fluidContainer = await this.createFluidContainer(container, this.props.connection);
 		const services = this.getContainerServices(container);
@@ -156,10 +151,7 @@ export class AzureClient {
 		const loader = this.createLoader(containerSchema);
 		const url = new URL(this.props.connection.endpoint);
 		url.searchParams.append("storage", encodeURIComponent(this.props.connection.endpoint));
-		url.searchParams.append(
-			"tenantId",
-			encodeURIComponent(getTenantId(this.props.connection)),
-		);
+		url.searchParams.append("tenantId", encodeURIComponent(getTenantId(this.props.connection)));
 		url.searchParams.append("containerId", encodeURIComponent(id));
 		const container = await loader.resolve({ url: url.href });
 		const rootDataObject = await requestFluidObject<RootDataObject>(container, "/");
@@ -181,18 +173,16 @@ export class AzureClient {
 	): Promise<AzureContainerVersion[]> {
 		const url = new URL(this.props.connection.endpoint);
 		url.searchParams.append("storage", encodeURIComponent(this.props.connection.endpoint));
-		url.searchParams.append(
-			"tenantId",
-			encodeURIComponent(getTenantId(this.props.connection)),
-		);
+		url.searchParams.append("tenantId", encodeURIComponent(getTenantId(this.props.connection)));
 		url.searchParams.append("containerId", encodeURIComponent(id));
 
 		const resolvedUrl = await this.urlResolver.resolve({ url: url.href });
 		if (!resolvedUrl) {
 			throw new Error("Unable to resolved URL");
 		}
-		const documentService =
-			await this.documentServiceFactory.createDocumentService(resolvedUrl);
+		const documentService = await this.documentServiceFactory.createDocumentService(
+			resolvedUrl,
+		);
 		const storage = await documentService.connectToStorage();
 
 		// External API uses null

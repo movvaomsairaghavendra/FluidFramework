@@ -3,120 +3,113 @@
  * Licensed under the MIT License.
  */
 
+import { IDisposable, IEvent, IEventProvider, ITelemetryLogger } from "@fluidframework/common-definitions";
 import {
-	IDisposable,
-	IEvent,
-	IEventProvider,
-	ITelemetryLogger,
-} from "@fluidframework/common-definitions";
-import {
-	IFluidHandleContext,
-	IFluidRouter,
-	IFluidHandle,
+    IFluidHandleContext,
+    IFluidRouter,
+    IFluidHandle,
 } from "@fluidframework/core-interfaces";
 import {
-	IAudience,
-	IDeltaManager,
-	AttachState,
-	ILoaderOptions,
+    IAudience,
+    IDeltaManager,
+    AttachState,
+    ILoaderOptions,
 } from "@fluidframework/container-definitions";
 import {
-	IDocumentMessage,
-	IQuorumClients,
-	ISequencedDocumentMessage,
+    IDocumentMessage,
+    IQuorumClients,
+    ISequencedDocumentMessage,
 } from "@fluidframework/protocol-definitions";
-import {
-	IInboundSignalMessage,
-	IProvideFluidDataStoreRegistry,
-} from "@fluidframework/runtime-definitions";
+import { IInboundSignalMessage, IProvideFluidDataStoreRegistry } from "@fluidframework/runtime-definitions";
 import { IChannel } from ".";
 
 export interface IFluidDataStoreRuntimeEvents extends IEvent {
-	(
-		// eslint-disable-next-line @typescript-eslint/unified-signatures
-		event: "disconnected" | "dispose" | "attaching" | "attached",
-		listener: () => void,
-	);
-	(event: "op", listener: (message: ISequencedDocumentMessage) => void);
-	(event: "signal", listener: (message: IInboundSignalMessage, local: boolean) => void);
-	(event: "connected", listener: (clientId: string) => void);
+    (
+        // eslint-disable-next-line @typescript-eslint/unified-signatures
+        event: "disconnected" | "dispose" | "attaching" | "attached",
+        listener: () => void,
+    );
+    (event: "op", listener: (message: ISequencedDocumentMessage) => void);
+    (event: "signal", listener: (message: IInboundSignalMessage, local: boolean) => void);
+    (event: "connected", listener: (clientId: string) => void);
 }
 
 /**
  * Represents the runtime for the data store. Contains helper functions/state of the data store.
  */
-export interface IFluidDataStoreRuntime
-	extends IFluidRouter,
-		IEventProvider<IFluidDataStoreRuntimeEvents>,
-		IDisposable,
-		Partial<IProvideFluidDataStoreRegistry> {
-	readonly id: string;
+export interface IFluidDataStoreRuntime extends
+    IFluidRouter,
+    IEventProvider<IFluidDataStoreRuntimeEvents>,
+    IDisposable,
+    Partial<IProvideFluidDataStoreRegistry> {
 
-	readonly IFluidHandleContext: IFluidHandleContext;
+    readonly id: string;
 
-	readonly rootRoutingContext: IFluidHandleContext;
-	readonly channelsRoutingContext: IFluidHandleContext;
-	readonly objectsRoutingContext: IFluidHandleContext;
+    readonly IFluidHandleContext: IFluidHandleContext;
 
-	readonly options: ILoaderOptions;
+    readonly rootRoutingContext: IFluidHandleContext;
+    readonly channelsRoutingContext: IFluidHandleContext;
+    readonly objectsRoutingContext: IFluidHandleContext;
 
-	readonly deltaManager: IDeltaManager<ISequencedDocumentMessage, IDocumentMessage>;
+    readonly options: ILoaderOptions;
 
-	readonly clientId: string | undefined;
+    readonly deltaManager: IDeltaManager<ISequencedDocumentMessage, IDocumentMessage>;
 
-	readonly connected: boolean;
+    readonly clientId: string | undefined;
 
-	readonly logger: ITelemetryLogger;
+    readonly connected: boolean;
 
-	/**
-	 * Indicates the attachment state of the data store to a host service.
-	 */
-	readonly attachState: AttachState;
+    readonly logger: ITelemetryLogger;
 
-	/**
-	 * Returns the channel with the given id
-	 */
-	getChannel(id: string): Promise<IChannel>;
+    /**
+     * Indicates the attachment state of the data store to a host service.
+     */
+    readonly attachState: AttachState;
 
-	/**
-	 * Creates a new channel of the given type.
-	 * @param id - ID of the channel to be created.  A unique ID will be generated if left undefined.
-	 * @param type - Type of the channel.
-	 */
-	createChannel(id: string | undefined, type: string): IChannel;
+    /**
+     * Returns the channel with the given id
+     */
+    getChannel(id: string): Promise<IChannel>;
 
-	/**
-	 * Bind the channel with the data store runtime. If the runtime
-	 * is attached then we attach the channel to make it live.
-	 */
-	bindChannel(channel: IChannel): void;
+    /**
+     * Creates a new channel of the given type.
+     * @param id - ID of the channel to be created.  A unique ID will be generated if left undefined.
+     * @param type - Type of the channel.
+     */
+    createChannel(id: string | undefined, type: string): IChannel;
 
-	// Blob related calls
-	/**
-	 * Api to upload a blob of data.
-	 * @param blob - blob to be uploaded.
-	 */
-	uploadBlob(blob: ArrayBufferLike): Promise<IFluidHandle<ArrayBufferLike>>;
+    /**
+     * Bind the channel with the data store runtime. If the runtime
+     * is attached then we attach the channel to make it live.
+     */
+    bindChannel(channel: IChannel): void;
 
-	/**
-	 * Submits the signal to be sent to other clients.
-	 * @param type - Type of the signal.
-	 * @param content - Content of the signal.
-	 */
-	submitSignal(type: string, content: any): void;
+    // Blob related calls
+    /**
+     * Api to upload a blob of data.
+     * @param blob - blob to be uploaded.
+     */
+    uploadBlob(blob: ArrayBufferLike): Promise<IFluidHandle<ArrayBufferLike>>;
 
-	/**
-	 * Returns the current quorum.
-	 */
-	getQuorum(): IQuorumClients;
+    /**
+     * Submits the signal to be sent to other clients.
+     * @param type - Type of the signal.
+     * @param content - Content of the signal.
+     */
+    submitSignal(type: string, content: any): void;
 
-	/**
-	 * Returns the current audience.
-	 */
-	getAudience(): IAudience;
+    /**
+     * Returns the current quorum.
+     */
+    getQuorum(): IQuorumClients;
 
-	/**
-	 * Resolves when a local data store is attached.
-	 */
-	waitAttached(): Promise<void>;
+    /**
+     * Returns the current audience.
+     */
+    getAudience(): IAudience;
+
+    /**
+     * Resolves when a local data store is attached.
+     */
+    waitAttached(): Promise<void>;
 }

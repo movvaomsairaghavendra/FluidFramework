@@ -65,7 +65,10 @@ describe('deepCompareNodes', () => {
 
 	it('returns false for unequal nodes', () => {
 		expect(
-			deepCompareNodes(testTree.buildLeaf(testTree.generateNodeId()), testTree.buildLeaf(testTree.generateNodeId()))
+			deepCompareNodes(
+				testTree.buildLeaf(testTree.generateNodeId()),
+				testTree.buildLeaf(testTree.generateNodeId())
+			)
 		).to.be.false;
 		expect(deepCompareNodes(testTree.buildLeaf(testTree.identifier), testTree)).to.be.false;
 		expect(deepCompareNodes(testTree.buildLeaf(testTree.identifier), testTree)).to.be.false;

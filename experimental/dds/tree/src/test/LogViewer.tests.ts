@@ -455,7 +455,11 @@ describe('CachingLogViewer', () => {
 	it('caches revision views for local revisions', async () => {
 		const logWithLocalEdits = getSimpleLogWithLocalEdits(testTree);
 		let editsProcessed = 0;
-		const viewer = getCachingLogViewerAssumeAppliedEdits(logWithLocalEdits, simpleLogBaseView, () => editsProcessed++);
+		const viewer = getCachingLogViewerAssumeAppliedEdits(
+			logWithLocalEdits,
+			simpleLogBaseView,
+			() => editsProcessed++
+		);
 		assert(logWithLocalEdits.length < CachingLogViewer.sequencedCacheSizeMax);
 
 		await requestAllRevisionViews(viewer, logWithLocalEdits);
@@ -499,7 +503,11 @@ describe('CachingLogViewer', () => {
 	it('invalidates cached revision views for local revisions when remote edits are received', () => {
 		const logWithLocalEdits = getSimpleLogWithLocalEdits(testTree);
 		let editsProcessed = 0;
-		const viewer = getCachingLogViewerAssumeAppliedEdits(logWithLocalEdits, simpleLogBaseView, () => editsProcessed++);
+		const viewer = getCachingLogViewerAssumeAppliedEdits(
+			logWithLocalEdits,
+			simpleLogBaseView,
+			() => editsProcessed++
+		);
 
 		// Request twice, should only process edits once
 		viewer.getRevisionViewInSession(Number.POSITIVE_INFINITY);

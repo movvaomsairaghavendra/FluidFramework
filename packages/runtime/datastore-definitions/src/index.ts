@@ -4,11 +4,11 @@
  */
 
 /**
- * This package defines the interfaces required to implement and/or communicate
- * with a data store.
- *
- * @packageDocumentation
- */
+* This package defines the interfaces required to implement and/or communicate
+* with a data store.
+*
+* @packageDocumentation
+*/
 
 export * from "./channel";
 export * from "./dataStoreRuntime";

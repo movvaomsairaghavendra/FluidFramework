@@ -13,11 +13,11 @@ export * from "./thresholdCounter";
 export * from "./utils";
 export * from "./sampledTelemetryHelper";
 export {
-	MonitoringContext,
-	IConfigProviderBase,
-	sessionStorageConfigProvider,
-	mixinMonitoringContext,
-	IConfigProvider,
-	ConfigTypes,
-	loggerToMonitoringContext,
+    MonitoringContext,
+    IConfigProviderBase,
+    sessionStorageConfigProvider,
+    mixinMonitoringContext,
+    IConfigProvider,
+    ConfigTypes,
+    loggerToMonitoringContext,
 } from "./config";

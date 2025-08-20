@@ -53,7 +53,9 @@ export function runPendingLocalStateTests(
 			await testObjectProvider.opProcessingController.pauseProcessing();
 			// Generate enough edits to cause a chunk upload.
 			for (let i = 0; i < (tree.edits as EditLog).editsPerChunk; i++) {
-				tree.applyEdit(...Change.insertTree(testTree.buildLeaf(), StablePlace.atEndOf(testTree.left.traitLocation)));
+				tree.applyEdit(
+					...Change.insertTree(testTree.buildLeaf(), StablePlace.atEndOf(testTree.left.traitLocation))
+				);
 			}
 			// Process all of those messages, sequencing them but without informing the container that they have been sequenced.
 			await testObjectProvider.opProcessingController.processOutgoing(container);
@@ -144,7 +146,9 @@ export function runPendingLocalStateTests(
 			await testObjectProvider.ensureSynchronized(); // Synchronize twice in case stashed ops caused an upgrade round-trip
 
 			function tryGetInsertedLeafId(view: TreeView): NodeId | undefined {
-				const rootNode = view.getViewNode(view.getTrait({ parent: view.root, label: SimpleTestTree.traitLabel })[0]);
+				const rootNode = view.getViewNode(
+					view.getTrait({ parent: view.root, label: SimpleTestTree.traitLabel })[0]
+				);
 				const leftTrait = view.getTrait({ parent: rootNode.identifier, label: SimpleTestTree.leftTraitLabel });
 				if (leftTrait.length !== 2) {
 					return undefined;

@@ -10,5 +10,5 @@ import io from "socket.io-client";
  * for compatibility with ESM dynamic imports
  */
 export function getSocketIo(): typeof io {
-	return io;
+    return io;
 }

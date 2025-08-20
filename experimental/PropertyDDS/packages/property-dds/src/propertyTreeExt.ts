@@ -3,10 +3,7 @@
  * Licensed under the MIT License.
  */
 
-import {
-	IChannelFactory,
-	IFluidDataStoreRuntime,
-} from "@fluidframework/datastore-definitions";
+import { IChannelFactory, IFluidDataStoreRuntime } from "@fluidframework/datastore-definitions";
 import { SharedPropertyTree } from "./propertyTree";
 import { DeflatedPropertyTreeFactory } from "./propertyTreeExtFactories";
 
@@ -15,11 +12,11 @@ import { DeflatedPropertyTreeFactory } from "./propertyTreeExtFactories";
  * the deltas and summaries communicated to the server by Deflate.
  */
 export class DeflatedPropertyTree extends SharedPropertyTree {
-	public static create(runtime: IFluidDataStoreRuntime, id?: string, queryString?: string) {
-		return runtime.createChannel(id, DeflatedPropertyTreeFactory.Type) as DeflatedPropertyTree;
-	}
+    public static create(runtime: IFluidDataStoreRuntime, id?: string, queryString?: string) {
+        return runtime.createChannel(id, DeflatedPropertyTreeFactory.Type) as DeflatedPropertyTree;
+    }
 
-	public static getFactory(): IChannelFactory {
-		return new DeflatedPropertyTreeFactory();
-	}
+    public static getFactory(): IChannelFactory {
+        return new DeflatedPropertyTreeFactory();
+    }
 }

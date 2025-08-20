@@ -4,8 +4,10 @@
  */
 
 module.exports = {
-	"extends": [require.resolve("@fluidframework/eslint-config-fluid")],
-	"rules": {
-		"@typescript-eslint/prefer-optional-chain": "off",
-	},
-};
+    "extends": [
+        require.resolve("@fluidframework/eslint-config-fluid")
+    ],
+    "rules": {
+        "@typescript-eslint/prefer-optional-chain": "off",
+    },
+}

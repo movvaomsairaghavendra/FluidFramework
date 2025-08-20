@@ -546,10 +546,10 @@ type Primitive = string | number | bigint | boolean | null | symbol | undefined;
 export type ReplaceRecursive<T, TReplace, TWith> = T extends TReplace
 	? TWith
 	: T extends Primitive
-		? T
-		: {
-				[P in keyof T]: ReplaceRecursive<T[P], TReplace, TWith>;
-			};
+	? T
+	: {
+			[P in keyof T]: ReplaceRecursive<T[P], TReplace, TWith>;
+	  };
 
 /** A union type of the first `N` positive integers */
 export type TakeWholeNumbers<N extends number, A extends never[] = []> = N extends A['length']

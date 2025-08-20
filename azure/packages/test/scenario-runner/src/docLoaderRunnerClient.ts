@@ -32,10 +32,7 @@ const eventMap = new Map([
 		"fluid:telemetry:RouterliciousDriver:getWholeFlatSummary",
 		"scenario:runner:DocLoader:Load:GetSummary",
 	],
-	[
-		"fluid:telemetry:RouterliciousDriver:GetDeltas",
-		"scenario:runner:DocLoader:Load:GetDeltas",
-	],
+	["fluid:telemetry:RouterliciousDriver:GetDeltas", "scenario:runner:DocLoader:Load:GetDeltas"],
 	["fluid:telemetry:Container:Request", "scenario:runner:DocLoader:Load:RequestDataObject"],
 	[
 		"fluid:telemetry:RouterliciousDriver:GetDeltaStreamToken",

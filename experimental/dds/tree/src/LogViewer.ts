@@ -299,12 +299,12 @@ export class CachingLogViewer implements LogViewer {
 								view,
 								status: entry.status,
 								steps: entry.steps,
-							}
+						  }
 						: {
 								view,
 								status: entry.status,
 								failure: entry.failure,
-							}
+						  }
 				);
 				this.handleSequencedEditResult(edit, entry, []);
 			}
@@ -399,7 +399,8 @@ export class CachingLogViewer implements LogViewer {
 			}
 		} else {
 			const [cachedRevision, cachedView] =
-				this.sequencedRevisionCache.getClosestEntry(revisionClamped) ?? fail('No preceding revision view cached.');
+				this.sequencedRevisionCache.getClosestEntry(revisionClamped) ??
+				fail('No preceding revision view cached.');
 
 			startRevision = cachedRevision;
 			current = cachedView;
@@ -431,7 +432,9 @@ export class CachingLogViewer implements LogViewer {
 			cached = true;
 		} else {
 			reconciliationPath = this.reconciliationPathFromEdit(edit.id);
-			editingResult = TransactionInternal.factory(prevView).applyChanges(edit.changes, reconciliationPath).close();
+			editingResult = TransactionInternal.factory(prevView)
+				.applyChanges(edit.changes, reconciliationPath)
+				.close();
 			cached = false;
 		}
 
@@ -514,10 +517,13 @@ export class CachingLogViewer implements LogViewer {
 								const firstEdit = this.getEditResultFromSequenceNumber(targetSequenceNumber);
 								if (firstEdit !== undefined) {
 									if (firstEdit.status === EditStatus.Applied) {
-										const firstEditInfo = this.log.getOrderedEditId(firstEdit.id) as SequencedOrderedEditId;
+										const firstEditInfo = this.log.getOrderedEditId(
+											firstEdit.id
+										) as SequencedOrderedEditId;
 										if (
 											firstEditInfo.sequenceInfo !== undefined &&
-											firstEditInfo.sequenceInfo.sequenceNumber > orderedId.sequenceInfo.referenceSequenceNumber
+											firstEditInfo.sequenceInfo.sequenceNumber >
+												orderedId.sequenceInfo.referenceSequenceNumber
 										) {
 											reconciliationPath.push({
 												...firstEdit.steps,
@@ -584,7 +590,7 @@ export class CachingLogViewer implements LogViewer {
 					changes: edit.changes,
 					view: resultAfter.view,
 					steps: resultAfter.steps,
-				}
+			  }
 			: {
 					id: edit.id,
 					status: resultAfter.status,
@@ -592,7 +598,7 @@ export class CachingLogViewer implements LogViewer {
 					before,
 					view: resultAfter.view,
 					changes: edit.changes,
-				};
+			  };
 	}
 
 	/**
@@ -628,7 +634,7 @@ export class CachingLogViewer implements LogViewer {
 								changes: edit.changes,
 								view: resultAfter.view,
 								steps: resultAfter.steps,
-							}
+						  }
 						: {
 								id: edit.id,
 								status: resultAfter.status,
@@ -636,7 +642,7 @@ export class CachingLogViewer implements LogViewer {
 								before,
 								view: resultAfter.view,
 								changes: edit.changes,
-							};
+						  };
 				}
 			}
 		}

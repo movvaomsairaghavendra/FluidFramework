@@ -1,36 +1,40 @@
 {
-	"eslint.workingDirectories": [
-		{
-			"mode": "auto",
-		},
-	],
-	"typescript.format.enable": true,
-	"typescript.format.insertSpaceAfterCommaDelimiter": true,
-	"typescript.format.insertSpaceAfterSemicolonInForStatements": true,
-	"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-	"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
-	"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
-	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
-	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
-	"typescript.format.placeOpenBraceOnNewLineForFunctions": false,
-	"typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
-	"typescript.tsdk": "node_modules/typescript/lib",
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "typescript.format.enable": true,
+    "typescript.format.insertSpaceAfterCommaDelimiter": true,
+    "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
+    "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+    "typescript.tsdk": "node_modules/typescript/lib",
 
-	// Autodetecting tasks on a repo this size makes 'Tasks: Run Build Task' unusably slow.
-	// (See https://github.com/Microsoft/vscode/issues/34387)
-	"typescript.tsc.autoDetect": "off",
-	"npm.autoDetect": "off",
+    // Autodetecting tasks on a repo this size makes 'Tasks: Run Build Task' unusably slow.
+    // (See https://github.com/Microsoft/vscode/issues/34387)
+    "typescript.tsc.autoDetect": "off",
+    "npm.autoDetect": "off",
 
-	"files.associations": {
-		"tools/pipelines/*.yml": "azure-pipelines",
-	},
-	"[azure-pipelines].customSchemaFile": "",
-	"deno.enable": false,
-	"deno.lint": false,
-	"deno.unstable": false,
-	"cSpell.words": ["injective", "losslessly", "unaugmented"],
-	"editor.detectIndentation": true,
-	"editor.insertSpaces": false, // Use detectIndentation instead
+    "files.associations": {
+        "tools/pipelines/*.yml": "azure-pipelines"
+    },
+    "[azure-pipelines].customSchemaFile": "",
+    "deno.enable": false,
+    "deno.lint": false,
+    "deno.unstable": false,
+    "cSpell.words": [
+        "injective",
+        "losslessly",
+        "unaugmented"
+    ],
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": false, // Use detectIndentation instead
 }

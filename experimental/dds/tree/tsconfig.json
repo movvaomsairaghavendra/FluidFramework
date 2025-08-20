@@ -7,7 +7,7 @@
 		"noUnusedLocals": false,
 		"outDir": "./dist",
 		"rootDir": "./src",
-		"types": ["mocha"],
+		"types": ["mocha"]
 	},
-	"include": ["src/**/*"],
+	"include": ["src/**/*"]
 }

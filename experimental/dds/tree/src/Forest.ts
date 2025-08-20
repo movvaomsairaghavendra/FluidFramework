@@ -411,7 +411,10 @@ export class Forest {
 					assert(child, 'child in trait is not in forest');
 					assert(isParentedForestNode(child), 'child is not parented');
 					assert(child.parentId === node.identifier, 'child parent pointer is incorrect');
-					assert(!checkedChildren.has(childId), 'the item tree tree must not contain cycles or multi-parented nodes');
+					assert(
+						!checkedChildren.has(childId),
+						'the item tree tree must not contain cycles or multi-parented nodes'
+					);
 					assert(
 						(child.parentId ?? fail('each node must have associated metadata')) === nodeId,
 						'cached parent is incorrect'

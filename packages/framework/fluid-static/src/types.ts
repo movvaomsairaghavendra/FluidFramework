@@ -23,33 +23,29 @@ export type LoadableObjectClassRecord = Record<string, LoadableObjectClass<any>>
  * A LoadableObjectClass is an class object of DataObject or SharedObject
  * @typeParam T - The class of the DataObject or SharedObject
  */
-export type LoadableObjectClass<T extends IFluidLoadable> =
-	| DataObjectClass<T>
-	| SharedObjectClass<T>;
+export type LoadableObjectClass<T extends IFluidLoadable> = DataObjectClass<T> | SharedObjectClass<T>;
 
 /**
  * A DataObjectClass is a class that has a factory that can create a DataObject and a
  * constructor that will return the type of the DataObject.
  * @typeParam T - The class of the DataObject
  */
-export type DataObjectClass<T extends IFluidLoadable> = {
-	readonly factory: IFluidDataStoreFactory;
-} & LoadableObjectCtor<T>;
+export type DataObjectClass<T extends IFluidLoadable>
+    = { readonly factory: IFluidDataStoreFactory; } & LoadableObjectCtor<T>;
 
 /**
  * A SharedObjectClass is a class that has a factory that can create a DDS (SharedObject) and a
  * constructor that will return the type of the DataObject.
  * @typeParam T - The class of the SharedObject
  */
-export type SharedObjectClass<T extends IFluidLoadable> = {
-	readonly getFactory: () => IChannelFactory;
-} & LoadableObjectCtor<T>;
+export type SharedObjectClass<T extends IFluidLoadable>
+    = { readonly getFactory: () => IChannelFactory; } & LoadableObjectCtor<T>;
 
 /**
  * An object with a constructor that will return an `IFluidLoadable`.
  * @typeParam T - The class of the loadable object
  */
-export type LoadableObjectCtor<T extends IFluidLoadable> = new (...args: any[]) => T;
+export type LoadableObjectCtor<T extends IFluidLoadable> = new(...args: any[]) => T;
 
 /**
  * The ContainerSchema declares the Fluid objects that will be available in the container.  It includes both the
@@ -57,33 +53,33 @@ export type LoadableObjectCtor<T extends IFluidLoadable> = new (...args: any[]) 
  * be dynamically created throughout the lifetime of the container.
  */
 export interface ContainerSchema {
-	/**
-	 * Defines loadable objects that will be created when the `Container` is first created.
-	 * It uses the key as the id and the value as the loadable object to create.
-	 *
-	 * @example
-	 * In the example below two objects will be created when the Container is first
-	 * created. One with id "map1" that will return a `SharedMap` and the other with
-	 * id "pair1" that will return a `KeyValueDataObject`.
-	 *
-	 * ```
-	 * {
-	 *   map1: SharedMap,
-	 *   pair1: KeyValueDataObject,
-	 * }
-	 * ```
-	 */
-	initialObjects: LoadableObjectClassRecord;
+    /**
+     * Defines loadable objects that will be created when the `Container` is first created.
+     * It uses the key as the id and the value as the loadable object to create.
+     *
+     * @example
+     * In the example below two objects will be created when the Container is first
+     * created. One with id "map1" that will return a `SharedMap` and the other with
+     * id "pair1" that will return a `KeyValueDataObject`.
+     *
+     * ```
+     * {
+     *   map1: SharedMap,
+     *   pair1: KeyValueDataObject,
+     * }
+     * ```
+     */
+    initialObjects: LoadableObjectClassRecord;
 
-	/**
-	 * Dynamic objects are Loadable objects that can be created after the initial Container creation.
-	 *
-	 * Types defined in `initialObjects` will always be available and are not required to be provided here.
-	 *
-	 * For best practice it's recommended to define all the dynamic types you create even if they are
-	 * included via initialObjects.
-	 */
-	dynamicObjectTypes?: LoadableObjectClass<any>[];
+    /**
+     * Dynamic objects are Loadable objects that can be created after the initial Container creation.
+     *
+     * Types defined in `initialObjects` will always be available and are not required to be provided here.
+     *
+     * For best practice it's recommended to define all the dynamic types you create even if they are
+     * included via initialObjects.
+     */
+    dynamicObjectTypes?: LoadableObjectClass<any>[];
 }
 
 /**
@@ -133,11 +129,8 @@ export interface ContainerSchema {
  * @typeParam M - A service-specific member type.
  */
 export interface IServiceAudienceEvents<M extends IMember> extends IEvent {
-	(event: "membersChanged", listener: () => void): void;
-	(
-		event: "memberAdded" | "memberRemoved",
-		listener: (clientId: string, member: M) => void,
-	): void;
+    (event: "membersChanged", listener: () => void): void;
+    (event: "memberAdded" | "memberRemoved", listener: (clientId: string, member: M) => void): void;
 }
 
 /**
@@ -146,19 +139,18 @@ export interface IServiceAudienceEvents<M extends IMember> extends IEvent {
  * environment, or a username.
  * @typeParam M - A service-specific member type.
  */
-export interface IServiceAudience<M extends IMember>
-	extends IEventProvider<IServiceAudienceEvents<M>> {
-	/**
-	 * Returns an map of all users currently in the Fluid session where key is the userId and the value is the
-	 * member object.  The implementation may choose to exclude certain connections from the returned map.
-	 * E.g. ServiceAudience excludes non-interactive connections to represent only the roster of live users.
-	 */
-	getMembers(): Map<string, M>;
+export interface IServiceAudience<M extends IMember> extends IEventProvider<IServiceAudienceEvents<M>> {
+    /**
+     * Returns an map of all users currently in the Fluid session where key is the userId and the value is the
+     * member object.  The implementation may choose to exclude certain connections from the returned map.
+     * E.g. ServiceAudience excludes non-interactive connections to represent only the roster of live users.
+     */
+    getMembers(): Map<string, M>;
 
-	/**
-	 * Returns the current active user on this client once they are connected. Otherwise, returns undefined.
-	 */
-	getMyself(): M | undefined;
+    /**
+     * Returns the current active user on this client once they are connected. Otherwise, returns undefined.
+     */
+    getMyself(): M | undefined;
 }
 
 /**
@@ -166,15 +158,15 @@ export interface IServiceAudience<M extends IMember>
  * to provide additional information specific to each service.
  */
 export interface IConnection {
-	/**
-	 * A unique ID for the connection.  A single user may have multiple connections, each with a different ID.
-	 */
-	id: string;
+    /**
+     * A unique ID for the connection.  A single user may have multiple connections, each with a different ID.
+     */
+    id: string;
 
-	/**
-	 * Whether the connection is in read or read/write mode.
-	 */
-	mode: "write" | "read";
+    /**
+     * Whether the connection is in read or read/write mode.
+     */
+    mode: "write" | "read";
 }
 
 /**
@@ -182,13 +174,13 @@ export interface IConnection {
  * to provide additional service-specific user metadata.
  */
 export interface IMember {
-	/**
-	 * An ID for the user, unique among each individual user connecting to the session.
-	 */
-	userId: string;
+    /**
+     * An ID for the user, unique among each individual user connecting to the session.
+     */
+    userId: string;
 
-	/**
-	 * The set of connections the user has made, e.g. from multiple tabs or devices.
-	 */
-	connections: IConnection[];
+    /**
+     * The set of connections the user has made, e.g. from multiple tabs or devices.
+     */
+    connections: IConnection[];
 }

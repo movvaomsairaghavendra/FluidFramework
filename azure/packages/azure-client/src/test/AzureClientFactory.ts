@@ -30,11 +30,11 @@ export function createAzureClient(scopes?: ScopeType[]): AzureClient {
 				tokenProvider: createAzureTokenProvider(),
 				endpoint: "https://alfred.westus2.fluidrelay.azure.com",
 				type: "remote",
-			}
+		  }
 		: {
 				tokenProvider: new InsecureTokenProvider("fooBar", generateUser(), scopes),
 				endpoint: "http://localhost:7070",
 				type: "local",
-			};
+		  };
 	return new AzureClient({ connection: connectionProps });
 }

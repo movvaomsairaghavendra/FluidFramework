@@ -38,7 +38,9 @@ interface SummarySizeTestEntry {
  */
 const summarySizeTests: SummarySizeTestEntry[] = [
 	{
-		edits: (testTree) => [Change.insertTree(testTree.buildLeaf(), StablePlace.atEndOf(testTree.right.traitLocation))],
+		edits: (testTree) => [
+			Change.insertTree(testTree.buildLeaf(), StablePlace.atEndOf(testTree.right.traitLocation)),
+		],
 		expectedSize: 1075,
 		description: 'when inserting a node',
 	},
@@ -76,7 +78,9 @@ const summarySizeTests: SummarySizeTestEntry[] = [
 		description: 'when inserting and deleting a node',
 	},
 	{
-		edits: (testTree) => [Change.insertTree(testTree.buildLeaf(), StablePlace.atEndOf(testTree.right.traitLocation))],
+		edits: (testTree) => [
+			Change.insertTree(testTree.buildLeaf(), StablePlace.atEndOf(testTree.right.traitLocation)),
+		],
 		expectedSize: 1223,
 		description: 'when inserting and reverting a node',
 		revertEdits: true,

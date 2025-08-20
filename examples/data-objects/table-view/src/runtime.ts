@@ -10,12 +10,9 @@ import { TableModel, tableModelType } from "./tableModel";
 import { TableView } from "./tableView";
 
 const tableModelFactory = createDataStoreFactory(
-	tableModelType,
-	// eslint-disable-next-line max-len
-	import(/* webpackChunkName: "table-view", webpackPreload: true */ "./tableModel").then((m) =>
-		m.TableModel.getFactory(),
-	),
-);
+    tableModelType,
+    // eslint-disable-next-line max-len
+    import(/* webpackChunkName: "table-view", webpackPreload: true */ "./tableModel").then((m) => m.TableModel.getFactory()));
 
 const tableViewCallback = (model: TableModel) => React.createElement(TableView, { model });
 
@@ -24,7 +21,4 @@ const tableViewCallback = (model: TableModel) => React.createElement(TableView, 
  * as our model (using the factory we provide), and the view callback we provide will pair that model with an
  * appropriate view.
  */
-export const fluidExport = new ContainerViewRuntimeFactory(
-	tableModelFactory,
-	tableViewCallback,
-);
+export const fluidExport = new ContainerViewRuntimeFactory(tableModelFactory, tableViewCallback);

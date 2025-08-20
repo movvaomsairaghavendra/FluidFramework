@@ -47,16 +47,23 @@ module.exports = {
 		"protocol-def": "common/lib/protocol-definitions",
 
 		// Tools
-		"tools": ["tools/benchmark", "tools/getkeys", "tools/test-tools"],
+		"tools": [
+			"tools/benchmark",
+			"tools/getkeys",
+			"tools/test-tools",
+		],
 	},
 
 	// `flub check policy` config. It applies to the whole repo.
 	policy: {
 		// Entries here are COMPLETELY ignored by the policy checker. Instead of adding entries here, consider adding
 		// entries to the handlerExclusions list below to ignore a particular.
-		exclusions: ["^.*"],
+		exclusions: [
+			"^.*",
+		],
 		// Exclusion per handler
-		handlerExclusions: {},
+		handlerExclusions: {
+		},
 		packageNames: {
 			// The allowed package scopes for the repo.
 			allowedScopes: [
