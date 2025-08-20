@@ -2,16 +2,13 @@
  * Copyright (c) Microsoft Corporation and contributors. All rights reserved.
  * Licensed under the MIT License.
  */
-import {
-    IContainer,
-    IRuntimeFactory,
-} from "@fluidframework/container-definitions";
+import { IContainer, IRuntimeFactory } from "@fluidframework/container-definitions";
 import { ensureFluidResolvedUrl } from "@fluidframework/driver-utils";
 import { RouterliciousDocumentServiceFactory } from "@fluidframework/routerlicious-driver";
 import {
-    createTinyliciousCreateNewRequest,
-    InsecureTinyliciousTokenProvider,
-    InsecureTinyliciousUrlResolver,
+	createTinyliciousCreateNewRequest,
+	InsecureTinyliciousTokenProvider,
+	InsecureTinyliciousUrlResolver,
 } from "@fluidframework/tinylicious-driver";
 import { createContainer, getContainer } from "./getContainer";
 
@@ -25,27 +22,29 @@ import { createContainer, getContainer } from "./getContainer";
  * @returns - A tuple of the container instance and the container ID associated with it.
  */
 export async function getTinyliciousContainer(
-    documentId: string,
-    containerRuntimeFactory: IRuntimeFactory,
-    createNew: boolean,
-    tinyliciousPort?: number,
+	documentId: string,
+	containerRuntimeFactory: IRuntimeFactory,
+	createNew: boolean,
+	tinyliciousPort?: number,
 ): Promise<[IContainer, string]> {
-    const tokenProvider = new InsecureTinyliciousTokenProvider();
-    const urlResolver = new InsecureTinyliciousUrlResolver(tinyliciousPort);
-    const documentServiceFactory = new RouterliciousDocumentServiceFactory(tokenProvider);
-    const container = await (createNew ? createContainer({
-            documentServiceFactory,
-            urlResolver,
-            containerRuntimeFactory,
-            request: createTinyliciousCreateNewRequest(),
-        }) : getContainer({
-            documentServiceFactory,
-            urlResolver,
-            containerRuntimeFactory,
-            request: { url: documentId },
-        }));
-    const resolved = container.resolvedUrl;
-    ensureFluidResolvedUrl(resolved);
-    const containerId = resolved.id;
-    return [container, containerId];
+	const tokenProvider = new InsecureTinyliciousTokenProvider();
+	const urlResolver = new InsecureTinyliciousUrlResolver(tinyliciousPort);
+	const documentServiceFactory = new RouterliciousDocumentServiceFactory(tokenProvider);
+	const container = await (createNew
+		? createContainer({
+				documentServiceFactory,
+				urlResolver,
+				containerRuntimeFactory,
+				request: createTinyliciousCreateNewRequest(),
+			})
+		: getContainer({
+				documentServiceFactory,
+				urlResolver,
+				containerRuntimeFactory,
+				request: { url: documentId },
+			}));
+	const resolved = container.resolvedUrl;
+	ensureFluidResolvedUrl(resolved);
+	const containerId = resolved.id;
+	return [container, containerId];
 }

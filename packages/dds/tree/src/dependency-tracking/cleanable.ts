@@ -37,7 +37,10 @@ export const cleanable: InvalidationToken = new CleanableToken("cleanable", fals
  *
  * @internal
  */
-export const cleaningFailed: InvalidationToken = new CleaningFailedToken("cleaningFailed", true);
+export const cleaningFailed: InvalidationToken = new CleaningFailedToken(
+	"cleaningFailed",
+	true,
+);
 
 /**
  * Invalidation protocol extension enabling 2 phase 'cleaning'. See also `cleanable`.

@@ -7,7 +7,14 @@
 
 import { exec, execSync } from "child_process";
 import * as path from "path";
-import { existsSync, mkdirSync, rmdirSync, readdirSync, readFileSync, writeFileSync } from "fs";
+import {
+	existsSync,
+	mkdirSync,
+	rmdirSync,
+	readdirSync,
+	readFileSync,
+	writeFileSync,
+} from "fs";
 
 import { lock } from "proper-lockfile";
 import * as semver from "semver";
@@ -24,210 +31,237 @@ const resolutionCache = new Map<string, string>();
 const revision = 1;
 
 interface InstalledJson {
-    revision: number;
-    installed: string[];
+	revision: number;
+	installed: string[];
 }
 
 async function ensureInstalledJson() {
-    if (existsSync(installedJsonPath)) { return; }
-    const release = await lock(__dirname, { retries: { forever: true } });
-    try {
-        // Check it again under the lock
-        if (existsSync(installedJsonPath)) { return; }
-        // Create the directory
-        mkdirSync(baseModulePath, { recursive: true });
-        const data: InstalledJson = { revision, installed: [] };
+	if (existsSync(installedJsonPath)) {
+		return;
+	}
+	const release = await lock(__dirname, { retries: { forever: true } });
+	try {
+		// Check it again under the lock
+		if (existsSync(installedJsonPath)) {
+			return;
+		}
+		// Create the directory
+		mkdirSync(baseModulePath, { recursive: true });
+		const data: InstalledJson = { revision, installed: [] };
 
-        writeFileSync(installedJsonPath, JSON.stringify(data, undefined, 2), { encoding: "utf8" });
-    } finally {
-        release();
-    }
+		writeFileSync(installedJsonPath, JSON.stringify(data, undefined, 2), { encoding: "utf8" });
+	} finally {
+		release();
+	}
 }
 
 function readInstalledJsonNoLock(): InstalledJson {
-    const data = readFileSync(installedJsonPath, { encoding: "utf8" });
-    const installedJson = JSON.parse(data) as InstalledJson;
-    if (installedJson.revision !== revision) {
-        // if the revision doesn't match assume that it doesn't match
-        return { revision, installed: [] };
-    }
-    return installedJson;
+	const data = readFileSync(installedJsonPath, { encoding: "utf8" });
+	const installedJson = JSON.parse(data) as InstalledJson;
+	if (installedJson.revision !== revision) {
+		// if the revision doesn't match assume that it doesn't match
+		return { revision, installed: [] };
+	}
+	return installedJson;
 }
 
 async function readInstalledJson(): Promise<InstalledJson> {
-    await ensureInstalledJson();
-    const release = await lock(installedJsonPath, { retries: { forever: true } });
-    try {
-        return readInstalledJsonNoLock();
-    } finally {
-        release();
-    }
+	await ensureInstalledJson();
+	const release = await lock(installedJsonPath, { retries: { forever: true } });
+	try {
+		return readInstalledJsonNoLock();
+	} finally {
+		release();
+	}
 }
 
-const isInstalled = async (version: string) => (await readInstalledJson()).installed.includes(version);
+const isInstalled = async (version: string) =>
+	(await readInstalledJson()).installed.includes(version);
 async function addInstalled(version: string) {
-    await ensureInstalledJson();
-    const release = await lock(installedJsonPath, { retries: { forever: true } });
-    try {
-        const installedJson = readInstalledJsonNoLock();
-        if (!installedJson.installed.includes(version)) {
-            installedJson.installed.push(version);
-            writeFileSync(installedJsonPath, JSON.stringify(installedJson, undefined, 2), { encoding: "utf8" });
-        }
-    } finally {
-        release();
-    }
+	await ensureInstalledJson();
+	const release = await lock(installedJsonPath, { retries: { forever: true } });
+	try {
+		const installedJson = readInstalledJsonNoLock();
+		if (!installedJson.installed.includes(version)) {
+			installedJson.installed.push(version);
+			writeFileSync(installedJsonPath, JSON.stringify(installedJson, undefined, 2), {
+				encoding: "utf8",
+			});
+		}
+	} finally {
+		release();
+	}
 }
 
 async function removeInstalled(version: string) {
-    await ensureInstalledJson();
-    const release = await lock(installedJsonPath, { retries: { forever: true } });
-    try {
-        const installedJson = readInstalledJsonNoLock();
-        installedJson.installed = installedJson.installed.filter((value) => value !== version);
-        writeFileSync(installedJsonPath, JSON.stringify(installedJson, undefined, 2), { encoding: "utf8" });
-    } finally {
-        release();
-    }
+	await ensureInstalledJson();
+	const release = await lock(installedJsonPath, { retries: { forever: true } });
+	try {
+		const installedJson = readInstalledJsonNoLock();
+		installedJson.installed = installedJson.installed.filter((value) => value !== version);
+		writeFileSync(installedJsonPath, JSON.stringify(installedJson, undefined, 2), {
+			encoding: "utf8",
+		});
+	} finally {
+		release();
+	}
 }
 
 export function resolveVersion(requested: string, installed: boolean) {
-    const cachedVersion = resolutionCache.get(requested);
-    if (cachedVersion) { return cachedVersion; }
-    if (semver.valid(requested)) {
-        // If it is a valid semver already instead of a range, just use it
-        resolutionCache.set(requested, requested);
-        return requested;
-    }
+	const cachedVersion = resolutionCache.get(requested);
+	if (cachedVersion) {
+		return cachedVersion;
+	}
+	if (semver.valid(requested)) {
+		// If it is a valid semver already instead of a range, just use it
+		resolutionCache.set(requested, requested);
+		return requested;
+	}
 
-    if (installed) {
-        // Check the install directory instad of asking NPM for it.
-        const files = readdirSync(baseModulePath, { withFileTypes: true });
-        let found: string | undefined;
-        files.map((dirent) => {
-            if (dirent.isDirectory() && semver.valid(dirent.name) && semver.satisfies(dirent.name, requested)) {
-                if (!found || semver.lt(found, dirent.name)) {
-                    found = dirent.name;
-                }
-            }
-        });
-        if (found) {
-            return found;
-        }
-        throw new Error(`No matching version found in ${baseModulePath}`);
-    } else {
-        let result = execSync(
-            `npm v @fluidframework/container-loader@"${requested}" version --json`,
-            { encoding: "utf8" },
-        );
-        // if we are requesting an x.x.0-0 prerelease and failed the first try, try
-        // again using the virtualPatch schema
-        if (result === "") {
-            const requestedVersion = new semver.SemVer(requested.substring(requested.indexOf("^") + 1));
-            if (requestedVersion.patch === 0 && requestedVersion.prerelease.length > 0) {
-                const retryVersion = `^${requestedVersion.major}.${requestedVersion.minor}.1000-0`;
-                result = execSync(
-                    `npm v @fluidframework/container-loader@"${retryVersion}" version --json`,
-                    { encoding: "utf8" },
-                );
-            }
-        }
+	if (installed) {
+		// Check the install directory instad of asking NPM for it.
+		const files = readdirSync(baseModulePath, { withFileTypes: true });
+		let found: string | undefined;
+		files.map((dirent) => {
+			if (
+				dirent.isDirectory() &&
+				semver.valid(dirent.name) &&
+				semver.satisfies(dirent.name, requested)
+			) {
+				if (!found || semver.lt(found, dirent.name)) {
+					found = dirent.name;
+				}
+			}
+		});
+		if (found) {
+			return found;
+		}
+		throw new Error(`No matching version found in ${baseModulePath}`);
+	} else {
+		let result = execSync(
+			`npm v @fluidframework/container-loader@"${requested}" version --json`,
+			{ encoding: "utf8" },
+		);
+		// if we are requesting an x.x.0-0 prerelease and failed the first try, try
+		// again using the virtualPatch schema
+		if (result === "") {
+			const requestedVersion = new semver.SemVer(
+				requested.substring(requested.indexOf("^") + 1),
+			);
+			if (requestedVersion.patch === 0 && requestedVersion.prerelease.length > 0) {
+				const retryVersion = `^${requestedVersion.major}.${requestedVersion.minor}.1000-0`;
+				result = execSync(
+					`npm v @fluidframework/container-loader@"${retryVersion}" version --json`,
+					{ encoding: "utf8" },
+				);
+			}
+		}
 
-        try {
-            const versions: string | string[] = JSON.parse(result);
-            const version = Array.isArray(versions) ? versions.sort(semver.rcompare)[0] : versions;
-            if (!version) { throw new Error(`No version found for ${requested}`); }
-            resolutionCache.set(requested, version);
-            return version;
-        } catch (e) {
-            throw new Error(`Error parsing versions for ${requested}`);
-        }
-    }
+		try {
+			const versions: string | string[] = JSON.parse(result);
+			const version = Array.isArray(versions) ? versions.sort(semver.rcompare)[0] : versions;
+			if (!version) {
+				throw new Error(`No version found for ${requested}`);
+			}
+			resolutionCache.set(requested, version);
+			return version;
+		} catch (e) {
+			throw new Error(`Error parsing versions for ${requested}`);
+		}
+	}
 }
 
 async function ensureModulePath(version: string, modulePath: string) {
-    const release = await lock(baseModulePath, { retries: { forever: true } });
-    try {
-        console.log(`Installing version ${version}`);
-        if (!existsSync(modulePath)) {
-            // Create the under the baseModulePath lock
-            mkdirSync(modulePath, { recursive: true });
-        }
-    } finally {
-        release();
-    }
+	const release = await lock(baseModulePath, { retries: { forever: true } });
+	try {
+		console.log(`Installing version ${version}`);
+		if (!existsSync(modulePath)) {
+			// Create the under the baseModulePath lock
+			mkdirSync(modulePath, { recursive: true });
+		}
+	} finally {
+		release();
+	}
 }
 
-export async function ensureInstalled(requested: string, packageList: string[], force: boolean) {
-    if (requested === pkgVersion) { return; }
-    const version = resolveVersion(requested, false);
-    const modulePath = getModulePath(version);
+export async function ensureInstalled(
+	requested: string,
+	packageList: string[],
+	force: boolean,
+) {
+	if (requested === pkgVersion) {
+		return;
+	}
+	const version = resolveVersion(requested, false);
+	const modulePath = getModulePath(version);
 
-    if (!force && await isInstalled(version)) {
-        return { version, modulePath };
-    }
+	if (!force && (await isInstalled(version))) {
+		return { version, modulePath };
+	}
 
-    await ensureModulePath(version, modulePath);
+	await ensureModulePath(version, modulePath);
 
-    // Release the __dirname but lock the modulePath so we can do parallel installs
-    const release = await lock(modulePath, { retries: { forever: true } });
-    try {
-        if (force) {
-            // remove version from install.json under the modulePath lock
-            await removeInstalled(version);
-        }
+	// Release the __dirname but lock the modulePath so we can do parallel installs
+	const release = await lock(modulePath, { retries: { forever: true } });
+	try {
+		if (force) {
+			// remove version from install.json under the modulePath lock
+			await removeInstalled(version);
+		}
 
-        // Check installed status again under lock the modulePath lock
-        if (force || !await isInstalled(version)) {
-            // Install the packages
-            await new Promise<void>((resolve, reject) =>
-                exec(`npm init --yes`, { cwd: modulePath }, (error, stdout, stderr) => {
-                    if (error) {
-                        reject(new Error(`Failed to initialize install directory ${modulePath}`));
-                    }
-                    resolve();
-                }),
-            );
-            await new Promise<void>((resolve, reject) =>
-                exec(
-                    `npm i --no-package-lock ${packageList.map((pkg) => `${pkg}@${version}`).join(" ")}`,
-                    { cwd: modulePath },
-                    (error, stdout, stderr) => {
-                        if (error) {
-                            reject(new Error(`Failed to install in ${modulePath}\n${stderr}`));
-                        }
-                        resolve();
-                    },
-                ),
-            );
+		// Check installed status again under lock the modulePath lock
+		if (force || !(await isInstalled(version))) {
+			// Install the packages
+			await new Promise<void>((resolve, reject) =>
+				exec(`npm init --yes`, { cwd: modulePath }, (error, stdout, stderr) => {
+					if (error) {
+						reject(new Error(`Failed to initialize install directory ${modulePath}`));
+					}
+					resolve();
+				}),
+			);
+			await new Promise<void>((resolve, reject) =>
+				exec(
+					`npm i --no-package-lock ${packageList.map((pkg) => `${pkg}@${version}`).join(" ")}`,
+					{ cwd: modulePath },
+					(error, stdout, stderr) => {
+						if (error) {
+							reject(new Error(`Failed to install in ${modulePath}\n${stderr}`));
+						}
+						resolve();
+					},
+				),
+			);
 
-            // add it to the install.json under the modulePath lock.
-            await addInstalled(version);
-        }
-        return { version, modulePath };
-    } catch (e) {
-        // rmdirSync recursive flags introduced in Node v12.10
-        // Remove the `as any` cast once node typing is updated.
-        try { (rmdirSync as any)(modulePath, { recursive: true }); } catch (ex) { }
-        throw new Error(`Unable to install version ${version}\n${e}`);
-    } finally {
-        release();
-    }
+			// add it to the install.json under the modulePath lock.
+			await addInstalled(version);
+		}
+		return { version, modulePath };
+	} catch (e) {
+		// rmdirSync recursive flags introduced in Node v12.10
+		// Remove the `as any` cast once node typing is updated.
+		try {
+			(rmdirSync as any)(modulePath, { recursive: true });
+		} catch (ex) {}
+		throw new Error(`Unable to install version ${version}\n${e}`);
+	} finally {
+		release();
+	}
 }
 
 export function checkInstalled(requested: string) {
-    const version = resolveVersion(requested, true);
-    const modulePath = getModulePath(version);
-    if (existsSync(modulePath)) {
-        // assume it is valid if it exists
-        return { version, modulePath };
-    }
-    throw new Error(`Requested version ${requested} resolved to ${version} is not installed`);
+	const version = resolveVersion(requested, true);
+	const modulePath = getModulePath(version);
+	if (existsSync(modulePath)) {
+		// assume it is valid if it exists
+		return { version, modulePath };
+	}
+	throw new Error(`Requested version ${requested} resolved to ${version} is not installed`);
 }
 
 export const loadPackage = (modulePath: string, pkg: string) =>
-    // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
-    require(path.join(modulePath, "node_modules", pkg));
+	// eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-return
+	require(path.join(modulePath, "node_modules", pkg));
 
 /**
  * Used to get the major version number above or below the baseVersion.
@@ -237,16 +271,20 @@ export const loadPackage = (modulePath: string, pkg: string) =>
  * Note: If the requested number is a string then that will be the returned value
  */
 export function getRequestedRange(baseVersion: string, requested?: number | string): string {
-    if (requested === undefined || requested === 0) { return baseVersion; }
-    if (typeof requested === "string") { return requested; }
-    const version = new semver.SemVer(baseVersion);
-    // ask for prerelease in case we just bumped the version and haven't release the previous version yet.
-    if (version.major === 1) {
-        if (requested === -1) {
-            return "^0.59.0-0";
-        } else if (requested === -2) {
-            return "^0.58.0-0";
-        }
-    }
-    return `^${version.major}.${version.minor + requested}.0-0`;
+	if (requested === undefined || requested === 0) {
+		return baseVersion;
+	}
+	if (typeof requested === "string") {
+		return requested;
+	}
+	const version = new semver.SemVer(baseVersion);
+	// ask for prerelease in case we just bumped the version and haven't release the previous version yet.
+	if (version.major === 1) {
+		if (requested === -1) {
+			return "^0.59.0-0";
+		} else if (requested === -2) {
+			return "^0.58.0-0";
+		}
+	}
+	return `^${version.major}.${version.minor + requested}.0-0`;
 }

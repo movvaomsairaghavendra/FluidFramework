@@ -7,18 +7,20 @@ import { SharedString } from "@fluidframework/sequence";
 import marked from "marked";
 
 export class Viewer {
-    constructor(private readonly elm: HTMLElement, private readonly text: SharedString) {
-    }
+	constructor(
+		private readonly elm: HTMLElement,
+		private readonly text: SharedString,
+	) {}
 
-    public render() {
-        this.elm.innerHTML = marked(this.getText());
-        this.text.on("sequenceDelta", () => {
-            this.elm.innerHTML = marked(this.getText());
-        });
-    }
+	public render() {
+		this.elm.innerHTML = marked(this.getText());
+		this.text.on("sequenceDelta", () => {
+			this.elm.innerHTML = marked(this.getText());
+		});
+	}
 
-    private getText(): string {
-        const { parallelText } = this.text.getTextAndMarkers("pg");
-        return parallelText.join("\n");
-    }
+	private getText(): string {
+		const { parallelText } = this.text.getTextAndMarkers("pg");
+		return parallelText.join("\n");
+	}
 }

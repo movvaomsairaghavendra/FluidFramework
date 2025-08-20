@@ -3,16 +3,20 @@
  * Licensed under the MIT License.
  */
 
-import { getEntryStatsProcessor, getTotalSizeStatsProcessor, getBundleBuddyConfigProcessor } from '../statsProcessors';
-import { totalSizeMetricName } from './Constants';
+import {
+	getEntryStatsProcessor,
+	getTotalSizeStatsProcessor,
+	getBundleBuddyConfigProcessor,
+} from "../statsProcessors";
+import { totalSizeMetricName } from "./Constants";
 
 /**
  * The set of stats file processors we will run on bundles
  */
 export const DefaultStatsProcessors = [
-  getBundleBuddyConfigProcessor({
-    metricNameProvider: (chunk) => `${chunk.name}.js <span title="Plus dependencies">ℹ</span>`
-  }),
-  getEntryStatsProcessor({ metricNameProvider: (chunkName) => `${chunkName}.js` }),
-  getTotalSizeStatsProcessor({ metricName: totalSizeMetricName })
+	getBundleBuddyConfigProcessor({
+		metricNameProvider: (chunk) => `${chunk.name}.js <span title="Plus dependencies">ℹ</span>`,
+	}),
+	getEntryStatsProcessor({ metricNameProvider: (chunkName) => `${chunkName}.js` }),
+	getTotalSizeStatsProcessor({ metricName: totalSizeMetricName }),
 ];

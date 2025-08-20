@@ -12,11 +12,11 @@ export * from "./fluidLoadable";
 // So we export the explicit members as a workaround:
 // https://github.com/microsoft/TypeScript/issues/18877#issuecomment-476921038
 export {
-    IRequest,
-    IRequestHeader,
-    IResponse,
-    IProvideFluidRouter,
-    IFluidRouter,
+	IRequest,
+	IRequestHeader,
+	IResponse,
+	IProvideFluidRouter,
+	IFluidRouter,
 } from "./fluidRouter";
 export * from "./handles";
 export * from "./fluidPackage";

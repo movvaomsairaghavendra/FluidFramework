@@ -253,12 +253,11 @@ export class SessionIdNormalizer<TRangeObject> {
 			finalRangesObj[1] = [firstFinal, lastFinal, rangeObject];
 			nextLocal = Math.min(this.nextLocalId, firstLocal - (lastFinal - firstFinal) - 1) as LocalCompressedId;
 		} else {
-			const [firstAlignedLocal, lastAlignedLocal, lastAlignedFinal, lastFinalRange] =
-				this.getAlignmentOfLastRange(firstLocal, finalRanges);
-			nextLocal = Math.min(
-				this.nextLocalId,
-				lastAlignedLocal - (lastFinal - firstFinal) - 2
-			) as LocalCompressedId;
+			const [firstAlignedLocal, lastAlignedLocal, lastAlignedFinal, lastFinalRange] = this.getAlignmentOfLastRange(
+				firstLocal,
+				finalRanges
+			);
+			nextLocal = Math.min(this.nextLocalId, lastAlignedLocal - (lastFinal - firstFinal) - 2) as LocalCompressedId;
 			if (firstFinal === lastAlignedFinal + 1) {
 				lastFinalRange[1] = lastFinal;
 			} else {
@@ -330,7 +329,7 @@ export class SessionIdNormalizer<TRangeObject> {
 		firstAlignedLocal: LocalCompressedId,
 		lastAlignedLocal: LocalCompressedId,
 		lastAlignedFinal: FinalCompressedId,
-		lastFinalRange: FinalRange<TRangeObject>
+		lastFinalRange: FinalRange<TRangeObject>,
 	] {
 		const isSingle = isSingleRange(finalRanges);
 		let lastFinalRange: FinalRange<TRangeObject>;
@@ -435,9 +434,7 @@ export class SessionIdNormalizer<TRangeObject> {
 					const [firstFinalA, lastFinalA, rangeObjectA] = finalRangeA;
 					const [firstFinalB, lastFinalB, rangeObjectB] = finalRangeB;
 					return (
-						firstFinalA === firstFinalB &&
-						lastFinalA === lastFinalB &&
-						compareRangeObjects(rangeObjectA, rangeObjectB)
+						firstFinalA === firstFinalB && lastFinalA === lastFinalB && compareRangeObjects(rangeObjectA, rangeObjectB)
 					);
 				};
 
@@ -457,7 +454,7 @@ export class SessionIdNormalizer<TRangeObject> {
 type FinalRange<TRangeObject> = [
 	firstFinal: FinalCompressedId,
 	lastFinal: FinalCompressedId,
-	rangeObject: TRangeObject
+	rangeObject: TRangeObject,
 ];
 
 type FinalRangesMap<TRangeObject> = AppendOnlyDoublySortedMap<

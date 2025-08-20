@@ -2,7 +2,11 @@
  * Copyright (c) Microsoft Corporation and contributors. All rights reserved.
  * Licensed under the MIT License.
  */
-import { IDocumentMessage, ISequencedDocumentMessage, MessageType } from "@fluidframework/protocol-definitions";
+import {
+	IDocumentMessage,
+	ISequencedDocumentMessage,
+	MessageType,
+} from "@fluidframework/protocol-definitions";
 
 /**
  *
@@ -14,18 +18,20 @@ import { IDocumentMessage, ISequencedDocumentMessage, MessageType } from "@fluid
  * "reject"
  * "noop"
  */
-export function isClientMessage(message: ISequencedDocumentMessage | IDocumentMessage): boolean {
-    if (isRuntimeMessage(message)) {
-        return true;
-    }
-    switch (message.type) {
-        case MessageType.Propose:
-        case MessageType.Reject:
-        case MessageType.NoOp:
-            return true;
-        default:
-            return false;
-    }
+export function isClientMessage(
+	message: ISequencedDocumentMessage | IDocumentMessage,
+): boolean {
+	if (isRuntimeMessage(message)) {
+		return true;
+	}
+	switch (message.type) {
+		case MessageType.Propose:
+		case MessageType.Reject:
+		case MessageType.NoOp:
+			return true;
+		default:
+			return false;
+	}
 }
 
 /**
@@ -35,18 +41,20 @@ export function isClientMessage(message: ISequencedDocumentMessage | IDocumentMe
  * "op"
  * "summarize"
  */
-export function isRuntimeMessage(message: ISequencedDocumentMessage | IDocumentMessage): boolean {
-    return message.type === MessageType.Operation || message.type === MessageType.Summarize;
+export function isRuntimeMessage(
+	message: ISequencedDocumentMessage | IDocumentMessage,
+): boolean {
+	return message.type === MessageType.Operation || message.type === MessageType.Summarize;
 }
 
 enum RuntimeMessage {
-    FluidDataStoreOp = "component",
-    Attach = "attach",
-    ChunkedOp = "chunkedOp",
-    BlobAttach = "blobAttach",
-    Rejoin = "rejoin",
-    Alias = "alias",
-    Operation = "op",
+	FluidDataStoreOp = "component",
+	Attach = "attach",
+	ChunkedOp = "chunkedOp",
+	BlobAttach = "blobAttach",
+	Rejoin = "rejoin",
+	Alias = "alias",
+	Operation = "op",
 }
 
 /**
@@ -62,8 +70,8 @@ enum RuntimeMessage {
  * "op"
  */
 export function isUnpackedRuntimeMessage(message: ISequencedDocumentMessage): boolean {
-    if ((Object.values(RuntimeMessage) as string[]).includes(message.type)) {
-        return true;
-    }
-    return false;
+	if ((Object.values(RuntimeMessage) as string[]).includes(message.type)) {
+		return true;
+	}
+	return false;
 }

@@ -10,57 +10,62 @@ import { ISequencedDocumentMessage } from "@fluidframework/protocol-definitions"
 import { ChildLogger } from "@fluidframework/telemetry-utils";
 
 export class BatchTracker {
-    private readonly logger: ITelemetryLogger;
-    private startBatchSequenceNumber: number | undefined;
-    private trackedBatchCount: number = 0;
-    private batchProcessingStartTimeStamp: number | undefined;
+	private readonly logger: ITelemetryLogger;
+	private startBatchSequenceNumber: number | undefined;
+	private trackedBatchCount: number = 0;
+	private batchProcessingStartTimeStamp: number | undefined;
 
-    constructor(
-        private readonly batchEventEmitter: EventEmitter,
-        logger: ITelemetryLogger,
-        batchLengthThreshold: number,
-        batchCountSamplingRate: number,
-        dateTimeProvider: () => number = () => performance.now(),
-    ) {
-        this.logger = ChildLogger.create(logger, "Batching");
+	constructor(
+		private readonly batchEventEmitter: EventEmitter,
+		logger: ITelemetryLogger,
+		batchLengthThreshold: number,
+		batchCountSamplingRate: number,
+		dateTimeProvider: () => number = () => performance.now(),
+	) {
+		this.logger = ChildLogger.create(logger, "Batching");
 
-        this.batchEventEmitter.on("batchBegin", (message: ISequencedDocumentMessage) => {
-            this.startBatchSequenceNumber = message.sequenceNumber;
-            this.batchProcessingStartTimeStamp = dateTimeProvider();
-            this.trackedBatchCount++;
-        });
+		this.batchEventEmitter.on("batchBegin", (message: ISequencedDocumentMessage) => {
+			this.startBatchSequenceNumber = message.sequenceNumber;
+			this.batchProcessingStartTimeStamp = dateTimeProvider();
+			this.trackedBatchCount++;
+		});
 
-        this.batchEventEmitter.on("batchEnd", (error: any | undefined, message: ISequencedDocumentMessage) => {
-            assert(
-                this.startBatchSequenceNumber !== undefined && this.batchProcessingStartTimeStamp !== undefined,
-                0x2ba /* "batchBegin must fire before batchEnd" */);
+		this.batchEventEmitter.on(
+			"batchEnd",
+			(error: any | undefined, message: ISequencedDocumentMessage) => {
+				assert(
+					this.startBatchSequenceNumber !== undefined &&
+						this.batchProcessingStartTimeStamp !== undefined,
+					0x2ba /* "batchBegin must fire before batchEnd" */,
+				);
 
-            const length = message.sequenceNumber - this.startBatchSequenceNumber + 1;
-            if (length >= batchLengthThreshold) {
-                this.logger.sendErrorEvent({
-                    eventName: "LengthTooBig",
-                    length,
-                    threshold: batchLengthThreshold,
-                    batchEndSequenceNumber: message.sequenceNumber,
-                    duration: dateTimeProvider() - this.batchProcessingStartTimeStamp,
-                    batchError: error !== undefined,
-                });
-            }
+				const length = message.sequenceNumber - this.startBatchSequenceNumber + 1;
+				if (length >= batchLengthThreshold) {
+					this.logger.sendErrorEvent({
+						eventName: "LengthTooBig",
+						length,
+						threshold: batchLengthThreshold,
+						batchEndSequenceNumber: message.sequenceNumber,
+						duration: dateTimeProvider() - this.batchProcessingStartTimeStamp,
+						batchError: error !== undefined,
+					});
+				}
 
-            if (this.trackedBatchCount % batchCountSamplingRate === 0) {
-                this.logger.sendPerformanceEvent({
-                    eventName: "Length",
-                    length,
-                    samplingRate: batchCountSamplingRate,
-                    batchEndSequenceNumber: message.sequenceNumber,
-                    duration: dateTimeProvider() - this.batchProcessingStartTimeStamp,
-                });
-            }
+				if (this.trackedBatchCount % batchCountSamplingRate === 0) {
+					this.logger.sendPerformanceEvent({
+						eventName: "Length",
+						length,
+						samplingRate: batchCountSamplingRate,
+						batchEndSequenceNumber: message.sequenceNumber,
+						duration: dateTimeProvider() - this.batchProcessingStartTimeStamp,
+					});
+				}
 
-            this.startBatchSequenceNumber = undefined;
-            this.batchProcessingStartTimeStamp = undefined;
-        });
-    }
+				this.startBatchSequenceNumber = undefined;
+				this.batchProcessingStartTimeStamp = undefined;
+			},
+		);
+	}
 }
 
 /**
@@ -73,8 +78,8 @@ export class BatchTracker {
  * @returns
  */
 export const BindBatchTracker = (
-    batchEventEmitter: EventEmitter,
-    logger: ITelemetryLogger,
-    batchLengthThreshold: number = 1000,
-    batchCountSamplingRate: number = 1000,
+	batchEventEmitter: EventEmitter,
+	logger: ITelemetryLogger,
+	batchLengthThreshold: number = 1000,
+	batchCountSamplingRate: number = 1000,
 ) => new BatchTracker(batchEventEmitter, logger, batchLengthThreshold, batchCountSamplingRate);

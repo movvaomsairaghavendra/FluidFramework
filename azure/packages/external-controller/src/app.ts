@@ -44,12 +44,12 @@ const connectionConfig: AzureRemoteConnectionConfig | AzureLocalConnectionConfig
 			tenantId: "",
 			tokenProvider: new AzureFunctionTokenProvider("", azureUser),
 			endpoint: "",
-	  }
+		}
 	: {
 			type: "local",
 			tokenProvider: new InsecureTokenProvider("fooBar", user),
 			endpoint: "http://localhost:7070",
-	  };
+		};
 /* eslint-enable no-mixed-spaces-and-tabs */
 
 // Define the schema of our Container.
@@ -81,12 +81,10 @@ function createDiceRollerControllerProps(map: SharedMap): DiceRollerControllerPr
 function createDiceRollerControllerPropsFromContainer(
 	container: IFluidContainer,
 ): [DiceRollerControllerProps, DiceRollerControllerProps] {
-	const diceRollerController1Props: DiceRollerControllerProps = createDiceRollerControllerProps(
-		container.initialObjects.map1 as SharedMap,
-	);
-	const diceRollerController2Props: DiceRollerControllerProps = createDiceRollerControllerProps(
-		container.initialObjects.map2 as SharedMap,
-	);
+	const diceRollerController1Props: DiceRollerControllerProps =
+		createDiceRollerControllerProps(container.initialObjects.map1 as SharedMap);
+	const diceRollerController2Props: DiceRollerControllerProps =
+		createDiceRollerControllerProps(container.initialObjects.map2 as SharedMap);
 	return [diceRollerController1Props, diceRollerController2Props];
 }
 
@@ -130,9 +128,8 @@ async function start(): Promise<void> {
 		// map2.set("diceValue", 1);
 		// console.log(map1.get("diceValue"));
 		// Initialize our models so they are ready for use with our controllers
-		[diceRollerController1Props, diceRollerController2Props] = await initializeNewContainer(
-			container,
-		);
+		[diceRollerController1Props, diceRollerController2Props] =
+			await initializeNewContainer(container);
 
 		// If the app is in a `createNew` state, and the container is detached, we attach the container.
 		// This uploads the container to the service and connects to the collaboration session.

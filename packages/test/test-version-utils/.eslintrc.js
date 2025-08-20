@@ -4,13 +4,11 @@
  */
 
 module.exports = {
-    "extends": [
-        require.resolve("@fluidframework/eslint-config-fluid")
-    ],
-    "rules": {
-        "@typescript-eslint/strict-boolean-expressions": "off", // requires strictNullChecks=true in tsconfig
-    },
-    "parserOptions": {
-        "project": ["./tsconfig.json", "./src/test/tsconfig.json"]
-    }
-}
+	"extends": [require.resolve("@fluidframework/eslint-config-fluid")],
+	"rules": {
+		"@typescript-eslint/strict-boolean-expressions": "off", // requires strictNullChecks=true in tsconfig
+	},
+	"parserOptions": {
+		"project": ["./tsconfig.json", "./src/test/tsconfig.json"],
+	},
+};

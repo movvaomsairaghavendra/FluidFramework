@@ -16,22 +16,22 @@
  */
 
 export {
-    DeserializeCallback,
-    IIntervalCollectionEvent,
-    IIntervalHelpers,
-    Interval,
-    IntervalCollection,
-    IntervalCollectionIterator,
-    IntervalType,
-    ISerializableInterval,
-    ISerializedInterval,
-    SequenceInterval,
-    ISerializedIntervalCollectionV2,
-    CompressedSerializedInterval,
+	DeserializeCallback,
+	IIntervalCollectionEvent,
+	IIntervalHelpers,
+	Interval,
+	IntervalCollection,
+	IntervalCollectionIterator,
+	IntervalType,
+	ISerializableInterval,
+	ISerializedInterval,
+	SequenceInterval,
+	ISerializedIntervalCollectionV2,
+	CompressedSerializedInterval,
 } from "./intervalCollection";
 export {
-    IMapMessageLocalMetadata,
-    IValueOpEmitter,
+	IMapMessageLocalMetadata,
+	IValueOpEmitter,
 } from "./defaultMapInterfaces";
 export * from "./sharedString";
 export * from "./sequence";

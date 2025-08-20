@@ -13,19 +13,22 @@ import { IClient } from "@fluidframework/protocol-definitions";
  * class.
  */
 export interface IAudience extends EventEmitter {
-    /**
-     * See {@link https://nodejs.dev/learn/the-nodejs-event-emitter | here} for an overview of `EventEmitter.on`.
-     */
-    on(event: "addMember" | "removeMember", listener: (clientId: string, client: IClient) => void): this;
+	/**
+	 * See {@link https://nodejs.dev/learn/the-nodejs-event-emitter | here} for an overview of `EventEmitter.on`.
+	 */
+	on(
+		event: "addMember" | "removeMember",
+		listener: (clientId: string, client: IClient) => void,
+	): this;
 
-    /**
-     * List all clients connected to the op stream, keyed off their clientId
-     */
-    getMembers(): Map<string, IClient>;
+	/**
+	 * List all clients connected to the op stream, keyed off their clientId
+	 */
+	getMembers(): Map<string, IClient>;
 
-    /**
-     * Get details about the connected client with the specified clientId,
-     * or undefined if the specified client isn't connected
-     */
-    getMember(clientId: string): IClient | undefined;
+	/**
+	 * Get details about the connected client with the specified clientId,
+	 * or undefined if the specified client isn't connected
+	 */
+	getMember(clientId: string): IClient | undefined;
 }

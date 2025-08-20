@@ -13,60 +13,67 @@ import { ISnapshotTreeEx } from "./contracts";
 /**
  * Converts a summary(ISummaryTree) taken in detached container to snapshot tree and blobs
  */
-export function convertCreateNewSummaryTreeToTreeAndBlobs(summary: ISummaryTree, treeId: string): ISnapshotContents {
-    const protocolSummary = summary.tree[".protocol"] as ISummaryTree;
-    const documentAttributes = getDocAttributesFromProtocolSummary(protocolSummary);
-    const sequenceNumber = documentAttributes.sequenceNumber;
-    const blobs = new Map<string, ArrayBuffer>();
-    const snapshotTree = convertCreateNewSummaryTreeToTreeAndBlobsCore(summary, blobs);
-    snapshotTree.id = treeId;
-    const snapshotTreeValue: ISnapshotContents = {
-        snapshotTree,
-        blobs,
-        ops: [],
-        sequenceNumber,
-        latestSequenceNumber: sequenceNumber,
-    };
+export function convertCreateNewSummaryTreeToTreeAndBlobs(
+	summary: ISummaryTree,
+	treeId: string,
+): ISnapshotContents {
+	const protocolSummary = summary.tree[".protocol"] as ISummaryTree;
+	const documentAttributes = getDocAttributesFromProtocolSummary(protocolSummary);
+	const sequenceNumber = documentAttributes.sequenceNumber;
+	const blobs = new Map<string, ArrayBuffer>();
+	const snapshotTree = convertCreateNewSummaryTreeToTreeAndBlobsCore(summary, blobs);
+	snapshotTree.id = treeId;
+	const snapshotTreeValue: ISnapshotContents = {
+		snapshotTree,
+		blobs,
+		ops: [],
+		sequenceNumber,
+		latestSequenceNumber: sequenceNumber,
+	};
 
-    return snapshotTreeValue;
+	return snapshotTreeValue;
 }
 
 function convertCreateNewSummaryTreeToTreeAndBlobsCore(
-    summary: ISummaryTree,
-    blobs: Map<string, ArrayBuffer>,
+	summary: ISummaryTree,
+	blobs: Map<string, ArrayBuffer>,
 ) {
-    const treeNode: ISnapshotTreeEx = {
-        blobs: {},
-        trees: {},
-        commits: {},
-        unreferenced: summary.unreferenced,
-    };
-    const keys = Object.keys(summary.tree);
-    for (const key of keys) {
-        const summaryObject = summary.tree[key];
+	const treeNode: ISnapshotTreeEx = {
+		blobs: {},
+		trees: {},
+		commits: {},
+		unreferenced: summary.unreferenced,
+	};
+	const keys = Object.keys(summary.tree);
+	for (const key of keys) {
+		const summaryObject = summary.tree[key];
 
-        switch (summaryObject.type) {
-            case SummaryType.Tree: {
-                treeNode.trees[key] =
-                    convertCreateNewSummaryTreeToTreeAndBlobsCore(summaryObject, blobs);
-                break;
-            }
-            case SummaryType.Blob: {
-                const contentBuffer = typeof summaryObject.content === "string" ?
-                    stringToBuffer(summaryObject.content, "utf8") : summaryObject.content;
-                const blobId = uuid();
-                treeNode.blobs[key] = blobId;
-                blobs.set(blobId, contentBuffer);
-                break;
-            }
-            case SummaryType.Handle:
-            case SummaryType.Attachment: {
-                throw new Error(`No ${summaryObject.type} should be present for detached summary!`);
-            }
-            default: {
-                unreachableCase(summaryObject, `Unknown tree type ${(summaryObject as any).type}`);
-            }
-        }
-    }
-    return treeNode;
+		switch (summaryObject.type) {
+			case SummaryType.Tree: {
+				treeNode.trees[key] = convertCreateNewSummaryTreeToTreeAndBlobsCore(
+					summaryObject,
+					blobs,
+				);
+				break;
+			}
+			case SummaryType.Blob: {
+				const contentBuffer =
+					typeof summaryObject.content === "string"
+						? stringToBuffer(summaryObject.content, "utf8")
+						: summaryObject.content;
+				const blobId = uuid();
+				treeNode.blobs[key] = blobId;
+				blobs.set(blobId, contentBuffer);
+				break;
+			}
+			case SummaryType.Handle:
+			case SummaryType.Attachment: {
+				throw new Error(`No ${summaryObject.type} should be present for detached summary!`);
+			}
+			default: {
+				unreachableCase(summaryObject, `Unknown tree type ${(summaryObject as any).type}`);
+			}
+		}
+	}
+	return treeNode;
 }

@@ -143,11 +143,7 @@ describe("PropertyDDS", () => {
 										} else {
 											tree.root.insert(
 												key,
-												PropertyFactory.create(
-													"Float64",
-													undefined,
-													random.irandom(maxValue),
-												),
+												PropertyFactory.create("Float64", undefined, random.irandom(maxValue)),
 											);
 										}
 										tree.commit();
@@ -193,9 +189,7 @@ describe("PropertyDDS", () => {
 					containerRuntimeFactory.processAllMessages();
 
 					for (let j = 1; j < trees.length; j++) {
-						expect(trees[j - 1].root.serialize()).to.deep.equal(
-							trees[j].root.serialize(),
-						);
+						expect(trees[j - 1].root.serialize()).to.deep.equal(trees[j].root.serialize());
 					}
 				}).timeout(10000);
 			}

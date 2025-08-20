@@ -12,10 +12,10 @@ import { v4 as uuid } from "uuid";
  *
  * @returns a user object with a name and id property
  */
-export const generateTestUser = (): IUser & { name: string; } => {
-    const user = {
-        id: uuid(),
-        name: generateName(),
-    };
-    return user;
+export const generateTestUser = (): IUser & { name: string } => {
+	const user = {
+		id: uuid(),
+		name: generateName(),
+	};
+	return user;
 };

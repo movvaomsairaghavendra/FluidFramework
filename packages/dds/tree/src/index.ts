@@ -9,14 +9,14 @@ export { ITreeCursor, TreeNavigationResult, Value } from "./forest";
 export { LocalFieldKey, GlobalFieldKey, TreeSchemaIdentifier } from "./schema";
 
 export {
-    Brand,
-    BrandedType,
-    Opaque,
-    extractFromOpaque,
-    MakeNominal,
-    Invariant,
-    Contravariant,
-    Covariant,
-    ExtractFromOpaque,
-    isAny,
+	Brand,
+	BrandedType,
+	Opaque,
+	extractFromOpaque,
+	MakeNominal,
+	Invariant,
+	Contravariant,
+	Covariant,
+	ExtractFromOpaque,
+	isAny,
 } from "./util";

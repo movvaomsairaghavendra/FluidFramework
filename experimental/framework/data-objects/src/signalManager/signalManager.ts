@@ -22,28 +22,28 @@ export type SignalListener = (clientId: string, local: boolean, payload: Jsonabl
  * provides explicit methods around signal requests to other connected clients.
  */
 export interface ISignaler {
-    /**
-     * Adds a listener for the specified signal.  It behaves in the same way as EventEmitter's `on`
-     * method regarding multiple registrations, callback order, etc.
-     * @param signalName - The name of the signal
-     * @param listener - The callback signal handler to add
-     * @returns This ISignaler
-     */
-    onSignal(signalName: string, listener: SignalListener): ISignaler;
-     /**
-     * Remove a listener for the specified signal.  It behaves in the same way as EventEmitter's
-     * `off` method regarding multiple registrations, removal order, etc.
-     * @param signalName - The name of the signal
-     * @param listener - The callback signal handler to remove
-     * @returns This ISignaler
-     */
-    offSignal(signalName: string, listener: SignalListener): ISignaler;
-    /**
-     * Send a signal with payload to its connected listeners.
-     * @param signalName - The name of the signal
-     * @param payload - The data to send with the signal
-     */
-    submitSignal(signalName: string, payload?: Jsonable);
+	/**
+	 * Adds a listener for the specified signal.  It behaves in the same way as EventEmitter's `on`
+	 * method regarding multiple registrations, callback order, etc.
+	 * @param signalName - The name of the signal
+	 * @param listener - The callback signal handler to add
+	 * @returns This ISignaler
+	 */
+	onSignal(signalName: string, listener: SignalListener): ISignaler;
+	/**
+	 * Remove a listener for the specified signal.  It behaves in the same way as EventEmitter's
+	 * `off` method regarding multiple registrations, removal order, etc.
+	 * @param signalName - The name of the signal
+	 * @param listener - The callback signal handler to remove
+	 * @returns This ISignaler
+	 */
+	offSignal(signalName: string, listener: SignalListener): ISignaler;
+	/**
+	 * Send a signal with payload to its connected listeners.
+	 * @param signalName - The name of the signal
+	 * @param payload - The data to send with the signal
+	 */
+	submitSignal(signalName: string, payload?: Jsonable);
 }
 
 /**
@@ -51,9 +51,9 @@ export interface ISignaler {
  * A way to verify we can signal, a way to send a signal, and a way to listen for incoming signals
  */
 export interface IRuntimeSignaler {
-    connected: boolean;
-    on(event: "signal", listener: (message: IInboundSignalMessage, local: boolean) => void);
-    submitSignal(type: string, content: any): void;
+	connected: boolean;
+	on(event: "signal", listener: (message: IInboundSignalMessage, local: boolean) => void);
+	submitSignal(type: string, content: any): void;
 }
 
 /**
@@ -66,71 +66,62 @@ export interface IRuntimeSignaler {
  * deregistration.
  */
 export class Signaler extends TypedEventEmitter<IErrorEvent> implements ISignaler {
-    private readonly emitter = new EventEmitter();
+	private readonly emitter = new EventEmitter();
 
-    private readonly managerId: string | undefined;
+	private readonly managerId: string | undefined;
 
-    constructor(
-        /**
-         * Object to wrap that can submit and listen to signals
-         */
-        private readonly signaler: IRuntimeSignaler,
-        /**
-         * Optional id to assign to this manager that will be attached to
-         * signal names.  Useful to avoid collisions if there are multiple
-         * signal users at the Container level
-         */
-        managerId?: string,
-    ) {
-        super();
-        this.emitter.on("error", (error) => {
-            this.emit("error", error);
-        });
-        this.managerId = managerId ? `#${managerId}` : undefined;
-        this.signaler.on("signal", (message: IInboundSignalMessage, local: boolean) => {
-            const clientId = message.clientId;
-            // Only call listeners when the runtime is connected and if the signal has an
-            // identifiable sender clientId.  The listener is responsible for deciding how
-            // it wants to handle local/remote signals
-            if (this.signaler.connected && clientId !== null) {
-                this.emitter.emit(message.type, clientId, local, message.content);
-            }
-        });
-    }
+	constructor(
+		/**
+		 * Object to wrap that can submit and listen to signals
+		 */
+		private readonly signaler: IRuntimeSignaler,
+		/**
+		 * Optional id to assign to this manager that will be attached to
+		 * signal names.  Useful to avoid collisions if there are multiple
+		 * signal users at the Container level
+		 */
+		managerId?: string,
+	) {
+		super();
+		this.emitter.on("error", (error) => {
+			this.emit("error", error);
+		});
+		this.managerId = managerId ? `#${managerId}` : undefined;
+		this.signaler.on("signal", (message: IInboundSignalMessage, local: boolean) => {
+			const clientId = message.clientId;
+			// Only call listeners when the runtime is connected and if the signal has an
+			// identifiable sender clientId.  The listener is responsible for deciding how
+			// it wants to handle local/remote signals
+			if (this.signaler.connected && clientId !== null) {
+				this.emitter.emit(message.type, clientId, local, message.content);
+			}
+		});
+	}
 
-    private getManagerSignalName(signalName: string): string {
-        return this.managerId ? `${signalName}${this.managerId}` : signalName;
-    }
+	private getManagerSignalName(signalName: string): string {
+		return this.managerId ? `${signalName}${this.managerId}` : signalName;
+	}
 
-    // ISignaler methods
+	// ISignaler methods
 
-    public onSignal(
-        signalName: string,
-        listener: SignalListener,
-    ): ISignaler {
-        const managerSignalName = this.getManagerSignalName(signalName);
-        this.emitter.on(managerSignalName, listener);
-        return this;
-    }
+	public onSignal(signalName: string, listener: SignalListener): ISignaler {
+		const managerSignalName = this.getManagerSignalName(signalName);
+		this.emitter.on(managerSignalName, listener);
+		return this;
+	}
 
-    public offSignal(
-        signalName: string,
-        listener: SignalListener,
-    ): ISignaler {
-        const managerSignalName = this.getManagerSignalName(signalName);
-        this.emitter.off(managerSignalName, listener);
-        return this;
-    }
+	public offSignal(signalName: string, listener: SignalListener): ISignaler {
+		const managerSignalName = this.getManagerSignalName(signalName);
+		this.emitter.off(managerSignalName, listener);
+		return this;
+	}
 
-    public submitSignal(
-        signalName: string,
-        payload?: Jsonable,
-    ) {
-        const managerSignalName = this.getManagerSignalName(signalName);
-        if (this.signaler.connected) {
-            this.signaler.submitSignal(managerSignalName, payload);
-        }
-    }
+	public submitSignal(signalName: string, payload?: Jsonable) {
+		const managerSignalName = this.getManagerSignalName(signalName);
+		if (this.signaler.connected) {
+			this.signaler.submitSignal(managerSignalName, payload);
+		}
+	}
 }
 
 /**
@@ -140,51 +131,47 @@ export class Signaler extends TypedEventEmitter<IErrorEvent> implements ISignale
  * users to get an ISignaler without a custom DO.  Where possible, consumers should instead
  * create a Signaler themselves instead of using the DO wrapper to avoid the DO overhead.
  */
-export class SignalManager extends DataObject<{ Events: IErrorEvent; }> implements EventEmitter, ISignaler {
-    private _manager: Signaler | undefined;
-    private get manager(): Signaler {
-        assert(this._manager !== undefined, 0x24b /* "internal signaler should be defined" */);
-        return this._manager;
-    }
+export class SignalManager
+	extends DataObject<{ Events: IErrorEvent }>
+	implements EventEmitter, ISignaler
+{
+	private _manager: Signaler | undefined;
+	private get manager(): Signaler {
+		assert(this._manager !== undefined, 0x24b /* "internal signaler should be defined" */);
+		return this._manager;
+	}
 
-    public static get Name() { return "@fluid-example/signal-manager"; }
+	public static get Name() {
+		return "@fluid-example/signal-manager";
+	}
 
-    public static readonly factory = new DataObjectFactory(
-        SignalManager.Name,
-        SignalManager,
-        [],
-        {},
-    );
+	public static readonly factory = new DataObjectFactory(
+		SignalManager.Name,
+		SignalManager,
+		[],
+		{},
+	);
 
-    protected async hasInitialized() {
-        this._manager = new Signaler(this.runtime);
-        this.manager.on("error", (error) => {
-            this.emit("error", error);
-        });
-    }
+	protected async hasInitialized() {
+		this._manager = new Signaler(this.runtime);
+		this.manager.on("error", (error) => {
+			this.emit("error", error);
+		});
+	}
 
-    // ISignaler methods  Note these are all passthroughs
+	// ISignaler methods  Note these are all passthroughs
 
-    public onSignal(
-        signalName: string,
-        listener: SignalListener,
-    ): ISignaler {
-        this.manager.onSignal(signalName, listener);
-        return this;
-    }
+	public onSignal(signalName: string, listener: SignalListener): ISignaler {
+		this.manager.onSignal(signalName, listener);
+		return this;
+	}
 
-    public offSignal(
-        signalName: string,
-        listener: SignalListener,
-    ): ISignaler {
-        this.manager.offSignal(signalName, listener);
-        return this;
-    }
+	public offSignal(signalName: string, listener: SignalListener): ISignaler {
+		this.manager.offSignal(signalName, listener);
+		return this;
+	}
 
-    public submitSignal(
-        signalName: string,
-        payload?: Jsonable,
-    ) {
-        this.manager.submitSignal(signalName, payload);
-    }
+	public submitSignal(signalName: string, payload?: Jsonable) {
+		this.manager.submitSignal(signalName, payload);
+	}
 }

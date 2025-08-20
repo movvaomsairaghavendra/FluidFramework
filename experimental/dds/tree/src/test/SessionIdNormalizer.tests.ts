@@ -69,9 +69,7 @@ describe('SessionIdNormalizer', () => {
 		addFinalIds(normalizer, final(0), final(2));
 		normalizer.addLocalId(); // -4
 		addFinalIds(normalizer, final(5), final(5));
-		expect(() => addFinalIds(normalizer, final(9), final(9))).to.throw(
-			'Gaps in final space must align to a local.'
-		);
+		expect(() => addFinalIds(normalizer, final(9), final(9))).to.throw('Gaps in final space must align to a local.');
 	});
 
 	it('aligns outstanding locals when a block of finals is registered', () => {

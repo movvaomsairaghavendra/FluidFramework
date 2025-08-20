@@ -7,8 +7,8 @@ import { ISharedObject, ISharedObjectEvents } from "@fluidframework/shared-objec
 import { Serializable } from "@fluidframework/datastore-definitions";
 
 export interface ISharedCellEvents<T> extends ISharedObjectEvents {
-    (event: "valueChanged", listener: (value: Serializable<T>) => void);
-    (event: "delete", listener: () => void);
+	(event: "valueChanged", listener: (value: Serializable<T>) => void);
+	(event: "delete", listener: () => void);
 }
 
 /**
@@ -16,29 +16,29 @@ export interface ISharedCellEvents<T> extends ISharedObjectEvents {
  */
 
 export interface ISharedCell<T = any> extends ISharedObject<ISharedCellEvents<T>> {
-    /**
-     * Retrieves the cell value.
-     *
-     * @returns - the value of the cell
-     */
-    get(): Serializable<T> | undefined;
+	/**
+	 * Retrieves the cell value.
+	 *
+	 * @returns - the value of the cell
+	 */
+	get(): Serializable<T> | undefined;
 
-    /**
-     * Sets the cell value.
-     *
-     * @param value - a JSON-able or SharedObject value to set the cell to
-     */
-    set(value: Serializable<T>): void;
+	/**
+	 * Sets the cell value.
+	 *
+	 * @param value - a JSON-able or SharedObject value to set the cell to
+	 */
+	set(value: Serializable<T>): void;
 
-    /**
-     * Checks whether cell is empty or not.
-     *
-     * @returns - `true` if the value of cell is `undefined`, `false` otherwise
-     */
-    empty(): boolean;
+	/**
+	 * Checks whether cell is empty or not.
+	 *
+	 * @returns - `true` if the value of cell is `undefined`, `false` otherwise
+	 */
+	empty(): boolean;
 
-    /**
-     * Delete the value from the cell.
-     */
-    delete(): void;
+	/**
+	 * Delete the value from the cell.
+	 */
+	delete(): void;
 }

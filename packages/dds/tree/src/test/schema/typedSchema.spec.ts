@@ -5,7 +5,12 @@
 
 // Allow importing from this specific file which is being tested:
 /* eslint-disable-next-line import/no-internal-modules */
-import { typedTreeSchema, typedFieldSchema, FieldInfo, TypeInfo } from "../../schema/typedSchema";
+import {
+	typedTreeSchema,
+	typedFieldSchema,
+	FieldInfo,
+	TypeInfo,
+} from "../../schema/typedSchema";
 
 import { FieldKind, ValueSchema } from "../../schema";
 import { requireTrue } from "../../util";
@@ -19,16 +24,16 @@ export const lk2 = "localKey2Name";
 export const testTypeIdentifier = "testType";
 
 const testField = typedFieldSchema({
-    types: { testType: 0 as unknown },
-    kind: FieldKind.Value,
+	types: { testType: 0 as unknown },
+	kind: FieldKind.Value,
 });
 
 export const testTreeSchema = typedTreeSchema({
-    local: { localKey1Name: testField },
-    global: {},
-    extraLocalFields: testField,
-    extraGlobalFields: true,
-    value: ValueSchema.Serializable,
+	local: { localKey1Name: testField },
+	global: {},
+	extraLocalFields: testField,
+	extraGlobalFields: true,
+	value: ValueSchema.Serializable,
 });
 
 type TestTreeSchema = TypeInfo<typeof testTreeSchema>;

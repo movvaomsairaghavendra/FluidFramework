@@ -399,8 +399,7 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 				// Otherwise, it means that there are no sequenced edits in memory so the length is the difference of the number of
 				// sequenced edits and the starting revision.
 				const nextKey = this.editChunks.nextHigherKey(index);
-				const expectedEditLength =
-					(nextKey === undefined ? this.numberOfSequencedEdits : nextKey) - startRevision;
+				const expectedEditLength = (nextKey === undefined ? this.numberOfSequencedEdits : nextKey) - startRevision;
 				assert(edits.length === expectedEditLength, 'The chunk does not contain the correct number of edits.');
 
 				editChunk.edits = edits;
@@ -655,17 +654,14 @@ export class EditLog<TChange = unknown> extends TypedEventEmitter<IEditLogEvents
 							fail('An edit chunk must have either a handle or a list of edits.'),
 					})),
 					editIds: this.sequencedEditIds,
-			  }
+				}
 			: {
 					editChunks: this.editChunks.toArray().map(([startRevision, { handle, edits }]) => ({
 						startRevision,
-						chunk:
-							handle?.baseHandle ??
-							edits ??
-							fail('An edit chunk must have either a handle or a list of edits.'),
+						chunk: handle?.baseHandle ?? edits ?? fail('An edit chunk must have either a handle or a list of edits.'),
 					})),
 					editIds: this.sequencedEditIds,
-			  };
+				};
 	}
 
 	private addKeyToCache(newKey: number): void {

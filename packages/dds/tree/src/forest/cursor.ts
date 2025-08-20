@@ -7,14 +7,14 @@ import { Serializable } from "@fluidframework/datastore-definitions";
 import { FieldKey, TreeType } from "../tree";
 
 export const enum TreeNavigationResult {
-    /** Attempt to navigate cursor to a key or index that is outside the client's view. */
-    NotFound = -1,
+	/** Attempt to navigate cursor to a key or index that is outside the client's view. */
+	NotFound = -1,
 
-    /** Attempt to navigate cursor to a portion of the tree that has not yet been loaded. */
-    Pending = 0,
+	/** Attempt to navigate cursor to a portion of the tree that has not yet been loaded. */
+	Pending = 0,
 
-    /** ITreeReader successfully navigated to the desired node. */
-    Ok = 1,
+	/** ITreeReader successfully navigated to the desired node. */
+	Ok = 1,
 }
 
 /**
@@ -41,33 +41,33 @@ export type Value = undefined | Serializable;
  * Default chunks of size 1, and "node" shape?
  */
 export interface ITreeCursor {
-    /** Select the child located at the given key and index. */
-    down(key: FieldKey, index: number): TreeNavigationResult;
+	/** Select the child located at the given key and index. */
+	down(key: FieldKey, index: number): TreeNavigationResult;
 
-    /**
-     * Moves `offset` entries in the field.
-     * May move less if Pending or NotFound.
-     * In this case the distance moved is returned, and may be less than `offset`.
-     * Iff `ok` then `moved` will equal `offset`.
-     */
-    seek(offset: number): { result: TreeNavigationResult; moved: number; };
+	/**
+	 * Moves `offset` entries in the field.
+	 * May move less if Pending or NotFound.
+	 * In this case the distance moved is returned, and may be less than `offset`.
+	 * Iff `ok` then `moved` will equal `offset`.
+	 */
+	seek(offset: number): { result: TreeNavigationResult; moved: number };
 
-    /** Select the parent of the currently selected node. */
-    up(): TreeNavigationResult;
+	/** Select the parent of the currently selected node. */
+	up(): TreeNavigationResult;
 
-    /** The type of the currently selected node. */
-    readonly type: TreeType;
+	/** The type of the currently selected node. */
+	readonly type: TreeType;
 
-    /**
-     * @returns the keys of the currently selected node.
-     * TODO: ordering invariants: Consistent over time? Consistent across nodes? Sorted?
-     * TODO: empty fields: are they always omitted here? Sometimes omitted? Depends on field kind and schema?
-     * */
-    keys: Iterable<FieldKey>;
+	/**
+	 * @returns the keys of the currently selected node.
+	 * TODO: ordering invariants: Consistent over time? Consistent across nodes? Sorted?
+	 * TODO: empty fields: are they always omitted here? Sometimes omitted? Depends on field kind and schema?
+	 * */
+	keys: Iterable<FieldKey>;
 
-    /** @returns the number of immediate children for the given key of the currently selected node. */
-    length(key: FieldKey): number;
+	/** @returns the number of immediate children for the given key of the currently selected node. */
+	length(key: FieldKey): number;
 
-    /** value associated with the currently selected node. */
-    readonly value: Value;
+	/** value associated with the currently selected node. */
+	readonly value: Value;
 }

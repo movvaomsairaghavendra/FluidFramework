@@ -14,15 +14,15 @@ import { Invariant } from "../util";
  * Used to capture snapshots of document for summaries.
  */
 export class ForestIndex<TChangeSet> implements Index<TChangeSet> {
-    _typeCheck!: Invariant<TChangeSet>;
+	_typeCheck!: Invariant<TChangeSet>;
 
-    readonly key: string = "Forest";
+	readonly key: string = "Forest";
 
-    // TODO: implement this to provide snapshots in summaries.
-    readonly summaryElement?: SummaryElement = undefined;
+	// TODO: implement this to provide snapshots in summaries.
+	readonly summaryElement?: SummaryElement = undefined;
 
-    newLocalState?(changeDelta: TChangeSet): void {
-        // TODO: apply changeDelta to the forest.
-        throw new Error("Method not implemented.");
-    }
+	newLocalState?(changeDelta: TChangeSet): void {
+		// TODO: apply changeDelta to the forest.
+		throw new Error("Method not implemented.");
+	}
 }

@@ -87,11 +87,7 @@ export function runSharedTreeVersioningTests(
 
 			// Verify even though one edit was applied, 2 edit ops were sent due to the version upgrade.
 			expect(ops.length).to.equal(3);
-			expect(ops.map((op) => op.type)).to.eql([
-				SharedTreeOpType.Update,
-				SharedTreeOpType.Edit,
-				SharedTreeOpType.Edit,
-			]);
+			expect(ops.map((op) => op.type)).to.eql([SharedTreeOpType.Update, SharedTreeOpType.Edit, SharedTreeOpType.Edit]);
 
 			expect(ops[1].version).to.equal(oldVersion);
 			expect(ops[2].version).to.equal(newVersion);
@@ -247,11 +243,7 @@ export function runSharedTreeVersioningTests(
 
 			expect(versions).to.eql([newVersion]);
 			expect(ops.length).to.equal(3);
-			expect(ops.map((op) => op.type)).to.eql([
-				SharedTreeOpType.Edit,
-				SharedTreeOpType.Update,
-				SharedTreeOpType.Edit,
-			]);
+			expect(ops.map((op) => op.type)).to.eql([SharedTreeOpType.Edit, SharedTreeOpType.Update, SharedTreeOpType.Edit]);
 
 			expect(ops[0].version).to.equal(oldVersion);
 			expect(ops[2].version).to.equal(newVersion);

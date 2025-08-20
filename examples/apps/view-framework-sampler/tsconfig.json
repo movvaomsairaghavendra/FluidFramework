@@ -1,24 +1,13 @@
 {
-    "extends": "@fluidframework/build-common/ts-common-config.json",
-    "exclude": [
-        "dist",
-        "node_modules"
-    ],
-    "compilerOptions": {
-        "module": "esnext",
-        "outDir": "dist",
-        "jsx": "react",
-        // Added because upgrading to node 18 caused a bunch of typecheck errors
-        "skipLibCheck": true,
-        "types": [
-            "jest",
-            "puppeteer",
-            "jest-environment-puppeteer",
-            "expect-puppeteer"
-        ]
-    },
-    "include": [
-        "src/**/*",
-        "tests/**/*"
-    ]
+	"extends": "@fluidframework/build-common/ts-common-config.json",
+	"exclude": ["dist", "node_modules"],
+	"compilerOptions": {
+		"module": "esnext",
+		"outDir": "dist",
+		"jsx": "react",
+		// Added because upgrading to node 18 caused a bunch of typecheck errors
+		"skipLibCheck": true,
+		"types": ["jest", "puppeteer", "jest-environment-puppeteer", "expect-puppeteer"],
+	},
+	"include": ["src/**/*", "tests/**/*"],
 }

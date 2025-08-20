@@ -20,9 +20,9 @@ export const EmptyKey = "" as const as FieldKey;
  *
  * @public
  */
- export interface ChildLocation {
-    readonly container: ChildCollection;
-    readonly index: number;
+export interface ChildLocation {
+	readonly container: ChildCollection;
+	readonly index: number;
 }
 
 /**
@@ -58,8 +58,8 @@ export interface DetachedRange extends Opaque<Brand<number, "tree.DetachedRange"
  * TODO: factor ChangeRebaser implementations to support adding new field kinds.
  */
 export interface FieldKind {
-    readonly name: string;
-    readonly description: string;
-    readonly minimumChildren: number;
-    readonly maximumChildren: number;
+	readonly name: string;
+	readonly description: string;
+	readonly minimumChildren: number;
+	readonly maximumChildren: number;
 }

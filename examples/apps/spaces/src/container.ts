@@ -20,11 +20,11 @@ import { Spaces } from "./fluid-object/";
  */
 
 const innerRequestHandler = async (request: IRequest, runtime: IContainerRuntimeBase) =>
-    runtime.IFluidHandleContext.resolveHandle(request);
+	runtime.IFluidHandleContext.resolveHandle(request);
 
 export const SpacesContainer = new ContainerRuntimeFactoryWithDefaultDataStore(
-    Spaces.getFactory(),
-    [[Spaces.ComponentName, Promise.resolve(Spaces.getFactory())]],
-    undefined,
-    [innerRequestHandler],
+	Spaces.getFactory(),
+	[[Spaces.ComponentName, Promise.resolve(Spaces.getFactory())]],
+	undefined,
+	[innerRequestHandler],
 );

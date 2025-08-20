@@ -16,9 +16,7 @@ describe('RevisionValueCache', () => {
 	}
 
 	it('cannot be created with a negative retention window', () => {
-		expect(() => new RevisionValueCache<DummyValue>(1, -1)).to.throw(
-			'retentionWindowStart must be initialized >= 0'
-		);
+		expect(() => new RevisionValueCache<DummyValue>(1, -1)).to.throw('retentionWindowStart must be initialized >= 0');
 	});
 
 	it('cannot move the retention window backwards', () => {
@@ -36,11 +34,9 @@ describe('RevisionValueCache', () => {
 
 	it('evicts entries when full', () => {
 		const size = 3;
-		const cache = new RevisionValueCache<DummyValue>(
-			size,
-			size * 3 /* ensure all entries are outside of window */,
-			[[0, dummyValue]]
-		);
+		const cache = new RevisionValueCache<DummyValue>(size, size * 3 /* ensure all entries are outside of window */, [
+			[0, dummyValue],
+		]);
 
 		// Fill the cache
 		// Start at 1 because the initial revision is never evicted

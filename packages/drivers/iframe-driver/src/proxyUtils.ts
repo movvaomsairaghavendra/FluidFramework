@@ -5,6 +5,6 @@
 
 import * as Comlink from "comlink";
 
-export const MakeThinProxy = <T>(obj: T): () => Promise<T> => {
-    return Comlink.proxy(async () => obj);
+export const MakeThinProxy = <T>(obj: T): (() => Promise<T>) => {
+	return Comlink.proxy(async () => obj);
 };

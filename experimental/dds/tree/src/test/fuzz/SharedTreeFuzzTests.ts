@@ -123,14 +123,11 @@ export async function performFuzzActions(
 							const editB = await editLogB.getEditAtIndex(editLogB.length - j - 1);
 							expect(editA.id).to.equal(editB.id);
 						}
-						expect(areRevisionViewsSemanticallyEqual(tree.currentView, tree, first.currentView, first)).to
-							.be.true;
+						expect(areRevisionViewsSemanticallyEqual(tree.currentView, tree, first.currentView, first)).to.be.true;
 
 						for (const node of tree.currentView) {
 							expect(tree.attributeNodeId(node.identifier)).to.equal(
-								first.attributeNodeId(
-									first.convertToNodeId(tree.convertToStableNodeId(node.identifier))
-								)
+								first.attributeNodeId(first.convertToNodeId(tree.convertToStableNodeId(node.identifier)))
 							);
 						}
 					}
@@ -201,8 +198,7 @@ export function runSharedTreeFuzzTests(title: string): void {
 			describe('using 0.0.2 and 0.1.1 trees', () => {
 				for (let seed = 0; seed < testsPerSuite; seed++) {
 					runTest(
-						() =>
-							take(testLength, makeOpGenerator({ joinConfig: { summarizeHistory: [summarizeHistory] } })),
+						() => take(testLength, makeOpGenerator({ joinConfig: { summarizeHistory: [summarizeHistory] } })),
 						seed
 					);
 				}

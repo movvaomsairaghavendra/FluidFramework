@@ -3,10 +3,7 @@
  * Licensed under the MIT License.
  */
 
-import {
-    DataObject,
-    DataObjectFactory,
-} from "@fluidframework/aqueduct";
+import { DataObject, DataObjectFactory } from "@fluidframework/aqueduct";
 import { IFluidHandle } from "@fluidframework/core-interfaces";
 import { IValueChanged } from "@fluidframework/map";
 
@@ -19,56 +16,56 @@ const starListKey = "stars";
  * The Constellation is our implementation of the IConstellation interface.
  */
 export class Constellation extends DataObject implements IConstellation {
-    public static get ComponentName() { return "@fluid-example/constellation"; }
+	public static get ComponentName() {
+		return "@fluid-example/constellation";
+	}
 
-    private _stars: ICoordinate[] = [];
+	private _stars: ICoordinate[] = [];
 
-    public static getFactory() {
-        return Constellation.factory;
-    }
+	public static getFactory() {
+		return Constellation.factory;
+	}
 
-    private static readonly factory = new DataObjectFactory(
-        Constellation.ComponentName,
-        Constellation,
-        [],
-        {},
-        new Map([
-            Coordinate.getFactory().registryEntry,
-        ]),
-    );
+	private static readonly factory = new DataObjectFactory(
+		Constellation.ComponentName,
+		Constellation,
+		[],
+		{},
+		new Map([Coordinate.getFactory().registryEntry]),
+	);
 
-    protected async initializingFirstTime() {
-        this.root.set(starListKey, []);
-    }
+	protected async initializingFirstTime() {
+		this.root.set(starListKey, []);
+	}
 
-    protected async hasInitialized() {
-        await this.updateStarsFromRoot();
-        this.root.on("valueChanged", (changed: IValueChanged) => {
-            if (changed.key === starListKey) {
-                this.updateStarsFromRoot()
-                    .then(() => this.emit("constellationChanged"))
-                    .catch((error) => console.error(error));
-            }
-        });
-    }
+	protected async hasInitialized() {
+		await this.updateStarsFromRoot();
+		this.root.on("valueChanged", (changed: IValueChanged) => {
+			if (changed.key === starListKey) {
+				this.updateStarsFromRoot()
+					.then(() => this.emit("constellationChanged"))
+					.catch((error) => console.error(error));
+			}
+		});
+	}
 
-    public get stars() {
-        return this._stars;
-    }
+	public get stars() {
+		return this._stars;
+	}
 
-    private async updateStarsFromRoot() {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const starHandles = this.root.get<IFluidHandle<ICoordinate>[]>(starListKey)!;
-        this._stars = await Promise.all(starHandles.map(async (starHandle) => starHandle.get()));
-    }
+	private async updateStarsFromRoot() {
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		const starHandles = this.root.get<IFluidHandle<ICoordinate>[]>(starListKey)!;
+		this._stars = await Promise.all(starHandles.map(async (starHandle) => starHandle.get()));
+	}
 
-    public async addStar(x: number, y: number): Promise<void> {
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const starHandles = this.root.get<IFluidHandle<ICoordinate>[]>(starListKey)!;
-        const newStar = await Coordinate.getFactory().createChildInstance(this.context);
-        newStar.x = x;
-        newStar.y = y;
-        starHandles.push(newStar.handle);
-        this.root.set(starListKey, starHandles);
-    }
+	public async addStar(x: number, y: number): Promise<void> {
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		const starHandles = this.root.get<IFluidHandle<ICoordinate>[]>(starListKey)!;
+		const newStar = await Coordinate.getFactory().createChildInstance(this.context);
+		newStar.x = x;
+		newStar.y = y;
+		starHandles.push(newStar.handle);
+		this.root.set(starListKey, starHandles);
+	}
 }

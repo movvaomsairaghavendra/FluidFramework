@@ -11,25 +11,29 @@ import { OldestClientDiceRollerInstantiationFactory } from "./oldestClientDiceRo
 import { TaskManagerDiceRollerInstantiationFactory } from "./taskManagerDiceRoller";
 
 const registryEntries = new Map([
-    OldestClientDiceRollerInstantiationFactory.registryEntry,
-    TaskManagerDiceRollerInstantiationFactory.registryEntry,
+	OldestClientDiceRollerInstantiationFactory.registryEntry,
+	TaskManagerDiceRollerInstantiationFactory.registryEntry,
 ]);
 
 export const taskManagerDiceId = "taskManagerDice";
 export const oldestClientDiceId = "oldestClientDice";
 
 class TaskSelectionContainerRuntimeFactory extends BaseContainerRuntimeFactory {
-    constructor() {
-        super(registryEntries, undefined, [rootDataStoreRequestHandler]);
-    }
+	constructor() {
+		super(registryEntries, undefined, [rootDataStoreRequestHandler]);
+	}
 
-    protected async containerInitializingFirstTime(runtime: IContainerRuntime) {
-        // We'll create a dice roller for each methodology.
-        const taskManagerDice = await runtime.createDataStore(TaskManagerDiceRollerInstantiationFactory.type);
-        await taskManagerDice.trySetAlias(taskManagerDiceId);
-        const oldestClientDice = await runtime.createDataStore(OldestClientDiceRollerInstantiationFactory.type);
-        await oldestClientDice.trySetAlias(oldestClientDiceId);
-    }
+	protected async containerInitializingFirstTime(runtime: IContainerRuntime) {
+		// We'll create a dice roller for each methodology.
+		const taskManagerDice = await runtime.createDataStore(
+			TaskManagerDiceRollerInstantiationFactory.type,
+		);
+		await taskManagerDice.trySetAlias(taskManagerDiceId);
+		const oldestClientDice = await runtime.createDataStore(
+			OldestClientDiceRollerInstantiationFactory.type,
+		);
+		await oldestClientDice.trySetAlias(oldestClientDiceId);
+	}
 }
 
 export const TaskSelectionFactory = new TaskSelectionContainerRuntimeFactory();

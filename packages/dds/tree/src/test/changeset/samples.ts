@@ -4,9 +4,15 @@
  */
 
 import {
-	Commutativity, Original, Rebased, Sibling, Sequenced as S, Squashed as Sq, Tiebreak,
-// TODO: export more public API
-/* eslint-disable-next-line import/no-internal-modules */
+	Commutativity,
+	Original,
+	Rebased,
+	Sibling,
+	Sequenced as S,
+	Squashed as Sq,
+	Tiebreak,
+	// TODO: export more public API
+	/* eslint-disable-next-line import/no-internal-modules */
 } from "../../changeset/format";
 
 export namespace SwapCousins {
@@ -16,18 +22,20 @@ export namespace SwapCousins {
 			{ src: { foo: 0 }, dst: { bar: 0 } },
 			{ src: { bar: 0 }, dst: { foo: 0 } },
 		],
-		marks: [{
-			modify: {
-				foo: [
-					{ type: "MoveOut", op: 0 },
-					{ type: "MoveInSet", op: 1 },
-				],
-				bar: [
-					{ type: "MoveInSet", op: 0 },
-					{ type: "MoveOut", op: 1 },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						{ type: "MoveOut", op: 0 },
+						{ type: "MoveInSet", op: 1 },
+					],
+					bar: [
+						{ type: "MoveInSet", op: 0 },
+						{ type: "MoveOut", op: 1 },
+					],
+				},
 			},
-		}],
+		],
 	};
 }
 
@@ -39,62 +47,79 @@ export namespace SwapParentChild {
 		moves: [
 			{ src: { foo: 0 }, dst: { foo: { 0: { bar: 0 } } } }, // B
 			{ src: { foo: { 0: { bar: 0 } } }, dst: { foo: 0 } }, // C
-			{ src: { foo: { 0: { bar: { 0: { baz: 0 } } } } }, dst: { foo: { 0: { bar: { 0: { baz: 0 } } } } } }, // D
+			{
+				src: { foo: { 0: { bar: { 0: { baz: 0 } } } } },
+				dst: { foo: { 0: { bar: { 0: { baz: 0 } } } } },
+			}, // D
 		],
-		marks: [{
-			modify: {
-				foo: [
-					{
-						type: "MoveOut", // B,
-						op: 0,
-						mods: [{ // Modify B
-							modify: {
-								bar: [
-									{
-										type: "MoveOut", // C
-										op: 1,
-										mods: [{ // Modify C
-											modify: {
-												baz: [
+		marks: [
+			{
+				modify: {
+					foo: [
+						{
+							type: "MoveOut", // B,
+							op: 0,
+							mods: [
+								{
+									// Modify B
+									modify: {
+										bar: [
+											{
+												type: "MoveOut", // C
+												op: 1,
+												mods: [
 													{
-														type: "MoveOut", // D
-														op: 2,
+														// Modify C
+														modify: {
+															baz: [
+																{
+																	type: "MoveOut", // D
+																	op: 2,
+																},
+															],
+														},
 													},
 												],
 											},
-										}],
+										],
 									},
-								],
-							},
-						}],
-					},
-					{
-						type: "MoveInSet", // C
-						op: 1,
-						mods: [{ // Modify C
-							modify: {
-								bar: [
-									{
-										type: "MoveInSet", // B
-										op: 0,
-										mods: [{ // Modify B
-											modify: {
-												baz: [
+								},
+							],
+						},
+						{
+							type: "MoveInSet", // C
+							op: 1,
+							mods: [
+								{
+									// Modify C
+									modify: {
+										bar: [
+											{
+												type: "MoveInSet", // B
+												op: 0,
+												mods: [
 													{
-														type: "MoveInSet", // D
-														op: 2,
+														// Modify B
+														modify: {
+															baz: [
+																{
+																	type: "MoveInSet", // D
+																	op: 2,
+																},
+															],
+														},
 													},
 												],
 											},
-										}],
+										],
 									},
-								],
-							},
-						}],
-					},
-				],
+								},
+							],
+						},
+					],
+				},
 			},
-		}],
+		],
 	};
 }
 
@@ -122,75 +147,87 @@ export namespace ScenarioA1 {
 	export const e1: S.Transaction = {
 		ref: 0,
 		seq: 1,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "Delete", length: 2 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "Delete", length: 2 },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2: S.Transaction = {
 		ref: 0,
 		seq: 2,
-		frames: [{
-			moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "MoveOutStart", side: Sibling.Next, op: 0 },
-						3, // Skip B C D
-						{ type: "End", op: 0 },
-					],
-					bar: [
-						{ type: "MoveInSlice", op: 0, length: 3 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "MoveOutStart", side: Sibling.Next, op: 0 },
+								3, // Skip B C D
+								{ type: "End", op: 0 },
+							],
+							bar: [{ type: "MoveInSlice", op: 0, length: 3 }],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3: S.Transaction = {
 		ref: 0,
 		seq: 3,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						2, // Skip A B
-						{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.Full },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								2, // Skip A B
+								{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.Full },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2p: S.Transaction = {
 		seq: 2,
 		ref: 0,
 		newRef: 1,
-		frames: [{
-			moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "MoveOutStart", side: Sibling.Next, op: 0 },
-						{ type: "PriorDetach", seq: 1, length: 2 }, // Delete B C
-						1, // Skip D
-						{ type: "End", op: 0 },
-					],
-					bar: [
-						{ type: "MoveInSlice", op: 0, length: 3 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "MoveOutStart", side: Sibling.Next, op: 0 },
+								{ type: "PriorDetach", seq: 1, length: 2 }, // Delete B C
+								1, // Skip D
+								{ type: "End", op: 0 },
+							],
+							bar: [{ type: "MoveInSlice", op: 0, length: 3 }],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3_r_e1: Rebased.Modify = {
@@ -211,9 +248,7 @@ export namespace ScenarioA1 {
 				{ type: "PriorDetach", seq: 1, length: 2 }, // Delete of B C (from e1)
 				{ type: "PriorDetach", seq: 2 }, // MoveOut D (from e2)
 			],
-			bar: [
-				{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.Full },
-			],
+			bar: [{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.Full }],
 		},
 	};
 
@@ -244,37 +279,43 @@ export namespace ScenarioA2 {
 	export const e1: S.Transaction = {
 		ref: 0,
 		seq: 1,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "Delete", length: 2 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "Delete", length: 2 },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2: S.Transaction = {
 		ref: 0,
 		seq: 2,
-		frames: [{
-			moves: [{ src: { foo: 2 }, dst: { bar: 0 } }],
-			marks: [{
-				modify: {
-					foo: [
-						2, // Skip A B
-						{ type: "MoveOutStart", side: Sibling.Next, op: 0 },
-						2, // Skip C D
-						{ type: "End", op: 0 },
-					],
-					bar: [
-						{ type: "MoveInSlice", op: 0, length: 2 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				moves: [{ src: { foo: 2 }, dst: { bar: 0 } }],
+				marks: [
+					{
+						modify: {
+							foo: [
+								2, // Skip A B
+								{ type: "MoveOutStart", side: Sibling.Next, op: 0 },
+								2, // Skip C D
+								{ type: "End", op: 0 },
+							],
+							bar: [{ type: "MoveInSlice", op: 0, length: 2 }],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3: Original.Modify = {
@@ -290,24 +331,26 @@ export namespace ScenarioA2 {
 		seq: 2,
 		ref: 0,
 		newRef: 1,
-		frames: [{
-			moves: [{ src: { foo: 2 }, dst: { bar: 0 } }],
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "PriorDetach", seq: 1 }, // B
-						{ type: "MoveOutStart", side: Sibling.Next, op: 0 },
-						{ type: "PriorDetach", seq: 1 }, // C
-						1, // Skip D
-						{ type: "End", op: 0 },
-					],
-					bar: [
-						{ type: "MoveInSlice", op: 0, length: 2 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				moves: [{ src: { foo: 2 }, dst: { bar: 0 } }],
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "PriorDetach", seq: 1 }, // B
+								{ type: "MoveOutStart", side: Sibling.Next, op: 0 },
+								{ type: "PriorDetach", seq: 1 }, // C
+								1, // Skip D
+								{ type: "End", op: 0 },
+							],
+							bar: [{ type: "MoveInSlice", op: 0, length: 2 }],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3_r_e1: Rebased.Modify = {
@@ -327,9 +370,7 @@ export namespace ScenarioA2 {
 				{ type: "PriorDetach", seq: 1, length: 2 }, // B C
 				{ type: "PriorDetach", seq: 2 }, // D
 			],
-			bar: [
-				{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.MoveOnly },
-			],
+			bar: [{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.MoveOnly }],
 		},
 	};
 }
@@ -353,68 +394,82 @@ export namespace ScenarioC {
 	export const e1: S.Transaction = {
 		ref: 0,
 		seq: 1,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "Insert", content: [{ id: "B" }] },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "Insert", content: [{ id: "B" }] },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2: S.Transaction = {
 		ref: 0,
 		seq: 2,
-		frames: [{
-			moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "MoveOut", op: 0 },
-					],
-					bar: [
-						{ type: "MoveInSet", op: 0 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "MoveOut", op: 0 },
+							],
+							bar: [{ type: "MoveInSet", op: 0 }],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3: S.Transaction = {
 		ref: 0,
 		seq: 3,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						2, // Skip A B
-						{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.None },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								2, // Skip A B
+								{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.None },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3p: S.Transaction = {
 		seq: 3,
 		ref: 0,
 		newRef: 2,
-		frames: [{
-			priorMoves: { 2: [{ src: { foo: 1 }, dst: { bar: 0 } }] },
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "PriorDetach", seq: 2 }, // B
-						{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.None },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				priorMoves: { 2: [{ src: { foo: 1 }, dst: { bar: 0 } }] },
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "PriorDetach", seq: 2 }, // B
+								{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.None },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 }
 
@@ -434,103 +489,113 @@ export namespace ScenarioD {
 	export const e1: S.Transaction = {
 		seq: 1,
 		ref: 0,
-		frames: [{
-			moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "MoveOutStart", op: 0 },
-						1, // Skip B
-						{ type: "End", side: Sibling.Next, op: 0 },
-					],
-					bar: [
-						{ type: "MoveInSlice", op: 0 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "MoveOutStart", op: 0 },
+								1, // Skip B
+								{ type: "End", side: Sibling.Next, op: 0 },
+							],
+							bar: [{ type: "MoveInSlice", op: 0 }],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2: S.Transaction = {
 		seq: 2,
 		ref: 0,
-		frames: [{
-			moves: [
-				{ src: { foo: 0 }, dst: { baz: 0 } },
-				{ src: { foo: 2 }, dst: { baz: 3 } },
-			],
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "MoveOutStart", op: 0 },
-						2, // A B
-						{
-							type: "End",
-							op: 0,
-							side: Sibling.Next,
-							tiebreak: Tiebreak.FirstToLast,
+		frames: [
+			{
+				moves: [
+					{ src: { foo: 0 }, dst: { baz: 0 } },
+					{ src: { foo: 2 }, dst: { baz: 3 } },
+				],
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "MoveOutStart", op: 0 },
+								2, // A B
+								{
+									type: "End",
+									op: 0,
+									side: Sibling.Next,
+									tiebreak: Tiebreak.FirstToLast,
+								},
+								{
+									type: "MoveOutStart",
+									op: 1,
+									side: Sibling.Prev,
+									tiebreak: Tiebreak.LastToFirst,
+								},
+								1, // C
+								{ type: "End", op: 1 },
+							],
+							baz: [
+								{ type: "MoveInSlice", op: 0, length: 2 }, // A B
+								{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.MoveOnly },
+								{ type: "MoveInSlice", op: 1 }, // C
+							],
 						},
-						{
-							type: "MoveOutStart",
-							op: 1,
-							side: Sibling.Prev,
-							tiebreak: Tiebreak.LastToFirst,
-						},
-						1, // C
-						{ type: "End", op: 1 },
-					],
-					baz: [
-						{ type: "MoveInSlice", op: 0, length: 2 }, // A B
-						{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.MoveOnly },
-						{ type: "MoveInSlice", op: 1 }, // C
-					],
-				},
-			}],
-		}],
+					},
+				],
+			},
+		],
 	};
 
 	export const e2p: S.Transaction = {
 		seq: 2,
 		ref: 0,
 		newRef: 1,
-		frames: [{
-			moves: [
-				{ src: { foo: 0 }, dst: { baz: 0 } },
-				{ src: { foo: 2 }, dst: { baz: 3 } },
-			],
-			priorMoves: { 1: [{ src: { foo: 1 }, dst: { bar: 0 } }] },
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "MoveOutStart", op: 0 },
-						1, // A
-						{ type: "PriorMoveOutStart", seq: 1, op: 0 },
-						1, // B
-						{ type: "PriorSliceEnd", seq: 1, op: 0 },
-						{
-							type: "End",
-							op: 0,
-							side: Sibling.Next,
-							tiebreak: Tiebreak.FirstToLast,
+		frames: [
+			{
+				moves: [
+					{ src: { foo: 0 }, dst: { baz: 0 } },
+					{ src: { foo: 2 }, dst: { baz: 3 } },
+				],
+				priorMoves: { 1: [{ src: { foo: 1 }, dst: { bar: 0 } }] },
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "MoveOutStart", op: 0 },
+								1, // A
+								{ type: "PriorMoveOutStart", seq: 1, op: 0 },
+								1, // B
+								{ type: "PriorSliceEnd", seq: 1, op: 0 },
+								{
+									type: "End",
+									op: 0,
+									side: Sibling.Next,
+									tiebreak: Tiebreak.FirstToLast,
+								},
+								{
+									type: "MoveOutStart",
+									op: 1,
+									side: Sibling.Prev,
+									tiebreak: Tiebreak.LastToFirst,
+								},
+								1, // C
+								{ type: "End", op: 1 },
+							],
+							baz: [
+								{ type: "MoveInSlice", op: 0, length: 2 }, // A
+								{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.MoveOnly },
+								{ type: "MoveInSlice", op: 1 }, // C
+							],
 						},
-						{
-							type: "MoveOutStart",
-							op: 1,
-							side: Sibling.Prev,
-							tiebreak: Tiebreak.LastToFirst,
-						},
-						1, // C
-						{ type: "End", op: 1 },
-					],
-					baz: [
-						{ type: "MoveInSlice", op: 0, length: 2 }, // A
-						{ type: "Insert", content: [{ id: "X" }], commute: Commutativity.MoveOnly },
-						{ type: "MoveInSlice", op: 1 }, // C
-					],
-				},
-			}],
-		}],
+					},
+				],
+			},
+		],
 	};
 }
 
@@ -548,60 +613,72 @@ export namespace ScenarioE {
 	export const e1: S.Transaction = {
 		seq: 1,
 		ref: 0,
-		frames: [{
-			moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "MoveOutStart", op: 0 },
-						1, // Skip B
-						{ type: "End", side: Sibling.Next, op: 0 },
-					],
-					bar: [
-						{ type: "MoveInSlice", op: 0 }, // B
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				moves: [{ src: { foo: 1 }, dst: { bar: 0 } }],
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "MoveOutStart", op: 0 },
+								1, // Skip B
+								{ type: "End", side: Sibling.Next, op: 0 },
+							],
+							bar: [
+								{ type: "MoveInSlice", op: 0 }, // B
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2: S.Transaction = {
 		seq: 2,
 		ref: 0,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "DeleteStart", op: 0 },
-						3, // Skip A B C
-						{ type: "End", op: 0 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "DeleteStart", op: 0 },
+								3, // Skip A B C
+								{ type: "End", op: 0 },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2p: S.Transaction = {
 		seq: 2,
 		ref: 0,
 		newRef: 1,
-		frames: [{
-			priorMoves: { 1: [{ src: { foo: 1 }, dst: { bar: 0 } }] },
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "DeleteStart", op: 0 },
-						1, // Skip A
-						{ type: "PriorMoveOutStart", seq: 1, op: 0 },
-						1, // Skip B
-						{ type: "PriorSliceEnd", seq: 1, op: 0 },
-						1, // Skip C
-						{ type: "End", op: 0 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				priorMoves: { 1: [{ src: { foo: 1 }, dst: { bar: 0 } }] },
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "DeleteStart", op: 0 },
+								1, // Skip A
+								{ type: "PriorMoveOutStart", seq: 1, op: 0 },
+								1, // Skip B
+								{ type: "PriorSliceEnd", seq: 1, op: 0 },
+								1, // Skip C
+								{ type: "End", op: 0 },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 }
 
@@ -618,116 +695,136 @@ export namespace ScenarioF {
 	export const e1: S.Transaction = {
 		ref: 0,
 		seq: 1,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "Insert", content: [{ id: "r" }] },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [{ type: "Insert", content: [{ id: "r" }] }],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2: S.Transaction = {
 		ref: 0,
 		seq: 2,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "Insert", content: [{ id: "x" }, { id: "z" }] },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{ type: "Insert", content: [{ id: "x" }, { id: "z" }] },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3: S.Transaction = {
 		ref: 0,
 		seq: 3,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						2, // Skip A x
-						{ type: "Insert", content: [{ id: "y" }] },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								2, // Skip A x
+								{ type: "Insert", content: [{ id: "y" }] },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2neg: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: -2,
 		maxSeq: -2,
-		marks: [{
-			modify: {
-				foo: [
-					1, // Skip A
-					{ type: "Delete", length: 2 },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						1, // Skip A
+						{ type: "Delete", length: 2 },
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e2pos: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: 2,
 		maxSeq: 2,
-		marks: [{
-			modify: {
-				foo: [
-					1, // Skip A
-					{ type: "Insert", content: [{ id: "x" }, { id: "z" }] },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						1, // Skip A
+						{ type: "Insert", content: [{ id: "x" }, { id: "z" }] },
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e2posp: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: 2,
 		maxSeq: 2,
-		marks: [{
-			modify: {
-				foo: [
-					2, // Skip r A
-					{ type: "Insert", content: [{ id: "x" }, { id: "z" }] },
-				],
-			},
-		}],
-	};
-
-	export const e3d: Sq.ChangeFrame = {
-		ref: 0,
-		minSeq: -2,
-		maxSeq: 2,
-		marks: [{
-			modify: {
-				foo: [
-					{ type: "Insert", content: [{ id: "r" }] },
-				],
-			},
-		}],
-	};
-
-	export const e2p: S.Transaction = {
-		ref: 0,
-		newRef: 1,
-		seq: 2,
-		frames: [{
-			marks: [{
+		marks: [
+			{
 				modify: {
 					foo: [
 						2, // Skip r A
 						{ type: "Insert", content: [{ id: "x" }, { id: "z" }] },
 					],
 				},
-			}],
-		}],
+			},
+		],
+	};
+
+	export const e3d: Sq.ChangeFrame = {
+		ref: 0,
+		minSeq: -2,
+		maxSeq: 2,
+		marks: [
+			{
+				modify: {
+					foo: [{ type: "Insert", content: [{ id: "r" }] }],
+				},
+			},
+		],
+	};
+
+	export const e2p: S.Transaction = {
+		ref: 0,
+		newRef: 1,
+		seq: 2,
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								2, // Skip r A
+								{ type: "Insert", content: [{ id: "x" }, { id: "z" }] },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3p: Rebased.Modify = {
@@ -758,256 +855,314 @@ export namespace ScenarioG {
 	export const e1: S.Transaction = {
 		ref: 0,
 		seq: 1,
-		frames: [{
-			moves: [{ src: { foo: 0 }, dst: { bar: 0 } }],
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "MoveOutStart", op: 0 },
-						2, // Skip A B
-						{ type: "End", side: Sibling.Next, op: 0 },
-					],
-					bar: [
-						{ type: "MoveInSlice", op: 0, length: 2 },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				moves: [{ src: { foo: 0 }, dst: { bar: 0 } }],
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "MoveOutStart", op: 0 },
+								2, // Skip A B
+								{ type: "End", side: Sibling.Next, op: 0 },
+							],
+							bar: [{ type: "MoveInSlice", op: 0, length: 2 }],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2: S.Transaction = {
 		ref: 0,
 		seq: 2,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "Insert", content: [{ id: "X" }, { id: "Y" }], commute: Commutativity.Full },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{
+									type: "Insert",
+									content: [{ id: "X" }, { id: "Y" }],
+									commute: Commutativity.Full,
+								},
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e3: S.Transaction = {
 		ref: 0,
 		seq: 3,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						2, // Skip A X
-						{ type: "Insert", content: [{ id: "N" }], commute: Commutativity.None },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								2, // Skip A X
+								{ type: "Insert", content: [{ id: "N" }], commute: Commutativity.None },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e4: S.Transaction = {
 		ref: 0,
 		seq: 4,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						1, // Skip A
-						{ type: "Insert", content: [{ id: "M" }], side: Sibling.Next, commute: Commutativity.None },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								1, // Skip A
+								{
+									type: "Insert",
+									content: [{ id: "M" }],
+									side: Sibling.Next,
+									commute: Commutativity.None,
+								},
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e5: S.Transaction = {
 		ref: 0,
 		seq: 5,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						5, // Skip A X M N Y
-						{ type: "Insert", content: [{ id: "O" }], commute: Commutativity.None },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								5, // Skip A X M N Y
+								{ type: "Insert", content: [{ id: "O" }], commute: Commutativity.None },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2p: S.Transaction = {
 		ref: 0,
 		newRef: 1,
 		seq: 2,
-		frames: [{
-			priorMoves: {
-				1: [{ src: { foo: 0 }, dst: { bar: 0 } }],
-			},
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "PriorMoveOutStart", seq: 1, op: 0 },
-						1, // Skip A
-						{ type: "Insert", content: [{ id: "X" }, { id: "Y" }], commute: Commutativity.Full },
-						1, // Skip B
-						{ type: "PriorSliceEnd", seq: 1, op: 0 },
-					],
+		frames: [
+			{
+				priorMoves: {
+					1: [{ src: { foo: 0 }, dst: { bar: 0 } }],
 				},
-			}],
-		}],
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "PriorMoveOutStart", seq: 1, op: 0 },
+								1, // Skip A
+								{
+									type: "Insert",
+									content: [{ id: "X" }, { id: "Y" }],
+									commute: Commutativity.Full,
+								},
+								1, // Skip B
+								{ type: "PriorSliceEnd", seq: 1, op: 0 },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e2neg: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: -2,
 		maxSeq: -2,
-		marks: [{
-			modify: {
-				foo: [
-					1, // Skip A
-					{ type: "Delete", length: 2 },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						1, // Skip A
+						{ type: "Delete", length: 2 },
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e2pos: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: 2,
 		maxSeq: 2,
-		marks: [{
-			modify: {
-				foo: [
-					1, // Skip A
-					{
-						type: "Insert",
-						content: [{ id: "X" }, { id: "Y" }],
-						commute: Commutativity.Full,
-					},
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						1, // Skip A
+						{
+							type: "Insert",
+							content: [{ id: "X" }, { id: "Y" }],
+							commute: Commutativity.Full,
+						},
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e2posp: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: 2,
 		maxSeq: 2,
-		marks: [{
-			modify: {
-				bar: [
-					1, // Skip A
-					{
-						type: "Insert",
-						content: [{ id: "X" }, { id: "Y" }],
-						commute: Commutativity.Full,
-					},
-				],
+		marks: [
+			{
+				modify: {
+					bar: [
+						1, // Skip A
+						{
+							type: "Insert",
+							content: [{ id: "X" }, { id: "Y" }],
+							commute: Commutativity.Full,
+						},
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e3neg: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: -3,
 		maxSeq: -3,
-		marks: [{
-			modify: {
-				foo: [
-					2, // Skip A X
-					{ type: "Delete" },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						2, // Skip A X
+						{ type: "Delete" },
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e3pos: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: 3,
 		maxSeq: 3,
-		marks: [{
-			modify: {
-				foo: [
-					2, // Skip A X
-					{
-						type: "Insert",
-						content: [{ id: "N" }],
-						commute: Commutativity.None,
-					},
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						2, // Skip A X
+						{
+							type: "Insert",
+							content: [{ id: "N" }],
+							commute: Commutativity.None,
+						},
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e3posp: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: 3,
 		maxSeq: 3,
-		marks: [{
-			modify: {
-				foo: [
-					{ type: "PriorDetach", seq: 1 },
-					{ type: "PriorDetach", seq: -2 },
-					{
-						type: "Insert",
-						content: [{ id: "N" }],
-						commute: Commutativity.None,
-					},
-					{ type: "PriorDetach", seq: -2 },
-					{ type: "PriorDetach", seq: 1 },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						{ type: "PriorDetach", seq: 1 },
+						{ type: "PriorDetach", seq: -2 },
+						{
+							type: "Insert",
+							content: [{ id: "N" }],
+							commute: Commutativity.None,
+						},
+						{ type: "PriorDetach", seq: -2 },
+						{ type: "PriorDetach", seq: 1 },
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e4neg: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: -4,
 		maxSeq: -4,
-		marks: [{
-			modify: {
-				foo: [
-					1, // Skip A
-					{ type: "Delete" },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						1, // Skip A
+						{ type: "Delete" },
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e4pos: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: 4,
 		maxSeq: 4,
-		marks: [{
-			modify: {
-				foo: [
-					1, // Skip A
-					{ type: "Insert", content: [{ id: "M" }], side: Sibling.Next, commute: Commutativity.None },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						1, // Skip A
+						{
+							type: "Insert",
+							content: [{ id: "M" }],
+							side: Sibling.Next,
+							commute: Commutativity.None,
+						},
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e4posp: Sq.ChangeFrame = {
 		ref: 0,
 		minSeq: 4,
 		maxSeq: 4,
-		marks: [{
-			modify: {
-				foo: [
-					{ type: "PriorDetach", seq: 1 },
-					{
-						type: "Insert",
-						content: [{ id: "M" }],
-						commute: Commutativity.None,
-					},
-					{ type: "PriorDetach", seq: -2 },
-					1,
-					{ type: "PriorDetach", seq: -2 },
-					{ type: "PriorDetach", seq: 1 },
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						{ type: "PriorDetach", seq: 1 },
+						{
+							type: "Insert",
+							content: [{ id: "M" }],
+							commute: Commutativity.None,
+						},
+						{ type: "PriorDetach", seq: -2 },
+						1,
+						{ type: "PriorDetach", seq: -2 },
+						{ type: "PriorDetach", seq: 1 },
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e3d: Sq.ChangeFrame = {
@@ -1015,18 +1170,20 @@ export namespace ScenarioG {
 		minSeq: -2,
 		maxSeq: 2,
 		moves: [{ src: { foo: 0 }, dst: { bar: 0 } }],
-		marks: [{
-			modify: {
-				foo: [
-					{ type: "MoveOutStart", op: 0 },
-					4, // Skip A X Y B
-					{ type: "End", side: Sibling.Next, op: 0 },
-				],
-				bar: [
-					{ type: "MoveInSlice", op: 0 }, // A X Y B
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						{ type: "MoveOutStart", op: 0 },
+						4, // Skip A X Y B
+						{ type: "End", side: Sibling.Next, op: 0 },
+					],
+					bar: [
+						{ type: "MoveInSlice", op: 0 }, // A X Y B
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e4d: Sq.ChangeFrame = {
@@ -1034,24 +1191,30 @@ export namespace ScenarioG {
 		minSeq: -3,
 		maxSeq: 3,
 		moves: [{ src: { foo: 0 }, dst: { bar: 0 } }],
-		marks: [{
-			modify: {
-				foo: [
-					{ type: "MoveOutStart", op: 0 },
-					1, // Skip A
-					{ type: "Delete" }, // X
-					1, // N
-					{ type: "Delete" }, // Y
-					1, // Skip B
-					{ type: "End", side: Sibling.Next, op: 0 },
-				],
-				bar: [
-					{ type: "MoveInSlice", op: 0 }, // A
-					{ type: "Insert", content: [{ id: "X" }, { id: "Y" }], commute: Commutativity.Full },
-					{ type: "MoveInSlice", op: 0 }, // B
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						{ type: "MoveOutStart", op: 0 },
+						1, // Skip A
+						{ type: "Delete" }, // X
+						1, // N
+						{ type: "Delete" }, // Y
+						1, // Skip B
+						{ type: "End", side: Sibling.Next, op: 0 },
+					],
+					bar: [
+						{ type: "MoveInSlice", op: 0 }, // A
+						{
+							type: "Insert",
+							content: [{ id: "X" }, { id: "Y" }],
+							commute: Commutativity.Full,
+						},
+						{ type: "MoveInSlice", op: 0 }, // B
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e5d: Sq.ChangeFrame = {
@@ -1059,77 +1222,95 @@ export namespace ScenarioG {
 		minSeq: -4,
 		maxSeq: 4,
 		moves: [{ src: { foo: 0 }, dst: { bar: 0 } }],
-		marks: [{
-			modify: {
-				foo: [
-					{ type: "MoveOutStart", op: 0 },
-					2, // Skip A M
-					{ type: "Delete" }, // X
-					1, // N
-					{ type: "Delete" }, // Y
-					1, // Skip B
-					{ type: "End", side: Sibling.Next, op: 0 },
-				],
-				bar: [
-					{ type: "MoveInSlice", op: 0 }, // A
-					{ type: "Insert", content: [{ id: "X" }, { id: "Y" }], commute: Commutativity.Full },
-					{ type: "MoveInSlice", op: 0 }, // B
-				],
+		marks: [
+			{
+				modify: {
+					foo: [
+						{ type: "MoveOutStart", op: 0 },
+						2, // Skip A M
+						{ type: "Delete" }, // X
+						1, // N
+						{ type: "Delete" }, // Y
+						1, // Skip B
+						{ type: "End", side: Sibling.Next, op: 0 },
+					],
+					bar: [
+						{ type: "MoveInSlice", op: 0 }, // A
+						{
+							type: "Insert",
+							content: [{ id: "X" }, { id: "Y" }],
+							commute: Commutativity.Full,
+						},
+						{ type: "MoveInSlice", op: 0 }, // B
+					],
+				},
 			},
-		}],
+		],
 	};
 
 	export const e3p: S.Transaction = {
 		ref: 0,
 		newRef: 2,
 		seq: 3,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "PriorDetach", seq: 1 }, // A
-						{ type: "PriorDetach", seq: -2 }, // X
-						{ type: "Insert", content: [{ id: "N" }], commute: Commutativity.None },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "PriorDetach", seq: 1 }, // A
+								{ type: "PriorDetach", seq: -2 }, // X
+								{ type: "Insert", content: [{ id: "N" }], commute: Commutativity.None },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e4p: S.Transaction = {
 		ref: 0,
 		newRef: 3,
 		seq: 4,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "PriorDetach", seq: 1 }, // A
-						{ type: "Insert", content: [{ id: "M" }], commute: Commutativity.None },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "PriorDetach", seq: 1 }, // A
+								{ type: "Insert", content: [{ id: "M" }], commute: Commutativity.None },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const e5p: S.Transaction = {
 		ref: 0,
 		newRef: 3,
 		seq: 4,
-		frames: [{
-			marks: [{
-				modify: {
-					foo: [
-						{ type: "PriorDetach", seq: 1 }, // A
-						1, // M
-						{ type: "PriorDetach", seq: -2 }, // X
-						1, // N
-						{ type: "PriorDetach", seq: -2 }, // Y
-						{ type: "Insert", content: [{ id: "O" }], commute: Commutativity.None },
-					],
-				},
-			}],
-		}],
+		frames: [
+			{
+				marks: [
+					{
+						modify: {
+							foo: [
+								{ type: "PriorDetach", seq: 1 }, // A
+								1, // M
+								{ type: "PriorDetach", seq: -2 }, // X
+								1, // N
+								{ type: "PriorDetach", seq: -2 }, // Y
+								{ type: "Insert", content: [{ id: "O" }], commute: Commutativity.None },
+							],
+						},
+					},
+				],
+			},
+		],
 	};
 
 	export const originals = [e1, e2, e3, e4, e5];

@@ -4,45 +4,43 @@
  */
 
 module.exports = {
-    extends: [require.resolve("@fluidframework/eslint-config-fluid")],
-    parserOptions: {
-        project: ["./tsconfig.json", "./src/test/tsconfig.json"],
-    },
-    rules: {
-        "@typescript-eslint/strict-boolean-expressions": "off",
-        "unicorn/filename-case": [
-            "error",
-            {
-                cases: {
-                    camelCase: true,
-                    pascalCase: true,
-                },
-                ignore: [/.*routerlicious-urlResolver\.spec\.ts/],
-            },
-        ],
+	extends: [require.resolve("@fluidframework/eslint-config-fluid")],
+	parserOptions: {
+		project: ["./tsconfig.json", "./src/test/tsconfig.json"],
+	},
+	rules: {
+		"@typescript-eslint/strict-boolean-expressions": "off",
+		"unicorn/filename-case": [
+			"error",
+			{
+				cases: {
+					camelCase: true,
+					pascalCase: true,
+				},
+				ignore: [/.*routerlicious-urlResolver\.spec\.ts/],
+			},
+		],
 
-        // This library is used in the browser, so we don't want dependencies on most node libraries.
-        "import/no-nodejs-modules": ["error", { allow: ["url"] }],
-    },
-    overrides: [
-        {
-            // Rules only for test files
-            files: ["*.spec.ts", "src/test/**"],
-            rules: {
-                // Test files are run in node only so additional node libraries can be used.
-                "import/no-nodejs-modules": [
-                    "error",
-                    { allow: ["assert"] },
-                ],
-            },
-        },{
-            // Rules only for type validation files
-            files: ["**/test/types/*.generated.*"],
-            rules: {
-                "max-len": "off",
-                "@typescript-eslint/semi": "off",
-                "@typescript-eslint/comma-spacing": "off",
-            },
-        },
-    ],
+		// This library is used in the browser, so we don't want dependencies on most node libraries.
+		"import/no-nodejs-modules": ["error", { allow: ["url"] }],
+	},
+	overrides: [
+		{
+			// Rules only for test files
+			files: ["*.spec.ts", "src/test/**"],
+			rules: {
+				// Test files are run in node only so additional node libraries can be used.
+				"import/no-nodejs-modules": ["error", { allow: ["assert"] }],
+			},
+		},
+		{
+			// Rules only for type validation files
+			files: ["**/test/types/*.generated.*"],
+			rules: {
+				"max-len": "off",
+				"@typescript-eslint/semi": "off",
+				"@typescript-eslint/comma-spacing": "off",
+			},
+		},
+	],
 };
