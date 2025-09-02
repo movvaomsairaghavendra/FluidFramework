@@ -197,8 +197,8 @@ export class PresenceDatastoreManagerImpl implements PresenceDatastoreManager {
 
 	/**
 	 * When defined, this client appears to be alone in the session.
-	 * Call when no longer carrying about that condition to clear
-	 * listeners.
+	 * Call when no longer caring about that condition. That way listeners are
+	 * cleaned up.
 	 */
 	private stopWaitingForAudienceMembers: undefined | (() => void);
 
@@ -261,7 +261,7 @@ export class PresenceDatastoreManagerImpl implements PresenceDatastoreManager {
 		const otherMembers = audience.getMembers();
 		// Remove self (if present)
 		otherMembers.delete(selfClientId);
-		// Also exclude non-interactive clients
+		// It is worth ignoring non-interactive clients
 		const othersWorthIgnoring: ClientConnectionId[] = [];
 		for (const [id, client] of otherMembers) {
 			if (!client.details.capabilities.interactive) {
