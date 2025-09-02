@@ -140,6 +140,7 @@ export function resolveVersion(requested: string, installed: boolean) {
             resolutionCache.set(requested, version);
             return version;
         } catch (e) {
+            console.error(`result: '${result}'`);
             console.error(`Encountered error while parsing versions for ${requested}:`);
             console.error(e);
             throw new Error(`Error parsing versions for ${requested}`);
