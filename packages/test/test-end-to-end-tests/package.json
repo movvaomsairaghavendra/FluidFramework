@@ -33,7 +33,7 @@
     "test:realsvc:odsp": "npm run test:realsvc:run -- --driver=odsp --timeout=20s",
     "test:realsvc:odsp:report": "cross-env FLUID_TEST_REPORT=1 npm run test:realsvc:odsp --",
     "test:realsvc:r11s": "npm run test:realsvc:run -- --driver=r11s --use-openssl-ca --timeout=20s",
-    "test:realsvc:report": "cross-env FLUID_TEST_REPORT=1 npm run test:realsvc",
+    "test:realsvc:report": "npm run test:realsvc",
     "test:realsvc:routerlicious": "npm run test:realsvc:r11s",
     "test:realsvc:routerlicious:report": "cross-env FLUID_TEST_REPORT=1 npm run test:realsvc:r11s --",
     "test:realsvc:run": "mocha dist/test --config src/test/.mocharc.js",
