@@ -4,4 +4,4 @@
 ---
 Improved join scalability
 
-Protocol for attendees joining has been updated to accommodate larger attendees included when few to none have write access.
+Protocol for attendees joining has been updated to more efficiently accommodate a larger number of attendees, including when few-to-none have write access.
