@@ -125,9 +125,13 @@ describe(`Presence with AzureClient`, () => {
 		 */
 		const childConnectTimeoutMs = 1000 * numClients * timeoutMultiplier;
 		/**
-		 * Timeout for presence attendees to connect {@link AttendeeConnectedEvent}
+		 * Timeout for presence attendees to join per first child perspective {@link AttendeeConnectedEvent}
 		 */
 		const allAttendeesJoinedTimeoutMs = (1000 + 200 * numClients) * timeoutMultiplier;
+		/**
+		 * Timeout for presence attendees to fully join (everyone knows about everyone) {@link AttendeeConnectedEvent}
+		 */
+		const allAttendeesFullyJoinedTimeoutMs = (2000 + 300 * numClients) * timeoutMultiplier;
 
 		for (const writeClients of [numClients, 1]) {
 			it(`announces 'attendeeConnected' when remote client joins session [${numClients} clients, ${writeClients} writers]`, async function () {
@@ -158,7 +162,7 @@ describe(`Presence with AzureClient`, () => {
 				setTimeout(
 					this,
 					childConnectTimeoutMs +
-						allAttendeesJoinedTimeoutMs +
+						allAttendeesFullyJoinedTimeoutMs +
 						childDisconnectTimeoutMs +
 						1000,
 				);
@@ -169,11 +173,18 @@ describe(`Presence with AzureClient`, () => {
 					afterCleanUp,
 				);
 
+				const startConnectAndFullJoin = performance.now();
 				const connectResult = await connectAndListenForAttendees(children, {
 					writeClients,
 					attendeeCountRequired: numClients - 1,
 					childConnectTimeoutMs,
 				});
+				// eslint-disable-next-line @typescript-eslint/no-floating-promises
+				connectResult.attendeeCountRequiredPromises[0].then(() =>
+					testConsole.log(
+						`All attendees joined per child 0 after ${performance.now() - startConnectAndFullJoin}ms`,
+					),
+				);
 
 				// Wait for all attendees to be fully joined
 				// Keep a tally for debuggability
@@ -184,15 +195,38 @@ describe(`Presence with AzureClient`, () => {
 						attendeeFullyJoinedPromise.then(() => childrenFullyJoined++),
 					),
 				);
-				await timeoutAwait(allAttendeesFullyJoined, {
-					durationMs: allAttendeesJoinedTimeoutMs,
+				let timedout = true;
+				const allFullyJoinedOrChildError = Promise.race([
+					allAttendeesFullyJoined,
+					childErrorPromise,
+				]).finally(() => (timedout = false));
+				await timeoutAwait(allFullyJoinedOrChildError, {
+					durationMs: allAttendeesFullyJoinedTimeoutMs,
 					errorMsg: "Not all attendees fully joined",
-				}).catch((error) => {
+				}).catch(async (error) => {
 					// Ideally this information would just be in the timeout error message, but that
 					// must be a resolved string (not dynamic). So, just log it separately.
 					testConsole.log(`${childrenFullyJoined} attendees fully joined before error...`);
+					if (timedout) {
+						// Gather additional timing data if timed out to understand what increased
+						// timeout could work. Test will still fail if this secondary wait succeeds.
+						const startAdditionalWait = performance.now();
+						try {
+							await timeoutAwait(allFullyJoinedOrChildError, {
+								durationMs: allAttendeesFullyJoinedTimeoutMs,
+							});
+							testConsole.log(
+								`All attendees fully joined after additional wait (${performance.now() - startAdditionalWait}ms)`,
+							);
+						} catch (secondaryError) {
+							testConsole.log("Secondary await resulted in", secondaryError);
+						}
+					}
 					throw error;
 				});
+				testConsole.log(
+					`All attendees fully joined after ${performance.now() - startConnectAndFullJoin}ms`,
+				);
 
 				const waitForDisconnected = children.map(async (child, index) =>
 					index === 0
