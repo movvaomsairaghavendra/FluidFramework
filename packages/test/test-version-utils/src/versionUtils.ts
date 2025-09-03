@@ -116,6 +116,7 @@ export function resolveVersion(requested: string, installed: boolean) {
         }
         throw new Error(`No matching version found in ${baseModulePath}`);
     } else {
+        console.error(`Attempting to fetch fluidframework/container-loader@"${requested}`);
         let result = execSync(
             `npm v @fluidframework/container-loader@"${requested}" version --json`,
             { encoding: "utf8" },
@@ -126,6 +127,7 @@ export function resolveVersion(requested: string, installed: boolean) {
             const requestedVersion = new semver.SemVer(requested.substring(requested.indexOf("^") + 1));
             if (requestedVersion.patch === 0 && requestedVersion.prerelease.length > 0) {
                 const retryVersion = `^${requestedVersion.major}.${requestedVersion.minor}.1000-0`;
+                console.error(`Retrying with virtual patch version ${retryVersion}`);
                 result = execSync(
                     `npm v @fluidframework/container-loader@"${retryVersion}" version --json`,
                     { encoding: "utf8" },
