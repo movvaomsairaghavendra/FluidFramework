@@ -127,7 +127,6 @@ export const compatKind = nconf.get("fluid:test:compatKind") as CompatKind[] | u
 export const compatVersions = nconf.get("fluid:test:compatVersion") as string[] | undefined;
 export const driver = nconf.get("fluid:test:driver") as TestDriverTypes;
 export const r11sEndpointName = nconf.get("fluid:test:r11sEndpointName") as RouterliciousEndpoint;
-console.log(`fluid:test:baseVersion = ${nconf.get("fluid:test:baseVersion")}`);
 export const baseVersion = resolveVersion(nconf.get("fluid:test:baseVersion") as string, false);
 export const reinstall = nconf.get("fluid:test:reinstall");
 export const tenantIndex = nconf.get("fluid:test:tenantIndex") as number;
