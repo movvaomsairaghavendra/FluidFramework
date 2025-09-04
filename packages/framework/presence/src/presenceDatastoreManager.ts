@@ -475,7 +475,7 @@ export class PresenceDatastoreManagerImpl implements PresenceDatastoreManager {
 		// Either we need to send this message immediately, or we need to schedule a timer
 		// to fire at the send deadline that will take care of it.
 
-		// Note that timeoutInMs === allowableUpdateLatency, but the calculation is done this way for clarity.
+		// Note that timeoutInMs === allowableUpdateLatencyMs, but the calculation is done this way for clarity.
 		const timeoutInMs = thisMessageDeadline - now;
 		const scheduleForLater = timeoutInMs > 0;
 
