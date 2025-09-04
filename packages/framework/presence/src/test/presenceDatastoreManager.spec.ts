@@ -213,6 +213,8 @@ describe("Presence", () => {
 					eventName: "Presence:JoinResponse",
 					details: JSON.stringify({
 						type: "broadcastAll",
+						attendeeId: attendeeId2,
+						connectionId: connectionId2,
 						primaryResponses: JSON.stringify(["client4", "client5"]),
 						secondaryResponses: JSON.stringify([]),
 					}),
@@ -275,6 +277,8 @@ describe("Presence", () => {
 						eventName: "Presence:JoinResponse",
 						details: JSON.stringify({
 							type: "broadcastAll",
+							attendeeId: attendeeId2,
+							connectionId: connectionId2,
 							primaryResponses: JSON.stringify([]),
 							secondaryResponses: JSON.stringify([["client4", responseOrder]]),
 						}),
@@ -354,6 +358,8 @@ describe("Presence", () => {
 						eventName: "Presence:JoinResponse",
 						details: JSON.stringify({
 							type: "broadcastAll",
+							attendeeId: attendeeId2,
+							connectionId: connectionId2,
 							primaryResponses: JSON.stringify([]),
 							secondaryResponses: JSON.stringify([["client5", responseOrder]]),
 						}),
