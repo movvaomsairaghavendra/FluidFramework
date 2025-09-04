@@ -33,7 +33,6 @@
     "lint": "npm run eslint",
     "lint:fix": "npm run eslint:fix",
     "stress": "mocha --recursive dist/test/**/*.spec.js --exit -r node_modules/@fluidframework/mocha-test-setup --unhandled-rejections=strict --fgrep stress-loop",
-		"pack:tests": "tar -cf ./matrix.test-files.tar ./src/test ./dist/test ./lib/test",
     "test": "npm run test:mocha",
     "test:coverage": "nyc npm test -- --reporter xunit --reporter-option output=nyc/junit-report.xml --exit",
     "test:mocha": "npm run stress -- --invert",
