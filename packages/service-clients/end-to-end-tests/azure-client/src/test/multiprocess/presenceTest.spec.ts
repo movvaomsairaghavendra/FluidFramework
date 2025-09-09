@@ -157,6 +157,13 @@ describe(`Presence with AzureClient`, () => {
 			});
 
 			it(`announces 'attendeeDisconnected' when remote client disconnects [${numClients} clients, ${writeClients} writers]`, async function () {
+				if (useAzure && numClients > 50) {
+					// Even with increased timeouts, more than 50 clients can be too large for AFR.
+					// This may be due to slow responses/inactivity from the clients that are
+					// creating pressure on ADO agent.
+					this.skip();
+				}
+
 				const childDisconnectTimeoutMs = 10_000 * timeoutMultiplier;
 
 				setTimeout(
