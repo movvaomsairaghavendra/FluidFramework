@@ -94,11 +94,6 @@ function setTimeout(context: Mocha.Context, duration: number): void {
  * - Send response messages including any relevant data back to the orchestrator to verify expected behavior.
  */
 
-/**
- * This particular test suite tests the following E2E functionality for Presence:
- * - Announce 'attendeeConnected' when remote client joins session.
- * - Announce 'attendeeDisconnected' when remote client disconnects.
- */
 describe(`Presence with AzureClient`, () => {
 	const afterCleanUp: (() => void)[] = [];
 
