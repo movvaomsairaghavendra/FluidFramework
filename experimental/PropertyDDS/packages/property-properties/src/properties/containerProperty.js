@@ -43,7 +43,7 @@ export class ContainerProperty extends IndexedCollectionBaseProperty {
     /**
      * Returns the sub-property having the given name in this property.
      *
-     * @param  {string|number} in_id- -  the id of the prop you wish to retrieve.
+     * @param  {string|number} in_id -  the id of the prop you wish to retrieve.
      *
      * @return {property-properties.BaseProperty | undefined} The property you seek or undefined if none is found.
      */

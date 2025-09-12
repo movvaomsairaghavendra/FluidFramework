@@ -35,13 +35,13 @@ export class AbstractStaticCollectionProperty extends BaseProperty {
     /**
      * Returns the sub-property having the given name, or following the given paths, in this property.
      *
-     * @param  {string|number|array<string|number>} in_ids- -  the ID or IDs of the property or an array of IDs
+     * @param  {string|number|array<string|number>} in_ids -  the ID or IDs of the property or an array of IDs
      *     if an array is passed, the .get function will be performed on each id in sequence
      *     for example .get(['position','x']) is equivalent to .get('position').get('x').
      *     If .get resolves to a ReferenceProperty, it will, by default, return the property that the
      *     ReferenceProperty refers to.
      * @param {Object} in_options - parameter object
-     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS]- -
+     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS] -
      *     How should this function behave during reference resolution?
      *
      * @throws if an in_id is neither a string or an array of strings and numbers.
@@ -83,25 +83,25 @@ export class AbstractStaticCollectionProperty extends BaseProperty {
                 }
             }
         } else {
-switch (in_ids) {
- case PATH_TOKENS.ROOT: {
-            prop = prop.getRoot();
+            switch (in_ids) {
+                case PATH_TOKENS.ROOT: {
+                    prop = prop.getRoot();
 
- break;
- }
- case PATH_TOKENS.UP: {
-            prop = prop.getParent();
+                    break;
+                }
+                case PATH_TOKENS.UP: {
+                    prop = prop.getParent();
 
- break;
- }
- case PATH_TOKENS.REF: {
-            throw new Error(MSG.NO_GET_DEREFERENCE_ONLY);
+                    break;
+                }
+                case PATH_TOKENS.REF: {
+                    throw new Error(MSG.NO_GET_DEREFERENCE_ONLY);
+                }
+                default: {
+                    throw new Error(MSG.STRING_OR_ARRAY_STRINGS + in_ids);
+                }
+            }
         }
- default: {
-            throw new Error(MSG.STRING_OR_ARRAY_STRINGS + in_ids);
-        }
- }
-}
 
         return prop;
     }
@@ -109,7 +109,7 @@ switch (in_ids) {
     /**
      * Returns the sub-property having the given name in this property.
      *
-     * @param  {string|number} in_id- -  the id of the prop you wish to retrieve.
+     * @param  {string|number} in_id -  the id of the prop you wish to retrieve.
      *
      * @return {property-properties.BaseProperty | undefined} The property you seek or undefined if none is found.
      */
@@ -143,13 +143,13 @@ switch (in_ids) {
     /**
      * returns the value of a sub-property
      * This is a shortcut for .get(in_ids, in_options).getValue()
-     * @param  {string|number|Array<string|number>} in_ids- -  the ID or IDs of the property or an array of IDs
+     * @param  {string|number|Array<string|number>} in_ids -  the ID or IDs of the property or an array of IDs
      *     if an array is passed, the .get function will be performed on each id in sequence
      *     for example .getValue(['position','x']) is equivalent to .get('position').get('x').getValue().
      *     If at any point .get resolves to a ReferenceProperty, it will, by default, return the property that the
      *     ReferenceProperty refers to.
      * @param {Object} in_options - parameter object
-     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS]- -
+     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS] -
      *     How should this function behave during reference resolution?
      * @throws if the in_ids does not resolve to a ValueProperty or StringProperty
      * @throws if in_ids is not a string or an array of strings or numbers.
@@ -238,7 +238,7 @@ switch (in_ids) {
      *
      * @param {string} in_path - the path
      * @param {Object} in_options - parameter object
-     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS]- -
+     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS] -
      *     How should this function behave during reference resolution?
      * @throws if in_path is not a valid path
      * @return {property-properties.BaseProperty|undefined|*} resolved path

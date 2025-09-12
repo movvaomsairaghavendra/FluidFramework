@@ -45,13 +45,13 @@ export class ReferenceMapProperty extends StringMapProperty {
     /**
      * Resolves the referenced property for the given key
      *
-     * @param  {string|array<string|number>} in_ids- -  the ID of the property or an array of IDs
+     * @param  {string|array<string|number>} in_ids -  the ID of the property or an array of IDs
      *     if an array is passed, the .get function will be performed on each id in sequence
      *     for example .get(['position','x']) is equivalent to .get('position').get('x').
      *     If .get resolves to a ReferenceProperty, it will return the property that the ReferenceProperty
      *     refers to.
      * @param {Object} in_options - parameter object
-     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS]- -
+     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS] -
      *     How should this function behave during reference resolution?
      *
      * @return {property-properties.BaseProperty|undefined} The property object the reference points to or undefined if it

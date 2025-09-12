@@ -105,8 +105,7 @@ export type OperationRange = OperationRangeNoneNOP | OperationRangeNOP;
  * compute a range for an operation of the current change set
  * @param io_operation - input
  * @param in_aOffset - the offset that needs to be added to transform the operation
- * @param io_resultingRange- -
- * the computed range
+ * @param io_resultingRange - the computed range
  */
 const getRangeForCurrentStateOperation = function(io_operation: GenericOperation, in_aOffset: number, io_resultingRange: OperationRange) {
     if (!io_operation) {

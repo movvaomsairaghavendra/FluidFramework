@@ -234,7 +234,7 @@ export class Integer64Property extends ValueProperty {
     /**
      * The toString() method returns a string representing the specified Integer64 object.
      *
-     * @param {number} [in_radix = 10]  - An integer between 2 and 36 specifying
+     * @param {number} [in_radix = 10] - An integer between 2 and 36 specifying
      *      the base to use for representing numeric values.
      * @return {string} A string representing the specified Integer64 object.
      */

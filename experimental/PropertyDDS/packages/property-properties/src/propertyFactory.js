@@ -413,9 +413,9 @@ class PropertyFactory {
     /**
     * Add a listener for a given type of event.
     *
-    * @param  {string} eventName- -  A string representing the type of event upon which the
+    * @param  {string} eventName - A string representing the type of event upon which the
     *   listener will be notified.
-    * @param  {function} eventListener- -  The function to call when the "type" of event
+    * @param  {function} eventListener - The function to call when the "type" of event
     *   is emitted.
     * @public
     */
@@ -427,9 +427,9 @@ class PropertyFactory {
     * Remove a listener for a given type of event. Iff a listener was removed,
     * an event 'removeListener' will be emitted.
     *
-    * @param  {string} eventName- -  A string representing the type of event on which the
+    * @param  {string} eventName - A string representing the type of event on which the
     *   listener was attached.
-    * @param  {function} eventListener- -  The function to remove from the list of functions
+    * @param  {function} eventListener - The function to remove from the list of functions
     * @public
     * */
     removeListener(eventName, eventListener) {
@@ -800,7 +800,7 @@ class PropertyFactory {
      *
      * @param {property-properties.PropertyTemplate|string}                            in_typeid  -
      *     typeid of for the property the given template/constructor represents
-     * @param {property-properties.PropertyTemplate|object|property-properties.BaseProperty} in_templateOrProperty- -
+     * @param {property-properties.PropertyTemplate|object|property-properties.BaseProperty} in_templateOrProperty -
      *     Template/native property class to associate with the typeid
      * @param {string}                                                          [in_context='single'] -
      *     The context for which the parameter is added (if it is set to all the object will be used in

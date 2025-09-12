@@ -195,7 +195,7 @@ export class EnumArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Int32Array, in_length);

@@ -237,7 +237,7 @@ export class ArrayProperty extends AbstractStaticCollectionProperty {
 
     /**
      * Add one or more values at the end of the array
-     * @param {Array<property-properties.BaseProperty>|property-properties.BaseProperty|*|Array<*>} in_values- -
+     * @param {Array<property-properties.BaseProperty>|property-properties.BaseProperty|*|Array<*>} in_values -
      * the item or items to be pushed (either properties or values). If an array is passed, .push
      *  will be called on each item in the array.
      * @throws if trying to push a property that is a root property
@@ -494,10 +494,10 @@ export class ArrayProperty extends AbstractStaticCollectionProperty {
     /**
      * Sets the pending and dirty changesets
      *
-     * @param {property-properties.SerializedChangeSet|undefined|null} in_pending- -
+     * @param {property-properties.SerializedChangeSet|undefined|null} in_pending -
      *     The pending changeset. If null is passed, no change will be
      *     applied. undefined indicates that the changes should be reset
-     * @param {property-properties.SerializedChangeSet|undefined|null} in_dirty- -
+     * @param {property-properties.SerializedChangeSet|undefined|null} in_dirty -
      *     The dirty changeset. If null is passed, no change will be
      *     applied. undefined indicates that the changes should be reset
      */
@@ -821,7 +821,7 @@ export class ArrayProperty extends AbstractStaticCollectionProperty {
      * For example, .get([0,'position','x']) is the equivalent of .get(0).get('position').get('x')
      * If it encounters a ReferenceProperty, .get will, by default, resolve the property it refers to.
      * @param {Object} in_options - parameter object
-     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS]- -
+     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS] -
      *     How should this function behave during reference resolution?
      * @throws if in_position is an array and the first item in the array is not a number
      * @throws if in_position is neither an array nor a number.
@@ -868,26 +868,26 @@ export class ArrayProperty extends AbstractStaticCollectionProperty {
         }
 
         switch (in_position) {
-        case PATH_TOKENS.ROOT: {
-            return prop.getRoot();
-        }
-        case PATH_TOKENS.UP: {
-            return prop.getParent();
-        }
-        case PATH_TOKENS.REF: {
-            throw new Error(MSG.NO_GET_DEREFERENCE_ONLY);
-        }
-        default: {
-            var pos = Math.floor(in_position);
-            ConsoleUtils.assert(isFinite(pos), MSG.IN_POSITION_MUST_BE_NUMBER);
-            var result = this._dataArrayGetValue(pos);
-            if (in_options.referenceResolutionMode === BaseProperty.REFERENCE_RESOLUTION.ALWAYS) {
-                if (result instanceof Property.ReferenceProperty) {
-                    result = result.ref;
-                }
+            case PATH_TOKENS.ROOT: {
+                return prop.getRoot();
             }
-            return result;
-        }
+            case PATH_TOKENS.UP: {
+                return prop.getParent();
+            }
+            case PATH_TOKENS.REF: {
+                throw new Error(MSG.NO_GET_DEREFERENCE_ONLY);
+            }
+            default: {
+                var pos = Math.floor(in_position);
+                ConsoleUtils.assert(isFinite(pos), MSG.IN_POSITION_MUST_BE_NUMBER);
+                var result = this._dataArrayGetValue(pos);
+                if (in_options.referenceResolutionMode === BaseProperty.REFERENCE_RESOLUTION.ALWAYS) {
+                    if (result instanceof Property.ReferenceProperty) {
+                        result = result.ref;
+                    }
+                }
+                return result;
+            }
         }
     }
 
@@ -1474,45 +1474,45 @@ export class ArrayProperty extends AbstractStaticCollectionProperty {
             } else if (currentArrayIndex === opStartIndex) {
                 // handle the op
                 switch (op.type) {
-                case ArrayChangeSetIterator.types.REMOVE: {
-                    // no need to do something (removes are just copied)
-                    iterator.next(); // we've completely consumed that op
+                    case ArrayChangeSetIterator.types.REMOVE: {
+                        // no need to do something (removes are just copied)
+                        iterator.next(); // we've completely consumed that op
 
-                break;
-                }
-                case ArrayChangeSetIterator.types.INSERT: {
-                    // we have to convert the inserts:
-                    var currentInsert = op.operation;
-                    var newInsert = [currentInsert[0], []];
-                    for (var j = 0; j < currentInsert[1].length; ++j) {
-                        // TODO: we don't use the data from the changeset anymore, since we directly
-                        // TODO: read the data from the array now - remove the data from the op and
-                        // TODO: replace it with just the length instead
-                        if (!this._dataArrayGetValue(opStartIndex + j)) {
-                            throw new Error('insert: invalid index');
+                    break;
+                    }
+                    case ArrayChangeSetIterator.types.INSERT: {
+                        // we have to convert the inserts:
+                        var currentInsert = op.operation;
+                        var newInsert = [currentInsert[0], []];
+                        for (var j = 0; j < currentInsert[1].length; ++j) {
+                            // TODO: we don't use the data from the changeset anymore, since we directly
+                            // TODO: read the data from the array now - remove the data from the op and
+                            // TODO: replace it with just the length instead
+                            if (!this._dataArrayGetValue(opStartIndex + j)) {
+                                throw new Error('insert: invalid index');
+                            }
+                            newInsert[1].push(this._dataArrayGetValue(opStartIndex + j).serialize(
+                                {
+                                    'dirtyOnly': false, 'includeRootTypeid': true, 'dirtinessType': in_dirtinessType,
+                                    'includeReferencedRepositories': in_includeReferencedRepositories,
+                                }));
                         }
-                        newInsert[1].push(this._dataArrayGetValue(opStartIndex + j).serialize(
-                            {
-                                'dirtyOnly': false, 'includeRootTypeid': true, 'dirtinessType': in_dirtinessType,
-                                'includeReferencedRepositories': in_includeReferencedRepositories,
-                            }));
-                    }
-                    if (!result.insert) {
-                        result.insert = [];
-                    }
-                    result.insert.push(newInsert);
-                    currentArrayIndex += currentInsert[1].length; // we've read and used these entries above
-                    iterator.next(); // we've completely consumed that op
+                        if (!result.insert) {
+                            result.insert = [];
+                        }
+                        result.insert.push(newInsert);
+                        currentArrayIndex += currentInsert[1].length; // we've read and used these entries above
+                        iterator.next(); // we've completely consumed that op
 
-                break;
-                }
-                case ArrayChangeSetIterator.types.MODIFY: {
-                    // Prevent from looping infinitly
-                    // TODO: Might want to decide if there's something to do here
-                    iterator.next(); // we've completely consumed that op
+                    break;
+                    }
+                    case ArrayChangeSetIterator.types.MODIFY: {
+                        // Prevent from looping infinitly
+                        // TODO: Might want to decide if there's something to do here
+                        iterator.next(); // we've completely consumed that op
 
-                break;
-                }
+                    break;
+                    }
                 // No default
                 }
             }
@@ -1663,7 +1663,7 @@ export class ArrayProperty extends AbstractStaticCollectionProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         // This really creates a generic array for custom type arrays. For primitive arrays, like
@@ -1731,7 +1731,7 @@ export class ArrayProperty extends AbstractStaticCollectionProperty {
     /**
      * Removes a range from the data array
      * @param {Number} in_position - Position at which to start the removal
-     * @param {Number} in_length   - The number of entries to remove
+     * @param {Number} in_length - The number of entries to remove
      */
     _dataArrayRemoveRange(in_position, in_length) {
         this._dataArrayRef.removeRange(in_position, in_length);

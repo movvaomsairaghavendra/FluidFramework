@@ -199,7 +199,7 @@ export class SetProperty extends IndexedCollectionBaseProperty {
      *     If .get resolves to a ReferenceProperty, it will return the property that the ReferenceProperty
      *     refers to.
      * @param {Object} in_options - parameter object
-     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS]- -
+     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS] -
      *     How should this function behave during reference resolution?
      *
      * @return {property-properties.NamedProperty|undefined} The entry in the collection or undefined if none could be found
@@ -215,22 +215,22 @@ export class SetProperty extends IndexedCollectionBaseProperty {
                 in_options.referenceResolutionMode === undefined ? BaseProperty.REFERENCE_RESOLUTION.ALWAYS :
                     in_options.referenceResolutionMode;
             switch (in_ids) {
-            case PATH_TOKENS.ROOT: {
-                prop = prop.getRoot();
+                case PATH_TOKENS.ROOT: {
+                    prop = prop.getRoot();
 
-            break;
-            }
-            case PATH_TOKENS.UP: {
-                prop = prop.getParent();
+                break;
+                }
+                case PATH_TOKENS.UP: {
+                    prop = prop.getParent();
 
-            break;
-            }
-            case PATH_TOKENS.REF: {
-                throw new Error(MSG.NO_GET_DEREFERENCE_ONLY);
-            }
-            default: {
-                prop = prop._dynamicChildren[in_ids];
-            }
+                break;
+                }
+                case PATH_TOKENS.REF: {
+                    throw new Error(MSG.NO_GET_DEREFERENCE_ONLY);
+                }
+                default: {
+                    prop = prop._dynamicChildren[in_ids];
+                }
             }
 
             return prop;

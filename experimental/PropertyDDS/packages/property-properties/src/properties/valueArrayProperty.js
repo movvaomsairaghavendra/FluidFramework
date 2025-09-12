@@ -128,7 +128,7 @@ export class Float32ArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Float32Array, in_length);
@@ -155,7 +155,7 @@ export class Float64ArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Float64Array, in_length);
@@ -182,7 +182,7 @@ export class Uint8ArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Uint8Array, in_length);
@@ -210,7 +210,7 @@ export class Int8ArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Int8Array, in_length);
@@ -237,7 +237,7 @@ export class Uint16ArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Uint16Array, in_length);
@@ -264,7 +264,7 @@ export class Int16ArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Int16Array, in_length);
@@ -290,7 +290,7 @@ export class Uint32ArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Uint32Array, in_length);
@@ -317,7 +317,7 @@ export class Int32ArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BaseDataArray(Int32Array, in_length);
@@ -472,7 +472,7 @@ export class Int64ArrayProperty extends Integer64ArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new UniversalDataArray(in_length);
@@ -549,7 +549,7 @@ export class Uint64ArrayProperty extends Integer64ArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new UniversalDataArray(in_length);
@@ -579,7 +579,7 @@ export class StringArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new UniversalDataArray(in_length);
@@ -609,7 +609,7 @@ export class BoolArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new BoolDataArray(in_length);

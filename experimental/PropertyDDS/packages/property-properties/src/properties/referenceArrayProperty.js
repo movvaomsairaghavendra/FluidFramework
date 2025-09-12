@@ -46,13 +46,13 @@ export class ReferenceArrayProperty extends ValueArrayProperty {
     /**
      * Resolves the referenced property for the given key
      *
-     * @param  {number|array<string|number>} in_ids- -  the ID of the property or an array of IDs
+     * @param  {number|array<string|number>} in_ids -  the ID of the property or an array of IDs
      *     if an array is passed, the .get function will be performed on each id in sequence
      *     for example .get([0, 'position','x']) is equivalent to .get(0).get('position').get('x').
      *     If .get resolves to a ReferenceProperty, it will, by default, return the property that the ReferenceProperty
      *     refers to.
      * @param {Object} in_options - parameter object
-     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS]- -
+     * @param {property-properties.BaseProperty.REFERENCE_RESOLUTION} [in_options.referenceResolutionMode=ALWAYS] -
      *     How should this function behave during reference resolution?
      *
      * @return {property-properties.BaseProperty|undefined} The property object the reference points to or undefined if it
@@ -211,7 +211,7 @@ export class ReferenceArrayProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = new UniversalDataArray(in_length);

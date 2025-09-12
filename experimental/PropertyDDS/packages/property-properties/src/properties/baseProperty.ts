@@ -351,7 +351,7 @@ export abstract class BaseProperty {
      * Modifies the property according to the given changeset
      *
      * @param in_changeSet - The changeset to apply
-     * @param {property-properties.BaseProperty.PathFilteringOptions} [in_filteringOptions]- -
+     * @param {property-properties.BaseProperty.PathFilteringOptions} [in_filteringOptions] -
      *    The filtering options to consider while applying the ChangeSet.
      * @throws if in_changeSet is invalid.
      */
@@ -371,7 +371,7 @@ export abstract class BaseProperty {
      * @param in_reportToView - By default, the dirtying will always be reported to the checkout view
      *                          and trigger a modified event there. When batching updates, this
      *                          can be prevented via this flag.
-     * @param {property-properties.BaseProperty.PathFilteringOptions} [in_filteringOptions]- -
+     * @param {property-properties.BaseProperty.PathFilteringOptions} [in_filteringOptions] -
      *    The filtering options to consider while applying the ChangeSet. For now it is only used to
      *    control property creation, to prevent properties from being created outside the checked out
      *    paths. It does not validate that a value inside the ChangeSet is outside those paths.
@@ -1036,11 +1036,11 @@ export abstract class BaseProperty {
      * @param in_serializedObj - The serialized changeset to apply to this node. This
      *     has to be a normalized change-set (only containing insertions and property assignments. Deletes and Modify
      *     must not appear)
-     * @param in_filteringOptions- -
+     * @param in_filteringOptions -
      *    The filtering options to consider while deserializing the property.
-     * @param in_createChangeSet- -
+     * @param in_createChangeSet -
      *    Should a changeset be created for this deserialization?
-     * @param in_reportToView- -
+     * @param in_reportToView -
      *    Usually the dirtying should be reported to the view and trigger a modified
      *    event there. This can be prevented via this flag.
      * @throws if called on a read-only property.
@@ -1064,9 +1064,9 @@ export abstract class BaseProperty {
      *     has to be a normalized change-set (only containing inserts. Removes and Modifies are forbidden).
      * @param in_reportToView - Usually the dirtying should be reported to the view
      *     and trigger a modified event there. When batching updates, this can be prevented via this flag.
-     * @param in_filteringOptions- -
+     * @param in_filteringOptions -
      *    The filtering options to consider while deserializing the property.
-     * @param in_createChangeSet- -
+     * @param in_createChangeSet -
      *    Should a changeset be created for this deserialization?
      * @returns ChangeSet with the changes that actually were performed during the
      *     deserialization

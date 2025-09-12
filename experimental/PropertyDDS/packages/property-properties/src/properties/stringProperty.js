@@ -374,10 +374,10 @@ export class StringProperty extends ValueArrayProperty {
     /**
      * Sets the pending and dirty changesets
      *
-     * @param {property-properties.SerializedChangeSet|undefined|null} in_pending- -
+     * @param {property-properties.SerializedChangeSet|undefined|null} in_pending -
      *     The pending changeset. If null is passed, no change will be
      *     applied. undefined indicates that the changes should be reset
-     * @param {property-properties.SerializedChangeSet|undefined|null} in_dirty- -
+     * @param {property-properties.SerializedChangeSet|undefined|null} in_dirty -
      *     The dirty changeset. If null is passed, no change will be
      *     applied. undefined indicates that the changes should be reset
      */
@@ -531,7 +531,7 @@ export class StringProperty extends ValueArrayProperty {
 
     /**
      * Creates and initializes the data array
-     * @param {Number} in_length      - the initial length of the array
+     * @param {Number} in_length - the initial length of the array
      */
     _dataArrayCreate(in_length) {
         this._dataArrayRef = '';
@@ -588,7 +588,7 @@ export class StringProperty extends ValueArrayProperty {
     /**
      * Removes a range from the data array
      * @param {Number} in_position - Position at which to start the removal
-     * @param {Number} in_length   - The number of entries to remove
+     * @param {Number} in_length - The number of entries to remove
      */
     _dataArrayRemoveRange(in_position, in_length) {
         if (in_position + in_length < this._dataArrayRef.length + 1) {
