@@ -39,6 +39,10 @@ parameters:
   type: string
   default:
 
+- name: buildToolsVersionToInstall
+  type: string
+  default: "^0.55.0"
+
 - name: packageManager
   type: string
   default: npm
@@ -57,6 +61,7 @@ jobs:
   variables:
     version: $[ stageDependencies.build.build.outputs['SetVersion.version']]
     isLatest: $[ stageDependencies.build.build.outputs['SetVersion.isLatest']]
+    - group: ado-feeds
   strategy:
     runOnce:
         deploy:
