@@ -35,7 +35,6 @@ stages:
       publishNonScopedPackages: ${{ parameters.publishNonScopedPackages }}
       packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
       packageManager: pnpm
-      buildToolsVersionToInstall: "^0.55.0"
 
 - stage: publish_npm_internal
   dependsOn: build
