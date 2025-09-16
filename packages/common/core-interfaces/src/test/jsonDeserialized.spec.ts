@@ -21,6 +21,8 @@ import type {
 	BrandedKey,
 	BrandedString,
 	DecodedValueDirectoryOrRequiredState,
+	DeserializedOpaqueSerializableInRecursiveStructure,
+	DeserializedOpaqueSerializableAndDeserializedInRecursiveStructure,
 	DirectoryOfValues,
 	ObjectWithOptionalRecursion,
 } from "./testValues.js";
@@ -220,7 +222,6 @@ import type {
 	JsonTypeWith,
 	NonNullJsonObjectWith,
 	OpaqueJsonDeserialized,
-	OpaqueJsonSerializable,
 } from "@fluidframework/core-interfaces/internal/exposedUtilityTypes";
 
 /**
@@ -516,11 +517,15 @@ describe("JsonDeserialized", () => {
 			});
 			it("array of functions with properties becomes ({...}|null)[]", () => {
 				const resultRead = passThru(arrayOfFunctionsWithProperties, [null]);
+				// Note: a function with properties always results in `null`, but a property bag
+				// with a function is the property bag. Allow either to avoid order-based logic.
 				assertIdenticalTypes(resultRead, createInstanceOf<({ property: number } | null)[]>());
 				assertNever<AnyLocations<typeof resultRead>>();
 			});
 			it("array of objects and functions becomes ({...}|null)[]", () => {
 				const resultRead = passThru(arrayOfObjectAndFunctions, [{ property: 6 }]);
+				// Note: a function with properties always results in `null`, but a property bag
+				// with a function is the property bag. Allow either to avoid order-based logic.
 				assertIdenticalTypes(resultRead, createInstanceOf<({ property: number } | null)[]>());
 				assertNever<AnyLocations<typeof resultRead>>();
 			});
@@ -1677,15 +1682,6 @@ describe("JsonDeserialized", () => {
 				});
 				it("object with OpaqueJsonSerializable<unknown> in recursion is unrolled one time with OpaqueJsonDeserialized", () => {
 					const resultRead = passThru(opaqueSerializableInRecursiveStructure);
-					interface DeserializedOpaqueSerializableInRecursiveStructure {
-						items: {
-							[x: string | number]:
-								| OpaqueJsonDeserialized<DirectoryOfValues<OpaqueJsonSerializable<unknown>>>
-								| {
-										value?: OpaqueJsonDeserialized<unknown>;
-								  };
-						};
-					}
 					assertIdenticalTypes(
 						resultRead,
 						createInstanceOf<DeserializedOpaqueSerializableInRecursiveStructure>(),
@@ -1708,22 +1704,9 @@ describe("JsonDeserialized", () => {
 				// It might be better to preserve the intersection and return original type.
 				it("object with OpaqueJsonSerializable<unknown> & OpaqueJsonDeserialized<unknown> in recursion is unrolled one time with OpaqueJsonDeserialized", () => {
 					const resultRead = passThru(opaqueSerializableAndDeserializedInRecursiveStructure);
-					interface DeserializedOpaqueSerializableInRecursiveStructure {
-						items: {
-							[x: string | number]:
-								| OpaqueJsonDeserialized<
-										DirectoryOfValues<
-											OpaqueJsonSerializable<unknown> & OpaqueJsonDeserialized<unknown>
-										>
-								  >
-								| {
-										value?: OpaqueJsonDeserialized<unknown>;
-								  };
-						};
-					}
 					assertIdenticalTypes(
 						resultRead,
-						createInstanceOf<DeserializedOpaqueSerializableInRecursiveStructure>(),
+						createInstanceOf<DeserializedOpaqueSerializableAndDeserializedInRecursiveStructure>(),
 					);
 					assertNever<AnyLocations<typeof resultRead>>();
 					const transparentResult = revealOpaqueJson(resultRead);
@@ -1732,7 +1715,7 @@ describe("JsonDeserialized", () => {
 						createInstanceOf<{
 							items: {
 								[x: string | number]:
-									| DeserializedOpaqueSerializableInRecursiveStructure
+									| DeserializedOpaqueSerializableAndDeserializedInRecursiveStructure
 									| {
 											value?: JsonTypeWith<never>;
 									  };

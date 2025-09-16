@@ -797,6 +797,18 @@ export const opaqueSerializableInRecursiveStructure: DirectoryOfValues<
 		item2: { items: { subItem1: {} } },
 	},
 };
+/**
+ * This type represents the deserialized form of {@link opaqueSerializableInRecursiveStructure}
+ */
+export interface DeserializedOpaqueSerializableInRecursiveStructure {
+	items: {
+		[x: string | number]:
+			| OpaqueJsonDeserialized<DirectoryOfValues<OpaqueJsonSerializable<unknown>>>
+			| {
+					value?: OpaqueJsonDeserialized<unknown>;
+			  };
+	};
+}
 
 export const opaqueDeserializedInRecursiveStructure: DirectoryOfValues<
 	OpaqueJsonDeserialized<unknown>
@@ -815,6 +827,20 @@ export const opaqueSerializableAndDeserializedInRecursiveStructure: DirectoryOfV
 		item2: { items: { subItem1: {} } },
 	},
 };
+/**
+ * This type represents the deserialized form of {@link opaqueSerializableAndDeserializedInRecursiveStructure}
+ */
+export interface DeserializedOpaqueSerializableAndDeserializedInRecursiveStructure {
+	items: {
+		[x: string | number]:
+			| OpaqueJsonDeserialized<
+					DirectoryOfValues<OpaqueJsonSerializable<unknown> & OpaqueJsonDeserialized<unknown>>
+			  >
+			| {
+					value?: OpaqueJsonDeserialized<unknown>;
+			  };
+	};
+}
 
 export const opaqueSerializableObjectRequiringBigintSupport =
 	objectWithBigint as unknown as OpaqueJsonSerializable<typeof objectWithBigint, [bigint]>;

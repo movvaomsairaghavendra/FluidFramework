@@ -1566,8 +1566,10 @@ describe("JsonSerializable", () => {
 				});
 
 				it("`string` indexed record of `unknown`", () => {
-					// @ts-expect-error not assignable to parameter of type '{ [x: string]: JsonTypeWith<never> | OpaqueJsonSerializable<unknown>; }'.
-					const { filteredIn } = passThru(stringRecordOfUnknown);
+					const { filteredIn } = passThru(
+						// @ts-expect-error not assignable to parameter of type '{ [x: string]: JsonTypeWith<never> | OpaqueJsonSerializable<unknown>; }'.
+						stringRecordOfUnknown,
+					);
 					assertIdenticalTypes(
 						filteredIn,
 						createInstanceOf<{
@@ -1576,8 +1578,10 @@ describe("JsonSerializable", () => {
 					);
 				});
 				it("`Partial<>` `string` indexed record of `unknown`", () => {
-					// @ts-expect-error not assignable to parameter of type '{ [x: string]: JsonTypeWith<never> | OpaqueJsonSerializable<unknown>; }'.
-					const { filteredIn } = passThru(partialStringRecordOfUnknown);
+					const { filteredIn } = passThru(
+						// @ts-expect-error not assignable to parameter of type '{ [x: string]: JsonTypeWith<never> | OpaqueJsonSerializable<unknown>; }'.
+						partialStringRecordOfUnknown,
+					);
 					assertIdenticalTypes(
 						filteredIn,
 						createInstanceOf<{
@@ -1593,8 +1597,11 @@ describe("JsonSerializable", () => {
 					// Allowing `undefined` is possible if all indexed properties are
 					// identifiable. But rather than that, an implementation of `Partial<>`
 					// that doesn't add `| undefined` for index signatures would be preferred.
-					// @ts-expect-error not assignable to type '{ "error required property may not allow `undefined` value": never; }'
-					const { filteredIn } = passThru(partialStringRecordOfNumbers, { key1: 0 });
+					const { filteredIn } = passThru(
+						// @ts-expect-error not assignable to type '{ "error required property may not allow `undefined` value": never; }'
+						partialStringRecordOfNumbers,
+						{ key1: 0 },
+					);
 					assertIdenticalTypes(
 						filteredIn,
 						createInstanceOf<{
@@ -1611,8 +1618,11 @@ describe("JsonSerializable", () => {
 					// Allowing `undefined` is possible if all indexed properties are
 					// identifiable. But rather than that, an implementation of `Partial<>`
 					// that doesn't add `| undefined` for index signatures would be preferred.
-					// @ts-expect-error not assignable to type '{ "error required property may not allow `undefined` value": never; }'
-					const { filteredIn } = passThru(partialTemplatedRecordOfNumbers, { key1: 0 });
+					const { filteredIn } = passThru(
+						// @ts-expect-error not assignable to type '{ "error required property may not allow `undefined` value": never; }'
+						partialTemplatedRecordOfNumbers,
+						{ key1: 0 },
+					);
 					assertIdenticalTypes(
 						filteredIn,
 						createInstanceOf<{
