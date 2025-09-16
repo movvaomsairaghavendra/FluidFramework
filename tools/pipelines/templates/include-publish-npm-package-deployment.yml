@@ -91,6 +91,30 @@ jobs:
               packageManager: '${{ parameters.packageManager }}'
               buildDirectory: .
               packageManagerInstallCommand: '${{ parameters.packageManagerInstallCommand }}'
+          # Add installed build-tools to CLI
+          - task: Bash@3
+            name: InstallBuildTools
+            displayName: Install Fluid Build Tools (from npm)
+            inputs:
+              targetType: 'inline'
+              workingDirectory: ${{ parameters.buildDirectory }}
+              script: |
+                echo "installing version @${{ parameters.buildToolsVersionToInstall }}"
+
+                npm install --global "@fluid-tools/build-cli@${{ parameters.buildToolsVersionToInstall }}"
+
+                # This can be removed once all builds tools are moved to the build-cli library
+                npm install --global "@fluidframework/build-tools@${{ parameters.buildToolsVersionToInstall }}"
+          - task: Bash@3
+            name: BuildToolsInstallCheck
+            displayName: Check Build Tools Installation
+            inputs:
+              targetType: 'inline'
+              workingDirectory: ${{ parameters.buildDirectory }}
+              script: |
+                # Output the help and full command list for debugging purposes
+                flub --help
+                flub commands
           - template: include-publish-npm-package-steps.yml
             parameters:
               namespace: ${{ parameters.namespace }}
