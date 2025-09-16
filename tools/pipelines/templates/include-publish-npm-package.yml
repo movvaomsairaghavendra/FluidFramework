@@ -53,7 +53,6 @@ stages:
       publishNonScopedPackages: ${{ parameters.publishNonScopedPackages }}
       packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
       packageManager: pnpm
-      buildToolsVersionToInstall: "^0.55.0"
 
 - stage: publish_npm_official
   dependsOn: build
@@ -74,4 +73,3 @@ stages:
       tagName: ${{ parameters.tagName }}
       packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
       packageManager: pnpm
-      buildToolsVersionToInstall: "^0.55.0"
