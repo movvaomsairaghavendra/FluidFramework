@@ -39,10 +39,6 @@ parameters:
   type: string
   default:
 
-- name: buildToolsVersionToInstall
-  type: string
-  default: "^0.55.0"
-
 - name: packageManager
   type: string
   default: npm
@@ -82,7 +78,7 @@ jobs:
           - template: /tools/pipelines/templates/include-install.yml@self
             parameters:
               packageManager: '${{ parameters.packageManager }}'
-              buildDirectory: '${{ parameters.buildDirectory }}'
+              buildDirectory: .
               packageManagerInstallCommand: '${{ parameters.packageManagerInstallCommand }}'
           - template: include-publish-npm-package-steps.yml
             parameters:
