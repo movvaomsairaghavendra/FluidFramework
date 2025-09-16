@@ -13,6 +13,9 @@ parameters:
 - name: feedName
   type: string
 
+- name: feedUrl
+  type: string
+
 - name: feedKind
   type: string
 
@@ -121,6 +124,7 @@ jobs:
               artifactPath: tarballs
               feedName: ${{ parameters.feedName }}
               feedKind: ${{ parameters.feedKind }}
+              feedUrl: ${{ parameters.feedUrl }}
               customEndPoint: ${{ parameters.customEndPoint }}
               official: ${{ parameters.official }}
               publishFlags: ${{ parameters.publishFlags }}

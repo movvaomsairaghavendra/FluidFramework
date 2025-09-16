@@ -29,6 +29,7 @@ stages:
       namespace: ${{ parameters.namespace }}
       feedName: https://pkgs.dev.azure.com/fluidframework/internal/_packaging/test/npm/registry/
       feedKind: internal-test
+      feedUrl: $(ado-feeds-test)
       official: false
       environment: test-package-build-feed
       pool: ${{ parameters.pool }}
@@ -45,6 +46,7 @@ stages:
     parameters:
       namespace: ${{ parameters.namespace }}
       feedName: https://pkgs.dev.azure.com/fluidframework/internal/_packaging/build/npm/registry/
+      feedUrl: $(ado-feeds-build)
       feedKind: internal-build
       official: false
       environment: package-build-feed
@@ -63,6 +65,7 @@ stages:
       namespace: ${{ parameters.namespace }}
       feedName: https://registry.npmjs.org
       feedKind: public
+      feedUrl: https://registry.npmjs.org
       official: true
       environment: package-npmjs-feed
       pool: ${{ parameters.pool }}
