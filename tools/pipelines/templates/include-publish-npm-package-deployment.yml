@@ -97,7 +97,7 @@ jobs:
             displayName: Install Fluid Build Tools (from npm)
             inputs:
               targetType: 'inline'
-              workingDirectory: ${{ parameters.buildDirectory }}
+              workingDirectory: .
               script: |
                 echo "installing version @${{ parameters.buildToolsVersionToInstall }}"
 
@@ -110,7 +110,7 @@ jobs:
             displayName: Check Build Tools Installation
             inputs:
               targetType: 'inline'
-              workingDirectory: ${{ parameters.buildDirectory }}
+              workingDirectory: .
               script: |
                 # Output the help and full command list for debugging purposes
                 flub --help
