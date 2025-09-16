@@ -39,6 +39,18 @@ parameters:
   type: string
   default:
 
+- name: buildToolsVersionToInstall
+  type: string
+  default: "^0.55.0"
+
+- name: packageManager
+  type: string
+  default: npm
+
+- name: packageManagerInstallCommand
+  type: string
+  default: 'npm ci --unsafe-perm'
+
 jobs:
 - deployment: publish_${{ replace(parameters.environment, '-', '_') }}
   displayName: Publish ${{ parameters.environment }}
@@ -66,6 +78,12 @@ jobs:
               command: 'custom'
               customCommand: 'install --global npm@^6'
               customRegistry: 'useNpmrc'
+          # Install pnpm and dependencies so flub is available for publish steps
+          - template: /tools/pipelines/templates/include-install.yml@self
+            parameters:
+              packageManager: '${{ parameters.packageManager }}'
+              buildDirectory: '${{ parameters.buildDirectory }}'
+              packageManagerInstallCommand: '${{ parameters.packageManagerInstallCommand }}'
           - template: include-publish-npm-package-steps.yml
             parameters:
               namespace: ${{ parameters.namespace }}

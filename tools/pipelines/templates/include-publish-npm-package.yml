@@ -33,6 +33,9 @@ stages:
       environment: test-package-build-feed
       pool: ${{ parameters.pool }}
       publishNonScopedPackages: ${{ parameters.publishNonScopedPackages }}
+      packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
+      packageManager: pnpm
+      buildToolsVersionToInstall: "^0.55.0"
 
 - stage: publish_npm_internal
   dependsOn: build
@@ -48,6 +51,9 @@ stages:
       environment: package-build-feed
       pool: ${{ parameters.pool }}
       publishNonScopedPackages: ${{ parameters.publishNonScopedPackages }}
+      packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
+      packageManager: pnpm
+      buildToolsVersionToInstall: "^0.55.0"
 
 - stage: publish_npm_official
   dependsOn: build
@@ -66,3 +72,6 @@ stages:
       customEndPoint: npmjs
       publishFlags: --access public
       tagName: ${{ parameters.tagName }}
+      packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
+      packageManager: pnpm
+      buildToolsVersionToInstall: "^0.55.0"
