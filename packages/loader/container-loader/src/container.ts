@@ -145,6 +145,7 @@ import {
 	type ProtocolHandlerBuilder,
 	type ProtocolHandlerInternal,
 	protocolHandlerShouldProcessSignal,
+	wrapProtocolHandlerBuilder,
 } from "./protocol.js";
 import { initQuorumValuesFromCodeDetails } from "./quorum.js";
 import {
@@ -497,6 +498,7 @@ export class Container
 	private readonly subLogger: ITelemetryLoggerExt;
 	private readonly detachedBlobStorage: MemoryDetachedBlobStorage | undefined;
 	private readonly protocolHandlerBuilder: InternalProtocolHandlerBuilder;
+	private readonly signalAudience = new Audience();
 	private readonly client: IClient;
 
 	private readonly mc: MonitoringContext;
@@ -825,20 +827,22 @@ export class Container
 		// Tracking alternative ways to handle this in AB#4129.
 		this.options = { ...options };
 		this.scope = scope;
-		this.protocolHandlerBuilder =
+		this.protocolHandlerBuilder = wrapProtocolHandlerBuilder(
 			protocolHandlerBuilder ??
-			((
-				attributes: IDocumentAttributes,
-				quorumSnapshot: IQuorumSnapshot,
-				sendProposal: (key: string, value: unknown) => number,
-			): ProtocolHandlerInternal =>
-				new ProtocolHandler(
-					attributes,
-					quorumSnapshot,
-					sendProposal,
-					new Audience(),
-					(clientId: string) => this.clientsWhoShouldHaveLeft.has(clientId),
-				));
+				((
+					attributes: IDocumentAttributes,
+					quorumSnapshot: IQuorumSnapshot,
+					sendProposal: (key: string, value: unknown) => number,
+				): ProtocolHandlerInternal =>
+					new ProtocolHandler(
+						attributes,
+						quorumSnapshot,
+						sendProposal,
+						new Audience(),
+						(clientId: string) => this.clientsWhoShouldHaveLeft.has(clientId),
+					)),
+			this.signalAudience,
+		);
 
 		// Note that we capture the createProps here so we can replicate the creation call when we want to clone.
 		this.clone = async (
