@@ -4,27 +4,14 @@
 # include-publish-npm-package-steps template to publish NPM packages/projects
 
 parameters:
-- name: namespace
-  type: boolean
-
-- name: feedName
-  type: string
-
 - name: feedKind
   type: string
 
 - name: feedUrl
   type: string
 
-- name: official
-  type: string
-
 - name: artifactPath
   type: string
-
-- name: publishFlags
-  type: string
-  default:
 
 - name: customEndPoint
   type: string

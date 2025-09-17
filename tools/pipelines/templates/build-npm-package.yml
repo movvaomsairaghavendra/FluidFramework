@@ -173,7 +173,6 @@ stages:
                 componentDetection=${{ variables.componentDetection }}
                 publish=${{ variables.publish }}
                 canRelease=${{ variables.canRelease }}
-                publishNonScopedPackages=${{ variables.publishNonScopedPackages }}
                 targetBranchName = $(System.PullRequest.TargetBranch)
 
                 release=$(release)"
@@ -439,6 +438,4 @@ stages:
   - ${{ if eq(variables.publish, true) }}:
     - template: include-publish-npm-package.yml
       parameters:
-        namespace: ${{ parameters.namespace }}
         tagName: ${{ parameters.tagName }}
-        publishNonScopedPackages: ${{ variables.publishNonScopedPackages }}

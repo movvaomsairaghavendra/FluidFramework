@@ -4,15 +4,8 @@
 # include-publish-npm-package
 
 parameters:
-- name: namespace
-  type: boolean
-
 - name: tagName
   type: string
-
-- name: publishNonScopedPackages
-  type: boolean
-  default: false
 
 - name: pool
   type: object
@@ -26,14 +19,10 @@ stages:
   jobs:
   - template: include-publish-npm-package-deployment.yml
     parameters:
-      namespace: ${{ parameters.namespace }}
-      feedName: https://pkgs.dev.azure.com/fluidframework/internal/_packaging/test/npm/registry/
       feedKind: internal-test
       feedUrl: $(ado-feeds-test)
-      official: false
       environment: test-package-build-feed
       pool: ${{ parameters.pool }}
-      publishNonScopedPackages: ${{ parameters.publishNonScopedPackages }}
       packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
       packageManager: pnpm
 
@@ -44,14 +33,10 @@ stages:
   jobs:
   - template: include-publish-npm-package-deployment.yml
     parameters:
-      namespace: ${{ parameters.namespace }}
-      feedName: https://pkgs.dev.azure.com/fluidframework/internal/_packaging/build/npm/registry/
       feedUrl: $(ado-feeds-build)
       feedKind: internal-build
-      official: false
       environment: package-build-feed
       pool: ${{ parameters.pool }}
-      publishNonScopedPackages: ${{ parameters.publishNonScopedPackages }}
       packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
       packageManager: pnpm
 
@@ -62,14 +47,10 @@ stages:
   jobs:
   - template: include-publish-npm-package-deployment.yml
     parameters:
-      namespace: ${{ parameters.namespace }}
-      feedName: https://registry.npmjs.org
       feedKind: public
       feedUrl: https://registry.npmjs.org
-      official: true
       environment: package-npmjs-feed
       pool: ${{ parameters.pool }}
-      publishNonScopedPackages: ${{ parameters.publishNonScopedPackages }}
       customEndPoint: npmjs
       publishFlags: --access public
       tagName: ${{ parameters.tagName }}

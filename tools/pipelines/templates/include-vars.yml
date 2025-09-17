@@ -80,12 +80,6 @@ variables:
       eq(variables.pushImage, true),
       eq(parameters.releaseImage, true)
     )}}
-- name: publishNonScopedPackages
-  value: ${{
-    ne(
-      length(parameters.nonScopedPackages),
-      0
-    )}}
 
 # compute the release variable
 - ${{ if eq(parameters.releaseBuildOverride, 'none') }}:
