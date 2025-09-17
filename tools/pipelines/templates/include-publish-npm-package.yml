@@ -52,7 +52,6 @@ stages:
       environment: package-npmjs-feed
       pool: ${{ parameters.pool }}
       customEndPoint: npmjs
-      publishFlags: --access public
       tagName: ${{ parameters.tagName }}
       packageManagerInstallCommand: 'pnpm i --frozen-lockfile'
       packageManager: pnpm

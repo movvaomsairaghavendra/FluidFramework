@@ -13,17 +13,9 @@ parameters:
 - name: environment
   type: string
 
-- name: publishNonScopedPackages
-  type: boolean
-  default: false
-
 - name: pool
   type: object
   default: Small-eastus2
-
-- name: publishFlags
-  type: string
-  default:
 
 - name: customEndPoint
   type: string
@@ -115,7 +107,6 @@ jobs:
               feedKind: ${{ parameters.feedKind }}
               feedUrl: ${{ parameters.feedUrl }}
               customEndPoint: ${{ parameters.customEndPoint }}
-              publishFlags: ${{ parameters.publishFlags }}
           - template: include-git-tag-steps.yml
             parameters:
               tagName: ${{ parameters.tagName }}
